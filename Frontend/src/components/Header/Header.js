@@ -9,7 +9,6 @@ import Image from "next/image";
 import logoVert from '../../assets/logo-vert.svg';
 import logo from '../../assets/logo.svg';
 import contactIcon from '../../assets/ic-contact.svg';
-import Menu from "../Menu/Menu";
 
 const Header = ({ }) => {
     return (
@@ -18,28 +17,28 @@ const Header = ({ }) => {
                 className={cx(styles.header)}
             >
                 <div className={styles.headerContainer}>
-                    <Link href="./" className={styles.logo+" d-none d-md-block"}>
+                    <Link href="./" className={styles.logo + " d-none d-md-block"}>
                         <Image src={logo} alt="logo" />
                     </Link>
-                    <Link href="./" className={styles.logo+" d-block d-md-none"}>
+                    <Link href="./" className={styles.logo + " d-block d-md-none"}>
                         <Image src={logoVert} alt="logo" />
                     </Link>
 
                     <div className={styles.menuContainer}>
                         <ul className={styles.menu}>
-                            {NAV_LINKS.map(({ link, label,isDesktop }, index) => {
+                            {NAV_LINKS.map(({ link, label, isDesktop }, index) => {
                                 return isDesktop && <li key={index}>
-                                <Link href={link} scroll={false}>
-                                    <span
-                                        className={cx({
-                                            //  [styles.activeNavLink]: activePath === link,
-                                            [styles.activeNavLink]: true
-                                        })}
-                                    >
-                                        {label}
-                                    </span>
-                                </Link>
-                            </li>
+                                    <Link href={link} scroll={false}>
+                                        <span
+                                            className={cx({
+                                                //  [styles.activeNavLink]: activePath === link,
+                                                [styles.activeNavLink]: true
+                                            })}
+                                        >
+                                            {label}
+                                        </span>
+                                    </Link>
+                                </li>
                             })}
                         </ul>
                     </div>
@@ -53,17 +52,11 @@ const Header = ({ }) => {
                             </span>
 
                             <span>
-                                <Image src={contactIcon} alt="contact"/>
+                                <Image src={contactIcon} alt="contact" />
                             </span>
                         </Link>
                     </div>
-                    <div className={styles.menuContainer+" d-block d-md-none"}>
 
-                        <div className={styles.menu}>
-                            <Menu menuItems={NAV_LINKS} className={styles.Menu}
-                            ></Menu>
-                        </div>
-                    </div>
                 </div>
             </header>
 

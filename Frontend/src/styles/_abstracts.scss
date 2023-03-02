@@ -5,7 +5,6 @@ $screen-large: 992px;
 $screen-extra-large: 1228px;
 $screen-desktop: 1380px;
 
-
 @mixin small-screen {
   @media (max-width: $screen-small) {
     @content;
@@ -31,7 +30,7 @@ $screen-desktop: 1380px;
 }
 
 @mixin desktop-screen {
-  @media (max-width:$screen-desktop) {
+  @media (max-width: $screen-desktop) {
     @content;
   }
 }

@@ -1,0 +1,34 @@
+@import "../../../styles/abstracts";
+
+.section {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .whoSwiperText {
+      width: 50%;
+
+      .whoSwiperTextCotainer {
+        width: 80%;
+      }
+    }
+    .whoSwiperImages {
+      width: 50%;
+      img {
+        width: 100%;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      .outlinedButtons {
+        display: flex;
+        gap: 20px;
+        .arrowButton {
+          padding: 0.6vw 1vw;
+        }
+      }
+    }
+  }
+}

@@ -1,77 +1,45 @@
 @import "../../styles/abstracts";
 
 .header {
-    position: absolute;
-    top: 0;
-    z-index: 111111111;
-    left: 0;
-    width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 11111111;
+  width: 100%;
 
-    .headerContainer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1vw 0;
-        font-size: var(--paragraph3-size);
-        @include medium-screen {
-            padding: 2.5vw 0;
-         }
+  .headerContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 91px;
+    height: 91px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+  }
 
-    .logo {
-        width: 10vw;
-        @include medium-screen {
-           width: 25vw;
-        }
+  .menuContainer {
+    .menu {
+      display: flex;
+      align-items: center;
 
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
+      li {
+        margin: 0vw 1vw;
+        list-style: none;
 
-    .menuContainer {
-        @include medium-screen {
-            display: none;
-        }
-
-        .menu {
-
-            display: flex;
-            align-items: center;
-
-            li {
-                margin: 0vw 1vw;
-                list-style: none;
-
-                a {
-                    color: var(--white);
-                    text-decoration: none;
-                }
-            }
-
-        }
-    }
-
-    .headerButton {
-        @include medium-screen {
-            display: none;
-        }
         a {
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            text-decoration: none;
-
-            img {
-                margin-left: 1vw;
-            }
+          text-decoration: none;
         }
+      }
+      li:last-child {
+        margin-left: 0vw;
+      }
     }
-
-    // @media screen and (min-width: #{$screen-large}) {
-    //     position: relative;
-    //     z-index: 1;
-    // }
-
+  }
 }

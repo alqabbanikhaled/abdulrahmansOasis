@@ -1,15 +1,29 @@
 export const NAV_LINKS = [
-    { link: "/about-us", isDesktop: true, isMobile: true, label: "About NEC" },
-    { link: "/initiatives", isDesktop: true, isMobile: true, label: "Initiatives" },
-    { link: "/sponsorship", isDesktop: true, isMobile: true, label: "Sponsorship" },
-    { link: "/media-center", isDesktop: true, isMobile: true, label: "Media center" },
-    { link: "/join-us", isDesktop: true, isMobile: true, label: "Join NEC" },
-    { link: "/contact-us", isDesktop: false, isMobile: true, label: "Contact NEC" },
+  {
+    link: "/",
+    label: "واحة عبدالرحمن",
+    isDesktop: true,
+    isMobile: true,
+  },
+  {
+    link: "/initiatives",
+    label: "حياة الطفل",
+    isDesktop: true,
+    isMobile: true,
+  },
+  {
+    link: "/sponsorship",
+    label: "الميديا",
+    isDesktop: true,
+    isMobile: true,
+  },
 ];
 
 export const NAV_CONTACT = [
-    { link: "/contact-us", isDesktop: true, isMobile: true, label: "Contact NEC" },
-]
-
-
-export const MOBILE_MENU_EXIT_DURATION = 700;
+  {
+    link: "/contact-us",
+    label: "تواصل معنا",
+    isDesktop: true,
+    isMobile: true,
+  },
+];

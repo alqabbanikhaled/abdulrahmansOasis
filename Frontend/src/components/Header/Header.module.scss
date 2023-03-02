@@ -1,0 +1,77 @@
+@import "../../styles/abstracts";
+
+.header {
+    position: absolute;
+    top: 0;
+    z-index: 111111111;
+    left: 0;
+    width: 100vw;
+
+    .headerContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1vw 0;
+        font-size: var(--paragraph3-size);
+        @include medium-screen {
+            padding: 2.5vw 0;
+         }
+    }
+
+    .logo {
+        width: 10vw;
+        @include medium-screen {
+           width: 25vw;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .menuContainer {
+        @include medium-screen {
+            display: none;
+        }
+
+        .menu {
+
+            display: flex;
+            align-items: center;
+
+            li {
+                margin: 0vw 1vw;
+                list-style: none;
+
+                a {
+                    color: var(--white);
+                    text-decoration: none;
+                }
+            }
+
+        }
+    }
+
+    .headerButton {
+        @include medium-screen {
+            display: none;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-decoration: none;
+
+            img {
+                margin-left: 1vw;
+            }
+        }
+    }
+
+    // @media screen and (min-width: #{$screen-large}) {
+    //     position: relative;
+    //     z-index: 1;
+    // }
+
+}

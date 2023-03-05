@@ -9,7 +9,7 @@ const Donate = () => {
     <section className={cn(styles.section, "space-X space-Y")}>
       <div className={cn(styles.container)}>
         <div className={cn(styles.donateImg)}>
-          <img src="/slide_img_1.png" alt="no image" />
+          <img src="/donate.png" alt="no image" />
         </div>
         <div className={cn(styles.donateText)}>
           <h1 className="color-purple mb-2">سنواصل رحلتنا بدعمكم </h1>

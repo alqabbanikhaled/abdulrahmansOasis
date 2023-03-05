@@ -3,17 +3,14 @@
   outline: none;
   position: relative;
   background: transparent;
-  font-size: 16px;
+  font-size: 1vw; //16px;
   font-weight: 600;
   border-style: solid;
   border-width: 1px;
   border-radius: 3px;
 
-  // min-width: 11vw;
-  // min-height: 3vw;
-
-  min-width: 190px;
-  min-height: 50px;
+  min-width: 11.1vw; // 190px;
+  min-height: 3vw; // 50px;
 
   transition: all 0.2s linear;
   a {

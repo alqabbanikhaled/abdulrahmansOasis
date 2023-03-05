@@ -10,7 +10,7 @@ const Header = ({}) => {
     <>
       <header className={classNames(styles.header)}>
         <div
-          className={classNames(styles.headerContainer, "space-X pt-1 pb-1")}
+          className={classNames(styles.headerContainer, "space-X pt-3 pb-3")}
         >
           <Link href="./" className={classNames(styles.logo)}>
             <img src={"/logo.png"} alt="logo" />

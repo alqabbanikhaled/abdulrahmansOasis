@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback, useEffect } from "react";
 import cn from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, EffectFade } from "swiper";
@@ -16,7 +16,16 @@ SwiperCore.use([Navigation]);
 const Who = () => {
   const sliderRefText = useRef(null);
   const sliderRefImages = useRef(null);
+  const videoRef = useRef(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentSlideIndex == 1) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  }, [currentSlideIndex]);
 
   const handlePrev = useCallback(() => {
     if (!sliderRefText.current || !sliderRefImages.current) return;
@@ -40,11 +49,23 @@ const Who = () => {
         effect={"fade"}
         allowTouchMove={false}
       >
-        {BANARS_DATA.map(({ img }, i) => (
+        <SwiperSlide>
+          <img src={BANARS_DATA[0].url} alt="no image" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <video autoPlay ref={videoRef} loop={true} muted>
+            <source src={BANARS_DATA[1].url} type="video/mp4" />
+          </video>
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={BANARS_DATA[2].url} alt="no image" />
+        </SwiperSlide>
+
+        {/* {BANARS_DATA.map(({ url }, i) => (
           <SwiperSlide key={i}>
-            <img src={img} alt="no image" />
+            <img src={url} alt="no image" />
           </SwiperSlide>
-        ))}
+        ))} */}
       </Swiper>
       <div className={cn(styles.container, "space-X")}>
         <Swiper
@@ -62,8 +83,8 @@ const Who = () => {
               <SwiperTextCard
                 title={title}
                 className={cn({
-                  "color-black": i == 1,
-                  "color-yellow": i != 1,
+                  "color-black": i == 2,
+                  "color-yellow": i != 2,
                 })}
               />
             </SwiperSlide>
@@ -74,8 +95,8 @@ const Who = () => {
             <Button
               onClick={handlePrev}
               className={cn({
-                "color-black yellow-bg": currentSlideIndex != 1,
-                "color-yellow black-bg": currentSlideIndex == 1,
+                "color-black yellow-bg": currentSlideIndex != 2,
+                "color-yellow black-bg": currentSlideIndex == 2,
               })}
             >
               تبرع الآن
@@ -85,11 +106,11 @@ const Who = () => {
             <OutlinedButton
               onClick={handlePrev}
               className={cn(styles.arrowButton, {
-                "color-yellow border-yellow": currentSlideIndex != 1,
-                "color-black border-black": currentSlideIndex == 1,
+                "color-yellow border-yellow": currentSlideIndex != 2,
+                "color-black border-black": currentSlideIndex == 2,
               })}
             >
-              {currentSlideIndex != 1 ? (
+              {currentSlideIndex != 2 ? (
                 <img src="./arrow_yellow_right.svg" color="#000" />
               ) : (
                 <img src="./arrow_black_right.svg" color="#000" />
@@ -98,11 +119,11 @@ const Who = () => {
             <OutlinedButton
               onClick={handleNext}
               className={cn(styles.arrowButton, {
-                "color-yellow border-yellow": currentSlideIndex != 1,
-                "color-black border-black": currentSlideIndex == 1,
+                "color-yellow border-yellow": currentSlideIndex != 2,
+                "color-black border-black": currentSlideIndex == 2,
               })}
             >
-              {currentSlideIndex != 1 ? (
+              {currentSlideIndex != 2 ? (
                 <img src="./arrow_yellow_left.svg" color="#000" />
               ) : (
                 <img src="./arrow_black_left.svg" color="#000" />

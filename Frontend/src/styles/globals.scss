@@ -6,7 +6,6 @@
     url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Light.ttf"),
     url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Regular.ttf"),
     url("../assets/zarid-slab/alfont_com_29LTZaridSlab-SemiBold.ttf");
-  font-style: normal;
 }
 
 :root {
@@ -16,26 +15,36 @@
   //Color Palette
   --red: #da2229;
   --gray: #666666;
+  --dark-gray: #575757;
   --black: #13111a;
   --white: #ffffff;
   --purple: #662f90;
   --dark-purple: #0b163f;
   --green: #00a79d;
   --orange: #f79520;
+  --orange-light: #fef3e6;
   --pink: #ee2d7b;
+  --bg-1: #f3ecf9;
+  --bg-2: #fef3e6;
+  --bg-3: #f6fbf0;
+  --bg-4: #fce1e4;
+  --bg-5: #fdedf4;
 
   //Spacing
   --spaceX: 12vw;
-  --spaceY: 12vw;
+  --spaceY: 7vw;
 
   //Font Sizes
-  --head1-size: 80px;
+  --head1-size: 4.7vw; //80px
   --head2-size: 60px;
-  --head3-size: 48px;
+  --head3-size: 2.8vw; //48px;
   --head4-size: 32px;
   --head5-size: 26px;
-  --paragraph1-size: 21.6px; // 16px
-  --paragraph2-size: 18px; // 18px
+  --paragraph1-size: 18px;
+  --paragraph2-size: 21.6px;
+  --paragraph3-size: 26px;
+  --paragraph4-size: 32px;
+  --paragraph12-size: 120px;
 
   --inner-content-width: 65%;
 
@@ -72,14 +81,16 @@ html {
 }
 
 body {
-  font-size: var(--paragraph1-size);
+  font-size: var(--paragraph2-size);
   font-family: var(--primaryFont);
   direction: rtl;
+  height: 4000px;
 }
 
 h1 {
   font-size: var(--head1-size);
   font-weight: 600;
+  line-height: 1;
 }
 
 h2 {
@@ -90,6 +101,7 @@ h2 {
 h3 {
   font-size: var(--head3-size);
   font-weight: 600;
+  line-height: 1;
 }
 
 h4 {
@@ -103,6 +115,10 @@ h4 {
 
 .gray-bg {
   background-color: var(--gray) !important;
+}
+
+.dark-gray-bg {
+  background-color: var(--dark-gray) !important;
 }
 
 .black-bg {
@@ -129,12 +145,36 @@ h4 {
   background-color: var(--pink) !important;
 }
 
+.bg-1 {
+  background-color: var(--bg-1);
+}
+
+.bg-2 {
+  background-color: var(--bg-2);
+}
+
+.bg-3 {
+  background-color: var(--bg-3);
+}
+
+.bg-4 {
+  background-color: var(--bg-4);
+}
+
+.bg-5 {
+  background-color: var(--bg-5);
+}
+
 .color-red {
   color: var(--red);
 }
 
 .color-gray {
   color: var(--gray);
+}
+
+.color-dark-gray {
+  color: var(--dark-gray);
 }
 
 .color-black {
@@ -166,27 +206,35 @@ h4 {
 }
 
 .border-gray {
-  color: var(--gray);
+  border-color: var(--gray);
+}
+
+.border-dark-gray {
+  border-color: var(--dark-gray);
 }
 
 .border-black {
-  color: var(--black);
+  border-color: var(--black);
+}
+
+.border-purple {
+  border-color: var(--purple);
 }
 
 .border-dark-purple {
-  color: var(--purple);
+  border-color: var(--dark-purple);
 }
 
 .border-green {
-  color: var(--green);
+  border-color: var(--green);
 }
 
 .border-orange {
-  color: var(--orange);
+  border-color: var(--orange);
 }
 
 .border-pink {
-  color: var(--pink);
+  border-color: var(--pink);
 }
 
 .font-weight-normal {
@@ -223,11 +271,25 @@ h4 {
 
 .paragraph1-size {
   font-size: var(--paragraph1-size);
-  line-height: 1.5;
 }
 
 .paragraph2-size {
   font-size: var(--paragraph2-size);
+}
+
+.paragraph3-size {
+  font-size: var(--paragraph3-size);
+  line-height: 1.3;
+}
+
+.paragraph4-size {
+  font-size: var(--paragraph4-size);
+  line-height: 1.3;
+}
+
+.paragraph12-size {
+  font-size: var(--paragraph12-size);
+  line-height: 0.8;
 }
 
 .space-X {
@@ -319,11 +381,11 @@ h4 {
 }
 
 .p-1 {
-  padding: 1vw;
+  padding: 0.8vw; //14px
 }
 
 .p-2 {
-  padding: 1.3vw;
+  padding: 2vw; //36px
 }
 
 .p-3 {
@@ -378,40 +440,48 @@ h4 {
   margin: 0;
 }
 
-.m-3 {
-  margin: 3vw;
+.m-1 {
+  margin: 1vw;
 }
 
 .m-2 {
   margin: 1.3vw;
 }
 
-.m-1 {
-  margin: 1vw;
-}
-
-.mt-3 {
-  margin-top: 3vw;
-}
-
-.mt-2 {
-  margin-top: 1.3vw;
+.m-3 {
+  margin: 3vw;
 }
 
 .mt-1 {
-  margin-top: 1vw;
+  margin-top: 1.6vw; //28px
 }
 
-.mb-3 {
-  margin-bottom: 3vw;
+.mt-2 {
+  margin-top: 2vw; //36px
 }
 
-.mb-2 {
-  margin-bottom: 1.3vw;
+.mt-3 {
+  margin-top: 2.6vw; //48px
+}
+
+.mt-4 {
+  margin-top: 3.1vw; //55px
 }
 
 .mb-1 {
   margin-bottom: 1.6vw; //28px
+}
+
+.mb-2 {
+  margin-bottom: 2vw; //36px
+}
+
+.mb-3 {
+  margin-bottom: 2.6vw; //48px
+}
+
+.mb-4 {
+  margin-bottom: 3.1vw; //55px
 }
 
 p,

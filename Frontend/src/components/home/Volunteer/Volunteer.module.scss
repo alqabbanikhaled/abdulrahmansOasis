@@ -1,0 +1,16 @@
+.section {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .VolunteerImg {
+      width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

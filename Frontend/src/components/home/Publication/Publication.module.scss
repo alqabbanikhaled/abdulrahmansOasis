@@ -1,0 +1,34 @@
+.section {
+  position: relative;
+  .publicationImg {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    right: 12vw;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .container {
+    min-height: 40vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-image: url("../../../assets/images/publication_bg.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+    .publicationText {
+      width: 40%;
+
+      .buttons {
+        display: flex;
+        gap: 16px;
+      }
+    }
+  }
+}

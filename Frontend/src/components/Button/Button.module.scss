@@ -1,4 +1,7 @@
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   outline: none;
   border: none;
@@ -12,7 +15,7 @@
   // min-width: 11vw;
   // min-height: 3vw;
   transition: all 0.2s linear;
-  color: var(--white);
+  // color: var(--white);
   background-color: var(--red);
   a {
     text-decoration: none;

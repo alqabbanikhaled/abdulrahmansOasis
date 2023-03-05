@@ -15,7 +15,7 @@ const Publication = () => {
         <div className={cn(styles.publicationText)}>
           <h1 className="color-green mb-2">مجلة واحة عبدالرحمن </h1>
           <div className={styles.buttons}>
-            <Button className="purple-bg">تبرع الآن</Button>
+            <Button className="purple-bg color-white">تبرع الآن</Button>
             <OutlinedButton className="color-purple border-purple">
               حملها الآن
             </OutlinedButton>

@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <section className={cn(styles.section, "space-Y-top bg-5")}>
-      <div className={cn(styles.container, "space-X")}>
+      <div className={cn(styles.container, "space-X-l")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo, "mb-2")}>
             <img src={"/logo.png"} alt="logo" />
@@ -28,7 +28,7 @@ const Footer = () => {
                 id=""
                 placeholder="ادخل بريدك الإلكتروني"
               />
-              <Button className="purple-bg">اشتراك</Button>
+              <Button className="purple-bg color-white">اشتراك</Button>
             </form>
           </div>
         </div>
@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
       </div>
       <hr className="mt-7" />
-      <div className={cn(styles.container, "space-X pt-2 pb-2")}>
+      <div className={cn(styles.container, "space-X-l pt-2 pb-2")}>
         <div className={styles.socialLinks}>
           <SocialLink src="./instagram.svg" />
           <SocialLink src="./linkedin.svg" />

@@ -25,6 +25,7 @@
   --green: #00a79d;
   --orange: #f79520;
   --orange-light: #fef3e6;
+  --yellow: #ffc612;
   --pink: #ee2d7b;
   --bg-1: #f3ecf9;
   --bg-2: #fef3e6;
@@ -33,7 +34,8 @@
   --bg-5: #fdedf4;
 
   //Spacing
-  --spaceX: 12vw;
+  --spaceX: 6.3vw;
+  --spaceX-l: 12.7vw;
   --spaceY: 7vw;
 
   //Font Sizes
@@ -126,6 +128,10 @@ h4 {
   background-color: var(--black) !important;
 }
 
+.white-bg {
+  background-color: var(--white) !important;
+}
+
 .purple-bg {
   background-color: var(--purple) !important;
 }
@@ -140,6 +146,14 @@ h4 {
 
 .orange-bg {
   background-color: var(--orange) !important;
+}
+
+.orange-light-bg {
+  background-color: var(--orange-light) !important;
+}
+
+.yellow-bg {
+  background-color: var(--yellow) !important;
 }
 
 .pink-bg {
@@ -182,6 +196,10 @@ h4 {
   color: var(--black);
 }
 
+.color-white {
+  color: var(--white);
+}
+
 .color-purple {
   color: var(--purple);
 }
@@ -196,6 +214,14 @@ h4 {
 
 .color-orange {
   color: var(--orange);
+}
+
+.color-orange-light {
+  color: var(--orange-light);
+}
+
+.color-yellow {
+  color: var(--yellow);
 }
 
 .color-pink {
@@ -232,6 +258,14 @@ h4 {
 
 .border-orange {
   border-color: var(--orange);
+}
+
+.border-orange-light {
+  border-color: var(--orange-light);
+}
+
+.border-yellow {
+  border-color: var(--yellow);
 }
 
 .border-pink {
@@ -306,6 +340,19 @@ h4 {
   padding-inline-end: var(--spaceX);
 }
 
+.space-X-l {
+  padding-inline-start: var(--spaceX-l);
+  padding-inline-end: var(--spaceX-l);
+}
+
+.space-X-l-start {
+  padding-inline-start: var(--spaceX-l);
+}
+
+.space-X-l-end {
+  padding-inline-end: var(--spaceX-l);
+}
+
 .space-Y {
   padding-top: var(--spaceY);
   padding-bottom: var(--spaceY);
@@ -344,7 +391,7 @@ h4 {
 
 #main {
   position: relative;
-  padding-top: 11vw;
+  // padding-top: 11vw;
 }
 
 .scroll-content {
@@ -570,6 +617,11 @@ p,
   line-height: 1.5;
 }
 
+.swiper {
+  .swiper-wrapper {
+    align-items: flex-end;
+  }
+}
 .label {
   color: rgba(255, 255, 255, 0.2);
   position: relative;

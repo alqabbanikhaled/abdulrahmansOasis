@@ -4,6 +4,7 @@ import { NAV_LINKS } from "./Header.data";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import OutlinedButton from "../OutlinedButton/OutlinedButton";
+import Button from "./../Button/Button";
 
 const Header = ({}) => {
   return (
@@ -27,9 +28,7 @@ const Header = ({}) => {
               })}
               <li className={styles.headerButton}>
                 <Link href={"/"}>
-                  <OutlinedButton className="color-red border-red">
-                    تواصل معنا
-                  </OutlinedButton>
+                  <Button className="red-bg color-white">تواصل معنا</Button>
                 </Link>
               </li>
             </ul>
@@ -46,7 +45,7 @@ const MenuItem = ({ link, label }) => {
       <Link
         href={link}
         scroll={false}
-        className="font-weight-medium color-black"
+        className="font-weight-medium color-white"
       >
         <span>{label}</span>
       </Link>

@@ -5,7 +5,7 @@ import Button from "./../../Button/Button";
 
 const Calender = () => {
   return (
-    <section className={cn(styles.section, "space-X space-Y")}>
+    <section className={cn(styles.section, "space-X-l space-Y")}>
       <div className={cn(styles.container)}>
         <h3 className="text-center color-black mb-3">تقويمنا</h3>
         <div className={cn(styles.calenderEvents, "mb-2")}>
@@ -35,7 +35,7 @@ const Calender = () => {
           />
         </div>
         <div className="text-center">
-          <Button className="purple-bg">شاهد المزيد</Button>
+          <Button className="purple-bg color-white">شاهد المزيد</Button>
         </div>
       </div>
     </section>

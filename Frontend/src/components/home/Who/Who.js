@@ -42,6 +42,7 @@ const Who = () => {
   return (
     <section className={cn(styles.section)}>
       <Swiper
+        loop={true}
         className={cn(styles.whoSwiperImages)}
         ref={sliderRefImages}
         slidesPerView={1}
@@ -53,7 +54,7 @@ const Who = () => {
           <img src={BANARS_DATA[0].url} alt="no image" />
         </SwiperSlide>
         <SwiperSlide>
-          <video autoPlay ref={videoRef} loop={true} muted>
+          <video autoPlay ref={videoRef} playsInline={true} controls={false} loop={true} muted>
             <source src={BANARS_DATA[1].url} type="video/mp4" />
           </video>
         </SwiperSlide>

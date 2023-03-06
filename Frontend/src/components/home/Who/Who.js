@@ -28,12 +28,14 @@ const Who = () => {
   }, [currentSlideIndex]);
 
   const handlePrev = useCallback(() => {
+
     if (!sliderRefText.current || !sliderRefImages.current) return;
     sliderRefText.current.swiper.slidePrev();
     sliderRefImages.current.swiper.slidePrev();
   }, []);
 
   const handleNext = useCallback(() => {
+
     if (!sliderRefText.current || !sliderRefImages.current) return;
     sliderRefText.current.swiper.slideNext();
     sliderRefImages.current.swiper.slideNext();
@@ -70,17 +72,17 @@ const Who = () => {
       </Swiper>
       <div className={cn(styles.container, "space-X")}>
         <Swiper
+          loop={true}
           className={cn(styles.whoSwiperText, "mb-1")}
           ref={sliderRefText}
           slidesPerView={1}
           allowTouchMove={false}
           onSlideChange={(value) => {
-            setCurrentSlideIndex(value.activeIndex);
-            console.log(currentSlideIndex);
+            setCurrentSlideIndex(value.realIndex);
           }}
         >
           {BANARS_DATA.map(({ title }, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} >
               <SwiperTextCard
                 title={title}
                 className={cn({
@@ -95,8 +97,8 @@ const Who = () => {
           <div>
             <Button
               className={cn({
-                "color-black yellow-bg": currentSlideIndex != 2,
-                "color-yellow black-bg": currentSlideIndex == 2,
+                "color-black yellow-bg": BANARS_DATA[currentSlideIndex].textColor != 'dark',
+                "color-yellow black-bg": BANARS_DATA[currentSlideIndex].textColor == 'dark',
               })}
             >
               تبرع الآن
@@ -106,11 +108,11 @@ const Who = () => {
             <OutlinedButton
               onClick={handlePrev}
               className={cn(styles.arrowButton, {
-                "color-yellow border-yellow": currentSlideIndex != 2,
-                "color-black border-black": currentSlideIndex == 2,
+                "color-yellow border-yellow": BANARS_DATA[currentSlideIndex].textColor != 'dark',
+                "color-black border-black": BANARS_DATA[currentSlideIndex].textColor == 'dark',
               })}
             >
-              {currentSlideIndex != 2 ? (
+              {BANARS_DATA[currentSlideIndex].textColor != 'dark' ? (
                 <img src="./arrow_yellow_right.svg" color="#000" />
               ) : (
                 <img src="./arrow_black_right.svg" color="#000" />
@@ -119,11 +121,11 @@ const Who = () => {
             <OutlinedButton
               onClick={handleNext}
               className={cn(styles.arrowButton, {
-                "color-yellow border-yellow": currentSlideIndex != 2,
-                "color-black border-black": currentSlideIndex == 2,
+                "color-yellow border-yellow": BANARS_DATA[currentSlideIndex].textColor != 'dark',
+                "color-black border-black": BANARS_DATA[currentSlideIndex].textColor == 'dark',
               })}
             >
-              {currentSlideIndex != 2 ? (
+              {BANARS_DATA[currentSlideIndex].textColor != 'dark' ? (
                 <img src="./arrow_yellow_left.svg" color="#000" />
               ) : (
                 <img src="./arrow_black_left.svg" color="#000" />

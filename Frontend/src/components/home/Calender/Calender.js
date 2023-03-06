@@ -34,7 +34,7 @@ const Calender = () => {
             month="يناير"
           />
         </div>
-        <div className="text-center">
+        <div className={styles.button}>
           <Button className="purple-bg color-white">شاهد المزيد</Button>
         </div>
       </div>
@@ -45,7 +45,7 @@ const Calender = () => {
 const Event = ({ className, description, day, month }) => {
   return (
     <div className={cn(styles.event, "p-3", className)}>
-      <h3>{description}</h3>
+      <h4>{description}</h4>
       <div className={cn(styles.date)}>
         <h1 className="paragraph12-size">{day}</h1>
         <div className="paragraph3-size font-weight-bold">{month}</div>

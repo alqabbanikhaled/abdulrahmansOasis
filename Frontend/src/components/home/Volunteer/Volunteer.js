@@ -6,7 +6,7 @@ const Volunteer = () => {
   return (
     <section className={cn(styles.section, "space-X space-Y bg-2")}>
       <div className={cn(styles.container)}>
-        <h2 className="color-orange mb-3">خير الناس أنفعهم للناس</h2>
+        <h2 className="color-orange mb-2">خير الناس أنفعهم للناس</h2>
         <div className={styles.VolunteerImg}>
           <img src="/volunteer.png" alt="" />
         </div>

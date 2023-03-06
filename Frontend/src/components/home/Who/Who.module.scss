@@ -3,6 +3,14 @@
 .section {
   height: 100vh;
   position: relative;
+
+  // @include large-screen {
+  //   height: 80vh;
+  // }
+
+  // @include small-screen {
+  //   height: 100vh;
+  // }
   .whoSwiperImages {
     position: absolute;
     top: 0;
@@ -22,9 +30,22 @@
     position: absolute;
     bottom: 4.7vw;
     left: 0;
+    @include medium-screen {
+      bottom: 10vw;
+    }
+
+    @include small-screen {
+      bottom: 30vw;
+    }
     .whoSwiperText {
       width: 60%;
       margin-inline-start: 0;
+      @include large-screen {
+        width: 80%;
+      }
+      @include small-screen {
+        width: 100%;
+      }
     }
 
     .buttons {
@@ -33,14 +54,32 @@
       .outlinedButtons {
         display: flex;
         gap: 0.7vw;
+        @include large-screen {
+          gap: 5px;
+        }
         .arrowButton {
           backdrop-filter: blur(8px);
-          min-width: 2.8vw; //48px;
-          min-height: 2.8vw; //48px;
-
+          min-width: 48px; // 2.8vw;
+          min-height: 48px; //2.8vw;
           img {
-            width: 1.5vw;
+            width: 16px;
           }
+          // @include large-screen {
+          //   min-width: 4vw;
+          //   min-height: 4vw; // 40px;
+          // }
+          // @include medium-screen {
+          //   min-width: 40px;
+          //   min-height: 5vw;
+          //   img {
+          //     width: 12px;
+          //   }
+          // }
+
+          // @include small-screen {
+          //   min-width: 30px;
+          //   min-height: 8vw;
+          // }
         }
       }
     }

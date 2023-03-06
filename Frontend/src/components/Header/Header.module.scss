@@ -1,11 +1,16 @@
 @import "../../styles/abstracts";
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 11111111;
   width: 100%;
+
+  &.active {
+    transition: all 0.4s linear;
+    backdrop-filter: blur(10px);
+  }
 
   .headerContainer {
     width: 100%;
@@ -15,16 +20,56 @@
   }
 
   .logo {
-    width: 91px;
-    height: 91px;
+    z-index: 10;
+    width: 5.3vw;
+    height: 5.3vw;
+    @include large-screen {
+      width: 7.3vw;
+      height: 7.3vw;
+    }
+    // @include medium-screen {
+    //   position: fixed;
+    //   right: 15px;
+    //   top: 15px;
+    // }
+    @include medium-screen {
+      width: 60px; //12vw;
+      height: 60px;
+    }
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+    }
+  }
+
+  .menuAndContact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2vw;
+
+    // @include medium-screen {
+    //   margin-inline-end: 30px;
+    // }
+
+    .contactAndMenuIcon {
+      display: flex;
+      align-items: center;
+      @include medium-screen {
+        gap: 6vw;
+
+        button {
+          min-width: 100px;
+          min-height: 40px;
+          font-size: 14px;
+        }
+      }
     }
   }
 
   .menuContainer {
+    z-index: 8;
     .menu {
       display: flex;
       align-items: center;
@@ -32,14 +77,61 @@
       li {
         margin: 0vw 1vw;
         list-style: none;
-
-        a {
-          text-decoration: none;
-        }
       }
       li:last-child {
         margin-left: 0vw;
       }
     }
+    @include medium-screen {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      overflow-y: hidden;
+      top: 0;
+      right: -110%;
+      opacity: 0;
+      transition: all 0.2s linear;
+      // backdrop-filter: blur(8px);
+      background: var(--bg-1);
+
+      .menu {
+        width: 100%;
+        padding-top: 100px;
+        padding-inline-start: 6.3vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .menuItem {
+          margin-top: 6.3vw;
+          a {
+            color: var(--purple);
+          }
+        }
+      }
+    }
+
+    &.active {
+      right: 0;
+      opacity: 1;
+    }
+  }
+}
+
+.navIcon {
+  // position: fixed;
+  // left: 15px;
+  // top: 28px;
+
+  align-items: center;
+  z-index: 10;
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: var(--purple);
+  transition: all 0.2s linear;
+
+  @include medium-screen {
+    display: flex;
   }
 }

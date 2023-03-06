@@ -1,3 +1,5 @@
+@import "../../styles/abstracts";
+
 .button {
   display: flex;
   justify-content: center;
@@ -5,13 +7,30 @@
   cursor: pointer;
   outline: none;
   border: none;
-  font-size: 1vw; //16px;
+  font-size: 20px; // 1.2vw;
   font-weight: 600;
   border-radius: 3px;
   // padding: 0.6vw 2.6vw;
-  min-width: 11.1vw; // 190px;
-  min-height: 3vw; // 50px;
+  min-width: 190px; //11.1vw;
+  min-height: 50px; // 50px; 3vw;
 
+  @include large-screen {
+    // min-width: 16vw; //160px
+    // min-height: 4vw; // 40px;
+    // font-size: 16px;
+  }
+
+  // @include medium-screen {
+  //   min-width: 17vw; //125px
+  //   min-height: 5vw; // 40px;
+  //   font-size: 14px;
+  // }
+
+  @include medium-screen {
+    min-width: 135px; //26vw;
+    min-height: 48px;
+    font-size: 18px; // 1vw;
+  }
   // min-width: 11vw;
   // min-height: 3vw;
   transition: all 0.2s linear;

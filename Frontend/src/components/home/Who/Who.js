@@ -93,7 +93,6 @@ const Who = () => {
         <div className={cn(styles.buttons)}>
           <div>
             <Button
-              onClick={handlePrev}
               className={cn({
                 "color-black yellow-bg": currentSlideIndex != 2,
                 "color-yellow black-bg": currentSlideIndex == 2,
@@ -139,7 +138,7 @@ const Who = () => {
 const SwiperTextCard = ({ title, className }) => {
   return (
     <div>
-      <h2 className={className}>{title}</h2>
+      <h1 className={className}>{title}</h1>
     </div>
   );
 };

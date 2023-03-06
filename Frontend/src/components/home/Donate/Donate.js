@@ -12,7 +12,7 @@ const Donate = () => {
           <img src="/donate.png" alt="no image" />
         </div>
         <div className={cn(styles.donateText)}>
-          <h1 className="color-purple mb-2">سنواصل رحلتنا بدعمكم </h1>
+          <h2 className="color-purple mb-2">سنواصل رحلتنا بدعمكم </h2>
           <Button className="green-bg color-white">تبرع الآن</Button>
         </div>
       </div>

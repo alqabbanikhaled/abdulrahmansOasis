@@ -1,15 +1,41 @@
+@import "../../../styles/abstracts";
+
 .section {
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    @include small-screen {
+      flex-direction: column;
+    }
     .donateImg {
       width: 45%;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+    }
+
+    @include large-screen {
+      .donateImg {
+        width: 50%;
+      }
+      .donateText {
+        padding-inline-start: 5vw;
+      }
+      @include small-screen {
+        .donateImg {
+          width: 80%;
+        }
+        .donateText {
+          padding-inline-start: 0vw;
+          padding-top: 7vw;
+          text-align: center;
+          button {
+            margin: 0 auto;
+          }
+        }
       }
     }
   }

@@ -37,17 +37,18 @@
   --spaceX: 6.3vw;
   --spaceX-l: 12.7vw;
   --spaceY: 7vw;
-
   //Font Sizes
-  --head1-size: 4.7vw; //80px;
-  --head2-size: 3.5vw; //60px;
-  --head3-size: 2.8vw; //48px;
-  --head4-size: 1.9vw; //32px;
-  --head5-size: 1.5vw; //26px;
+  --head1-size: 5vw; //90px;
+  --head2-size: 4.7vw; //80px;
+  --head3-size: 3.5vw; //60px;
+  --head4-size: 2.8vw; //48px;
+  --head5-size: 1.9vw; //32px;
+  --head6-size: 1.5vw; //26px;
   --paragraph1-size: 1.1vw; // 18px;
   --paragraph2-size: 1.3vw; // 21.6px;
   --paragraph3-size: 1.5vw; //26px;
   --paragraph4-size: 1.9vw; // 32px;
+  --paragraph11-size: 1.3vw; // 21.6px;
   --paragraph12-size: 7vw; // 120px;
 
   --inner-content-width: 65%;
@@ -55,20 +56,85 @@
   --section-spaceY: 10vw;
   --sectionWave-spaceY: 5vw;
 
-  @include medium-screen {
+  @include large-screen {
     //Spacing
+    --spaceX: 6.3vw;
+    --spaceX-l: 6.3vw; //!changed
+    --spaceY: 10vw; //!changed
 
     //Font Sizes
+    --head1-size: 8vw; //!80px;
+    --head2-size: 5vw; //!50px;
+    --head3-size: 3.5vw; //60px;
+    --head4-size: 2.8vw; //48px;
+    --head5-size: 1.9vw; //32px;
+    --head6-size: 1.5vw; //26px;
+    --paragraph1-size: 1.1vw; // 18px;
+    --paragraph2-size: 1.3vw; // 21.6px;
+    --paragraph3-size: 1.5vw; //26px;
+    --paragraph4-size: 3vw; // 30px;
+    --paragraph11-size: 2vw; //! 20px;
+    --paragraph12-size: 7vw; // 120px;
 
     // padding margin helper classes
+    .mt-4 {
+      margin-top: 5.2vw;
+    }
+  }
+
+  @include medium-screen {
+    //Spacing
+    --spaceX: 6.3vw;
+    --spaceX-l: 6.3vw; //!changed
+    --spaceY: 10vw; //!changed
+
+    //Font Sizes
+    --head1-size: 7.8vw; //!60px;
+    --head2-size: 6.5vw; //!50px;
+    --head3-size: 3.5vw; //60px;
+    --head4-size: 2.8vw; //48px;
+    --head5-size: 1.9vw; //32px;
+    --head6-size: 1.5vw; //26px;
+    --paragraph1-size: 1.1vw; // 18px;
+    --paragraph2-size: 1.3vw; // 21.6px;
+    --paragraph3-size: 1.5vw; //26px;
+    --paragraph4-size: 3.3vw; // !26px;
+    --paragraph11-size: 3.6vw; //! 28px;
+    --paragraph12-size: 7vw; // 120px;
+
+    // padding margin helper classes
+    .mt-4 {
+      margin-top: 6.2vw;
+    }
   }
 
   @include small-screen {
     //Spacing
+    --spaceX: 6.3vw;
+    --spaceX-l: 6.3vw; //!changed
+    --spaceY: 18vw; //!changed
 
     //Font Sizes
+    --head1-size: 9vw; //!45px;
+    --head2-size: 9vw; //!45px;
+    --head3-size: 3.5vw; //60px;
+    --head4-size: 2.8vw; //48px;
+    --head5-size: 1.9vw; //32px;
+    --head6-size: 1.5vw; //26px;
+    --paragraph1-size: 1.1vw; // 18px;
+    --paragraph2-size: 1.3vw; // 21.6px;
+    --paragraph3-size: 1.5vw; //26px;
+    --paragraph4-size: 6vw; // !30px;
+    --paragraph11-size: 7vw; //! 36px;
+    --paragraph12-size: 7vw; // 120px;
 
     // padding margin helper classes
+    .mb-3 {
+      margin-bottom: 5.8vw;
+    }
+    .mt-4 {
+      margin-top: 8vw;
+    }
   }
 }
 
@@ -93,7 +159,6 @@ body {
 h1 {
   font-size: var(--head1-size);
   font-weight: 600;
-  line-height: 1;
 }
 
 h2 {
@@ -110,6 +175,10 @@ h3 {
 h4 {
   font-size: var(--head4-size);
   font-weight: 600;
+}
+
+a {
+  text-decoration: none;
 }
 
 .red-bg {
@@ -304,6 +373,10 @@ h4 {
   font-size: var(--head5-size);
 }
 
+.head6-size {
+  font-size: var(--head5-size);
+}
+
 .paragraph1-size {
   font-size: var(--paragraph1-size);
 }
@@ -320,6 +393,11 @@ h4 {
 .paragraph4-size {
   font-size: var(--paragraph4-size);
   line-height: 1.2;
+}
+
+.paragraph11-size {
+  font-size: var(--paragraph11-size);
+  line-height: 0.8;
 }
 
 .paragraph12-size {

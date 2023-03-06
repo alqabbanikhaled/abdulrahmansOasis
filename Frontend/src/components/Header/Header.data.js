@@ -6,13 +6,13 @@ export const NAV_LINKS = [
     isMobile: true,
   },
   {
-    link: "/initiatives",
+    link: "/",
     label: "حياة الطفل",
     isDesktop: true,
     isMobile: true,
   },
   {
-    link: "/sponsorship",
+    link: "/",
     label: "الميديا",
     isDesktop: true,
     isMobile: true,

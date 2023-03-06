@@ -1,37 +1,70 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import classNames from "classnames";
+import cn from "classnames";
 import { NAV_LINKS } from "./Header.data";
 import styles from "./Header.module.scss";
 import Image from "next/image";
+
+import { VscMenu, VscClose } from "react-icons/vsc";
 import OutlinedButton from "../OutlinedButton/OutlinedButton";
 import Button from "./../Button/Button";
 
 const Header = ({}) => {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const [navbar, setNavbar] = useState(false);
+
+  const changeBackground = () => {
+    console.log(window.scrollY);
+    if (window.scrollY >= 66) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    changeBackground();
+    window.addEventListener("scroll", changeBackground);
+  });
+
   return (
     <>
-      <header className={classNames(styles.header)}>
-        <div
-          className={classNames(styles.headerContainer, "space-X pt-3 pb-3")}
-        >
-          <Link href="./" className={classNames(styles.logo)}>
-            <img src={"/logo.png"} alt="logo" />
+      <header className={cn(styles.header, { [styles.active]: navbar })}>
+        <div className={cn(styles.headerContainer, "space-X pt-3 pb-3")}>
+          <Link href="./" className={cn(styles.logo)}>
+            <img
+              src={"./logo_mobile.svg"}
+              srcSet={"./logo.svg 600w"}
+              alt="logo"
+            />
           </Link>
-
-          <div className={styles.menuContainer}>
-            <ul className={styles.menu}>
-              {NAV_LINKS.map(({ link, label, isDesktop }, index) => {
-                return (
-                  isDesktop && (
-                    <MenuItem key={index} label={label} link={link} />
-                  )
-                );
-              })}
-              <li className={styles.headerButton}>
-                <Link href={"/"}>
-                  <Button className="red-bg color-white">تواصل معنا</Button>
-                </Link>
-              </li>
-            </ul>
+          <div className={styles.menuAndContact}>
+            <div
+              className={
+                click
+                  ? cn(styles.menuContainer, styles.active)
+                  : styles.menuContainer
+              }
+            >
+              <ul className={styles.menu}>
+                {NAV_LINKS.map(({ link, label, isDesktop }, index) => {
+                  return (
+                    isDesktop && (
+                      <MenuItem key={index} label={label} link={link} />
+                    )
+                  );
+                })}
+              </ul>
+            </div>
+            <div className={styles.contactAndMenuIcon}>
+              <Link href={"/"} className="paragraph11-size">
+                <Button className="red-bg color-white">تواصل معنا</Button>
+              </Link>
+              <div className={styles.navIcon} onClick={handleClick}>
+                {click ? <VscClose /> : <VscMenu color="#f3ecf9" />}
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -41,11 +74,11 @@ const Header = ({}) => {
 
 const MenuItem = ({ link, label }) => {
   return (
-    <li>
+    <li className={styles.menuItem}>
       <Link
         href={link}
         scroll={false}
-        className="font-weight-medium color-white"
+        className="font-weight-medium color-white paragraph11-size"
       >
         <span>{label}</span>
       </Link>

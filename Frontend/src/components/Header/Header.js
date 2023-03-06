@@ -9,13 +9,12 @@ import { VscMenu, VscClose } from "react-icons/vsc";
 import OutlinedButton from "../OutlinedButton/OutlinedButton";
 import Button from "./../Button/Button";
 
-const Header = ({}) => {
+const Header = ({ }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const [navbar, setNavbar] = useState(false);
 
   const changeBackground = () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 66) {
       setNavbar(true);
     } else {

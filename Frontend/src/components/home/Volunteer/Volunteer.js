@@ -13,7 +13,7 @@ const Volunteer = () => {
           <img src="/volunteer.jpg" alt="" />
         </div>
         <div className={cn(styles.volunteerText, "space-X")}>
-          <p className="paragraph4-size text-center font-weight-medium color-blue mt-4">
+          <h4 className="text-center font-weight-medium color-blue mt-4">
             للتطوع فضلا إرسال ايميل <br />
             <a
               href="mailto:volunteers@abdulrahmanoasis.org"
@@ -21,7 +21,7 @@ const Volunteer = () => {
             >
               volunteers@abdulrahmanoasis.org
             </a>
-          </p>
+          </h4>
         </div>
       </div>
     </section>

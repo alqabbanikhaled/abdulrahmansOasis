@@ -75,7 +75,7 @@
     --paragraph1-size: 1.1vw; // 18px;
     --paragraph2-size: 1.8vw; //! 18px;
     --paragraph3-size: 2.4vw; //!24px;
-    --paragraph4-size: 3vw; // 30px;
+    --paragraph4-size: 3vw; // !30px;
     --paragraph11-size: 2vw; //! 20px;
     --paragraph12-size: 12vw; // 120px;
 
@@ -156,13 +156,13 @@
     --head1-size: 9vw; //!45px;
     --head2-size: 9vw; //!45px;
     --head3-size: 7vw; //!35px;
-    --head4-size: 7vw; //!35px;
+    --head4-size: 5.2vw; //!26px;
     --head5-size: 1.9vw; //32px;
     --head6-size: 1.5vw; //26px;
     --paragraph1-size: 1.1vw; // 18px;
     --paragraph2-size: 3.6vw; //! 18px;
     --paragraph3-size: 4vw; //!20px;
-    --paragraph4-size: 6vw; // !30px;
+    --paragraph4-size: 5.2vw; // !26px;
     --paragraph11-size: 7vw; //! 36px;
     --paragraph12-size: 16vw; // !80px;
 
@@ -194,6 +194,9 @@
   }
 }
 
+.abdulrahman-oasis {
+  --spaceY: 7vw; //120px
+}
 * {
   margin: 0;
   padding: 0;
@@ -203,7 +206,7 @@
 
 html {
   --curve: 130vw;
-  color: var(--gray);
+  color: var(--black);
 }
 
 body {
@@ -555,7 +558,7 @@ a {
 
 #main {
   position: relative;
-  // padding-top: 11vw;
+  padding-top: 110px;
 }
 
 .scroll-content {

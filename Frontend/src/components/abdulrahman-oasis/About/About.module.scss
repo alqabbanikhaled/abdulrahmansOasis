@@ -1,0 +1,23 @@
+.section {
+  height: 100vh;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .aboutText {
+      flex-basis: 40%;
+    }
+    .aboutImg {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      flex-basis: 50%;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

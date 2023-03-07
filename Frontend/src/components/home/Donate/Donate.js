@@ -3,6 +3,7 @@ import cn from "classnames";
 
 import styles from "./Donate.module.scss";
 import Button from "./../../Button/Button";
+import Link from "next/link";
 
 const Donate = () => {
   return (
@@ -24,7 +25,9 @@ const Donate = () => {
             سنواصل رحلتنا بدعمكم
           </h1>
           <div className={cn(styles.donateButton)}>
-            <Button className="green-bg color-white mb-2">تبرع الآن</Button>
+            <Link href={"/donate"}>
+              <Button className="green-bg color-white mb-2">تبرع الآن</Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -35,7 +35,9 @@ const Publication = () => {
               <img src="/publication.jpg" alt="publication" />
             </div>
             <div className={cn(styles.buttons, "space-X pb-3")}>
-              <Button className="purple-bg color-white">تبرع الآن</Button>
+              <Link href={"/donate"}>
+                <Button className="purple-bg color-white">تبرع الآن</Button>
+              </Link>
               <a href={"./AbdulrahmansOasis_Publication_1.pdf"} download>
                 <OutlinedButton className="color-purple border-purple">
                   حملها الآن

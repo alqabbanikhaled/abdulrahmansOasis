@@ -1,13 +1,12 @@
 import "../styles/globals.scss";
-import Header from "./../components/Header/Header";
-import Footer from "./../components/Footer/Footer";
+import Layout from "./../components/Layout/Layout";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

@@ -28,14 +28,12 @@ const Who = () => {
   }, [currentSlideIndex]);
 
   const handlePrev = useCallback(() => {
-
     if (!sliderRefText.current || !sliderRefImages.current) return;
     sliderRefText.current.swiper.slidePrev();
     sliderRefImages.current.swiper.slidePrev();
   }, []);
 
   const handleNext = useCallback(() => {
-
     if (!sliderRefText.current || !sliderRefImages.current) return;
     sliderRefText.current.swiper.slideNext();
     sliderRefImages.current.swiper.slideNext();
@@ -56,7 +54,14 @@ const Who = () => {
           <img src={BANARS_DATA[0].url} alt="no image" />
         </SwiperSlide>
         <SwiperSlide>
-          <video autoPlay ref={videoRef} playsInline={true} controls={false} loop={true} muted>
+          <video
+            autoPlay
+            ref={videoRef}
+            playsInline={true}
+            controls={false}
+            loop={true}
+            muted
+          >
             <source src={BANARS_DATA[1].url} type="video/mp4" />
           </video>
         </SwiperSlide>
@@ -82,53 +87,61 @@ const Who = () => {
           }}
         >
           {BANARS_DATA.map(({ title }, i) => (
-            <SwiperSlide key={i} >
+            <SwiperSlide key={i}>
               <SwiperTextCard
                 title={title}
                 className={cn({
-                  "color-black": i == 2,
-                  "color-yellow": i != 2,
+                  "color-black w-80":
+                    BANARS_DATA[currentSlideIndex].textColor == "dark",
+                  "color-white":
+                    BANARS_DATA[currentSlideIndex].textColor != "dark",
                 })}
               />
             </SwiperSlide>
           ))}
         </Swiper>
         <div className={cn(styles.buttons)}>
-          <div>
+          {/* <div>
             <Button
               className={cn({
-                "color-black yellow-bg": BANARS_DATA[currentSlideIndex].textColor != 'dark',
-                "color-yellow black-bg": BANARS_DATA[currentSlideIndex].textColor == 'dark',
+                "color-black yellow-bg":
+                  BANARS_DATA[currentSlideIndex].textColor != "dark",
+                "color-yellow black-bg":
+                  BANARS_DATA[currentSlideIndex].textColor == "dark",
               })}
             >
               تبرع الآن
             </Button>
-          </div>
+          </div> */}
           <div className={cn(styles.outlinedButtons)}>
             <OutlinedButton
               onClick={handlePrev}
               className={cn(styles.arrowButton, {
-                "color-yellow border-yellow": BANARS_DATA[currentSlideIndex].textColor != 'dark',
-                "color-black border-black": BANARS_DATA[currentSlideIndex].textColor == 'dark',
+                "color-yellow border-yellow":
+                  BANARS_DATA[currentSlideIndex].textColor != "dark",
+                "color-black border-black":
+                  BANARS_DATA[currentSlideIndex].textColor == "dark",
               })}
             >
-              {BANARS_DATA[currentSlideIndex].textColor != 'dark' ? (
-                <img src="./arrow_yellow_right.svg" color="#000" />
+              {BANARS_DATA[currentSlideIndex].textColor != "dark" ? (
+                <img src="./arrow_right_L.svg" color="#000" />
               ) : (
-                <img src="./arrow_black_right.svg" color="#000" />
+                <img src="./arrow_right_L.svg" color="#000" />
               )}
             </OutlinedButton>
             <OutlinedButton
               onClick={handleNext}
               className={cn(styles.arrowButton, {
-                "color-yellow border-yellow": BANARS_DATA[currentSlideIndex].textColor != 'dark',
-                "color-black border-black": BANARS_DATA[currentSlideIndex].textColor == 'dark',
+                "color-yellow border-yellow":
+                  BANARS_DATA[currentSlideIndex].textColor != "dark",
+                "color-black border-black":
+                  BANARS_DATA[currentSlideIndex].textColor == "dark",
               })}
             >
-              {BANARS_DATA[currentSlideIndex].textColor != 'dark' ? (
-                <img src="./arrow_yellow_left.svg" color="#000" />
+              {BANARS_DATA[currentSlideIndex].textColor != "dark" ? (
+                <img src="./arrow_left_L.svg" color="#000" />
               ) : (
-                <img src="./arrow_black_left.svg" color="#000" />
+                <img src="./arrow_left_L.svg" color="#000" />
               )}
             </OutlinedButton>
           </div>

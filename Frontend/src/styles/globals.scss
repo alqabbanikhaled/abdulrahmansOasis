@@ -37,6 +37,7 @@
   --spaceX: 6.3vw;
   --spaceX-l: 12.7vw;
   --spaceY: 7vw;
+  --spaceY-minor: 2vw;
   //Font Sizes
   --head1-size: 5vw; //90px;
   --head2-size: 4.7vw; //80px;
@@ -61,7 +62,7 @@
     --spaceX: 6.3vw;
     --spaceX-l: 6.3vw; //!changed
     --spaceY: 10vw; //!changed
-
+    --spaceY-minor: 3vw; //!changed
     //Font Sizes
     --head1-size: 8vw; //!80px;
     --head2-size: 5vw; //!50px;
@@ -99,7 +100,7 @@
     --spaceX: 6.3vw;
     --spaceX-l: 6.3vw; //!changed
     --spaceY: 10vw; //!changed
-
+    --spaceY-minor: 4vw; //!changed
     //Font Sizes
     --head1-size: 7.8vw; //!60px;
     --head2-size: 6.5vw; //!50px;
@@ -121,6 +122,15 @@
     .mb-2 {
       margin-bottom: 3.9vw; //30px
     }
+
+    .pt-1 {
+      padding-top: 2vw;
+    }
+
+    .pb-1 {
+      padding-bottom: 2vw;
+    }
+
     .pt-2 {
       padding-top: 3.6vw;
     }
@@ -135,7 +145,7 @@
     --spaceX: 6.3vw;
     --spaceX-l: 6.3vw; //!changed
     --spaceY: 18vw; //!changed
-
+    --spaceY-minor: 6vw; //!changed
     //Font Sizes
     --head1-size: 9vw; //!45px;
     --head2-size: 9vw; //!45px;
@@ -479,6 +489,19 @@ a {
 
 .space-Y-bottom {
   padding-bottom: var(--spaceY);
+}
+
+.space-Y-minor {
+  padding-top: var(--spaceY-minor);
+  padding-bottom: var(--spaceY-minor);
+}
+
+.space-Y-minor-top {
+  padding-top: var(--spaceY-minor);
+}
+
+.space-Y-minor-bottom {
+  padding-bottom: var(--spaceY-minor);
 }
 
 .section-space-top {
@@ -983,6 +1006,22 @@ p,
 
 .w-100 {
   width: 100%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-70 {
+  width: 90%;
+}
+
+.w-60 {
+  width: 60%;
 }
 
 // SWIPER CARDS

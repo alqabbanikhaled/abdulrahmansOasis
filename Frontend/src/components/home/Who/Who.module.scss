@@ -53,17 +53,28 @@
       gap: 2.1vw;
       .outlinedButtons {
         display: flex;
+        width: 100%;
+        justify-content: space-between;
         gap: 0.7vw;
         @include large-screen {
           gap: 5px;
         }
         .arrowButton {
-          backdrop-filter: blur(8px);
-          min-width: 40px;
-          min-height: 40px;
+          // backdrop-filter: blur(8px);
+          min-width: fit-content;
+          min-height: fit-content;
+          border: none;
           img {
-            width: 16px;
+            width: 42px;
+            @include large-screen {
+              width: 30px;
+            }
+
+            @include medium-screen {
+              width: 22px;
+            }
           }
+
           // @include large-screen {
           //   min-width: 4vw;
           //   min-height: 4vw; // 40px;

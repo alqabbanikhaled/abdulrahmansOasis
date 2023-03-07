@@ -30,11 +30,11 @@ const Header = ({}) => {
   return (
     <>
       <header className={cn(styles.header, { [styles.active]: navbar })}>
-        <div className={cn(styles.headerContainer, "space-X pt-3 pb-3")}>
+        <div className={cn(styles.headerContainer, "space-X pt-1 pb-1")}>
           <Link href="./" className={cn(styles.logo)}>
             <img
-              src={"./logo_mobile.svg"}
-              srcSet={"./logo.svg 600w"}
+              src={"./logo_white.svg"}
+              srcSet={"./logo_red.svg 600w"}
               alt="logo"
             />
           </Link>

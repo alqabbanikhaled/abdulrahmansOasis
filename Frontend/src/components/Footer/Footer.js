@@ -6,18 +6,18 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <section className={cn(styles.section, "space-Y-top bg-5")}>
-      <div className={cn(styles.container, "space-X-l")}>
+    <section className={cn(styles.section, "bg-5")}>
+      <div className={cn(styles.container, "space-Y-minor space-X-l")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo)}>
-            <img src={"/logo.png"} alt="logo" />
+            <img src={"/logo_red.svg"} alt="logo" />
           </div>
           {/* <div className={cn(styles.footerSubScribe)}>
             <p className="font-weight-bold  ">
               آخر أخبارنا ومقالاتنا ومواردنا ، سنرسلها إلى صندوق الوارد الخاص بك
               أسبوعيًا.
             </p>
-            <form className={styles.formFeilds}>
+            <form className={styles.formF eilds}>
               <input
                 className={cn(
                   styles.input,
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
         </div> */}
       </div>
-      <hr className="mt-7" />
+      <hr />
       <div className={cn(styles.container, "space-X-l pt-2 pb-2")}>
         <div className={styles.socialLinks}>
           <SocialLink
@@ -91,11 +91,11 @@ const Footer = () => {
 
 const SocialLink = ({ src, href }) => {
   return (
-    <Link href={href}>
+    <a href={href} target="_blank">
       <button className={cn(styles.socialLink, "p-1")}>
         <img src={src} />
       </button>
-    </Link>
+    </a>
   );
 };
 

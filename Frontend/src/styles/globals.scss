@@ -27,6 +27,7 @@
   --orange-light: #fef3e6;
   --yellow: #ffc612;
   --pink: #ee2d7b;
+  --blue: #32c4ed;
   --bg-1: #f3ecf9;
   --bg-2: #fef3e6;
   --bg-3: #f6fbf0;
@@ -131,6 +132,10 @@
       padding-bottom: 2vw;
     }
 
+    .pb-3 {
+      padding-bottom: 4.5vw; //30px
+    }
+
     .pt-2 {
       padding-top: 3.6vw;
     }
@@ -180,6 +185,10 @@
 
     .p-3 {
       padding: 6vw;
+    }
+
+    .pb-3 {
+      padding-bottom: 6vw; //30px
     }
   }
 }
@@ -276,6 +285,10 @@ a {
   background-color: var(--pink) !important;
 }
 
+.blue-bg {
+  background-color: var(--blue) !important;
+}
+
 .bg-1 {
   background-color: var(--bg-1);
 }
@@ -344,6 +357,10 @@ a {
   color: var(--pink);
 }
 
+.color-blue {
+  color: var(--blue);
+}
+
 .border-red {
   border-color: var(--red);
 }
@@ -386,6 +403,10 @@ a {
 
 .border-pink {
   border-color: var(--pink);
+}
+
+.border-blue {
+  border-color: var(--blue);
 }
 
 .font-weight-normal {

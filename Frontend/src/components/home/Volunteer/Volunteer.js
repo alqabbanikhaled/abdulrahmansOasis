@@ -4,16 +4,20 @@ import styles from "./Volunteer.module.scss";
 
 const Volunteer = () => {
   return (
-    <section className={cn(styles.section, "space-X space-Y bg-2")}>
+    <section className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
-        <h2 className="color-orange mb-2">خير الناس أنفعهم للناس</h2>
-        <div className={styles.VolunteerImg}>
-          <img src="/volunteer.png" alt="" />
+        <h1 className="color-blue mb-2 text-center space-X">
+          ”خير الناس أنفعهم للناس“
+        </h1>
+        <div className={styles.volunteerImg}>
+          <img src="/volunteer.jpg" alt="" />
         </div>
-        <p className="paragraph4-size text-center font-weight-medium color-black mt-4">
-          للتطوع معنا فضلا ارسل ايميل على <br />
-          Lorem.ipsum@abdulrahmanoasis.org
-        </p>
+        <div className={cn(styles.volunteerText, "space-X")}>
+          <p className="paragraph4-size text-center font-weight-medium color-blue mt-4">
+            للتطوع معنا فضلا ارسل ايميل على <br />
+            volunteers@abdulrahmanoasis.org
+          </p>
+        </div>
       </div>
     </section>
   );

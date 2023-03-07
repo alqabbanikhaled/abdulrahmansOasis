@@ -1,11 +1,14 @@
 .section {
+  // height: 100vh;
   .container {
-    display: flex;
+    // display: flex;
     flex-direction: column;
     align-items: center;
 
-    .VolunteerImg {
+    .volunteerImg {
       width: 100%;
+      // height: 60vh;
+      height: fit-content;
       img {
         width: 100%;
         height: 100%;

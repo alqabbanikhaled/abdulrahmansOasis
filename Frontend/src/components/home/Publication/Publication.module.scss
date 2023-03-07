@@ -1,70 +1,104 @@
 @import "../../../styles/abstracts";
+// .section {
+//   position: relative;
+//   .publicationImg {
+//     position: absolute;
+//     top: 0;
+//     width: 40%;
+//     right: 6.3vw;
+//     height: 100%;
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: contain;
+//     }
+//   }
+//   .container {
+//     min-height: 40vw;
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     background-image: url("../../../assets/images/publication_bg_1.svg");
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: left center;
+
+//     .publicationText {
+//       width: 45%;
+
+//       .buttons {
+//         display: flex;
+//         gap: 16px;
+//       }
+//     }
+//   }
+
+//   @include medium-screen {
+//     margin-top: 18vw;
+//     min-height: 70vh;
+//     display: flex;
+//     flex-direction: column-reverse;
+//     background-image: url("../../../assets/images/publication_bg_1.svg");
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: left top;
+//     background-color: var(--bg-3);
+//     .publicationImg {
+//       position: static;
+//       // top: 30%;
+//       width: 100%;
+//       height: 100%;
+//       padding-inline: 6.3vw;
+//       img {
+//         object-fit: contain;
+//       }
+//     }
+//     .container {
+//       justify-content: center;
+//       align-items: flex-start;
+//       background: none;
+
+//       .publicationText {
+//         width: fit-content;
+//         text-align: center;
+//         .buttons {
+//           justify-content: center;
+//         }
+//       }
+//     }
+//   }
+// }
+
 .section {
-  position: relative;
-  .publicationImg {
-    position: absolute;
-    top: 0;
-    width: 40%;
-    right: 6.3vw;
-    height: 100%;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+  h1 {
   }
-  .container {
-    min-height: 40vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-image: url("../../../assets/images/publication_bg_1.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-
-    .publicationText {
-      width: 45%;
-
-      .buttons {
-        display: flex;
-        gap: 16px;
-      }
-    }
-  }
-
-  @include medium-screen {
-    margin-top: 18vw;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column-reverse;
-    background-image: url("../../../assets/images/publication_bg_1.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-color: var(--bg-3);
+  .imgButtonsCont {
+    background-clip: content-box;
+    padding-top: 3.8vw;
     .publicationImg {
-      position: static;
-      // top: 30%;
       width: 100%;
-      height: 100%;
-      padding-inline: 6.3vw;
       img {
+        margin-top: -3.8vw;
+        width: 40%;
+        height: 100%;
         object-fit: contain;
-      }
-    }
-    .container {
-      justify-content: center;
-      align-items: flex-start;
-      background: none;
 
-      .publicationText {
-        width: fit-content;
-        text-align: center;
-        .buttons {
-          justify-content: center;
+        @include extra-large-screen {
+          width: 60%;
+        }
+
+        @include large-screen {
+          width: 80%;
+        }
+        @include small-screen {
+          width: 100%;
         }
       }
+    }
+    .buttons {
+      justify-content: center;
+      display: flex;
+      gap: 16px;
     }
   }
 }

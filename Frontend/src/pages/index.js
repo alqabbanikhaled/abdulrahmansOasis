@@ -46,9 +46,9 @@ export default function Home() {
       <Header />
       <main id="main">
         <Who />
-        <Donate />
         <Volunteer />
         <Publication />
+        <Donate />
         <Calender />
       </main>
       <Footer />

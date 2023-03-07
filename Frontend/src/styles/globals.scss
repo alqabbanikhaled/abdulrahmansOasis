@@ -33,6 +33,7 @@
   --bg-3: #f6fbf0;
   --bg-4: #fce1e4;
   --bg-5: #fdedf4;
+  --bg-6: #edf3fd;
 
   //Spacing
   --spaceX: 6.3vw;
@@ -307,6 +308,10 @@ a {
 
 .bg-5 {
   background-color: var(--bg-5);
+}
+
+.bg-6 {
+  background-color: var(--bg-6);
 }
 
 .color-red {

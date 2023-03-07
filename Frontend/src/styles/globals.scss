@@ -70,7 +70,7 @@
     --head5-size: 1.9vw; //32px;
     --head6-size: 1.5vw; //26px;
     --paragraph1-size: 1.1vw; // 18px;
-    --paragraph2-size: 1.3vw; // 21.6px;
+    --paragraph2-size: 1.8vw; //! 18px;
     --paragraph3-size: 2.4vw; //!24px;
     --paragraph4-size: 3vw; // 30px;
     --paragraph11-size: 2vw; //! 20px;
@@ -83,6 +83,14 @@
 
     .mb-2 {
       margin-bottom: 3vw; //30px
+    }
+
+    .pt-2 {
+      padding-top: 2.6vw;
+    }
+
+    .pb-2 {
+      padding-bottom: 2.6vw;
     }
   }
 
@@ -100,7 +108,7 @@
     --head5-size: 1.9vw; //32px;
     --head6-size: 1.5vw; //26px;
     --paragraph1-size: 1.1vw; // 18px;
-    --paragraph2-size: 1.3vw; // 21.6px;
+    --paragraph2-size: 2.3vw; //! 18px;
     --paragraph3-size: 3vw; //!22px;
     --paragraph4-size: 3.3vw; // !26px;
     --paragraph11-size: 3.6vw; //! 28px;
@@ -112,6 +120,13 @@
     }
     .mb-2 {
       margin-bottom: 3.9vw; //30px
+    }
+    .pt-2 {
+      padding-top: 3.6vw;
+    }
+
+    .pb-2 {
+      padding-bottom: 3.6vw;
     }
   }
 
@@ -129,7 +144,7 @@
     --head5-size: 1.9vw; //32px;
     --head6-size: 1.5vw; //26px;
     --paragraph1-size: 1.1vw; // 18px;
-    --paragraph2-size: 1.3vw; // 21.6px;
+    --paragraph2-size: 3.6vw; //! 18px;
     --paragraph3-size: 4vw; //!20px;
     --paragraph4-size: 6vw; // !30px;
     --paragraph11-size: 7vw; //! 36px;

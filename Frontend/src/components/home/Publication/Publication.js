@@ -4,6 +4,7 @@ import cn from "classnames";
 import Button from "./../../Button/Button";
 import styles from "./Publication.module.scss";
 import OutlinedButton from "./../../OutlinedButton/OutlinedButton";
+import Link from "next/link";
 
 const Publication = () => {
   return (
@@ -16,9 +17,11 @@ const Publication = () => {
           <h1 className="color-green mb-2">مجلة واحة عبدالرحمن </h1>
           <div className={styles.buttons}>
             <Button className="purple-bg color-white">تبرع الآن</Button>
-            <OutlinedButton className="color-purple border-purple">
-              حملها الآن
-            </OutlinedButton>
+            <a href={"./AbdulrahmansOasis_Publication_1.pdf"} download>
+              <OutlinedButton className="color-purple border-purple">
+                حملها الآن
+              </OutlinedButton>
+            </a>
           </div>
         </div>
       </div>

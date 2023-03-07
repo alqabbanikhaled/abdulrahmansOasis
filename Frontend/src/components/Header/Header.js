@@ -9,7 +9,7 @@ import { VscMenu, VscClose } from "react-icons/vsc";
 import OutlinedButton from "../OutlinedButton/OutlinedButton";
 import Button from "./../Button/Button";
 
-const Header = ({ }) => {
+const Header = ({}) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const [navbar, setNavbar] = useState(false);
@@ -38,7 +38,7 @@ const Header = ({ }) => {
               alt="logo"
             />
           </Link>
-          <div className={styles.menuAndContact}>
+          {/* <div className={styles.menuAndContact}>
             <div
               className={
                 click
@@ -64,7 +64,7 @@ const Header = ({ }) => {
                 {click ? <VscClose /> : <VscMenu color="#f3ecf9" />}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
     </>

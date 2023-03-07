@@ -9,10 +9,10 @@ const Footer = () => {
     <section className={cn(styles.section, "space-Y-top bg-5")}>
       <div className={cn(styles.container, "space-X-l")}>
         <div className={cn(styles.footerLogoSubscribe)}>
-          <div className={cn(styles.footerLogo, "mb-2")}>
+          <div className={cn(styles.footerLogo)}>
             <img src={"/logo.png"} alt="logo" />
           </div>
-          <div className={cn(styles.footerSubScribe)}>
+          {/* <div className={cn(styles.footerSubScribe)}>
             <p className="font-weight-bold  ">
               آخر أخبارنا ومقالاتنا ومواردنا ، سنرسلها إلى صندوق الوارد الخاص بك
               أسبوعيًا.
@@ -30,9 +30,9 @@ const Footer = () => {
               />
               <Button className="purple-bg color-white">اشتراك</Button>
             </form>
-          </div>
+          </div> */}
         </div>
-        <div className={cn(styles.footerLinks)}>
+        {/* <div className={cn(styles.footerLinks)}>
           <div>
             <Link href="#">الصفحة الرئيسية</Link>
             <Link href="#">حياة الطفل</Link>
@@ -54,30 +54,44 @@ const Footer = () => {
             <Link href="#">التبرعات</Link>
             <Link href="#">تواصل معنا</Link>
           </div>
-        </div>
+        </div> */}
       </div>
       <hr className="mt-7" />
       <div className={cn(styles.container, "space-X-l pt-2 pb-2")}>
         <div className={styles.socialLinks}>
-          <SocialLink src="./instagram.svg" />
-          <SocialLink src="./linkedin.svg" />
-          <SocialLink src="./twitter.svg" />
-          <SocialLink src="./facebook.svg" />
+          <SocialLink
+            src="./instagram.svg"
+            href={"https://instagram.com/abdulrahmansoasis?igshid=YmMyMTA2M2Y="}
+          />
+          <SocialLink
+            src="./facebook.svg"
+            href={"https://youtube.com/@abdulrahmansoasis"}
+          />
+          <SocialLink
+            src="./twitter.svg"
+            href={
+              "https://twitter.com/abdulrahmansoas?s=11&t=UAPx6gtAmnhgWwn1mvGbaA"
+            }
+          />
+          <SocialLink
+            src="./snapshat.svg"
+            href={"https://t.snapchat.com/oAJ0KyrL"}
+          />
         </div>
-        <div className={cn(styles.rights, "font-weight-bold")}>
+        {/* <div className={cn(styles.rights, "font-weight-bold")}>
           <span className="color-purple">
             © 2023 Abdulrahman Oasis Rights Reserved. Designed By
           </span>{" "}
           Bold Experience
-        </div>
+        </div> */}
       </div>
     </section>
   );
 };
 
-const SocialLink = ({ src }) => {
+const SocialLink = ({ src, href }) => {
   return (
-    <Link href="#">
+    <Link href={href}>
       <button className={cn(styles.socialLink, "p-1")}>
         <img src={src} />
       </button>

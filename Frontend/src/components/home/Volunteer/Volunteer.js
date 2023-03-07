@@ -14,8 +14,13 @@ const Volunteer = () => {
         </div>
         <div className={cn(styles.volunteerText, "space-X")}>
           <p className="paragraph4-size text-center font-weight-medium color-blue mt-4">
-            للتطوع معنا فضلا ارسل ايميل على <br />
-            volunteers@abdulrahmanoasis.org
+            للتطوع فضلا إرسال ايميل <br />
+            <a
+              href="mailto:volunteers@abdulrahmanoasis.org"
+              className="color-blue"
+            >
+              volunteers@abdulrahmanoasis.org
+            </a>
           </p>
         </div>
       </div>

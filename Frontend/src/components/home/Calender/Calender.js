@@ -5,7 +5,7 @@ import Button from "./../../Button/Button";
 
 const Calender = () => {
   return (
-    <section className={cn(styles.section, "space-X-l space-Y")}>
+    <section className={cn(styles.section, "space-X-l space-Y-bottom")}>
       <div className={cn(styles.container)}>
         <h3 className="text-center color-black mb-3">تقويمنا</h3>
         <div className={cn(styles.calenderEvents, "mb-2")}>

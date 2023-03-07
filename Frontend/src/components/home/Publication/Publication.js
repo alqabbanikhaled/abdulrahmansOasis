@@ -9,7 +9,7 @@ import Link from "next/link";
 const Publication = () => {
   return (
     <>
-      {/* <section className={cn(styles.section, "space-Y")}>
+      {/* <section className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.publicationImg)}>
           <img src="/publication.png" alt="publication" />
         </div>
@@ -27,7 +27,7 @@ const Publication = () => {
           </div>
         </div>
       </section> */}
-      <section className={cn(styles.section, "space-Y")}>
+      <section className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.container, "text-center")}>
           <h1 className="color-green mb-2 space-X">مجلة واحة عبدالرحمن </h1>
           <div className={cn(styles.imgButtonsCont, "bg-3")}>

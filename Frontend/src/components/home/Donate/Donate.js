@@ -6,17 +6,29 @@ import Button from "./../../Button/Button";
 
 const Donate = () => {
   return (
-    <section className={cn(styles.section, "space-X-l space-Y")}>
-      <div className={cn(styles.container)}>
-        <div className={cn(styles.donateImg)}>
-          <img src="/donate.png" alt="no image" />
+    <>
+      {/* <section className={cn(styles.section, "space-X-l space-Y")}>
+        <div className={cn(styles.container)}>
+          <div className={cn(styles.donateImg)}>
+            <img src="/donate.png" alt="no image" />
+          </div>
+          <div className={cn(styles.donateText)}>
+            <h2 className="color-purple mb-2">سنواصل رحلتنا بدعمكم </h2>
+            <Button className="green-bg color-white">تبرع الآن</Button>
+          </div>
         </div>
-        <div className={cn(styles.donateText)}>
-          <h2 className="color-purple mb-2">سنواصل رحلتنا بدعمكم </h2>
-          <Button className="green-bg color-white">تبرع الآن</Button>
+      </section> */}
+      <section className={cn(styles.section, "space-Y-bottom")}>
+        <div className={cn(styles.container)}>
+          <h1 className="color-purple mb-2 space-X-l text-center">
+            سنواصل رحلتنا بدعمكم
+          </h1>
+          <div className={cn(styles.donateButton)}>
+            <Button className="green-bg color-white mb-2">تبرع الآن</Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

@@ -50,7 +50,7 @@ const Who = () => {
         effect={"fade"}
         allowTouchMove={false}
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <img src={BANARS_DATA[0].url} alt="no image" />
         </SwiperSlide>
         <SwiperSlide>
@@ -68,12 +68,27 @@ const Who = () => {
         <SwiperSlide>
           <img src={BANARS_DATA[2].url} alt="no image" />
         </SwiperSlide>
-
-        {/* {BANARS_DATA.map(({ url }, i) => (
+        <SwiperSlide>
+          <img src={BANARS_DATA[3].url} alt="no image" />
+        </SwiperSlide> */}
+        {BANARS_DATA.map(({ url, srcType }, i) => (
           <SwiperSlide key={i}>
-            <img src={url} alt="no image" />
+            {srcType == "image" ? (
+              <img src={url} alt="no image" />
+            ) : (
+              <video
+                autoPlay
+                ref={videoRef}
+                playsInline={true}
+                controls={false}
+                loop={true}
+                muted
+              >
+                <source src={url} type="video/mp4" />
+              </video>
+            )}
           </SwiperSlide>
-        ))} */}
+        ))}
       </Swiper>
       <div className={cn(styles.container, "space-X")}>
         <Swiper
@@ -154,7 +169,7 @@ const Who = () => {
 const SwiperTextCard = ({ title, className }) => {
   return (
     <div>
-      <h1 className={cn(className, "mb-2")}>{title}</h1>
+      <h1 className={cn(className, "mb-2 p-1")}>{title}</h1>
     </div>
   );
 };

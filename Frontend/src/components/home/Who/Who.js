@@ -124,9 +124,9 @@ const Who = () => {
               })}
             >
               {BANARS_DATA[currentSlideIndex].textColor != "dark" ? (
-                <img src="./arrow_right_L.svg" color="#000" />
+                <img src="./svg/arrow_right_L.svg" color="#000" />
               ) : (
-                <img src="./arrow_right_L.svg" color="#000" />
+                <img src="./svg/arrow_right_L.svg" color="#000" />
               )}
             </OutlinedButton>
             <OutlinedButton
@@ -139,9 +139,9 @@ const Who = () => {
               })}
             >
               {BANARS_DATA[currentSlideIndex].textColor != "dark" ? (
-                <img src="./arrow_left_L.svg" color="#000" />
+                <img src="./svg/arrow_left_L.svg" color="#000" />
               ) : (
-                <img src="./arrow_left_L.svg" color="#000" />
+                <img src="./svg/arrow_left_L.svg" color="#000" />
               )}
             </OutlinedButton>
           </div>

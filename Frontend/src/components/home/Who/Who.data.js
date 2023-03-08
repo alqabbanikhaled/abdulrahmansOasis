@@ -3,7 +3,7 @@ export const BANARS_DATA = [
     title: "من هو عبدالرحمن",
     textColor: "light",
     description: "",
-    url: "/slide_img_cover_L_1.jpg",
+    url: "/slide_img_1.jpg",
   },
   {
     title: "توقيع اتفاقية اطلاق اول برنامج #حياة_الطفل في المملكة العربية",
@@ -15,6 +15,6 @@ export const BANARS_DATA = [
     title: "أهلا بشهر التوعية بتخصص حياة الطفل",
     description: "",
     textColor: "dark",
-    url: "/slide_img_left_2.jpg",
+    url: "/slide_img_2.jpg",
   },
 ];

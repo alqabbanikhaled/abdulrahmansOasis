@@ -33,8 +33,8 @@ const Header = ({}) => {
         <div className={cn(styles.headerContainer, "space-X pt-1 pb-1")}>
           <Link href="./" className={cn(styles.logo)}>
             <img
-              src={"./logo_white.svg"}
-              srcSet={"./logo_red.svg 600w"}
+              src={"./svg/logo_white.svg"}
+              srcSet={"./svg/logo_red.svg 600w"}
               alt="logo"
             />
           </Link>

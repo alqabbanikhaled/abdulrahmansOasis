@@ -10,7 +10,7 @@ const Footer = () => {
       <div className={cn(styles.container, "space-Y-minor space-X-l")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo)}>
-            <img src={"/logo_red.svg"} alt="logo" />
+            <img src={"/svg/logo_red.svg"} alt="logo" />
           </div>
           {/* <div className={cn(styles.footerSubScribe)}>
             <p className="font-weight-bold  ">
@@ -60,21 +60,21 @@ const Footer = () => {
       <div className={cn(styles.container, "space-X-l pt-2 pb-2")}>
         <div className={styles.socialLinks}>
           <SocialLink
-            src="./instagram.svg"
+            src="./svg/instagram.svg"
             href={"https://instagram.com/abdulrahmansoasis?igshid=YmMyMTA2M2Y="}
           />
           <SocialLink
-            src="./facebook.svg"
+            src="./svg/facebook.svg"
             href={"https://youtube.com/@abdulrahmansoasis"}
           />
           <SocialLink
-            src="./twitter.svg"
+            src="./svg/twitter.svg"
             href={
               "https://twitter.com/abdulrahmansoas?s=11&t=UAPx6gtAmnhgWwn1mvGbaA"
             }
           />
           <SocialLink
-            src="./snapshat.svg"
+            src="./svg/snapshat.svg"
             href={"https://t.snapchat.com/oAJ0KyrL"}
           />
         </div>

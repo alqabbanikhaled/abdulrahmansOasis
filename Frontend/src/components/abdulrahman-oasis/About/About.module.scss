@@ -1,5 +1,6 @@
+@import "../../../styles/abstracts";
+
 .section {
-  height: 100vh;
   .container {
     display: flex;
     align-items: center;
@@ -9,15 +10,19 @@
       flex-basis: 40%;
     }
     .aboutImg {
-      display: flex;
-      justify-content: center;
-      height: 100%;
-      flex-basis: 50%;
+      flex-basis: 40%;
       img {
-        max-height: 100%;
-        max-width: 100%;
+        width: 100%;
         object-fit: contain;
       }
+    }
+    @include large-screen {
+      .aboutImg {
+        flex-basis: 50%;
+      }
+    }
+    @include medium-screen {
+      flex-direction: column;
     }
   }
 }

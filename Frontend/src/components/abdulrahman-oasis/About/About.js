@@ -7,8 +7,8 @@ const About = () => {
   return (
     <section className={cn(styles.section, "space-X space-Y-bottom mt-6")}>
       <div className={cn(styles.container)}>
-        <div className={styles.aboutText}>
-          <h1 className="color-purple mb-3">واحة عبدالرحمن</h1>
+        <div className={cn(styles.aboutText, "mb-2")}>
+          <h1 className="color-purple mb-2">واحة عبدالرحمن</h1>
           <div className="paragraph4-size font-weight-bold">
             تأسست جمعیة حیاة الطفل/ واحة عبدالرحمن بعد وفاة الشاب عبدالرحمن بن
             فهد بنثنیان الثنیان في مقتبل عمره؛ حیث أراد والدیه تخلید ذکراه بعمل

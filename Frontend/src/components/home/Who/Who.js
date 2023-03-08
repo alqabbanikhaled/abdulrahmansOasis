@@ -154,7 +154,7 @@ const Who = () => {
 const SwiperTextCard = ({ title, className }) => {
   return (
     <div>
-      <h1 className={className}>{title}</h1>
+      <h1 className={cn(className, "mb-2")}>{title}</h1>
     </div>
   );
 };

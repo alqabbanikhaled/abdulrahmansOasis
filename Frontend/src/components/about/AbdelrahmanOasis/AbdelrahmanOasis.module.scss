@@ -6,18 +6,24 @@
     align-items: center;
     justify-content: space-between;
 
-    .aboutText {
+    .AOText {
       flex-basis: 40%;
     }
-    .aboutImg {
+    .AOImg {
+      position: relative;
       flex-basis: 40%;
       img {
         width: 100%;
         object-fit: contain;
       }
+      .vector {
+        position: absolute;
+        left: 40%;
+        bottom: 15%;
+      }
     }
     @include large-screen {
-      .aboutImg {
+      .AOImg {
         flex-basis: 50%;
       }
     }

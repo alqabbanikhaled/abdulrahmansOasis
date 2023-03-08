@@ -29,17 +29,17 @@ const Publication = () => {
       </section> */}
       <section className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.container, "text-center")}>
-          <h1 className="color-green mb-2 space-X">مجلة واحة عبدالرحمن </h1>
+          <h1 className="color-red mb-2 space-X">مجلة واحة عبدالرحمن </h1>
           <div className={cn(styles.imgButtonsCont, "bg-3")}>
             <div className={cn(styles.publicationImg, "space-X pb-3")}>
               <img src="/publication.jpg" alt="publication" />
             </div>
             <div className={cn(styles.buttons, "space-X pb-3")}>
-              <Link href={"/donate"}>
-                <Button className="purple-bg color-white">تبرع الآن</Button>
-              </Link>
+              <a href={"./AbdulrahmansOasis_Publication_1.pdf"} target="_blank" >
+                <Button className="red-bg color-white">تصفح المجلة</Button>
+              </a>
               <a href={"./AbdulrahmansOasis_Publication_1.pdf"} download>
-                <OutlinedButton className="color-purple border-purple">
+                <OutlinedButton className="color-red border-red">
                   حملها الآن
                 </OutlinedButton>
               </a>

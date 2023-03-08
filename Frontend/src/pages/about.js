@@ -1,14 +1,14 @@
 import Head from "next/head";
-import About from "./../components/abdulrahman-oasis/About/About";
+import AbdelrahmanOasis from "../components/about/AbdelrahmanOasis/AbdelrahmanOasis";
 
 export default function AbdulrahmanOasis() {
   return (
     <>
       <Head>
-        <title>Abdulrahman Oasis</title>
+        <title>About</title>
       </Head>
       <main id="main">
-        <About />
+        <AbdelrahmanOasis />
       </main>
     </>
   );

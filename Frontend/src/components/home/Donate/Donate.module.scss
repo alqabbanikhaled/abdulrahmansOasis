@@ -47,27 +47,36 @@
   .container {
     h1 {
     }
+    .donateImg {
+      width: 100%;
+      min-height: 90vh;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @include large-screen {
+        min-height: 80vh;
+      }
+
+      @include medium-screen {
+        min-height: 60vh;
+      }
+
+      @include medium-screen {
+        min-height: 40vh;
+      }
+    }
     .donateButton {
       width: 100%;
-      height: 100vh;
+      // height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      background-image: url("../../../assets/images/donate.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      @include large-screen {
-        height: 80vh;
-      }
-
-      @include medium-screen {
-        height: 60vh;
-      }
-
-      @include medium-screen {
-        height: 40vh;
-      }
+      // align-items: flex-end;
+      align-items: center;
+      // background-image: url("../../../assets/images/donate.jpg");
+      // background-repeat: no-repeat;
+      // background-size: cover;
     }
   }
 }

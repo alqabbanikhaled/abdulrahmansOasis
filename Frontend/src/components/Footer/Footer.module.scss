@@ -90,25 +90,24 @@
         background-color: transparent;
         padding: 10px;
         cursor: pointer;
-        // img {
-        //   width: 1vw;
-        // }
+        img {
+          width: 1.4vw; //24px;
+        }
+        width: 2.6vw; //44px;
+        height: 2.6vw; // 44px;
+      }
+      @include large-screen {
+        .socialLink {
+          img {
+            width: 16px;
+          }
+          width: 36px;
+          height: 36px;
+        }
       }
       @include medium-screen {
         width: 100%;
         justify-content: center;
-        .socialLink {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 3px solid var(--light-gray);
-          border-radius: 5px;
-          background-color: transparent;
-          padding: 8px;
-          img {
-            width: 14px;
-          }
-        }
       }
     }
     .rights {

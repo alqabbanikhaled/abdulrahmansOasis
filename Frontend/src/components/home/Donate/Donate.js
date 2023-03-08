@@ -24,6 +24,9 @@ const Donate = () => {
           <h1 className="color-purple mb-2 space-X-l text-center">
             سنواصل رحلتنا بدعمكم
           </h1>
+          <div className={cn(styles.donateImg, "mb-2")}>
+            <img src="/donate.jpg" alt="" />
+          </div>
           <div className={cn(styles.donateButton)}>
             <Link href={"/donate"}>
               <Button className="green-bg color-white mb-2">تبرع الآن</Button>

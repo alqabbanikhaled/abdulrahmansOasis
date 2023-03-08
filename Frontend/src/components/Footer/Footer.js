@@ -64,7 +64,7 @@ const Footer = () => {
             href={"https://instagram.com/abdulrahmansoasis?igshid=YmMyMTA2M2Y="}
           />
           <SocialLink
-            src="./svg/facebook.svg"
+            src="./svg/youtube.svg"
             href={"https://youtube.com/@abdulrahmansoasis"}
           />
           <SocialLink

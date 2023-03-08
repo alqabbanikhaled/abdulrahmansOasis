@@ -1,0 +1,34 @@
+@import "../../../styles/abstracts";
+
+.section {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .storText {
+      flex-basis: 40%;
+    }
+    .storyImg {
+      position: relative;
+      flex-basis: 40%;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+      .vector {
+        position: absolute;
+        left: 40%;
+        bottom: 15%;
+      }
+    }
+    @include large-screen {
+      .storyImg {
+        flex-basis: 50%;
+      }
+    }
+    @include medium-screen {
+      flex-direction: column;
+    }
+  }
+}

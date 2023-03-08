@@ -10,9 +10,9 @@ export default function Donate() {
       <main id="main">
         <section className={cn(styles.section, "space-X space-Y")}>
           <div className={cn(styles.container)}>
-            <div className={cn(styles.donateText, "mb-3")}>
+            {/* <div className={cn(styles.donateText, "mb-3")}>
               <h1>للتبرعات</h1>
-            </div>
+            </div> */}
             <div className={styles.donateImg}>
               <img src="./donation.jpg" alt="donation" />
             </div>

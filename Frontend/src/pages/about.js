@@ -1,5 +1,7 @@
 import Head from "next/head";
-import AbdelrahmanOasis from "../components/about/AbdelrahmanOasis/AbdelrahmanOasis";
+
+import AbdelrahmanOasis from "./../components/about/AbdelrahmanOasis/AbdelrahmanOasis";
+import Story from "./../components/about/Story/Story";
 
 export default function AbdulrahmanOasis() {
   return (
@@ -9,6 +11,7 @@ export default function AbdulrahmanOasis() {
       </Head>
       <main id="main">
         <AbdelrahmanOasis />
+        <Story />
       </main>
     </>
   );

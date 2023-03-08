@@ -2,6 +2,7 @@
 
 .section {
   overflow: hidden;
+
   .container {
     display: flex;
     align-items: center;
@@ -10,15 +11,18 @@
     .storText {
       flex-basis: 40%;
     }
+
     .storyVideo {
       flex-basis: 40%;
       height: 70vh;
       position: relative;
+
       .playerWrapper {
         z-index: 2;
         position: relative;
         height: 100%;
         width: 100%;
+
         .reactPlayer {
           border-radius: 20px;
           overflow: hidden;
@@ -28,11 +32,17 @@
           height: 100%;
           width: 100%;
         }
+
+        video {
+          object-fit: cover;
+        }
       }
+
       @include large-screen {
         flex-basis: 50%;
         height: 60vh;
       }
+
       .vector {
         position: absolute;
         z-index: 1;
@@ -41,6 +51,7 @@
         object-fit: contain;
         right: 40%;
         bottom: 5%;
+
         @include medium-screen {
           bottom: 30%;
         }
@@ -49,9 +60,11 @@
 
     @include medium-screen {
       flex-direction: column-reverse;
+
       .storText {
         flex-basis: 100%;
       }
+
       .storyVideo {
         flex: none;
         width: 100%;
@@ -68,6 +81,7 @@
   align-items: center;
   background-color: var(--bg-2);
   border-radius: 50%;
+
   img {
     width: 2vw;
   }
@@ -75,6 +89,7 @@
   @include medium-screen {
     width: 10vw;
     height: 10vw;
+
     img {
       width: 4vw;
     }

@@ -1,7 +1,6 @@
 @import "../../../styles/abstracts";
 
 .section {
-  overflow: hidden; 
   .container {
     display: flex;
     align-items: center;
@@ -16,8 +15,13 @@
       img {
         width: 100%;
         object-fit: contain;
+        &:first-child {
+          position: relative;
+          z-index: 2;
+        }
       }
       .vector {
+        z-index: 1;
         position: absolute;
         left: 40%;
         bottom: 10%;

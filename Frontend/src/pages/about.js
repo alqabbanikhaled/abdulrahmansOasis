@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import AbdelrahmanOasis from "./../components/about/AbdelrahmanOasis/AbdelrahmanOasis";
 import Story from "./../components/about/Story/Story";
+import Goals from "./../components/about/Goals/Goals";
 
 export default function AbdulrahmanOasis() {
   return (
@@ -12,6 +13,7 @@ export default function AbdulrahmanOasis() {
       <main id="main">
         <AbdelrahmanOasis />
         <Story />
+        <Goals />
       </main>
     </>
   );

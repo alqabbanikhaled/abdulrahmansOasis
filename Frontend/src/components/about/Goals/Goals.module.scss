@@ -1,0 +1,72 @@
+@import "../../../styles/abstracts";
+
+.section {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .goalsText {
+      flex-basis: 45%;
+    }
+    .goalsImg {
+      position: relative;
+      flex-basis: 45%;
+      img {
+        width: 100%;
+        object-fit: contain;
+        &:first-child {
+          position: relative;
+          z-index: 2;
+        }
+      }
+      .vector {
+        z-index: 1;
+        width: 92%;
+        position: absolute;
+        left: 40%;
+        bottom: 0%;
+      }
+    }
+    @include large-screen {
+      .goalsText {
+        flex-basis: 50%;
+      }
+    }
+    @include medium-screen {
+      flex-direction: column;
+    }
+  }
+}
+
+.goalItem {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vw; //70px;
+    width: 4vw; //70px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    border: 2px solid rgba(11, 22, 63, 0.12);
+
+    @include large-screen {
+      height: 60px;
+      width: 60px;
+    }
+
+    @include medium-screen {
+      border-radius: 10px;
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  @include medium-screen {
+    gap: 10px;
+  }
+}

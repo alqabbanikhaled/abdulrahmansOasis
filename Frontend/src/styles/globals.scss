@@ -75,7 +75,7 @@
     --head6-size: 1.5vw; //26px;
     --paragraph1-size: 1.8vw; //! 18px;
     --paragraph2-size: 1.8vw; //! 18px;
-    --paragraph3-size: 2.4vw; //!24px;
+    --paragraph3-size: 24px; //!24px;
     --paragraph4-size: 3vw; // !30px;
     --paragraph5-size: 3.6vw; //! 36px;
     --paragraph11-size: 2vw; //! 20px;
@@ -97,6 +97,14 @@
     .pb-2 {
       padding-bottom: 2.6vw;
     }
+
+    .ps-4 {
+      padding-inline-start: 4vw;
+    }
+
+    .pe-4 {
+      padding-inline-end: 4vw;
+    }
   }
 
   @include medium-screen {
@@ -112,9 +120,9 @@
     --head4-size: 4.6vw; //!36px;
     --head5-size: 1.9vw; //32px;
     --head6-size: 1.5vw; //26px;
-    --paragraph1-size: 2.3vw; //! 18px;
+    --paragraph1-size: 18px;
     --paragraph2-size: 2.3vw; //! 18px;
-    --paragraph3-size: 3vw; //!22px;
+    --paragraph3-size: 22px; //!22px;
     --paragraph4-size: 3.3vw; // !26px;
     --paragraph5-size: 4.1vw; //! 32px;
     --paragraph11-size: 3.6vw; //! 28px;
@@ -150,6 +158,14 @@
     .pb-2 {
       padding-bottom: 3.6vw;
     }
+
+    .ps-4 {
+      padding-inline-start: 5vw;
+    }
+
+    .pe-4 {
+      padding-inline-end: 5vw;
+    }
   }
 
   @include small-screen {
@@ -165,9 +181,9 @@
     --head4-size: 5.2vw; //!26px;
     --head5-size: 1.9vw; //32px;
     --head6-size: 1.5vw; //26px;
-    --paragraph1-size: 3.6vw; //! 18px;
+    --paragraph1-size: 18px;
     --paragraph2-size: 3.6vw; //! 18px;
-    --paragraph3-size: 4vw; //!20px;
+    --paragraph3-size: 20px; //!20px;
     --paragraph4-size: 4.4vw; // !22px;
     --paragraph5-size: 5.2vw; //! 26px;
     --paragraph11-size: 7vw; //! 36px;
@@ -684,6 +700,14 @@ a {
 
 .pt-9 {
   padding-top: 5.9vw; //100px
+}
+
+.ps-4 {
+  padding-inline-start: 2.8vw; //48px
+}
+
+.pe-4 {
+  padding-inline-end: 2.8vw; //48px
 }
 
 .pb-text {

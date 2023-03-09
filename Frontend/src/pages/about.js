@@ -4,6 +4,7 @@ import AbdelrahmanOasis from "./../components/about/AbdelrahmanOasis/Abdelrahman
 import Story from "./../components/about/Story/Story";
 import Goals from "./../components/about/Goals/Goals";
 import Importance from "./../components/about/Importance/Importance";
+import Members from './../components/about/Members/Members';
 
 export default function AbdulrahmanOasis() {
   return (
@@ -16,6 +17,7 @@ export default function AbdulrahmanOasis() {
         <Story />
         <Goals />
         <Importance />
+        <Members />
       </main>
     </>
   );

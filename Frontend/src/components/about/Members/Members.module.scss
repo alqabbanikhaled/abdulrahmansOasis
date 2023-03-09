@@ -1,0 +1,26 @@
+@import "../../../styles/abstracts";
+
+.section {
+  .container {
+    .membersItems {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      .memeberItem {
+        flex-basis: calc(30% - 12px);
+        border-radius: 14px;
+      }
+      @include large-screen {
+        .memeberItem {
+          flex-basis: calc(50% - 12px);
+        }
+      }
+      @include medium-screen {
+        .memeberItem {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+}

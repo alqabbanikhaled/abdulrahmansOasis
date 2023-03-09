@@ -14,7 +14,7 @@
       flex-basis: 40%;
       img {
         width: 100%;
-        object-fit: contain;
+        object-fit: cover;
         &:first-child {
           position: relative;
           z-index: 2;

@@ -32,7 +32,7 @@ const Story = () => {
         </div>
         <div className={cn(styles.storText, "mb-2")}>
           <h1 className="color-orange mb-2">قصة عبدالرحمن</h1>
-          <div className="paragraph3-size">
+          <div className="paragraph3-size color-gray">
             عبدالرحمن كان نهرا من الحب والعطاء اللا مشروط ، كان صديق المساكين
             والمحتاجين كان بشوشا متفائلا محبا للحياة ، فكان عند دخوله المنزل
             يبدأ بالسلام على العمالة ويحتفل بمناسبتهم ويسأل عن اطفالهم ، رغم صغر

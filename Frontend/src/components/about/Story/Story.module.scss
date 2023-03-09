@@ -5,7 +5,7 @@
 
   .container {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
 
     .storText {
@@ -14,7 +14,6 @@
 
     .storyVideo {
       flex-basis: 40%;
-      height: 70vh;
       position: relative;
 
       .playerWrapper {
@@ -40,7 +39,6 @@
 
       @include large-screen {
         flex-basis: 50%;
-        height: 60vh;
       }
 
       .vector {

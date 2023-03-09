@@ -6,16 +6,11 @@
     align-items: stretch;
     justify-content: space-between;
 
-    .importanceText {
-      flex-basis: 45%;
-      h1 {
-        @include medium-screen {
-          margin-bottom: 20px;
-        }
-      }
+    .text {
+      flex-basis: 50%;
     }
 
-    .importanceImg {
+    .img {
       position: relative;
       flex-basis: 45%;
       img {
@@ -29,36 +24,52 @@
         }
       }
       .vector {
+        z-index: 1;
+        width: 92%;
         position: absolute;
         left: 40%;
-        bottom: 10%;
+        bottom: 0%;
       }
     }
     @include large-screen {
-      .AOImg {
+      .text {
         flex-basis: 50%;
       }
     }
     @include medium-screen {
-      flex-direction: column-reverse;
+      flex-direction: column;
     }
   }
+}
 
-  .modelItems {
+.Item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  h3 {
     display: flex;
-    gap: 1.8vw; //30px
+    justify-content: center;
+    align-items: center;
+    height: 4vw; //70px;
+    width: 4vw; //70px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    border: 2px solid rgba(11, 22, 63, 0.12);
 
-    hr {
-      align-self: stretch;
-      border: 2px solid rgba(102, 102, 102, 0.1);
+    @include large-screen {
+      height: 60px;
+      width: 60px;
     }
 
     @include medium-screen {
-      flex-direction: column;
-      gap: 3vw; //30px
-      hr {
-        border: 1px solid rgba(102, 102, 102, 0.1);
-      }
+      border-radius: 10px;
+      height: 40px;
+      width: 40px;
     }
+  }
+
+  @include medium-screen {
+    gap: 10px;
   }
 }

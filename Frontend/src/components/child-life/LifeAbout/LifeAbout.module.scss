@@ -1,0 +1,43 @@
+@import "../../../styles/abstracts";
+
+.section {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .lifeAboutText {
+      flex-basis: 45%;
+    }
+
+    .lifeAboutImg {
+      position: relative;
+      flex-basis: 45%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        &:first-child {
+          border-radius: 20px;
+          position: relative;
+          z-index: 2;
+        }
+      }
+      .vector {
+        z-index: 1;
+        width: 92%;
+        position: absolute;
+        left: 40%;
+        bottom: 0%;
+      }
+    }
+    @include large-screen {
+      .lifeAboutText {
+        flex-basis: 50%;
+      }
+    }
+    @include medium-screen {
+      flex-direction: column;
+    }
+  }
+}

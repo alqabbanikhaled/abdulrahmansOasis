@@ -1,15 +1,18 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Volunteer.module.scss";
-import { useTranslation } from "next-i18next";
+import { sectionDateAR } from "./Volunteer.data";
+import { sectionDateEN } from "./Volunteer.data";
 
-const Volunteer = () => {
-  const { t } = useTranslation("home");
+const Volunteer = ({ locale }) => {
+
+  const sectionData = locale == 'ar' ? sectionDateAR : sectionDateEN;
+
   return (
     <section className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
         <h1 className="color-blue mb-2 text-center space-X">
-          {t("volunteerTitle")}
+          {sectionData.title}
         </h1>
         <div className={styles.volunteerImg}>
           <img src="/volunteer.jpg" alt="" />

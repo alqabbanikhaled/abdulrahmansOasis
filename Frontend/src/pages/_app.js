@@ -1,4 +1,3 @@
-import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -26,5 +25,27 @@ const App = ({ Component, pageProps }) => {
     </>
   );
 };
+const getPathSlugs = () => {
+  // We fetched locales from our API once at build time
+  return ["ar", "en"].map((locale) => ({
+    params: {
+      locale,
+    },
+  }));
+}
 
-export default appWithTranslation(App);
+export async function getStaticPaths(...args) {
+  const pathsWithLocale = getPathSlugs();
+  return {
+    paths: pathsWithLocale,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  return {
+    props: {
+      ...params
+    }
+  };
+}
+export default App

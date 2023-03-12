@@ -6,6 +6,10 @@ import Volunteer from "./../components/home/Volunteer/Volunteer";
 import Publication from "./../components/home/Publication/Publication";
 import Calender from "./../components/home/Calender/Calender";
 
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import LangSwitch from "./../components/LangSwitch/LangSwitch";
+
 export default function Home() {
   return (
     <>
@@ -42,6 +46,7 @@ export default function Home() {
         />
       </Head>
       <>
+        <LangSwitch />
         <Who />
         <Volunteer />
         <Publication />
@@ -50,4 +55,12 @@ export default function Home() {
       </>
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["home"])),
+    },
+  };
 }

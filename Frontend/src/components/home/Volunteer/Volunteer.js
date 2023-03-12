@@ -1,13 +1,15 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Volunteer.module.scss";
+import { useTranslation } from "next-i18next";
 
 const Volunteer = () => {
+  const { t } = useTranslation("home");
   return (
     <section className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
         <h1 className="color-blue mb-2 text-center space-X">
-          ”خير الناس أنفعهم للناس“
+          {t("volunteerTitle")}
         </h1>
         <div className={styles.volunteerImg}>
           <img src="/volunteer.jpg" alt="" />

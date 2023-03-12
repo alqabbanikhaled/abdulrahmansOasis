@@ -64,7 +64,8 @@
       }
 
       @include medium-screen {
-        min-height: 40vh;
+        min-height: 35vh;
+        height: 35vh;
       }
     }
     .donateButton {

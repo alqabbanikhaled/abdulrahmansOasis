@@ -1,0 +1,69 @@
+@import "../../../styles/abstracts";
+
+.section {
+  .container {
+    .galleryItems {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      .galleryItem {
+        position: relative;
+        flex-basis: calc(50% - 12px);
+        overflow: hidden;
+        border-radius: 20px;
+        .playerWrapper {
+          min-height: 22vw;
+          position: relative;
+          height: 100%;
+          width: 100%;
+          .reactPlayer {
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+          }
+
+          video {
+            object-fit: cover;
+          }
+
+          @include large-screen {
+            min-height: 30vw;
+          }
+
+          @include medium-screen {
+            min-height: 50vw;
+          }
+        }
+
+        .title {
+          width: 100%;
+          span {
+            display: inline-block;
+            margin: 0 auto;
+            width: 70%;
+          }
+          position: absolute;
+          bottom: 2vw;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      @include medium-screen {
+        .galleryItem {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+}

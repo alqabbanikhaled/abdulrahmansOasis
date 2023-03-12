@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import cn from "classnames";
 
-import styles from "./Story.module.scss";
-// import ReactPlayer from "react-player";
+import PlayIcon from "./../../PlayIcon/PlayIcon";
 import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
+import styles from "./Story.module.scss";
 
 const Story = () => {
   const [playing, setPlaying] = useState(false);
@@ -21,7 +22,9 @@ const Story = () => {
               className={styles.reactPlayer}
               url="./video2.mp4"
               light="./player_cover.jpg"
-              playIcon={<PlayIcon />}
+              playIcon={
+                <PlayIcon bgColor={"bg-2"} iconSrc={"./svg/play.svg"} />
+              }
               playing={playing}
               controls={false}
               width="100%"
@@ -52,14 +55,6 @@ const Story = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const PlayIcon = () => {
-  return (
-    <div className={styles.playIcon}>
-      <img src="./svg/play.svg" alt="" />
-    </div>
   );
 };
 

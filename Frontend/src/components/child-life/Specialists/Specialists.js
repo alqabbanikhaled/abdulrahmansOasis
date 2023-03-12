@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import cn from "classnames";
 
-import styles from "./Specialists.module.scss";
+import PlayIcon from "./../../PlayIcon/PlayIcon";
 import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
+import styles from "./Specialists.module.scss";
 
 const Specialists = () => {
   const [playing, setPlaying] = useState(false);
@@ -28,7 +30,9 @@ const Specialists = () => {
               className={styles.reactPlayer}
               url="./video3.mp4"
               light="./specialists_cover.jpg"
-              playIcon={<PlayIcon />}
+              playIcon={
+                <PlayIcon bgColor={"bg-2"} iconSrc={"./svg/play_2.svg"} />
+              }
               playing={playing}
               controls={false}
               width="100%"
@@ -41,11 +45,4 @@ const Specialists = () => {
   );
 };
 
-const PlayIcon = () => {
-  return (
-    <div className={styles.playIcon}>
-      <img src="./svg/play_2.svg" alt="" color="white" />
-    </div>
-  );
-};
 export default Specialists;

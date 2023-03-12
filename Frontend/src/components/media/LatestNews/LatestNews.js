@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
 import styles from "./LatestNews.module.scss";
-import Link from "next/link";
 import { NEWS_LIST } from "./LatestNews.data";
 import Button from "./../../Button/Button";
 const newsPerPage = 6;
@@ -34,7 +33,7 @@ const LatestNews = () => {
         <h1 className="color-orange mb-2 text-center">آخر الأخبار</h1>
         <div className={cn(styles.latestNewsItems)}>
           {newsToShow.map((newsItem) => (
-            <MemeberItem newsItem={newsItem} />
+            <NewsItem newsItem={newsItem} />
           ))}
         </div>
         <div className={styles.button}>
@@ -50,7 +49,7 @@ const LatestNews = () => {
   );
 };
 
-const MemeberItem = ({
+const NewsItem = ({
   newsItem: { imgUrl, day, month, location, title, description, newsUrl },
 }) => {
   return (

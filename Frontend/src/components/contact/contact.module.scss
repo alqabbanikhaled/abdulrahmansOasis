@@ -1,0 +1,77 @@
+@import "../../styles/abstracts";
+
+.section {
+  .container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+
+    .contactText {
+      flex-basis: 45%;
+      .form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+
+        .input {
+          flex-basis: calc(50% - 12px);
+        }
+        .message {
+          flex-basis: 100%;
+          min-height: 13vw;
+        }
+
+        @include medium-screen {
+          .input {
+            flex-basis: 100%;
+          }
+          .button {
+            flex-basis: 100%;
+          }
+          .message {
+            min-height: 30vw;
+          }
+        }
+      }
+      .followText {
+        margin-bottom: 18px;
+        @include medium-screen {
+          text-align: center;
+        }
+      }
+    }
+
+    .contactImg {
+      position: relative;
+      flex-basis: 45%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        &:first-child {
+          border-radius: 20px;
+          position: relative;
+          z-index: 2;
+        }
+      }
+      .vector {
+        z-index: 1;
+        width: 92%;
+        position: absolute;
+        left: 40%;
+        bottom: 15%;
+      }
+    }
+    @include large-screen {
+      .contactText {
+        flex-basis: 50%;
+      }
+    }
+    @include medium-screen {
+      flex-direction: column;
+      .contactImg {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textfield {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.label {
+  position: absolute;
+  font-size: 1rem;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--white);
+  padding: 0 0.3rem;
+  margin: 0 0.5rem;
+  transition: 0.1s ease-out;
+  transform-origin: left top;
+  pointer-events: none;
+}
+.input {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid var(--gray-100);
+  color: var(--gray);
+  border-radius: 5px;
+  padding: 0.8rem;
+  font-weight: bold;
+  transition: 0.1s ease-out;
+  caret-color: var(--gray);
+  &:focus {
+    border-color: var(--green);
+  }
+  &:focus + .label {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 20px;
+    top: 0;
+    transform: translateY(-50%) scale(0.9);
+  }
+  &:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%) scale(0.9);
+  }
+}

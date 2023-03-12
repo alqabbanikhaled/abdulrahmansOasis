@@ -12,7 +12,7 @@ const Gallery = () => {
   return (
     <section className={cn(styles.section, "space-X space-Y-bottom bg-7")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-green mb-2 text-center">معرض الوسائط</h1>
+        <h3 className="color-green mb-2 text-center">معرض الوسائط</h3>
         <div className={cn(styles.galleryItems)}>
           {GALLERY_LIST.map(({ videoUrl, coverUrl, title }) => (
             <GalleryItem

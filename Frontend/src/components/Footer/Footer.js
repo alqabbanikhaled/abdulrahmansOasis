@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <section className={cn(styles.section, "bg-5")}>
-      <div className={cn(styles.container, "space-Y-minor space-X-l")}>
+      <div className={cn(styles.container, "space-Y-minor space-X")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo)}>
             <img src={"/svg/logo_red.svg"} alt="logo" />
@@ -57,7 +57,7 @@ const Footer = () => {
         </div> */}
       </div>
       <hr />
-      <div className={cn(styles.container, "space-X-l pt-2 pb-2")}>
+      <div className={cn(styles.container, "space-X pt-2 pb-2")}>
         <div className={styles.socialLinks}>
           <SocialLink
             src="./svg/instagram.svg"

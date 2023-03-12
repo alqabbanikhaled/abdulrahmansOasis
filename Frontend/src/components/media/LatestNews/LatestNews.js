@@ -30,7 +30,7 @@ const LatestNews = () => {
   return (
     <section className={cn(styles.section, "space-X space-Y bg-7")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-orange mb-2 text-center">آخر الأخبار</h1>
+        <h3 className="color-orange mb-2 text-center">آخر الأخبار</h3>
         <div className={cn(styles.latestNewsItems)}>
           {newsToShow.map((newsItem) => (
             <NewsItem newsItem={newsItem} />

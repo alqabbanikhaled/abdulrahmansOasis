@@ -37,61 +37,61 @@
     @include small-screen {
       bottom: 30vw;
     }
-    .whoSwiperText {
-      width: 60%;
-      margin-inline-start: 0;
-      @include large-screen {
-        width: 80%;
+    .textSwiperAndButton {
+      .whoSwiperText {
+        width: 70%;
+        // margin-inline-start: 0;
+        margin: 0;
+        @include large-screen {
+          width: 80%;
+        }
+        @include small-screen {
+          width: 100%;
+        }
       }
-      @include small-screen {
-        width: 100%;
+      .button {
       }
     }
-
-    .buttons {
+    .outlinedButtons {
       display: flex;
-      gap: 2.1vw;
-      .outlinedButtons {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        gap: 0.7vw;
-        @include large-screen {
-          gap: 5px;
-        }
-        .arrowButton {
-          // backdrop-filter: blur(8px);
-          min-width: fit-content;
-          min-height: fit-content;
-          border: none;
-          img {
-            width: 42px;
-            @include large-screen {
-              width: 30px;
-            }
-
-            @include medium-screen {
-              width: 22px;
-            }
+      width: 100%;
+      justify-content: space-between;
+      gap: 0.7vw;
+      @include large-screen {
+        gap: 5px;
+      }
+      .arrowButton {
+        // backdrop-filter: blur(8px);
+        min-width: fit-content;
+        min-height: fit-content;
+        border: none;
+        img {
+          width: 42px;
+          @include large-screen {
+            width: 30px;
           }
 
-          // @include large-screen {
-          //   min-width: 4vw;
-          //   min-height: 4vw; // 40px;
-          // }
-          // @include medium-screen {
-          //   min-width: 40px;
-          //   min-height: 5vw;
-          //   img {
-          //     width: 12px;
-          //   }
-          // }
-
-          // @include small-screen {
-          //   min-width: 30px;
-          //   min-height: 8vw;
-          // }
+          @include medium-screen {
+            width: 22px;
+          }
         }
+
+        // @include large-screen {
+        //   min-width: 4vw;
+        //   min-height: 4vw; // 40px;
+        // }
+        // @include medium-screen {
+        //   min-width: 40px;
+        //   min-height: 5vw;
+        //   img {
+        //     width: 12px;
+        //   }
+        // }
+
+        // @include small-screen {
+        //   min-width: 30px;
+        //   min-height: 8vw;
+        // }
       }
     }
   }

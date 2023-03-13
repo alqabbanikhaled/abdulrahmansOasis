@@ -10,6 +10,7 @@ import { BANARS_DATA } from "./Who.data";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import styles from "./Who.module.scss";
+import Link from "next/link";
 
 SwiperCore.use([Navigation]);
 
@@ -43,15 +44,20 @@ const Who = ({ locale }) => {
     sliderRefText?.current.swiper.slideTo(0);
     sliderRefImages?.current.swiper.slideTo(0);
 
-    sliderRefText?.current.swiper.updateSlides()
-    locale == 'en' ? sliderRefText?.current.swiper.changeLanguageDirection('ltr') : sliderRefText?.current.swiper.changeLanguageDirection('rtl')
+    sliderRefText?.current.swiper.updateSlides();
+    locale == "en"
+      ? sliderRefText?.current.swiper.changeLanguageDirection("ltr")
+      : sliderRefText?.current.swiper.changeLanguageDirection("rtl");
 
-  }, [locale])
+    sliderRefImages?.current.swiper.updateSlides();
+    locale == "en"
+      ? sliderRefImages?.current.swiper.changeLanguageDirection("ltr")
+      : sliderRefImages?.current.swiper.changeLanguageDirection("rtl");
+  }, [locale]);
 
   return (
     <section className={cn(styles.section)}>
       <Swiper
-        dir={locale == 'ar' ? 'rtl' : 'ltr'}
         loop={true}
         className={cn(styles.whoSwiperImages)}
         ref={sliderRefImages}
@@ -60,11 +66,10 @@ const Who = ({ locale }) => {
         effect={"fade"}
         allowTouchMove={false}
       >
-
-        {BANARS_DATA.map(({ url, srcType }, i) => (
+        {BANARS_DATA.map(({ bannerUrl, srcType }, i) => (
           <SwiperSlide key={i}>
             {srcType == "image" ? (
-              <img src={url} alt="no image" />
+              <img src={bannerUrl} alt="no image" />
             ) : (
               <video
                 autoPlay
@@ -74,93 +79,69 @@ const Who = ({ locale }) => {
                 loop={true}
                 muted
               >
-                <source src={url} type="video/mp4" />
+                <source src={bannerUrl} type="video/mp4" />
               </video>
             )}
           </SwiperSlide>
         ))}
       </Swiper>
       <div className={cn(styles.container, "space-X")}>
-        <Swiper
-          dir={locale == 'ar' ? 'rtl' : 'ltr'}
-          loop={true}
-          className={cn(styles.whoSwiperText, "mb-1")}
-          ref={sliderRefText}
-          slidesPerView={1}
-          allowTouchMove={false}
-          onSlideChange={(value) => {
-            setCurrentSlideIndex(value.realIndex);
-          }}
-        >
-          {BANARS_DATA.map(({ title }, i) => (
-            <SwiperSlide key={i}>
-              <SwiperTextCard
-                title={title}
-                className={cn({
-                  "color-black w-80":
-                    BANARS_DATA[currentSlideIndex].textColor == "dark",
-                  "color-white":
-                    BANARS_DATA[currentSlideIndex].textColor != "dark",
-                })}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className={cn(styles.buttons)}>
-          {/* <div>
-            <Button
-              className={cn({
-                "color-black yellow-bg":
-                  BANARS_DATA[currentSlideIndex].textColor != "dark",
-                "color-yellow black-bg":
-                  BANARS_DATA[currentSlideIndex].textColor == "dark",
-              })}
-            >
-              تبرع الآن
-            </Button>
-          </div> */}
-          <div className={cn(styles.outlinedButtons)}>
-            <OutlinedButton
-              onClick={handlePrev}
-              className={cn(styles.arrowButton, {
-                "color-yellow border-yellow":
-                  BANARS_DATA[currentSlideIndex].textColor != "dark",
-                "color-black border-black":
-                  BANARS_DATA[currentSlideIndex].textColor == "dark",
-              })}
-            >
-              {BANARS_DATA[currentSlideIndex].textColor != "dark" ? (
-                <img src="./svg/arrow_right_L.svg" color="#000" />
-              ) : (
-                <img src="./svg/arrow_right_L.svg" color="#000" />
-              )}
-            </OutlinedButton>
-            <OutlinedButton
-              onClick={handleNext}
-              className={cn(styles.arrowButton, {
-                "color-yellow border-yellow":
-                  BANARS_DATA[currentSlideIndex].textColor != "dark",
-                "color-black border-black":
-                  BANARS_DATA[currentSlideIndex].textColor == "dark",
-              })}
-            >
-              {BANARS_DATA[currentSlideIndex].textColor != "dark" ? (
-                <img src="./svg/arrow_left_L.svg" color="#000" />
-              ) : (
-                <img src="./svg/arrow_left_L.svg" color="#000" />
-              )}
-            </OutlinedButton>
+        <div className={cn(styles.textSwiperAndButton, "mb-9")}>
+          <Swiper
+            loop={true}
+            className={cn(styles.whoSwiperText, "mb-1")}
+            ref={sliderRefText}
+            slidesPerView={1}
+            allowTouchMove={false}
+            onSlideChange={(value) => {
+              setCurrentSlideIndex(value.realIndex);
+            }}
+          >
+            {BANARS_DATA.map(({ title, buttonText }, i) => (
+              <SwiperSlide key={i}>
+                <SwiperTextCard
+                  title={title}
+                  buttonText={buttonText}
+                  className={cn({
+                    "color-black w-80":
+                      BANARS_DATA[currentSlideIndex].textColor == "dark",
+                    "color-white":
+                      BANARS_DATA[currentSlideIndex].textColor != "dark",
+                  })}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className={styles.button}>
+            <Link href={BANARS_DATA[currentSlideIndex].buttonLink}>
+              <Button className={cn("color-white red-bg")}>
+                {BANARS_DATA[currentSlideIndex].buttonText}
+              </Button>
+            </Link>
           </div>
+        </div>
+        <div className={cn(styles.outlinedButtons)}>
+          <OutlinedButton onClick={handlePrev} className={styles.arrowButton}>
+            <img src="./svg/arrow_right_L.svg" color="#000" />
+          </OutlinedButton>
+          <OutlinedButton onClick={handleNext} className={styles.arrowButton}>
+            <img src="./svg/arrow_left_L.svg" color="#000" />
+          </OutlinedButton>
         </div>
       </div>
     </section>
   );
 };
 
-const SwiperTextCard = ({ title, className }) => {
+const SwiperTextCard = ({ title, className, buttonText }) => {
   return (
     <div>
-      <h1 className={cn(className, "mb-2 p-1")}>{title}</h1>
+      <h1 className={cn("mb-1", className)}>{title}</h1>
+      {/* <div>
+        <Link href={"#"}>
+          <Button className={cn("color-white red-bg")}>{buttonText}</Button>
+        </Link>
+      </div> */}
     </div>
   );
 };

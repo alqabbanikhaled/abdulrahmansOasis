@@ -6,7 +6,10 @@ import { CALENDER_EVENTS } from "./Calender.data";
 
 const Calender = () => {
   return (
-    <section className={cn(styles.section, "space-X-l space-Y-bottom")}>
+    <section
+      id="calender"
+      className={cn(styles.section, "space-X-l space-Y-bottom")}
+    >
       <div className={cn(styles.container)}>
         <h3 className="text-center color-black mb-3">تقويمنا</h3>
         <div className={cn(styles.calenderEvents, "mb-2")}>

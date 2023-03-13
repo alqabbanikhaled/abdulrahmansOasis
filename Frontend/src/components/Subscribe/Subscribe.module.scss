@@ -1,0 +1,28 @@
+@import "../../styles/abstracts";
+
+.formFeilds {
+  display: flex;
+  gap: 12px;
+
+  .input {
+    min-width: 23.5vw; // 397px
+    min-height: 50px; // 3vw;
+    border-radius: 5px;
+    &:focus {
+      outline: none;
+    }
+    border: 2px solid rgba(226, 232, 240, 1);
+    &::placeholder {
+      color: var(--dark-gray);
+    }
+
+    @include large-screen {
+      min-height: 40px;
+      min-width: 28vw;
+      font-size: 16px;
+    }
+    @include medium-screen {
+      min-width: 40vw;
+    }
+  }
+}

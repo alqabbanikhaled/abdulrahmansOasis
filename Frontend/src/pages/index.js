@@ -11,24 +11,20 @@ import LangSwitch from "./../components/LangSwitch/LangSwitch";
 export default function Home({ locale }) {
   return (
     <>
-
-
-      <LangSwitch />
+      {/* <LangSwitch /> */}
       <Who locale={locale} />
       <Volunteer locale={locale} />
       <Publication />
       <Donate />
       <Calender />
-
     </>
   );
 }
 
-
 export async function getServerSideProps({ locale }) {
   return {
     props: {
-      locale: locale
-    }
-  }
+      locale: locale,
+    },
+  };
 }

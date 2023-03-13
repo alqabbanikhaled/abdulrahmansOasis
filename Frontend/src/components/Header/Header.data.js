@@ -1,19 +1,25 @@
 export const NAV_LINKS = [
   {
-    link: "/",
+    link: "/about",
     label: "واحة عبدالرحمن",
     isDesktop: true,
     isMobile: true,
   },
   {
-    link: "/",
+    link: "/child-life",
     label: "حياة الطفل",
     isDesktop: true,
     isMobile: true,
   },
   {
-    link: "/",
+    link: "/media",
     label: "الميديا",
+    isDesktop: true,
+    isMobile: true,
+  },
+  {
+    link: "/contact",
+    label: "تواصل معنا",
     isDesktop: true,
     isMobile: true,
   },

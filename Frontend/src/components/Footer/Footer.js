@@ -7,21 +7,21 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <section className={cn(styles.section, "bg-5")}>
-      <div className={cn(styles.container, "space-Y-minor space-X")}>
+      <div className={cn(styles.container, "section-spaceY space-X")}>
         <div className={cn(styles.footerLogoSubscribe)}>
-          <div className={cn(styles.footerLogo)}>
+          <div className={cn(styles.footerLogo, "mb-2")}>
             <img src={"/svg/logo_red.svg"} alt="logo" />
           </div>
-          {/* <div className={cn(styles.footerSubScribe)}>
-            <p className="font-weight-bold  ">
+          <div className={cn(styles.footerSubScribe)}>
+            <p className="paragraph1-size color-gray">
               آخر أخبارنا ومقالاتنا ومواردنا ، سنرسلها إلى صندوق الوارد الخاص بك
               أسبوعيًا.
             </p>
-            <form className={styles.formF eilds}>
+            <form className={styles.formFeilds}>
               <input
                 className={cn(
                   styles.input,
-                  "p-1 paragraph1-size font-weight-bold color-dark-gray"
+                  "p-1 paragraph1-size color-dark-gray"
                 )}
                 type="email"
                 name=""
@@ -30,9 +30,9 @@ const Footer = () => {
               />
               <Button className="purple-bg color-white">اشتراك</Button>
             </form>
-          </div> */}
+          </div>
         </div>
-        {/* <div className={cn(styles.footerLinks)}>
+        <div className={cn(styles.footerLinks)}>
           <div>
             <Link href="#">الصفحة الرئيسية</Link>
             <Link href="#">حياة الطفل</Link>
@@ -54,7 +54,7 @@ const Footer = () => {
             <Link href="#">التبرعات</Link>
             <Link href="#">تواصل معنا</Link>
           </div>
-        </div> */}
+        </div>
       </div>
       <hr />
       <div className={cn(styles.container, "space-X pt-2 pb-2")}>

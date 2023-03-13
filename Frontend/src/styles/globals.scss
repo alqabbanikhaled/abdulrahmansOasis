@@ -59,7 +59,7 @@
 
   --inner-content-width: 65%;
 
-  --section-spaceY: 10vw;
+  --section-spaceY: 7vw;
   --sectionWave-spaceY: 5vw;
 
   @include large-screen {
@@ -68,6 +68,7 @@
     --spaceX-l: 6.3vw; //!changed
     --spaceY: 10vw; //!changed
     --spaceY-minor: 3vw; //!changed
+    --section-spaceY: 9vw; //!changed
     //Font Sizes
     --head1-size: 8vw; //!80px;
     --head2-size: 5vw; //!50px;
@@ -123,6 +124,7 @@
     --spaceX-l: 6.3vw; //!changed
     --spaceY: 10vw; //!changed
     --spaceY-minor: 4vw; //!changed
+    --section-spaceY: 12vw; //!changed
     //Font Sizes
     --head1-size: 7.8vw; //!60px;
     --head2-size: 6.5vw; //!50px;
@@ -215,6 +217,10 @@
 
     .mb-3 {
       margin-bottom: 8vw; //40px
+    }
+
+    .mt-3 {
+      margin-top: 8vw; //40px
     }
 
     .mb-5 {
@@ -596,6 +602,11 @@ a {
 
 .space-Y-minor-bottom {
   padding-bottom: var(--spaceY-minor);
+}
+
+.section-spaceY {
+  padding-top: var(--section-spaceY);
+  padding-bottom: var(--section-spaceY);
 }
 
 .section-space-top {

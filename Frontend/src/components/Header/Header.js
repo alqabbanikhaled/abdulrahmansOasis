@@ -8,10 +8,8 @@ import { NAV_LINKS } from "./Header.data";
 import Subscribe from "../Subscribe/Subscribe";
 import styles from "./Header.module.scss";
 
-const Header = ({}) => {
-  const { pathname } = useRouter();
+const Header = ({ navLinksColor }) => {
   const [isOpen, setIsOpen] = useState();
-  //according to it, we change the the background and logo
   const [newNavbar, setNewNavbar] = useState(false);
 
   const handleClick = () => setIsOpen(!isOpen);
@@ -21,18 +19,12 @@ const Header = ({}) => {
   };
 
   const SwitchToNewNav = () => {
-    if (pathname == "/") {
-      if (window.scrollY >= 66) {
-        setNewNavbar(true);
-      } else {
-        setNewNavbar(false);
-      }
+    if (window.scrollY >= 66) {
+      setNewNavbar(true);
+    } else {
+      setNewNavbar(false);
     }
   };
-
-  useEffect(() => {
-    setNewNavbar(pathname == "/" ? false : true);
-  }, [pathname]);
 
   useEffect(() => {
     if (isOpen) {
@@ -75,11 +67,8 @@ const Header = ({}) => {
                   return (
                     isDesktop && (
                       <MenuItem
-                        active={
-                          newNavbar &&
-                          window != undefined &&
-                          window.innerWidth > 600
-                        }
+                        newNavbar={newNavbar}
+                        navLinksColor={navLinksColor}
                         key={index}
                         label={label}
                         link={link}
@@ -113,8 +102,8 @@ const Header = ({}) => {
                 ) : (
                   <VscMenu
                     className={cn({
-                      "color-white": !newNavbar,
-                      "color-red": newNavbar,
+                      "color-white": navLinksColor != "red" && !newNavbar,
+                      "color-red": navLinksColor == "red" || newNavbar,
                     })}
                   />
                 )}
@@ -127,16 +116,19 @@ const Header = ({}) => {
   );
 };
 
-const MenuItem = ({ link, label, onClick, active }) => {
+const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor }) => {
   return (
-    <li
-      className={cn(styles.menuItem, { [styles.active]: active == true })}
-      onClick={onClick}
-    >
+    <li className={cn(styles.menuItem)} onClick={onClick}>
       <Link
         href={link}
         scroll={false}
-        className="font-weight-medium color-white paragraph11-size"
+        className={cn(
+          {
+            "color-white": navLinksColor != "red" && !newNavbar,
+            "color-red": navLinksColor == "red" || newNavbar,
+          },
+          "font-weight-medium paragraph11-size"
+        )}
       >
         <span>{label}</span>
       </Link>

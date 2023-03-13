@@ -6,6 +6,7 @@ import Input from "./../components/Input/Input";
 import Button from "./../components/Button/Button";
 import TextArea from "./../components/TextArea/TextArea";
 import SocialLinks from "./../components/SocialLinks/SocialLinks";
+import Header from "./../components/Header/Header";
 
 const Contact = () => {
   return (
@@ -13,6 +14,7 @@ const Contact = () => {
       <Head>
         <title>Contact Us</title>
       </Head>
+      <Header navLinksColor={"red"} />
       <main id="main">
         <section className={cn(styles.section, "space-X space-Y")}>
           <div className={cn(styles.container)}>

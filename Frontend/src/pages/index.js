@@ -7,11 +7,13 @@ import Publication from "./../components/home/Publication/Publication";
 import Calender from "./../components/home/Calender/Calender";
 
 import LangSwitch from "./../components/LangSwitch/LangSwitch";
+import Header from "./../components/Header/Header";
 
 export default function Home({ locale }) {
   return (
     <>
       {/* <LangSwitch /> */}
+      <Header navLinksColor={"white"} />
       <Who locale={locale} />
       <Volunteer locale={locale} />
       <Publication />

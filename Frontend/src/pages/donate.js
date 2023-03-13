@@ -1,12 +1,15 @@
 import Head from "next/head";
 import cn from "classnames";
 import styles from "../components/donate/donate.module.scss";
+import Header from "./../components/Header/Header";
+
 export default function Donate() {
   return (
     <>
       <Head>
         <title>Donate</title>
       </Head>
+      <Header navLinksColor={"red"} />
       <main id="main">
         <section className={cn(styles.section, "space-X space-Y")}>
           <div className={cn(styles.container)}>

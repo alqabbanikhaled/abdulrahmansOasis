@@ -82,14 +82,6 @@
       li:last-child {
         margin-left: 0vw;
       }
-
-      .menuItem {
-        &.active {
-          a {
-            color: var(--red);
-          }
-        }
-      }
     }
 
     .headerSubscribe {

@@ -13,7 +13,7 @@ import styles from "./Who.module.scss";
 
 SwiperCore.use([Navigation]);
 
-const Who = () => {
+const Who = ({ locale }) => {
   const sliderRefText = useRef(null);
   const sliderRefImages = useRef(null);
   const videoRef = useRef(null);
@@ -39,9 +39,19 @@ const Who = () => {
     sliderRefImages.current.swiper.slideNext();
   }, []);
 
+  useEffect(() => {
+    sliderRefText?.current.swiper.slideTo(0);
+    sliderRefImages?.current.swiper.slideTo(0);
+
+    sliderRefText?.current.swiper.updateSlides()
+    locale == 'en' ? sliderRefText?.current.swiper.changeLanguageDirection('ltr') : sliderRefText?.current.swiper.changeLanguageDirection('rtl')
+
+  }, [locale])
+
   return (
     <section className={cn(styles.section)}>
       <Swiper
+        dir={locale == 'ar' ? 'rtl' : 'ltr'}
         loop={true}
         className={cn(styles.whoSwiperImages)}
         ref={sliderRefImages}
@@ -50,27 +60,7 @@ const Who = () => {
         effect={"fade"}
         allowTouchMove={false}
       >
-        {/* <SwiperSlide>
-          <img src={BANARS_DATA[0].url} alt="no image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <video
-            autoPlay
-            ref={videoRef}
-            playsInline={true}
-            controls={false}
-            loop={true}
-            muted
-          >
-            <source src={BANARS_DATA[1].url} type="video/mp4" />
-          </video>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={BANARS_DATA[2].url} alt="no image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={BANARS_DATA[3].url} alt="no image" />
-        </SwiperSlide> */}
+
         {BANARS_DATA.map(({ url, srcType }, i) => (
           <SwiperSlide key={i}>
             {srcType == "image" ? (
@@ -92,6 +82,7 @@ const Who = () => {
       </Swiper>
       <div className={cn(styles.container, "space-X")}>
         <Swiper
+          dir={locale == 'ar' ? 'rtl' : 'ltr'}
           loop={true}
           className={cn(styles.whoSwiperText, "mb-1")}
           ref={sliderRefText}

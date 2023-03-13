@@ -14,7 +14,7 @@ export default function Home({ locale }) {
 
 
       <LangSwitch />
-      <Who />
+      <Who locale={locale} />
       <Volunteer locale={locale} />
       <Publication />
       <Donate />

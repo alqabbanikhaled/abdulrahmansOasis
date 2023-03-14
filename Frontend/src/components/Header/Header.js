@@ -121,7 +121,6 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor }) => {
     <li className={cn(styles.menuItem)} onClick={onClick}>
       <Link
         href={link}
-        scroll={false}
         className={cn(
           {
             "color-white": navLinksColor != "red" && !newNavbar,

@@ -5,7 +5,7 @@ import SwiperCore, { Navigation, EffectFade } from "swiper";
 
 import Button from "@/components/Button/Button";
 import OutlinedButton from "@/components/OutlinedButton/OutlinedButton";
-import { BANARS_DATA } from "./Who.data";
+import { whoDataAR, whoDataEN } from "./Who.data";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -19,6 +19,8 @@ const Who = ({ locale }) => {
   const sliderRefImages = useRef(null);
   const videoRef = useRef(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const { BANARS_DATA } = locale == "ar" ? whoDataAR : whoDataEN;
 
   useEffect(() => {
     if (currentSlideIndex == 1) {
@@ -121,12 +123,37 @@ const Who = ({ locale }) => {
           </div>
         </div>
         <div className={cn(styles.outlinedButtons)}>
-          <OutlinedButton onClick={handlePrev} className={styles.arrowButton}>
-            <img src="./svg/arrow_right_L.svg" color="#000" />
-          </OutlinedButton>
-          <OutlinedButton onClick={handleNext} className={styles.arrowButton}>
-            <img src="./svg/arrow_left_L.svg" color="#000" />
-          </OutlinedButton>
+          {locale == "ar" ? (
+            <>
+              <OutlinedButton
+                onClick={handlePrev}
+                className={styles.arrowButton}
+              >
+                <img src="./svg/arrow_right_L.svg" color="#000" />
+              </OutlinedButton>
+              <OutlinedButton
+                onClick={handleNext}
+                className={styles.arrowButton}
+              >
+                <img src="./svg/arrow_left_L.svg" color="#000" />
+              </OutlinedButton>
+            </>
+          ) : (
+            <>
+              <OutlinedButton
+                onClick={handleNext}
+                className={styles.arrowButton}
+              >
+                <img src="./svg/arrow_left_L.svg" color="#000" />
+              </OutlinedButton>
+              <OutlinedButton
+                onClick={handlePrev}
+                className={styles.arrowButton}
+              >
+                <img src="./svg/arrow_right_L.svg" color="#000" />
+              </OutlinedButton>
+            </>
+          )}
         </div>
       </div>
     </section>

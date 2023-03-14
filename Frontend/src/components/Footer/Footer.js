@@ -3,8 +3,15 @@ import cn from "classnames";
 import styles from "./Footer.module.scss";
 import Button from "../Button/Button";
 import Link from "next/link";
+import Subscribe from "./../Subscribe/Subscribe";
+import { footerDataAR, footerDataEN } from "./Footer.data";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+  const { locale } = useRouter();
+  const { latestNews, FOOTER_LINKS } =
+    locale == "ar" ? footerDataAR : footerDataEN;
+
   return (
     <section className={cn(styles.section, "bg-5")}>
       <div className={cn(styles.container, "section-spaceY space-X")}>
@@ -13,11 +20,9 @@ const Footer = () => {
             <img src={"/svg/logo_red.svg"} alt="logo" />
           </div>
           <div className={cn(styles.footerSubScribe)}>
-            <p className="paragraph1-size color-gray">
-              آخر أخبارنا ومقالاتنا ومواردنا ، سنرسلها إلى صندوق الوارد الخاص بك
-              أسبوعيًا.
-            </p>
-            <form className={styles.formFeilds}>
+            <p className="paragraph1-size color-gray">{latestNews}</p>
+            <Subscribe locale={locale} />
+            {/* <form className={styles.formFeilds}>
               <input
                 className={cn(
                   styles.input,
@@ -29,30 +34,24 @@ const Footer = () => {
                 placeholder="ادخل بريدك الإلكتروني"
               />
               <Button className="purple-bg color-white">اشتراك</Button>
-            </form>
+            </form> */}
           </div>
         </div>
         <div className={cn(styles.footerLinks)}>
           <div>
-            <Link href="#">الصفحة الرئيسية</Link>
-            <Link href="#">حياة الطفل</Link>
-            <Link href="#">التطوع</Link>
-            <Link href="#">التقويم</Link>
+            {FOOTER_LINKS.slice(0, 4).map(({ title, url }) => (
+              <Link href={url}>{title}</Link>
+            ))}
           </div>
           <div>
-            <Link href="#">واحة عبدالرحمن</Link>
-            <Link href="#">قصة عبدالرحمن</Link>
-            <Link href="#">المهام</Link>
-            <Link href="#">الأهداف</Link>
-            <Link href="#">البرامج</Link>
-            <Link href="#">أعضاء مجلس الإدارة</Link>
+            {FOOTER_LINKS.slice(4, 10).map(({ title, url }) => (
+              <Link href={url}>{title}</Link>
+            ))}
           </div>
           <div>
-            <Link href="#">برامج حياة الطفل</Link>
-            <Link href="#">أخصائيون حياة الطفل</Link>
-            <Link href="#">الميديا</Link>
-            <Link href="#">التبرعات</Link>
-            <Link href="#">تواصل معنا</Link>
+            {FOOTER_LINKS.slice(10).map(({ title, url }) => (
+              <Link href={url}>{title}</Link>
+            ))}
           </div>
         </div>
       </div>
@@ -98,5 +97,13 @@ const SocialLink = ({ src, href }) => {
     </a>
   );
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      locale: locale,
+    },
+  };
+}
 
 export default Footer;

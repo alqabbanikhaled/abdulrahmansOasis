@@ -13,12 +13,12 @@ export default function Home({ locale }) {
   return (
     <>
       {/* <LangSwitch /> */}
-      <Header navLinksColor={"white"} />
+      <Header locale={locale} navLinksColor={"white"} />
       <Who locale={locale} />
       <Volunteer locale={locale} />
-      <Publication />
-      <Donate />
-      <Calender />
+      <Publication locale={locale} />
+      <Donate locale={locale} />
+      <Calender locale={locale} />
     </>
   );
 }

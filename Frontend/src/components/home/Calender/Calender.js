@@ -1,17 +1,18 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Calender.module.scss";
-import Button from "./../../Button/Button";
-import { CALENDER_EVENTS } from "./Calender.data";
+import { calenderDataAR, calenderDataEN } from "./Calender.data";
 
-const Calender = () => {
+const Calender = ({ locale }) => {
+  const { title, CALENDER_EVENTS } =
+    locale == "ar" ? calenderDataAR : calenderDataEN;
   return (
     <section
       id="calender"
       className={cn(styles.section, "space-X-l space-Y-bottom")}
     >
       <div className={cn(styles.container)}>
-        <h3 className="text-center color-black mb-3">تقويمنا</h3>
+        <h3 className="text-center color-black mb-3">{title}</h3>
         <div className={cn(styles.calenderEvents, "mb-2")}>
           {CALENDER_EVENTS.map((event, i) => (
             <Event

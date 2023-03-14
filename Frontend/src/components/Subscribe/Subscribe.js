@@ -1,8 +1,12 @@
 import cn from "classnames";
 import styles from "./Subscribe.module.scss";
 import Button from "./../Button/Button";
+import { subscribeDataAR, subscribeDataEN } from "./Subscribe.data";
 
-const Subscribe = () => {
+const Subscribe = ({ locale }) => {
+  const { placeholder, subscribBtnText } =
+    locale == "ar" ? subscribeDataAR : subscribeDataEN;
+
   return (
     <form className={styles.formFeilds}>
       <input
@@ -10,9 +14,9 @@ const Subscribe = () => {
         type="email"
         name=""
         id=""
-        placeholder="ادخل بريدك الإلكتروني"
+        placeholder={placeholder}
       />
-      <Button className="purple-bg color-white">اشتراك</Button>
+      <Button className="purple-bg color-white">{subscribBtnText}</Button>
     </form>
   );
 };

@@ -48,12 +48,12 @@ const Header = ({ navLinksColor, locale }) => {
           <Link href="./" className={cn(styles.logo)} onClick={closeMenu}>
             {!newNavbar ? (
               <img
-                src={"./svg/logo_white.svg"}
-                srcSet={"./svg/logo_red.svg 600w"}
+                src={"/svg/logo_white.svg"}
+                srcSet={"/svg/logo_red.svg 600w"}
                 alt="logo"
               />
             ) : (
-              <img src={"./svg/new_logo.svg"} alt="logo" />
+              <img src={"/svg/new_logo.svg"} alt="logo" />
             )}
           </Link>
           <div className={styles.menuAndContact}>

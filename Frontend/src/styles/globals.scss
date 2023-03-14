@@ -2,11 +2,31 @@
 
 @font-face {
   font-family: "zarid-slab";
-  src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-ExtraLight.ttf"),
-    url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Light.ttf"),
-    url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Regular.ttf"),
-    url("../assets/zarid-slab/alfont_com_29LTZaridSlab-SemiBold.ttf"),
-    url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Bold.ttf");
+  font-weight: 100;
+  src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: "zarid-slab";
+  font-weight: 300;
+  src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Light.ttf");
+}
+@font-face {
+  font-family: "zarid-slab";
+  font-weight: 400;
+  src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Regular.ttf");
+}
+
+@font-face {
+  font-family: "zarid-slab";
+  font-weight: 600;
+  src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "zarid-slab";
+  font-weight: 700;
+  src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Bold.ttf");
 }
 
 :root {
@@ -249,6 +269,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--primaryFont);
+  white-space: pre-line;
 }
 
 html {
@@ -492,6 +513,10 @@ a {
   font-weight: 600;
 }
 
+.font-weight-semi {
+  font-weight: 600;
+}
+
 .font-weight-bold {
   font-weight: bold;
 }
@@ -634,7 +659,7 @@ a {
 
 #main {
   position: relative;
-  padding-top: 110px;
+  padding-top: 100px;
 }
 
 .scroll-content {

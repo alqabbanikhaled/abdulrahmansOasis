@@ -6,9 +6,13 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
+import { storyDataAR, storyDataEN } from "./Story.data";
 
-const Story = () => {
+const Story = ({ locale }) => {
   const [playing, setPlaying] = useState(false);
+
+  const { title, description } = locale == "ar" ? storyDataAR : storyDataEN;
+
   const handleClick = () => {
     setPlaying(!playing);
   };
@@ -20,38 +24,20 @@ const Story = () => {
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
               className={styles.reactPlayer}
-              url="./video2.mp4"
-              light="./player_cover.jpg"
-              playIcon={
-                <PlayIcon bgColor={"bg-2"} iconSrc={"./svg/play.svg"} />
-              }
+              url="/video2.mp4"
+              light="/player_cover.jpg"
+              playIcon={<PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play.svg"} />}
               playing={playing}
               controls={false}
               width="100%"
               height="100%"
             />
           </div>
-          <img className={styles.vector} src="./svg/back_2.svg" alt="" />
+          <img className={styles.vector} src="/svg/back_2.svg" alt="" />
         </div>
         <div className={cn(styles.storText, "mb-2")}>
-          <h1 className="color-orange mb-2">قصة عبدالرحمن</h1>
-          <div className="paragraph3-size color-gray">
-            عبدالرحمن كان نهرا من الحب والعطاء اللا مشروط ، كان صديق المساكين
-            والمحتاجين كان بشوشا متفائلا محبا للحياة ، فكان عند دخوله المنزل
-            يبدأ بالسلام على العمالة ويحتفل بمناسبتهم ويسأل عن اطفالهم ، رغم صغر
-            سنة إلا أنه علمنا دروسا في الوفاء والنبل . أسست هذه الواحة بعد رحيله
-            ليستظل بها أطفالنا المرضى وأسرهم ، شفاهم الله
-            <br /> <br />. تأسست جمعية حياة الطفل/ واحة عبدالرحمن في عام 2022
-            بعد وفاة الشاب عبدالرحمن بن فهد بن ثنيان الثنيان رحمه الله في مقتبل
-            عمره حيث أراد والديه تخليد ذکراه بعمل خيري يعود له بالثواب ويعم نفعه
-            الأطفال المرضی شفاهم الله وأسرهم.. وقد اختير هذا التخصص لما فيه من
-            تشابه لشخصية عبدالرحمن رحمه الله فمن يعرف عبدالرحمن يذهل بالبعد
-            الإنساني الذي تتمحور عليه شخصية هذا الشاب ونظرته الإنسانية للآخرين
-            وعطفه وحبه الخير منذ نعومة أظفاره حتی رحيله وحاجة المجتمع لمثل هذه
-            الجمعية التي تهتم بنشر ثقافة حياة الطفل وتمکين أخصائيات حياة الطفل
-            ببرامج التعليم والتدريب بالتعاون مع مستشفيات وجامعات محلية ودولية
-            لتهيئة كوادر وطنية وضمان استدامة هذا التخصص الإنساني.
-          </div>
+          <h1 className="color-orange mb-2">{title}</h1>
+          <div className="paragraph3-size color-gray">{description}</div>
         </div>
       </div>
     </section>

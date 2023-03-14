@@ -2,30 +2,20 @@ import React from "react";
 import cn from "classnames";
 
 import styles from "./Goals.module.scss";
+import { goalsDataAR, goalsDataEN } from "./Goals.data";
 
-const Goals = () => {
+const Goals = ({ locale }) => {
+  const { title, GOALS_ITEMS } = locale == "ar" ? goalsDataAR : goalsDataEN;
+
   return (
     <section className={cn(styles.section, "space-X space-Y-bottom mt-6")}>
       <div className={cn(styles.container)}>
         <div className={cn(styles.goalsText, "mb-2")}>
-          <h1 className="color-green mb-2">
-            أهداف جمعية <br />
-            واحة عبدالرحمن
-          </h1>
+          <h1 className="color-green mb-2">{title}</h1>
           <div className={styles.goals}>
-            <GoalItem num="1" title="نشر الوعي والتثقيف بتخصص حياة الطفل" />
-            <GoalItem
-              num="2"
-              title="العمل على ادراج تخصص حياة الطفل في هيكلة مستشفيات الأطفال"
-            />
-            <GoalItem
-              num="3"
-              title="العمل مع جامعات محلية لتقديم برامج دراسات عليا في هذا التخصص ومستشفيات دولية رائدة في التخصص للتدريب الميدان"
-            />
-            <GoalItem
-              num="4"
-              title="برنامج تحقيق أمنيات الأطفال المرضى شفاهم الله"
-            />
+            {GOALS_ITEMS.map((item, i) => (
+              <GoalItem num={i + 1} title={item} />
+            ))}
           </div>
         </div>
         <div className={styles.goalsImg}>

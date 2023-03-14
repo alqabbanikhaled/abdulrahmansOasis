@@ -12,8 +12,8 @@ const Calender = ({ locale }) => {
       className={cn(styles.section, "space-X-l space-Y-bottom")}
     >
       <div className={cn(styles.container)}>
-        <h3 className="text-center color-black mb-3">{title}</h3>
-        <div className={cn(styles.calenderEvents, "mb-2")}>
+        <h3 className="text-center color-yellow mb-3">{title}</h3>
+        {/* <div className={cn(styles.calenderEvents, "mb-2")}>
           {CALENDER_EVENTS.map((event, i) => (
             <Event
               className={event.className}
@@ -21,6 +21,12 @@ const Calender = ({ locale }) => {
               date={event.date}
             />
           ))}
+        </div> */}
+
+        <div className={styles.calenderImages}>
+          <img className={styles.event} src="/calender_1.jpg" alt="" />
+          <img className={styles.event} src="/calender_2.jpg" alt="" />
+          <img className={styles.event} src="/calender_3.jpg" alt="" />
         </div>
         {/* <div className={styles.button}>
           <Button className="purple-bg color-white">شاهد المزيد</Button>

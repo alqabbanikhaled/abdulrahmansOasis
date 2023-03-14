@@ -42,25 +42,44 @@
 
 .section {
   .container {
-    .calenderEvents {
+    // .calenderEvents {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   justify-content: center;
+    //   gap: 24px;
+    //   .event {
+    //     flex-basis: calc(50% - 12px);
+    //     border-radius: 14px;
+
+    //     h4 {
+    //       flex-basis: 70%;
+    //     }
+
+    //     @include small-screen {
+    //       flex-basis: 100%;
+    //     }
+    //   }
+    // }
+
+    .calenderImages {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 24px;
       .event {
-        flex-basis: calc(50% - 12px);
+        width: calc(33% - 16px);
+        display: flex;
+        align-items: center;
         border-radius: 14px;
-
-        h4 {
-          flex-basis: 70%;
+        justify-content: space-between;
+        @include medium-screen {
+          width: calc(50% - 12px);
         }
-
         @include small-screen {
-          flex-basis: 100%;
+          width: calc(70%);
         }
       }
     }
-
     .button {
       display: flex;
       justify-content: center;

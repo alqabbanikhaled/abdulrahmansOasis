@@ -72,33 +72,58 @@
 .section {
   h1 {
   }
-  .imgButtonsCont {
-    background-clip: content-box;
-    padding-top: 3.8vw;
-    .publicationImg {
+  // .imgButtonsCont {
+  //   background-clip: content-box;
+  //   padding-top: 3.8vw;
+  //   .publicationImg {
+  //     width: 100%;
+  //     img {
+  //       margin-top: -3.8vw;
+  //       width: 40%;
+  //       height: 100%;
+  //       object-fit: contain;
+
+  //       @include extra-large-screen {
+  //         width: 60%;
+  //       }
+
+  //       @include large-screen {
+  //         width: 80%;
+  //       }
+  //       @include small-screen {
+  //         width: 100%;
+  //       }
+  //     }
+  //   }
+  //   .buttons {
+  //     justify-content: center;
+  //     display: flex;
+  //     gap: 16px;
+  //   }
+  // }
+
+  .publicationImgButtons {
+    position: relative;
+    width: 100%;
+    img {
       width: 100%;
-      img {
-        margin-top: -3.8vw;
-        width: 40%;
-        height: 100%;
-        object-fit: contain;
-
-        @include extra-large-screen {
-          width: 60%;
-        }
-
-        @include large-screen {
-          width: 80%;
-        }
-        @include small-screen {
-          width: 100%;
-        }
+      // height: 85vh;
+      object-fit: cover;
+      @include small-screen {
+        height: 60vw;
       }
     }
     .buttons {
       justify-content: center;
       display: flex;
       gap: 16px;
+      position: absolute;
+      right: 0;
+      bottom: 6vw;
     }
+    // min-height: 100vh;
+    // background-image: url("../../../assets/images/publication.jpg");
+    // background-repeat: no-repeat;
+    // background-size: contain;
   }
 }

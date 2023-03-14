@@ -1,6 +1,8 @@
-export const sectionDateAR = {
-    title: 'خير الناس أنفعهم للناس'
-}
-export const sectionDateEN = {
-    title: 'The best of people is the most beneficial to people.'
-}
+export const volunteerDataAR = {
+  title: "خير الناس أنفعهم للناس",
+  sendEmail: "للتطوع فضلا إرسال ايميل",
+};
+export const volunteerDataEN = {
+  title: "The best of people is the most beneficial to people.",
+  sendEmail: "To volunteer please send an email to",
+};

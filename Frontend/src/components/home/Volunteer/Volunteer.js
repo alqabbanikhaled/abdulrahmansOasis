@@ -1,25 +1,22 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Volunteer.module.scss";
-import { sectionDateAR } from "./Volunteer.data";
-import { sectionDateEN } from "./Volunteer.data";
+import { volunteerDataAR, volunteerDataEN } from "./Volunteer.data";
 
 const Volunteer = ({ locale }) => {
-
-  const sectionData = locale == 'ar' ? sectionDateAR : sectionDateEN;
+  const { title, sendEmail } =
+    locale == "ar" ? volunteerDataAR : volunteerDataEN;
 
   return (
     <section className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-blue mb-2 text-center space-X">
-          {sectionData.title}
-        </h1>
+        <h1 className="color-blue mb-2 text-center space-X">{title}</h1>
         <div className={styles.volunteerImg}>
           <img src="/volunteer.jpg" alt="" />
         </div>
         <div className={cn(styles.volunteerText, "space-X")}>
           <h4 className="text-center font-weight-medium color-blue mt-4">
-            للتطوع فضلا إرسال ايميل <br />
+            {sendEmail} <br />
             <a
               href="mailto:volunteers@abdulrahmanoasis.org"
               className="color-blue"

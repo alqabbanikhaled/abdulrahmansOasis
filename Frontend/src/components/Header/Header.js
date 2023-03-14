@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import cn from "classnames";
 import { VscMenu, VscClose } from "react-icons/vsc";
 
-import { NAV_LINKS } from "./Header.data";
+import { headerDataAR, headerDataEN } from "./Header.data";
 import Subscribe from "../Subscribe/Subscribe";
 import styles from "./Header.module.scss";
 
-const Header = ({ navLinksColor }) => {
+const Header = ({ navLinksColor, locale }) => {
   const [isOpen, setIsOpen] = useState();
   const [newNavbar, setNewNavbar] = useState(false);
+
+  const { NAV_LINKS, latestNews } =
+    locale == "ar" ? headerDataAR : headerDataEN;
 
   const handleClick = () => setIsOpen(!isOpen);
 
@@ -86,10 +88,9 @@ const Header = ({ navLinksColor }) => {
                     "color-gray font-weight-bold"
                   )}
                 >
-                  آخر أخبارنا ومقالاتنا ومواردنا ، سنرسلها إلى صندوق الوارد
-                  الخاص بك أسبوعيًا.
+                  {latestNews}
                 </p>
-                <Subscribe />
+                <Subscribe locale={locale} />
               </div>
             </div>
             <div className={styles.contactAndMenuIcon}>

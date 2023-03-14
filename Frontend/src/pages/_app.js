@@ -10,6 +10,7 @@ const App = ({ Component, pageProps }) => {
   useEffect(() => {
     const dir = locale === "ar" ? "rtl" : "ltr";
     document.querySelector("body").setAttribute("dir", dir);
+
     if (locale === "ar") {
       document.querySelector("body").classList.add("ar");
     } else {
@@ -32,7 +33,7 @@ const getPathSlugs = () => {
       locale,
     },
   }));
-}
+};
 
 export async function getStaticPaths(...args) {
   const pathsWithLocale = getPathSlugs();
@@ -44,8 +45,8 @@ export async function getStaticPaths(...args) {
 export async function getStaticProps({ params }) {
   return {
     props: {
-      ...params
-    }
+      ...params,
+    },
   };
 }
-export default App
+export default App;

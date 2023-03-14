@@ -3,13 +3,13 @@ import cn from "classnames";
 import styles from "../components/donate/donate.module.scss";
 import Header from "./../components/Header/Header";
 
-export default function Donate() {
+export default function Donate({ locale }) {
   return (
     <>
       <Head>
         <title>Donate</title>
       </Head>
-      <Header navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
         <section className={cn(styles.section, "space-X space-Y")}>
           <div className={cn(styles.container)}>
@@ -17,11 +17,19 @@ export default function Donate() {
               <h1>للتبرعات</h1>
             </div> */}
             <div className={styles.donateImg}>
-              <img src="./donation.jpg" alt="donation" />
+              <img src="/donation.jpg" alt="donation" />
             </div>
           </div>
         </section>
       </main>
     </>
   );
+}
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      locale: locale,
+    },
+  };
 }

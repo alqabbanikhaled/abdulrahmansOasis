@@ -8,8 +8,8 @@ const Importance = () => {
     <section className={cn(styles.section, "space-X space-Y bg-3")}>
       <div className={cn(styles.container, "mb-10")}>
         <div className={styles.importanceImg}>
-          <img src="./importance.jpg" alt="" />
-          <img className={styles.vector} src="./svg/back_1.svg" alt="" />
+          <img src="/importance.jpg" alt="" />
+          <img className={styles.vector} src="/svg/back_1.svg" alt="" />
         </div>
         <div className={cn(styles.importanceText, "mb-2")}>
           <h1 className="color-green">أهمية برامج حياة الطفل</h1>
@@ -24,7 +24,7 @@ const Importance = () => {
           </div>
           <div className={styles.quotes}>
             <div className={styles.quotesImg}>
-              <img src="./svg/quotes.svg" alt="quotes" />
+              <img src="/svg/quotes.svg" alt="quotes" />
             </div>
             <div
               className={cn(

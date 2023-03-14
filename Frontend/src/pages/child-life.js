@@ -4,13 +4,13 @@ import Specialists from "./../components/child-life/Specialists/Specialists";
 import LifeImportance from "./../components/child-life/LifeImportance/LifeImportance";
 import Header from "./../components/Header/Header";
 
-export default function ChildLife() {
+export default function ChildLife({ locale }) {
   return (
     <>
       <Head>
         <title>Child Life</title>
       </Head>
-      <Header navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
         <AboutLife />
         <Specialists />
@@ -18,4 +18,12 @@ export default function ChildLife() {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      locale: locale,
+    },
+  };
 }

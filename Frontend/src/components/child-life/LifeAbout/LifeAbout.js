@@ -20,7 +20,7 @@ const LifeAbout = () => {
           </div>
         </div>
         <div className={styles.lifeAboutImg}>
-          <img src="./life_about.jpg" alt="" />
+          <img src="/life_about.jpg" alt="" />
           {/* <img className={styles.vector} src="./svg/back_1.svg" alt="" /> */}
         </div>
       </div>

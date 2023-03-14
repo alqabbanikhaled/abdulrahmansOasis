@@ -35,9 +35,36 @@
     }
 
     @include small-screen {
-      bottom: 15vw;
+      bottom: 12vw;
     }
     .textSwiperAndButton {
+      .titleWrapper {
+        position: relative;
+        width: fit-content;
+        padding: 1vw 2vw;
+        img {
+          width: 9vw;
+        }
+        img:first-child {
+          position: absolute;
+          top: 0;
+          // right: 0;
+        }
+        img:nth-of-type(2) {
+          position: absolute;
+          bottom: 0;
+          // left: 0;
+        }
+        @include large-screen {
+          img {
+            width: 15vw;
+          }
+          padding: 2vw 4vw;
+        }
+        @include small-screen {
+          padding: 3vw 6vw;
+        }
+      }
       .whoSwiperText {
         width: 100%;
         // margin-inline-start: 0;

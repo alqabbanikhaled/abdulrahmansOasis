@@ -74,7 +74,7 @@ const NewsItem = ({
         <div className={cn(styles.location, "color-gray")}>
           <img
             className={styles.icon}
-            src="./svg/location.svg"
+            src="/svg/location.svg"
             alt="location icon"
           />
           <div className={styles.text}>{location}</div>
@@ -95,7 +95,7 @@ const NewsItem = ({
             className={cn(styles.discover, "color-orange font-weight-medium")}
           >
             <span>اكتشف المزيد</span>
-            <img src="./svg/discover_arrow.svg" alt="" />
+            <img src="/svg/discover_arrow.svg" alt="" />
           </div>
         </a>
       </div>

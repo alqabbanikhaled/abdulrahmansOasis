@@ -39,7 +39,7 @@ const GalleryItem = ({ title, coverUrl, videoUrl }) => {
           className={styles.reactPlayer}
           url={videoUrl}
           light={coverUrl}
-          playIcon={<PlayIcon bgColor={"bg-3"} iconSrc={"./svg/play_3.svg"} />}
+          playIcon={<PlayIcon bgColor={"bg-3"} iconSrc={"/svg/play_3.svg"} />}
           playing={playing}
           controls={false}
           width="100%"

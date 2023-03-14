@@ -19,8 +19,8 @@ const Goals = ({ locale }) => {
           </div>
         </div>
         <div className={styles.goalsImg}>
-          <img src="./goals.jpg" alt="" />
-          <img className={styles.vector} src="./svg/back_1.svg" alt="" />
+          <img src="/goals.jpg" alt="" />
+          <img className={styles.vector} src="/svg/back_1.svg" alt="" />
         </div>
       </div>
     </section>

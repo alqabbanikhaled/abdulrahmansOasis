@@ -1,6 +1,6 @@
 export const NEWS_LIST = [
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "23",
     month: "يناير",
     location: "الرياض، المملكة العربية السعودية",
@@ -10,7 +10,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -21,7 +21,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -31,7 +31,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "23",
     month: "يناير",
     location: "الرياض، المملكة العربية السعودية",
@@ -41,7 +41,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -52,7 +52,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -62,7 +62,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "23",
     month: "يناير",
     location: "الرياض، المملكة العربية السعودية",
@@ -72,7 +72,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -83,7 +83,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -93,7 +93,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "23",
     month: "يناير",
     location: "الرياض، المملكة العربية السعودية",
@@ -103,7 +103,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -114,7 +114,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -124,7 +124,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "23",
     month: "يناير",
     location: "الرياض، المملكة العربية السعودية",
@@ -134,7 +134,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -145,7 +145,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -155,7 +155,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "23",
     month: "يناير",
     location: "الرياض، المملكة العربية السعودية",
@@ -165,7 +165,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_1.jpg",
+    imgUrl: "/news_1.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",
@@ -176,7 +176,7 @@ export const NEWS_LIST = [
     newsUrl: "#",
   },
   {
-    imgUrl: "./news_2.jpg",
+    imgUrl: "/news_2.jpg",
     day: "01",
     month: "مارس",
     location: "الرياض، المملكة العربية السعودية",

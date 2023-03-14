@@ -8,13 +8,13 @@ import TextArea from "./../components/TextArea/TextArea";
 import SocialLinks from "./../components/SocialLinks/SocialLinks";
 import Header from "./../components/Header/Header";
 
-const Contact = () => {
+const Contact = ({ locale }) => {
   return (
     <>
       <Head>
         <title>Contact Us</title>
       </Head>
-      <Header navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
         <section className={cn(styles.section, "space-X space-Y")}>
           <div className={cn(styles.container)}>
@@ -67,8 +67,8 @@ const Contact = () => {
               </div>
             </div>
             <div className={styles.contactImg}>
-              <img src="./contact.jpg" alt="" />
-              <img className={styles.vector} src="./svg/back_1.svg" alt="" />
+              <img src="/contact.jpg" alt="" />
+              <img className={styles.vector} src="/svg/back_1.svg" alt="" />
             </div>
           </div>
         </section>
@@ -76,4 +76,13 @@ const Contact = () => {
     </>
   );
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      locale: locale,
+    },
+  };
+}
+
 export default Contact;

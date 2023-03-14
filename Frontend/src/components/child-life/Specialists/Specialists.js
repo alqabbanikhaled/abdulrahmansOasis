@@ -28,10 +28,10 @@ const Specialists = () => {
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
               className={styles.reactPlayer}
-              url="./video3.mp4"
-              light="./specialists_cover.jpg"
+              url="/video3.mp4"
+              light="/specialists_cover.jpg"
               playIcon={
-                <PlayIcon bgColor={"bg-2"} iconSrc={"./svg/play_2.svg"} />
+                <PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play_2.svg"} />
               }
               playing={playing}
               controls={false}

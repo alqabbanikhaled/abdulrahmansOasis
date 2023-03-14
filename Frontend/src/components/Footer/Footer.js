@@ -59,21 +59,21 @@ const Footer = () => {
       <div className={cn(styles.container, "space-X pt-2 pb-2")}>
         <div className={styles.socialLinks}>
           <SocialLink
-            src="./svg/instagram.svg"
+            src="/svg/instagram.svg"
             href={"https://instagram.com/abdulrahmansoasis?igshid=YmMyMTA2M2Y="}
           />
           <SocialLink
-            src="./svg/youtube.svg"
+            src="/svg/youtube.svg"
             href={"https://youtube.com/@abdulrahmansoasis"}
           />
           <SocialLink
-            src="./svg/twitter.svg"
+            src="/svg/twitter.svg"
             href={
               "https://twitter.com/abdulrahmansoas?s=11&t=UAPx6gtAmnhgWwn1mvGbaA"
             }
           />
           <SocialLink
-            src="./svg/snapshat.svg"
+            src="/svg/snapshat.svg"
             href={"https://t.snapchat.com/oAJ0KyrL"}
           />
         </div>

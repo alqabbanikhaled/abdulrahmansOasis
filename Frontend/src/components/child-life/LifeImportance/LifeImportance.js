@@ -29,7 +29,7 @@ const LifeImportance = () => {
           </div>
         </div>
         <div className={styles.img}>
-          <img src="./life_importance.jpg" alt="" />
+          <img src="/life_importance.jpg" alt="" />
           {/* <img className={styles.vector} src="./svg/back_1.svg" alt="" /> */}
         </div>
       </div>

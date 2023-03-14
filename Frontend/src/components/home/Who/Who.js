@@ -99,11 +99,13 @@ const Who = ({ locale }) => {
               setCurrentSlideIndex(value.realIndex);
             }}
           >
-            {BANARS_DATA.map(({ title, buttonText }, i) => (
+            {BANARS_DATA.map(({ title, buttonText, textColor }, i) => (
               <SwiperSlide key={i}>
                 <SwiperTextCard
                   title={title}
                   buttonText={buttonText}
+                  textColor={textColor}
+                  locale={locale}
                   className={cn({
                     "color-black":
                       BANARS_DATA[currentSlideIndex].textColor == "dark",
@@ -167,10 +169,38 @@ const Who = ({ locale }) => {
   );
 };
 
-const SwiperTextCard = ({ title, className, buttonText }) => {
+const SwiperTextCard = ({ title, className, textColor, locale }) => {
   return (
-    <div>
-      <h1 className={cn("mb-1", className)}>{title}</h1>
+    <div className={cn(styles.titleWrapper, "mb-1")}>
+      {locale == "ar" ? (
+        <img
+          className={cn("right-0",textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_top_ar.svg"
+          alt=""
+        />
+      ) : (
+        <img
+          className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_top_en.svg"
+          alt=""
+        />
+      )}
+
+      <h1 className={cn(className)}>{title}</h1>
+      {locale == "ar" ? (
+        <img
+          className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_bottom_ar.svg"
+          alt=""
+        />
+      ) : (
+        <img
+          className={cn("right-0",textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_bottom_en.svg"
+          alt=""
+        />
+      )}
+
       {/* <div>
         <Link href={"#"}>
           <Button className={cn("color-white red-bg")}>{buttonText}</Button>

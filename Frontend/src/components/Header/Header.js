@@ -6,6 +6,7 @@ import { VscMenu, VscClose } from "react-icons/vsc";
 import { headerDataAR, headerDataEN } from "./Header.data";
 import Subscribe from "../Subscribe/Subscribe";
 import styles from "./Header.module.scss";
+import LangSwitch from "../LangSwitch/LangSwitch";
 
 const Header = ({ navLinksColor, locale }) => {
   const [isOpen, setIsOpen] = useState();
@@ -79,6 +80,9 @@ const Header = ({ navLinksColor, locale }) => {
                     )
                   );
                 })}
+                <li>
+                  <LangSwitch navLinksColor={navLinksColor} newNavbar={newNavbar} />
+                </li>
               </ul>
 
               <div className={cn(styles.headerSubscribe, "mt-3")}>

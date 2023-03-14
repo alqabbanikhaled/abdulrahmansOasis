@@ -3,7 +3,7 @@ export const whoDataAR = {
     {
       title: "من هو \n عبدالرحمن؟",
       buttonText: "المزيد",
-      buttonLink: "./about",
+      buttonLink: "./about#story",
       textColor: "light",
       description: "",
       bannerUrl: "/slide_img_1.jpg",

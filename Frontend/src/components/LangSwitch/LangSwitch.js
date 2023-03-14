@@ -1,26 +1,27 @@
 import React from "react";
 import { useRouter } from "next/router";
+import cn from "classnames";
 
+import OutlinedButton from "./../OutlinedButton/OutlinedButton";
 import styles from "./LangSwitch.module.scss";
-import Button from "./../Button/Button";
 
-const LangSwitch = () => {
-  const { locales, push } = useRouter();
-  const handleClick = (loc) => () => {
-    push("/", undefined, { locale: loc });
+const LangSwitch = ({ newNavbar, navLinksColor }) => {
+  const { push, locale } = useRouter();
+  const targetLocale = locale == "ar" ? "en" : "ar";
+  const handleClick = () => () => {
+    push("/", undefined, { locale: targetLocale });
   };
 
   return (
-    <div className={styles.buttons}>
-      {locales.map((l) => (
-        <>
-          <Button className={"color-white green-bg"} onClick={handleClick(l)}>
-            {l}
-          </Button>
-          <br />
-        </>
-      ))}
-    </div>
+    <OutlinedButton
+      className={cn(styles.button, {
+        "color-white border-red": !newNavbar && navLinksColor!="red",
+        "color-red border-light-gray": newNavbar || navLinksColor == "red",
+      })}
+      onClick={handleClick(locale)}
+    >
+      {targetLocale.toUpperCase()}
+    </OutlinedButton>
   );
 };
 

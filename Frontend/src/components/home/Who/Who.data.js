@@ -11,10 +11,11 @@ export const whoDataAR = {
     },
     {
       title:
-        "توقيع اتفاقية اطلاق اول برنامج\n #حياة_الطفل في المملكة العربية السعودية",
+        "توقيع اتفاقية اطلاق اول برنامج #حياة_الطفل في المملكة العربية السعودية",
       buttonText: "المزيد",
       buttonLink: "./media",
-      description: "",
+      description:
+        "تم بحمدالله اطلاق اول برنامج حياة طفل في المملكة العربية السعودية بالتعاون مع جمعية سند الخيرية ومدينة الملك فهد الطبية وسيباشر اخصائيات حياة الطفل مهامهم في منتصف شهر مارس .. سعداء بهذا الانجاز !",
       textColor: "light",
       bannerUrl: "./video_cover.mp4",
       srcType: "video",
@@ -55,7 +56,8 @@ export const whoDataEN = {
         "Signing an agreement to launch the first #ChildLife program in the Kingdom of Saudi Arabia",
       buttonText: "More",
       buttonLink: "./media",
-      description: "",
+      description:
+        "Praise be to God, the first Child Life Program has been launched in the Kingdom of Saudi Arabia, in cooperation with the Sanad Charity Association and King Fahd Medical City. Child life specialists will start their duties in mid-March. We are happy with this achievement!",
       textColor: "light",
       bannerUrl: "./video_cover.mp4",
       srcType: "video",

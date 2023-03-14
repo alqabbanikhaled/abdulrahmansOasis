@@ -99,22 +99,25 @@ const Who = ({ locale }) => {
               setCurrentSlideIndex(value.realIndex);
             }}
           >
-            {BANARS_DATA.map(({ title, buttonText, textColor }, i) => (
-              <SwiperSlide key={i}>
-                <SwiperTextCard
-                  title={title}
-                  buttonText={buttonText}
-                  textColor={textColor}
-                  locale={locale}
-                  className={cn({
-                    "color-black":
-                      BANARS_DATA[currentSlideIndex].textColor == "dark",
-                    "color-white":
-                      BANARS_DATA[currentSlideIndex].textColor != "dark",
-                  })}
-                />
-              </SwiperSlide>
-            ))}
+            {BANARS_DATA.map(
+              ({ title, buttonText, textColor, description }, i) => (
+                <SwiperSlide key={i}>
+                  <SwiperTextCard
+                    locale={locale}
+                    title={title}
+                    buttonText={buttonText}
+                    textColor={textColor}
+                    description={description}
+                    className={cn({
+                      "color-black":
+                        BANARS_DATA[currentSlideIndex].textColor == "dark",
+                      "color-white":
+                        BANARS_DATA[currentSlideIndex].textColor != "dark",
+                    })}
+                  />
+                </SwiperSlide>
+              )
+            )}
           </Swiper>
           <div className={styles.button}>
             <Link href={BANARS_DATA[currentSlideIndex].buttonLink}>
@@ -169,12 +172,18 @@ const Who = ({ locale }) => {
   );
 };
 
-const SwiperTextCard = ({ title, className, textColor, locale }) => {
+const SwiperTextCard = ({
+  title,
+  className,
+  textColor,
+  locale,
+  description,
+}) => {
   return (
     <div className={cn(styles.titleWrapper, "mb-1")}>
       {locale == "ar" ? (
         <img
-          className={cn("right-0",textColor == "dark" ? "filter-black" : "")}
+          className={cn("right-0", textColor == "dark" ? "filter-black" : "")}
           src="/svg/braket_top_ar.svg"
           alt=""
         />
@@ -187,6 +196,7 @@ const SwiperTextCard = ({ title, className, textColor, locale }) => {
       )}
 
       <h1 className={cn(className)}>{title}</h1>
+      <div className="color-white">{description}</div>
       {locale == "ar" ? (
         <img
           className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
@@ -195,7 +205,7 @@ const SwiperTextCard = ({ title, className, textColor, locale }) => {
         />
       ) : (
         <img
-          className={cn("right-0",textColor == "dark" ? "filter-black" : "")}
+          className={cn("right-0", textColor == "dark" ? "filter-black" : "")}
           src="/svg/braket_bottom_en.svg"
           alt=""
         />

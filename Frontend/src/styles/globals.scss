@@ -167,6 +167,11 @@
     .mb-2 {
       margin-bottom: 3.9vw; //30px
     }
+
+    .mb-4 {
+      margin-bottom: 5.5vw; //55px
+    }
+    
     .mb-5 {
       margin-bottom: 10vw; //77px
     }
@@ -285,7 +290,13 @@ body {
 h1 {
   font-size: var(--head1-size);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 0.9;
+}
+
+.ar {
+  h1 {
+    line-height: 1.1;
+  }
 }
 
 h2 {
@@ -510,10 +521,6 @@ a {
 }
 
 .font-weight-medium {
-  font-weight: 600;
-}
-
-.font-weight-semi {
   font-weight: 600;
 }
 

@@ -1,8 +1,8 @@
 export const whoDataAR = {
   BANARS_DATA: [
     {
-      title: "من هو عبدالرحمن",
-      buttonText: "اكتشف المزيد",
+      title: "من هو \n عبدالرحمن؟",
+      buttonText: "المزيد",
       buttonLink: "./about",
       textColor: "light",
       description: "",
@@ -10,8 +10,9 @@ export const whoDataAR = {
       srcType: "image",
     },
     {
-      title: "توقيع اتفاقية اطلاق اول برنامج #حياة_الطفل في المملكة العربية",
-      buttonText: "آخر الأخبار",
+      title:
+        "توقيع اتفاقية اطلاق اول برنامج\n #حياة_الطفل في المملكة العربية السعودية",
+      buttonText: "المزيد",
       buttonLink: "./media",
       description: "",
       textColor: "light",
@@ -19,8 +20,8 @@ export const whoDataAR = {
       srcType: "video",
     },
     {
-      title: "أهلا بشهر التوعية بتخصص حياة الطفل",
-      buttonText: "اكتشف المزيد",
+      title: "أهلا بشهر التوعية\n بتخصص حياة الطفل",
+      buttonText: "المزيد",
       buttonLink: "./child-life",
       description: "",
       textColor: "dark",
@@ -28,8 +29,8 @@ export const whoDataAR = {
       srcType: "image",
     },
     {
-      title: `ما هو تخصص حياة الطفل؟`,
-      buttonText: "اكتشف فعالياتنا",
+      title: `ما هو\nتخصص حياة الطفل؟`,
+      buttonText: "المزيد",
       buttonLink: "#calender",
       description: "",
       textColor: "light",
@@ -41,8 +42,8 @@ export const whoDataAR = {
 export const whoDataEN = {
   BANARS_DATA: [
     {
-      title: "Who is Abdulrahman",
-      buttonText: "Find out more",
+      title: "Who is \n Abdulrahman",
+      buttonText: "More",
       buttonLink: "./about",
       textColor: "light",
       description: "",
@@ -52,7 +53,7 @@ export const whoDataEN = {
     {
       title:
         "Signing an agreement to launch the first #ChildLife program in the Kingdom of Saudi Arabia",
-      buttonText: "Latest news",
+      buttonText: "More",
       buttonLink: "./media",
       description: "",
       textColor: "light",
@@ -60,8 +61,8 @@ export const whoDataEN = {
       srcType: "video",
     },
     {
-      title: "Welcome to Child Life Awareness Month",
-      buttonText: "Find out more",
+      title: "Welcome to \n Child Life Awareness Month",
+      buttonText: "More",
       buttonLink: "./child-life",
       description: "",
       textColor: "dark",
@@ -69,8 +70,8 @@ export const whoDataEN = {
       srcType: "image",
     },
     {
-      title: "What is a child life major?",
-      buttonText: "Discover our events",
+      title: "What is \n A child life major?",
+      buttonText: "More",
       buttonLink: "#calender",
       description: "",
       textColor: "light",

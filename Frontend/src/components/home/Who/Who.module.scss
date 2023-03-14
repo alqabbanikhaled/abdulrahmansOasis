@@ -35,16 +35,16 @@
     }
 
     @include small-screen {
-      bottom: 30vw;
+      bottom: 15vw;
     }
     .textSwiperAndButton {
       .whoSwiperText {
-        width: 70%;
+        width: 100%;
         // margin-inline-start: 0;
         margin: 0;
-        @include large-screen {
-          width: 80%;
-        }
+        // @include large-screen {
+        //   width: 80%;
+        // }
         @include small-screen {
           width: 100%;
         }

@@ -53,7 +53,7 @@ const GalleryItem = ({ title, coverUrl, videoUrl }) => {
           <div
             className={cn(
               styles.title,
-              "color-white paragraph4-size font-weight-bold text-center"
+              "color-white paragraph4-size font-weight-medium text-center"
             )}
           >
             <span>{title}</span>

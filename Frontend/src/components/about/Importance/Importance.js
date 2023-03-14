@@ -29,7 +29,7 @@ const Importance = () => {
             <div
               className={cn(
                 styles.quotesText,
-                "color-green paragraph3-size font-weight-bold"
+                "color-green paragraph3-size font-weight-medium"
               )}
             >
               وفق الأکادیمیة الأمریکیة لطب الأطفال:یتمتع الاخصائیون المعنیون
@@ -41,7 +41,7 @@ const Importance = () => {
         </div>
       </div>
       <div className="text-center">
-        <div className="paragraph5-size font-weight-bold">
+        <div className="paragraph5-size font-weight-medium">
           النموذج الذي سیتم من خلاله تقدیم خدمات برامج حیاة الطفل
         </div>
         <div className="color-gray paragraph1-size mb-3">

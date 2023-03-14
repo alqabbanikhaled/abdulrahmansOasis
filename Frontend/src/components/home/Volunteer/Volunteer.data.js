@@ -1,5 +1,5 @@
 export const volunteerDataAR = {
-  title: "خير الناس أنفعهم للناس",
+  title: "”خير الناس أنفعهم للناس“",
   sendEmail: "للتطوع فضلا إرسال ايميل",
 };
 export const volunteerDataEN = {

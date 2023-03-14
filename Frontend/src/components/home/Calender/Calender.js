@@ -36,7 +36,7 @@ const Calender = ({ locale }) => {
 //       <h4>{description}</h4>
 //       <div className={cn(styles.date)}>
 //         <h1 className="paragraph12-size">{day}</h1>
-//         <div className="paragraph3-size font-weight-bold">{month}</div>
+//         <div className="paragraph3-size font-weight-medium">{month}</div>
 //       </div>
 //     </div>
 //   );
@@ -46,7 +46,7 @@ const Event = ({ className, description, date }) => {
   return (
     <div className={cn(styles.event, "p-3 text-center", className)}>
       <h4>{description}</h4>
-      <p className="paragraph3-size font-weight-bold color-gray">{date}</p>
+      <p className="paragraph3-size font-weight-medium color-gray">{date}</p>
     </div>
   );
 };

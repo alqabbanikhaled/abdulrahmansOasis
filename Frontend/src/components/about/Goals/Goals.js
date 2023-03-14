@@ -31,7 +31,7 @@ const GoalItem = ({ num, title }) => {
   return (
     <div className={cn(styles.goalItem, "mb-2")}>
       <h3 className="color-green">{num}</h3>
-      <div className="paragraph3-size font-weight-bold">{title}</div>
+      <div className="paragraph3-size font-weight-medium">{title}</div>
     </div>
   );
 };

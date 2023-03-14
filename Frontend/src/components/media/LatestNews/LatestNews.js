@@ -61,7 +61,7 @@ const NewsItem = ({
             <div
               className={cn(
                 styles.day,
-                "paragraph5-size font-weight-bold color-purple"
+                "paragraph5-size font-weight-medium color-purple"
               )}
             >
               {day}
@@ -82,7 +82,7 @@ const NewsItem = ({
         <div
           className={cn(
             styles.title,
-            "color-orange paragraph3-size font-weight-bold"
+            "color-orange paragraph3-size font-weight-medium"
           )}
         >
           {title}
@@ -91,7 +91,9 @@ const NewsItem = ({
           {description}
         </div>
         <a href={newsUrl}>
-          <div className={cn(styles.discover, "color-orange font-weight-bold")}>
+          <div
+            className={cn(styles.discover, "color-orange font-weight-medium")}
+          >
             <span>اكتشف المزيد</span>
             <img src="./svg/discover_arrow.svg" alt="" />
           </div>

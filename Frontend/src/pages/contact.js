@@ -58,7 +58,7 @@ const Contact = () => {
                 <div
                   className={cn(
                     styles.followText,
-                    "paragraph1-size color-purple font-weight-bold"
+                    "paragraph1-size color-purple font-weight-medium"
                   )}
                 >
                   تابعونا على منصات التواصل الاجتماعي

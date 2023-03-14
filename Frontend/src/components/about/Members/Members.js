@@ -23,7 +23,7 @@ const MemeberItem = ({ title, name, position }) => {
   return (
     <div className={cn(styles.memeberItem, "bg-1 pt-2 pb-2 ps-4 pe-4")}>
       <div className="paragraph1-size color-gray">{title}</div>
-      <div className="paragraph3-size font-weight-bold">{name}</div>
+      <div className="paragraph3-size font-weight-medium">{name}</div>
       <div className="paragraph1-size color-gray">{position}</div>
     </div>
   );

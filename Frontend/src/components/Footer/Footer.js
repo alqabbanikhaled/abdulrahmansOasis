@@ -77,7 +77,7 @@ const Footer = () => {
             href={"https://t.snapchat.com/oAJ0KyrL"}
           />
         </div>
-        {/* <div className={cn(styles.rights, "font-weight-bold")}>
+        {/* <div className={cn(styles.rights, "font-weight-medium")}>
           <span className="color-purple">
             © 2023 Abdulrahman Oasis Rights Reserved. Designed By
           </span>{" "}

@@ -88,7 +88,7 @@ const Who = ({ locale }) => {
         ))}
       </Swiper>
       <div className={cn(styles.container, "space-X")}>
-        <div className={cn(styles.textSwiperAndButton, "mb-9")}>
+        <div className={cn(styles.textSwiperAndButton, "mb-4")}>
           <Swiper
             loop={true}
             className={cn(styles.whoSwiperText, "mb-1")}
@@ -105,7 +105,7 @@ const Who = ({ locale }) => {
                   title={title}
                   buttonText={buttonText}
                   className={cn({
-                    "color-black w-80":
+                    "color-black":
                       BANARS_DATA[currentSlideIndex].textColor == "dark",
                     "color-white":
                       BANARS_DATA[currentSlideIndex].textColor != "dark",
@@ -116,7 +116,14 @@ const Who = ({ locale }) => {
           </Swiper>
           <div className={styles.button}>
             <Link href={BANARS_DATA[currentSlideIndex].buttonLink}>
-              <Button className={cn("color-white red-bg")}>
+              <Button
+                className={cn({
+                  "color-red white-bg":
+                    BANARS_DATA[currentSlideIndex].textColor != "dark",
+                  "color-yellow black-bg":
+                    BANARS_DATA[currentSlideIndex].textColor == "dark",
+                })}
+              >
                 {BANARS_DATA[currentSlideIndex].buttonText}
               </Button>
             </Link>

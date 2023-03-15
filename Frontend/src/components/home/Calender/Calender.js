@@ -12,7 +12,7 @@ const Calender = ({ locale }) => {
       className={cn(styles.section, "space-X-l space-Y-bottom")}
     >
       <div className={cn(styles.container)}>
-        <h3 className="text-center color-yellow mb-3">{title}</h3>
+        <h1 className="text-center color-yellow mb-3">{title}</h1>
         {/* <div className={cn(styles.calenderEvents, "mb-2")}>
           {CALENDER_EVENTS.map((event, i) => (
             <Event

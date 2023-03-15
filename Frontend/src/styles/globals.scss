@@ -29,6 +29,12 @@
   src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Bold.ttf");
 }
 
+@font-face {
+  font-family: "oredo";
+  font-weight: 900;
+  src: url("../assets/oredo/OoredooArabic-Heavy.ttf");
+}
+
 :root {
   // font-family
   --primaryFont: zarid-slab;
@@ -525,12 +531,12 @@ a {
   border-color: var(--blue);
 }
 
-.left-0{
-  left:0;
+.left-0 {
+  left: 0;
 }
 
-.right-0{
-  right:0;
+.right-0 {
+  right: 0;
 }
 .font-weight-normal {
   font-weight: 400;

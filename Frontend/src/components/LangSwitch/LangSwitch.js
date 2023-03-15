@@ -6,16 +6,16 @@ import OutlinedButton from "./../OutlinedButton/OutlinedButton";
 import styles from "./LangSwitch.module.scss";
 
 const LangSwitch = ({ newNavbar, navLinksColor }) => {
-  const { push, locale } = useRouter();
+  const { push, locale, pathname } = useRouter();
   const targetLocale = locale == "ar" ? "en" : "ar";
   const handleClick = () => () => {
-    push("/", undefined, { locale: targetLocale });
+    push(pathname, undefined, { locale: targetLocale });
   };
 
   return (
     <OutlinedButton
       className={cn(styles.button, {
-        "color-white border-red": !newNavbar && navLinksColor!="red",
+        "color-white border-red": !newNavbar && navLinksColor != "red",
         "color-red border-light-gray": newNavbar || navLinksColor == "red",
       })}
       onClick={handleClick(locale)}

@@ -120,7 +120,10 @@ const Who = ({ locale }) => {
             )}
           </Swiper>
           <div className={styles.button}>
-            <Link href={BANARS_DATA[currentSlideIndex].buttonLink}>
+            <Link
+              href={BANARS_DATA[currentSlideIndex].buttonLink}
+              target={BANARS_DATA[currentSlideIndex].buttonTarget}
+            >
               <Button
                 className={cn({
                   "color-red white-bg":

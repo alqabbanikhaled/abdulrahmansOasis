@@ -3,17 +3,15 @@ import cn from "classnames";
 import styles from "./Volunteer.module.scss";
 import { volunteerDataAR, volunteerDataEN } from "./Volunteer.data";
 
-const Volunteer = ({ locale }) => {
+const Volunteer = ({ locale, data = {} }) => {
   const { title, sendEmail } =
     locale == "ar" ? volunteerDataAR : volunteerDataEN;
 
   return (
     <section className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-blue mb-2 text-center space-X">{title}</h1>
-        <div className={styles.volunteerImg}>
-          <img src="/volunteer.jpg" alt="" />
-        </div>
+        <h1 className="color-blue mb-2 text-center space-X">{data.title}</h1>
+        <div className={styles.volunteerImg}>{/* {data.} */}</div>
         <div className={cn(styles.volunteerText, "space-X")}>
           <h4 className="text-center font-weight-medium color-blue mt-4">
             {sendEmail} <br />

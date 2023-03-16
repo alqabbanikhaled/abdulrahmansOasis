@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Who from "./../components/home/Who/Who";
 import Donate from "./../components/home/Donate/Donate";
@@ -11,23 +11,28 @@ import LangSwitch from "./../components/LangSwitch/LangSwitch";
 import Header from "./../components/Header/Header";
 import { getSinglePage } from "@/providers/api.service";
 
-export default function Home({ locale, home }) {
-  // useEffect(async () => {
-  //   const data = await getSinglePage(
-  //     "home-page",
-  //     "volunteer,publicaiton,donate,calender,who"
-  //   );
-  //   console.log(data);
-  // }, []);
+export default function Home({ locale }) {
+  const [homeData, setHomeData] = useState({});
 
-  console.log(data);
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedJson = await getSinglePage(
+        "home-page",
+        "volunteer,publicaiton,donate,calender,who"
+      );
+      setHomeData({ ...fetchedJson.data.attributes });
+    }
+    fetchData();
+  }, []);
+
+  console.log(homeData);
 
   return (
     <>
       {/* <LangSwitch /> */}
       <Header locale={locale} navLinksColor={"white"} />
       <Who locale={locale} />
-      <Volunteer locale={locale} />
+      <Volunteer locale={locale} data={homeData.volunteer} />
       <Publication locale={locale} />
       <Donate locale={locale} />
       <Calender locale={locale} />
@@ -36,15 +41,15 @@ export default function Home({ locale, home }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  const data = await getSinglePage(
-    "home-page",
-    "volunteer,publicaiton,donate,calender,who"
-  );
+  // const data = await getSinglePage(
+  //   "home-page",
+  //   "volunteer,publicaiton,donate,calender,who"
+  // );
 
   return {
     props: {
+      // data: data,
       locale: locale,
-      data,
     },
   };
 }

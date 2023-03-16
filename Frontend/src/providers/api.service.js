@@ -11,12 +11,14 @@ export async function getSinglePage(name, fields) {
   };
 
   const url = `${baseUrl}/api/${name}?populate=${fields}`;
+
   try {
     const res = await fetch(url, requestOptions);
     const fetchJson = await res.json();
-    console.log(fetchJson);
     return fetchJson;
   } catch (e) {
-    throw e;
+    // throw e;
+    console.log(e);
+    return null;
   }
 }

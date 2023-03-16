@@ -19,10 +19,10 @@ const Footer = () => {
           <div className={cn(styles.footerLogo, "mb-2")}>
             <img src={"/svg/logo_red.svg"} alt="logo" />
           </div>
-          <div className={cn(styles.footerSubScribe)}>
+          {/* <div className={cn(styles.footerSubScribe)}>
             <p className="paragraph1-size color-gray">{latestNews}</p>
-            <Subscribe locale={locale} />
-            {/* <form className={styles.formFeilds}>
+            <Subscribe locale={locale} /> */}
+          {/* <form className={styles.formFeilds}>
               <input
                 className={cn(
                   styles.input,
@@ -35,7 +35,7 @@ const Footer = () => {
               />
               <Button className="purple-bg color-white">اشتراك</Button>
             </form> */}
-          </div>
+          {/* </div> */}
         </div>
         <div className={cn(styles.footerLinks)}>
           <div>

@@ -28,7 +28,7 @@ const LatestNews = () => {
   };
 
   return (
-    <section className={cn(styles.section, "space-X space-Y bg-7")}>
+    <section className={cn(styles.section, "space-X space-Y bg-7 mt-2")}>
       <div className={cn(styles.container)}>
         <h3 className="color-orange mb-2 text-center">آخر الأخبار</h3>
         <div className={cn(styles.latestNewsItems)}>

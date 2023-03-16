@@ -8,9 +8,10 @@
   width: 100%;
 
   &.active {
-    transition: all 0.4s linear;
+    transition: background 0.3s linear, padding 0.3s linear;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
   }
 
   .headerContainer {

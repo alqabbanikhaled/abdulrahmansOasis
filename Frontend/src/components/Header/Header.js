@@ -45,7 +45,12 @@ const Header = ({ navLinksColor, locale }) => {
   return (
     <>
       <header className={cn(styles.header, { [styles.active]: newNavbar })}>
-        <div className={cn(styles.headerContainer, "space-X pt-1 pb-1")}>
+        <div
+          className={cn(styles.headerContainer, "space-X", {
+            "pt-2 pb-2": !newNavbar,
+            "pt-1 pb-1": newNavbar,
+          })}
+        >
           <Link href="./" className={cn(styles.logo)} onClick={closeMenu}>
             {!newNavbar ? (
               <img
@@ -80,12 +85,12 @@ const Header = ({ navLinksColor, locale }) => {
                     )
                   );
                 })}
-                <li>
+                {/* <li>
                   <LangSwitch navLinksColor={navLinksColor} newNavbar={newNavbar} />
-                </li>
+                </li> */}
               </ul>
 
-              <div className={cn(styles.headerSubscribe, "mt-3")}>
+              {/* <div className={cn(styles.headerSubscribe, "mt-3")}>
                 <p
                   className={cn(
                     styles.subscribeText,
@@ -95,7 +100,7 @@ const Header = ({ navLinksColor, locale }) => {
                   {latestNews}
                 </p>
                 <Subscribe locale={locale} />
-              </div>
+              </div> */}
             </div>
             <div className={styles.contactAndMenuIcon}>
               {/* <Link href={"/"} className="paragraph11-size">

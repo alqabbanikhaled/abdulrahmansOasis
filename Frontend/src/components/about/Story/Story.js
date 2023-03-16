@@ -18,7 +18,10 @@ const Story = ({ locale }) => {
   };
 
   return (
-    <section className={cn(styles.section, "space-X space-Y-bottom")}>
+    <section
+      id="story"
+      className={cn(styles.section, "space-X space-Y-bottom")}
+    >
       <div className={cn(styles.container)}>
         <div className={styles.storyVideo}>
           <div className={styles.playerWrapper} onClick={handleClick}>

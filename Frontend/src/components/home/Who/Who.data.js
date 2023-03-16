@@ -8,6 +8,7 @@ export const whoDataAR = {
       textColor: "light",
       description: "",
       bannerUrl: "/slide_img_1.jpg",
+      bannerUrl_mob: "/slide_img_1_mob.jpg",
       srcType: "image",
     },
     {
@@ -30,6 +31,7 @@ export const whoDataAR = {
       description: "",
       textColor: "dark",
       bannerUrl: "/slide_img_2.jpg",
+      bannerUrl_mob: "/slide_img_2_mob.jpg",
       srcType: "image",
     },
     {
@@ -40,6 +42,7 @@ export const whoDataAR = {
       description: "",
       textColor: "light",
       bannerUrl: "/slide_img_3.jpg",
+      bannerUrl_mob: "/slide_img_3_mob.jpg",
       srcType: "image",
     },
   ],
@@ -54,6 +57,7 @@ export const whoDataEN = {
       textColor: "light",
       description: "",
       bannerUrl: "/slide_img_1.jpg",
+      bannerUrl_mob: "/slide_img_1_mob.jpg",
       srcType: "image",
     },
     {
@@ -76,6 +80,7 @@ export const whoDataEN = {
       description: "",
       textColor: "dark",
       bannerUrl: "/slide_img_2.jpg",
+      bannerUrl_mob: "/slide_img_2_mob.jpg",
       srcType: "image",
     },
     {
@@ -86,6 +91,7 @@ export const whoDataEN = {
       description: "",
       textColor: "light",
       bannerUrl: "/slide_img_3.jpg",
+      bannerUrl_mob: "/slide_img_3_mob.jpg",
       srcType: "image",
     },
   ],

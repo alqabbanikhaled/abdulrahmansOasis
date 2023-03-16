@@ -22,6 +22,21 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+    }
+
+    .imageDesktop {
+      display: block;
+      @include medium-screen {
+        display: none;
+      }
+    }
+
+    .imageMob {
+      display: none;
+      @include medium-screen {
+        display: block;
+      }
     }
   }
   .container {

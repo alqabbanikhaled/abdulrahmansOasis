@@ -68,10 +68,21 @@ const Who = ({ locale }) => {
         effect={"fade"}
         allowTouchMove={false}
       >
-        {BANARS_DATA.map(({ bannerUrl, srcType }, i) => (
+        {BANARS_DATA.map(({ bannerUrl, bannerUrl_mob, srcType }, i) => (
           <SwiperSlide key={i}>
             {srcType == "image" ? (
-              <img src={bannerUrl} alt="no image" />
+              <>
+                <img
+                  className={styles.imageDesktop}
+                  src={bannerUrl}
+                  alt="no image"
+                />
+                <img
+                  className={styles.imageMob}
+                  src={bannerUrl_mob}
+                  alt="no image"
+                />
+              </>
             ) : (
               <video
                 autoPlay

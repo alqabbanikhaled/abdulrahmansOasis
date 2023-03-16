@@ -35,7 +35,7 @@ export const whoDataAR = {
     {
       title: `ما هو\nتخصص حياة الطفل؟`,
       buttonText: "المزيد",
-      buttonLink: "#calender",
+      buttonLink: "./child-life",
       buttonTarget: "_self",
       description: "",
       textColor: "light",
@@ -81,7 +81,7 @@ export const whoDataEN = {
     {
       title: "What is \n A child life major?",
       buttonText: "More",
-      buttonLink: "#calender",
+      buttonLink: "./child-life",
       buttonTarget: "_self",
       description: "",
       textColor: "light",

@@ -16,7 +16,7 @@ export const footerDataAR = {
     { title: "أخصائيون حياة الطفل", url: "/child-life" },
     { title: "الميديا", url: "/media" },
     { title: "التبرعات", url: "/donate" },
-    { title: "تواصل معنا", url: "/contact" },
+    // { title: "تواصل معنا", url: "/contact" },
   ],
 };
 export const footerDataEN = {
@@ -37,6 +37,6 @@ export const footerDataEN = {
     { title: "Child Life Specialists", url: "/child-life" },
     { title: "Media", url: "/media" },
     { title: "Donations", url: "/donate" },
-    { title: "Contact Us", url: "/contact" },
+    // { title: "Contact Us", url: "/contact" },
   ],
 };

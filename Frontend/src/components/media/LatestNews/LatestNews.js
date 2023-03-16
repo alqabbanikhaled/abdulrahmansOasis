@@ -36,14 +36,14 @@ const LatestNews = () => {
             <NewsItem newsItem={newsItem} />
           ))}
         </div>
-        <div className={styles.button}>
+        {/* <div className={styles.button}>
           <Button
             className="orange-bg color-white mt-3 mb-3"
             onClick={handleShowMoreNews}
           >
             تحميل المزيد
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -53,10 +53,10 @@ const NewsItem = ({
   newsItem: { imgUrl, day, month, location, title, description, newsUrl },
 }) => {
   return (
-    <div className={cn(styles.newsItem, "white-bg")}>
+    <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
         <img src={imgUrl} />
-        <div className="p-inline-2">
+        {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div
               className={cn(
@@ -68,17 +68,17 @@ const NewsItem = ({
             </div>
             <div className={cn(styles.month, "paragraph1-size")}>{month}</div>
           </div>
-        </div>
+        </div> */}
       </div>
-      <div className="pt-2 pb-2 p-inline-2">
-        <div className={cn(styles.location, "color-gray")}>
+      <div className={cn(styles.content, "pt-2 pb-1 p-inline-2")}>
+        {/* <div className={cn(styles.location, "color-gray")}>
           <img
             className={styles.icon}
             src="/svg/location.svg"
             alt="location icon"
           />
           <div className={styles.text}>{location}</div>
-        </div>
+        </div> */}
         <div
           className={cn(
             styles.title,
@@ -90,7 +90,7 @@ const NewsItem = ({
         <div className={cn(styles.description, "color-gray")}>
           {description}
         </div>
-        <a href={newsUrl}>
+        <a className={cn(styles.newsUrl)} href={newsUrl} target="_blank">
           <div
             className={cn(styles.discover, "color-orange font-weight-medium")}
           >

@@ -10,14 +10,16 @@
       .newsItem {
         overflow: hidden;
         flex-basis: calc(30% - 12px);
+        display: flex;
+        flex-direction: column;
         height: auto;
         min-height: 34vw;
         border-radius: 14px;
         .imgDate {
-          height: 20vw;
+          height: 14vw;
           width: 100%;
           position: relative;
-          padding-bottom: 2.15vw;
+          // padding-bottom: 2.15vw;
           // background-image: url("../../../assets/images/news_1.jpg");
           // background-position: center;
           // background-size: cover;
@@ -44,34 +46,50 @@
           }
 
           @include large-screen {
-            height: 30vw;
-            padding-bottom: 32px;
+            height: 25vw;
+            // padding-bottom: 32px;
             .date {
               height: 64px;
             }
           }
 
           @include medium-screen {
-            height: 40vw;
+            height: 35vw;
           }
 
           @include small-screen {
-            height: 60vw;
+            height: 50vw;
           }
         }
 
-        .location {
+        .content {
           display: flex;
-          gap: 10px;
-          font-size: 12.8px;
-        }
-        .title {
-          margin-block: 8px;
-        }
-        .discover {
-          display: flex;
-          align-items: center;
-          gap: 14px;
+          flex-direction: column;
+          flex-grow: 1;
+          .location {
+            display: flex;
+            gap: 10px;
+            font-size: 12.8px;
+          }
+          .title {
+            margin-block: 8px;
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+          }
+          .description {
+            flex: 1 0 auto;
+          }
+
+          .newsUrl {
+            .discover {
+              display: flex;
+              align-items: center;
+              gap: 14px;
+            }
+          }
         }
       }
       @include large-screen {

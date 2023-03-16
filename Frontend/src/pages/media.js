@@ -12,7 +12,7 @@ export default function Media({ locale }) {
       <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
         <LatestNews />
-        <Gallery />
+        {/* <Gallery /> */}
       </main>
     </>
   );

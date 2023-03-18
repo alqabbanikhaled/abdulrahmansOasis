@@ -1,5 +1,5 @@
 {
-  "name": "abdelrahman-oasis-backend",
+  "name": "backend",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -20,7 +20,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "9990e89e-0194-4c06-8a0b-2f3f7bc1188d"
+    "uuid": "62502491-bfdf-4e39-be22-4eb3f6189807"
   },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",

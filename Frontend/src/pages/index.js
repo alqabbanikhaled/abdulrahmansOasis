@@ -18,7 +18,7 @@ export default function Home({ locale }) {
     async function fetchData() {
       const fetchedJson = await getSinglePage(
         "home-page",
-        "volunteer,volunteer.volunteerImage,publicaiton,donate,calender,who"
+        "who,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
       );
       setHomeData({ ...fetchedJson.data.attributes });
     }
@@ -31,7 +31,7 @@ export default function Home({ locale }) {
     <>
       {/* <LangSwitch /> */}
       <Header locale={locale} navLinksColor={"white"} />
-      <Who locale={locale} />
+      <Who locale={locale} data={homeData.who} />
       <Volunteer locale={locale} data={homeData.volunteer} />
       <Publication locale={locale} data={homeData.publication} />
       <Donate locale={locale} data={homeData.donate} />

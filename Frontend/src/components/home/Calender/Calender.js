@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./Calender.module.scss";
 import { calenderDataAR, calenderDataEN } from "./Calender.data";
 
-const Calender = ({ locale }) => {
+const Calender = ({ locale, data = {} }) => {
   const { title, CALENDER_EVENTS } =
     locale == "ar" ? calenderDataAR : calenderDataEN;
   return (
@@ -12,7 +12,7 @@ const Calender = ({ locale }) => {
       className={cn(styles.section, "space-X-l space-Y-bottom")}
     >
       <div className={cn(styles.container)}>
-        <h1 className="text-center color-yellow mb-3">{title}</h1>
+        <h1 className="text-center color-yellow mb-3">{data.title}</h1>
         {/* <div className={cn(styles.calenderEvents, "mb-2")}>
           {CALENDER_EVENTS.map((event, i) => (
             <Event
@@ -24,9 +24,14 @@ const Calender = ({ locale }) => {
         </div> */}
 
         <div className={styles.calenderImages}>
-          <img className={styles.event} src="/calender_1.jpg" alt="" />
-          <img className={styles.event} src="/calender_2.jpg" alt="" />
-          <img className={styles.event} src="/calender_3.jpg" alt="" />
+          {data?.images?.data.map((img, i) => (
+            <img
+              key={i}
+              className={styles.event}
+              src={`http://localhost:1337${img?.attributes.url}`}
+              alt=""
+            />
+          ))}
         </div>
         {/* <div className={styles.button}>
           <Button className="purple-bg color-white">شاهد المزيد</Button>

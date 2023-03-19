@@ -7,15 +7,14 @@ const Volunteer = ({ locale, data = {} }) => {
   const { title, sendEmail } =
     locale == "ar" ? volunteerDataAR : volunteerDataEN;
 
-  console.log(data);
   return (
     <section className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
         <h1 className="color-blue mb-2 text-center space-X">{data.title}</h1>
         <div className={styles.volunteerImg}>
           <img
-            src={`http://localhost:1337/${data.volunteerImage?.data.attributes.url}`}
-            alt="no volunteer img"
+            src={`http://localhost:1337${data.volunteerImage?.data.attributes.url}`}
+            alt="volunteer img"
           />
         </div>
         <div className={cn(styles.volunteerText, "space-X")}>

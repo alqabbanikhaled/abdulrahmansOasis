@@ -14,13 +14,15 @@ import Link from "next/link";
 
 SwiperCore.use([Navigation]);
 
-const Who = ({ locale }) => {
+const Who = ({ locale, data = {} }) => {
   const sliderRefText = useRef(null);
   const sliderRefImages = useRef(null);
   const videoRef = useRef(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const { BANARS_DATA } = locale == "ar" ? whoDataAR : whoDataEN;
+
+  console.log(data);
 
   useEffect(() => {
     if (currentSlideIndex == 1) {

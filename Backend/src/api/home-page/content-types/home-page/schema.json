@@ -35,7 +35,7 @@
       "repeatable": false,
       "component": "home-page.calender"
     },
-    "who": {
+    "banars": {
       "displayName": "who",
       "type": "component",
       "repeatable": true,

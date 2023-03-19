@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_home_page_volunteers",
+  "info": {
+    "displayName": "volunteer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "volunteerImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "volunteerLink": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

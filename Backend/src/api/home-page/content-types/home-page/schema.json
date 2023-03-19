@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "volunteer": {
+      "displayName": "Volunteer",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.volunteer"
+    },
+    "publication": {
+      "displayName": "publication",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.publication"
+    },
+    "donate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.donate"
+    },
+    "calender": {
+      "displayName": "calender",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.calender"
+    },
+    "who": {
+      "displayName": "who",
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.who"
+    }
+  }
+}

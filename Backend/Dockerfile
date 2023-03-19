@@ -17,9 +17,9 @@ RUN apk add vips-dev
 RUN rm -rf /var/cache/apk/*
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
-ARG DATABASE_NAME=abdelrahman-oasis-cms-database
-ARG INSTANCE_CONNECTION_NAME=abdelrahman-oasis:us-central1:abdelrahman-oasis-database
-ARG DATABASE_USERNAME=root
+ARG DATABASE_NAME=abdelrahmanoasis-database
+ARG INSTANCE_CONNECTION_NAME=abdelrahman-oasis:us-central1:abdelrahmanoasis-database
+ARG DATABASE_USERNAME=postgres
 ARG DATABASE_PASSWORD=a@n2S-oqRYjip~8x
 ENV DATABASE_NAME=${DATABASE_NAME}
 

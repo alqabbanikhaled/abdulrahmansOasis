@@ -39,6 +39,17 @@
       ],
       "required": true,
       "default": "light"
+    },
+    "banarMediaMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

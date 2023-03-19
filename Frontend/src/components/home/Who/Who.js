@@ -70,10 +70,21 @@ const Who = ({ locale, data = {} }) => {
         effect={"fade"}
         allowTouchMove={false}
       >
-        {BANARS_DATA.map(({ bannerUrl, srcType }, i) => (
+        {BANARS_DATA.map(({ bannerUrl, bannerUrl_mob, srcType }, i) => (
           <SwiperSlide key={i}>
             {srcType == "image" ? (
-              <img src={bannerUrl} alt="no image" />
+              <>
+                <img
+                  className={styles.imageDesktop}
+                  src={bannerUrl}
+                  alt="no image"
+                />
+                <img
+                  className={styles.imageMob}
+                  src={bannerUrl_mob}
+                  alt="no image"
+                />
+              </>
             ) : (
               <video
                 autoPlay
@@ -122,7 +133,10 @@ const Who = ({ locale, data = {} }) => {
             )}
           </Swiper>
           <div className={styles.button}>
-            <Link href={BANARS_DATA[currentSlideIndex].buttonLink}>
+            <Link
+              href={BANARS_DATA[currentSlideIndex].buttonLink}
+              target={BANARS_DATA[currentSlideIndex].buttonTarget}
+            >
               <Button
                 className={cn({
                   "color-red white-bg":

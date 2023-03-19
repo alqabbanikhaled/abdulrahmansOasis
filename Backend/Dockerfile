@@ -11,7 +11,6 @@ WORKDIR /opt/app
 COPY ./ .
 RUN yarn build
 
-
 FROM node:16-alpine
 RUN apk add vips-dev
 RUN rm -rf /var/cache/apk/*

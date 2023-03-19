@@ -7,7 +7,7 @@ import OutlinedButton from "./../../OutlinedButton/OutlinedButton";
 import styles from "./Publication.module.scss";
 import { publicationDataAR, publicationDataEN } from "./Publication.data";
 
-const Publication = ({ locale }) => {
+const Publication = ({ locale, data = {} }) => {
   const { title, browse, downloadNow, publicationLine1, publicationLine2 } =
     locale == "ar" ? publicationDataAR : publicationDataEN;
   return (

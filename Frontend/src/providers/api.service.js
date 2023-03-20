@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:1337";
 
-export async function getSinglePage(name, fields) {
+export async function getSinglePage(name, fields = "") {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -23,7 +23,7 @@ export async function getSinglePage(name, fields) {
   }
 }
 
-export async function getCollectionsPages(name, fields) {
+export async function getCollectionsPages(name, fields = "") {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -44,4 +44,24 @@ export async function getCollectionsPages(name, fields) {
     console.log(e);
     return null;
   }
+}
+
+export async function contactUs(data) {
+  const link = `${baseUrl}/api/contacts`;
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const JSONdata = JSON.stringify(data);
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: JSONdata,
+  };
+
+  return fetch(link, requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      return result;
+    })
+    .catch((error) => console.log("error", error.error));
 }

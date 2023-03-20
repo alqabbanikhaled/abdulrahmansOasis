@@ -16,8 +16,6 @@ export default function Donate({ locale }) {
     fetchData();
   }, []);
 
-  console.log(donateData);
-
   return (
     <>
       <Head>

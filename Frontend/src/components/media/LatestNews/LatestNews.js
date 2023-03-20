@@ -6,7 +6,7 @@ import { NEWS_LIST } from "./LatestNews.data";
 import Button from "./../../Button/Button";
 const newsPerPage = 6;
 let arrayForHoldingNews = [];
-const LatestNews = () => {
+const LatestNews = ({ data = {} }) => {
   const [newsList] = useState([...NEWS_LIST]);
   const [newsToShow, setNewsToShow] = useState([]);
   const ref = useRef(newsPerPage);
@@ -26,13 +26,13 @@ const LatestNews = () => {
     loopWithSlice(ref.current, ref.current + newsPerPage);
     ref.current += newsPerPage;
   };
-
+  console.log(data);
   return (
     <section className={cn(styles.section, "space-X space-Y bg-7 mt-2")}>
       <div className={cn(styles.container)}>
-        <h3 className="color-orange mb-2 text-center">في الأخبار</h3>
+        <h3 className="color-orange mb-2 text-center">{data.title}</h3>
         <div className={cn(styles.latestNewsItems)}>
-          {newsToShow.map((newsItem) => (
+          {data.newsItems?.map((newsItem) => (
             <NewsItem newsItem={newsItem} />
           ))}
         </div>
@@ -49,13 +49,11 @@ const LatestNews = () => {
   );
 };
 
-const NewsItem = ({
-  newsItem: { imgUrl, day, month, location, title, description, newsUrl },
-}) => {
+const NewsItem = ({ newsItem: { title, description, newsUrl, image } }) => {
   return (
     <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
-        <img src={imgUrl} />
+        <img src={`http://localhost:1337${image.data.attributes.url}`} />
         {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div

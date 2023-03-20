@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "child_life_pages",
+  "info": {
+    "singularName": "child-life-page",
+    "pluralName": "child-life-pages",
+    "displayName": "child life page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "aboutLife": {
+      "displayName": "aboutLife",
+      "type": "component",
+      "repeatable": false,
+      "component": "child-life-page.about-life",
+      "required": true
+    },
+    "specialists": {
+      "displayName": "specialists",
+      "type": "component",
+      "repeatable": false,
+      "component": "child-life-page.specialists",
+      "required": true
+    },
+    "lifeImportance": {
+      "displayName": "lifeImportance",
+      "type": "component",
+      "repeatable": false,
+      "component": "child-life-page.life-importance",
+      "required": true
+    }
+  }
+}

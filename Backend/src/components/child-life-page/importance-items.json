@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_child_life_page_importance_items",
+  "info": {
+    "displayName": "importanceItems"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

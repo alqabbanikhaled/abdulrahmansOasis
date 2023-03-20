@@ -4,14 +4,20 @@ import cn from "classnames";
 import styles from "./Members.module.scss";
 import { MEMBERS } from "./Members.data";
 
-const Members = () => {
+const Members = ({ data = {} }) => {
+  console.log(data);
   return (
     <section className={cn(styles.section, "space-X-l space-Y")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-purple mb-2 text-center">الأعضاء المؤسسين</h1>
+        <h1 className="color-purple mb-2 text-center">{data.title}</h1>
         <div className={cn(styles.membersItems)}>
-          {MEMBERS.map(({ title, name, position }) => (
-            <MemeberItem title={title} name={name} position={position} />
+          {data.membersItems?.map(({ title, name, position }, i) => (
+            <MemeberItem
+              key={i}
+              title={title}
+              name={name}
+              position={position}
+            />
           ))}
         </div>
       </div>

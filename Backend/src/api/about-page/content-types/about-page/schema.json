@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_pages",
+  "info": {
+    "singularName": "about-page",
+    "pluralName": "about-pages",
+    "displayName": "About Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "abdelrahmanOasis": {
+      "displayName": "abdelrahmanOasis",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-page.abdelrahman-oasis",
+      "required": true
+    },
+    "story": {
+      "displayName": "story",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-page.story",
+      "required": true
+    },
+    "goals": {
+      "displayName": "goals",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-page.goals",
+      "required": true
+    },
+    "importance": {
+      "displayName": "importance",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-page.importance",
+      "required": true
+    },
+    "members": {
+      "displayName": "members",
+      "type": "component",
+      "repeatable": false,
+      "component": "about-page.members",
+      "required": true
+    }
+  }
+}

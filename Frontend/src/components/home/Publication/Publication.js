@@ -7,7 +7,7 @@ import OutlinedButton from "./../../OutlinedButton/OutlinedButton";
 import styles from "./Publication.module.scss";
 import { publicationDataAR, publicationDataEN } from "./Publication.data";
 
-const Publication = ({ locale }) => {
+const Publication = ({ locale, data = {} }) => {
   const { title, browse, downloadNow, publicationLine1, publicationLine2 } =
     locale == "ar" ? publicationDataAR : publicationDataEN;
   return (
@@ -31,7 +31,7 @@ const Publication = ({ locale }) => {
         </div>
       </section> */}
       <section className={cn(styles.section, "space-Y-bottom")}>
-        <h1 className="color-red mb-2 space-X text-center">{title}</h1>
+        <h1 className="color-red mb-2 space-X text-center">{data.title}</h1>
         <div className={cn(styles.container)}>
           {/* <div className={cn(styles.imgButtonsCont, "bg-3")}>
             <div className={cn(styles.publicationImg, "space-X pb-3")}>
@@ -99,10 +99,16 @@ const Publication = ({ locale }) => {
               )}
             </div>
             <div className={cn(styles.buttons)}>
-              <a href={"./AbdulrahmansOasis_Publication_1.pdf"} target="_blank">
+              <a
+                href={`http://localhost:1337${data.publicationFile?.data.attributes.url}`}
+                target="_blank"
+              >
                 <Button className="red-bg color-white">{browse}</Button>
               </a>
-              <a href={"./AbdulrahmansOasis_Publication_1.pdf"} download>
+              <a
+                href={`http://localhost:1337${data.publicationFile?.data.attributes.url}`}
+                download
+              >
                 <OutlinedButton className="color-red border-red">
                   {downloadNow}
                 </OutlinedButton>
@@ -110,7 +116,10 @@ const Publication = ({ locale }) => {
             </div>
           </div>
           <div className={styles.img}>
-            <img src="/publication_1.jpg" alt="publication" />
+            <img
+              src={`http://localhost:1337${data.image?.data.attributes.url}`}
+              alt="publication"
+            />
           </div>
         </div>
       </section>

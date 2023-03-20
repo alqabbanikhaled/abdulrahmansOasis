@@ -3,29 +3,19 @@ import cn from "classnames";
 
 import styles from "./LifeImportance.module.scss";
 
-const LifeImportance = () => {
+const LifeImportance = ({ data = {} }) => {
   return (
     <section className={cn(styles.section, "space-X space-Y-bottom mt-6")}>
       <div className={cn(styles.container)}>
         <div className={cn(styles.text, "mb-2")}>
-          <h1 className="color-green mb-2">أهمية خدمات برامج حياة الطفل</h1>
+          <h1 className="color-green mb-2">{data.title}</h1>
           <div className="paragraph3-size color-gray mb-2">
-            كشفت الأكاديمية الأمريكية لطب الأطفال،عن الأبحاث التي أجريت على
-            خدمات برامج حياة الطفل على النحو الآتي:
+            {data.description}
           </div>
           <div className={styles.items}>
-            <Item
-              num="1"
-              title="يمكن تقليل الاضطرابات  الفسيولوجية، مثل الحركة المفرطة للجسم، وتسارع ضربات القلب، وارتفاع ضغط الدم، من خلال الاستعانة بتدخلات اللعب العلاجي من قبل اخصائيو  حياة الطفل."
-            />
-            <Item
-              num="2"
-              title="تؤدي تدخلات برامج حياة الطفل إلى تقليل الشعور بالقلق و التأقلم أثناء الإقامة بالمستشفى، وفهم أوضح ومبسط للتشخيص والاجراءات  الطبية، بالإضافة إلى تعديل سلوكيات الأطفال بعد خروجهم من المستشفى."
-            />
-            <Item
-              num="3"
-              title="يساعد اخصائيو  حياة الطفل في تسهيل تأقلم الأسرة مع مرض الطفل وتجربة الرعاية الصحية من خلال توفير الدعم النفسي والاجتماعي واستراتيجيات التأقلم للأسرة وخاصة الأشقاء."
-            />
+            {data.importanceItems?.map(({ item }, i) => (
+              <Item key={i} num={i + 1} title={item} />
+            ))}
           </div>
         </div>
         <div className={styles.img}>

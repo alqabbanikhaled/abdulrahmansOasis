@@ -1,7 +1,7 @@
 {
   "collectionName": "components_home_page_whos",
   "info": {
-    "displayName": "who",
+    "displayName": "banars",
     "description": ""
   },
   "options": {},
@@ -10,7 +10,7 @@
       "type": "text",
       "required": true
     },
-    "banarmedia": {
+    "banarMedia": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -30,6 +30,26 @@
       "repeatable": false,
       "component": "home-page.cta",
       "required": false
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": [
+        "light",
+        "dark"
+      ],
+      "required": true,
+      "default": "light"
+    },
+    "banarMediaMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

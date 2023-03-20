@@ -606,6 +606,12 @@ a {
   line-height: 0.8;
 }
 
+.content-start-medium {
+  @include medium-screen {
+    justify-content: flex-start !important;
+  }
+}
+
 .space-X {
   padding-inline-start: var(--spaceX);
   padding-inline-end: var(--spaceX);

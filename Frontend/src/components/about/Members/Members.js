@@ -5,7 +5,6 @@ import styles from "./Members.module.scss";
 import { MEMBERS } from "./Members.data";
 
 const Members = ({ data = {} }) => {
-  console.log(data);
   return (
     <section className={cn(styles.section, "space-X-l space-Y")}>
       <div className={cn(styles.container)}>

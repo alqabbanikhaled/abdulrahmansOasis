@@ -2,8 +2,20 @@ import Head from "next/head";
 import cn from "classnames";
 import styles from "../components/donate/donate.module.scss";
 import Header from "./../components/Header/Header";
+import { useEffect, useState } from "react";
+import { getSinglePage } from "@/providers/api.service";
 
 export default function Donate({ locale }) {
+  const [donateData, setDonateData] = useState({});
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedJson = await getSinglePage("donate-page", "image");
+      setDonateData({ ...fetchedJson.data.attributes });
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <Head>
@@ -17,7 +29,10 @@ export default function Donate({ locale }) {
               <h1>للتبرعات</h1>
             </div> */}
             <div className={styles.donateImg}>
-              <img src="/donation.jpg" alt="donation" />
+              <img
+                src={`http://localhost:1337${donateData.image?.data.attributes.url}`}
+                alt="donation"
+              />
             </div>
           </div>
         </section>
@@ -27,8 +42,14 @@ export default function Donate({ locale }) {
 }
 
 export async function getServerSideProps({ locale }) {
+  // const fetchedJson = await getSinglePage(
+  //   "donate-page",
+  //   "image"
+  // );
+
   return {
     props: {
+      // data: fetchedJson,
       locale: locale,
     },
   };

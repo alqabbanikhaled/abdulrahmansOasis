@@ -25,8 +25,6 @@ export default function Home({ locale }) {
     fetchData();
   }, []);
 
-  console.log(homeData);
-
   return (
     <>
       {/* <LangSwitch /> */}

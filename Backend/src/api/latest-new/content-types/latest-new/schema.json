@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "latest_news",
+  "info": {
+    "singularName": "latest-new",
+    "pluralName": "latest-news",
+    "displayName": "latestNew"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "newsUrl": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

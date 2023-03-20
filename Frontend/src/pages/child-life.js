@@ -19,6 +19,7 @@ export default function ChildLife({ locale }) {
     }
     fetchData();
   }, []);
+
   return (
     <>
       <Head>
@@ -37,7 +38,7 @@ export default function ChildLife({ locale }) {
 export async function getServerSideProps({ locale }) {
   // const fetchedJson = await getSinglePage(
   //   "child-life-page",
-  //   "populate=aboutLife.image"
+  //   "aboutLife.image"
   // );
 
   return {

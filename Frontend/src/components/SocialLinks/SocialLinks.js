@@ -1,9 +1,9 @@
 import styles from "./SocialLinks.module.scss";
 import cn from "classnames";
 
-const SocialLinks = ({ className }) => {
+const SocialLinks = ({ className, start = false }) => {
   return (
-    <div className={styles.socialLinks}>
+    <div className={cn(styles.socialLinks, { "content-start-medium": start })}>
       <SocialLink
         className={className}
         src="./svg/instagram.svg"

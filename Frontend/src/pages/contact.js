@@ -8,6 +8,8 @@ import Button from "./../components/Button/Button";
 import TextArea from "./../components/TextArea/TextArea";
 import SocialLinks from "./../components/SocialLinks/SocialLinks";
 import Header from "./../components/Header/Header";
+import { contactUs, getSinglePage } from "@/providers/api.service";
+import ReactMarkdown from "react-markdown";
 
 const isEmpty = (value, message) => {
   if (!value) return `برجاء ادخال ${message}`;
@@ -36,15 +38,20 @@ const Contact = ({ locale }) => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [successSubmit, setSuccessSubmit] = useState(false);
+  const [contactData, setContactData] = useState({});
 
-  // function isValidEmail(str) {
-  //   let emailRegExp = RegExp("^[a-zA-Z0-9.+]+@[a-zA-Z0-9]+.[a-zA-Z]+");
-  //   return emailRegExp.
-  // }
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedJson = await getSinglePage("contact-page");
+      setContactData({ ...fetchedJson.data?.attributes });
+    }
+    fetchData();
+  }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
-    setErrors({
+    const newErrors = {
       ...errors,
       name: isEmpty(name, "الاسم"),
       family: isEmpty(family, "اسم العائلة"),
@@ -55,15 +62,26 @@ const Contact = ({ locale }) => {
         isEmpty(phone, "رقم الجوال") ||
         (!isValidPhone(phone) ? "برجاء ادخال رقم جوال صحيح" : ""),
       message: isEmpty(message, "الرسالة"),
-    });
-  }
+    };
 
-  useEffect(() => {
-    console.log(errors);
-    if (Object.values(errors).every((x) => x === "")) {
-      console.log("fields vaild");
+    setErrors({ ...newErrors });
+
+    if (Object.values(newErrors).every((x) => x === "")) {
+      contactUs({
+        data: {
+          firstName: name,
+          familyName: family,
+          email,
+          phone,
+          message,
+        },
+      })
+        .then((response) => {
+          setSuccessSubmit(true);
+        })
+        .catch((error) => console.log("error", error.error));
     }
-  }, [errors]);
+  }
 
   return (
     <>
@@ -76,76 +94,86 @@ const Contact = ({ locale }) => {
           <div className={cn(styles.container)}>
             <div className={cn(styles.contactText, "mb-2")}>
               <h3 className="color-green mb-2">
-                تريد التواصل معنا <br />
-                أو لديك <span className="color-purple">أي استفسار؟</span>
+                <ReactMarkdown>
+                  {!successSubmit
+                    ? contactData.formTitle
+                    : contactData.formTitleSuccess}
+                  {/* تريد التواصل معنا <br />
+                أو لديك <span className="color-purple">أي استفسار؟</span> */}
+                </ReactMarkdown>
               </h3>
-              <form onSubmit={handleSubmit}>
-                <div className={cn(styles.form, "mb-2")}>
-                  <div className={styles.input}>
-                    <Input
-                      value={name}
-                      onChange={(event) => setName(event.target.value)}
-                      type="text"
-                      label="الاسم الأول"
-                    />
-                    {errors.name && (
-                      <div className="color-red">{errors.name}</div>
-                    )}
+              {!successSubmit ? (
+                <form onSubmit={handleSubmit}>
+                  <div className={cn(styles.form, "mb-2")}>
+                    <div className={styles.input}>
+                      <Input
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                        type="text"
+                        label="الاسم الأول"
+                      />
+                      {errors.name && (
+                        <div className="color-red">{errors.name}</div>
+                      )}
+                    </div>
+                    <div className={styles.input}>
+                      <Input
+                        value={family}
+                        onChange={(event) => setFamily(event.target.value)}
+                        className={styles.input}
+                        type="text"
+                        label="اسم العائلة"
+                      />
+                      {errors.family && (
+                        <div className="color-red">{errors.family}</div>
+                      )}
+                    </div>
+                    <div className={styles.input}>
+                      <Input
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        className={styles.input}
+                        // type="email"
+                        label="البريد الإلكتروني"
+                      />
+                      {errors.email && (
+                        <div className="color-red">{errors.email}</div>
+                      )}
+                    </div>
+                    <div className={styles.input}>
+                      <Input
+                        value={phone}
+                        onChange={(event) => setPhone(event.target.value)}
+                        className={styles.input}
+                        type="tel"
+                        label="رقم الجوال"
+                      />
+                      {errors.phone && (
+                        <div className="color-red">{errors.phone}</div>
+                      )}
+                    </div>
+                    <div className={cn(styles.input, styles.message)}>
+                      <TextArea
+                        value={message}
+                        onChange={(event) => setMessage(event.target.value)}
+                        label="الرسالة"
+                      />
+                      {errors.message && (
+                        <div className="color-red">{errors.message}</div>
+                      )}
+                    </div>
+                    <Button
+                      className={cn(styles.button, "color-white green-bg")}
+                      type="submit"
+                    >
+                      تواصل معنا
+                    </Button>
                   </div>
-                  <div className={styles.input}>
-                    <Input
-                      value={family}
-                      onChange={(event) => setFamily(event.target.value)}
-                      className={styles.input}
-                      type="text"
-                      label="اسم العائلة"
-                    />
-                    {errors.family && (
-                      <div className="color-red">{errors.family}</div>
-                    )}
-                  </div>
-                  <div className={styles.input}>
-                    <Input
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      className={styles.input}
-                      // type="email"
-                      label="البريد الإلكتروني"
-                    />
-                    {errors.email && (
-                      <div className="color-red">{errors.email}</div>
-                    )}
-                  </div>
-                  <div className={styles.input}>
-                    <Input
-                      value={phone}
-                      onChange={(event) => setPhone(event.target.value)}
-                      className={styles.input}
-                      type="tel"
-                      label="رقم الجوال"
-                    />
-                    {errors.phone && (
-                      <div className="color-red">{errors.phone}</div>
-                    )}
-                  </div>
-                  <div className={cn(styles.input, styles.message)}>
-                    <TextArea
-                      value={message}
-                      onChange={(event) => setMessage(event.target.value)}
-                      label="الرسالة"
-                    />
-                    {errors.message && (
-                      <div className="color-red">{errors.message}</div>
-                    )}
-                  </div>
-                  <Button
-                    className={cn(styles.button, "color-white green-bg")}
-                    type="submit"
-                  >
-                    تواصل معنا
-                  </Button>
-                </div>
-              </form>
+                </form>
+              ) : (
+                ""
+              )}
+
               <div className={styles.contactLinks}>
                 <div
                   className={cn(
@@ -155,7 +183,7 @@ const Contact = ({ locale }) => {
                 >
                   تابعونا على منصات التواصل الاجتماعي
                 </div>
-                <SocialLinks className={"filter-green"} />
+                <SocialLinks className={"filter-green"} start={true} />
               </div>
             </div>
             <div className={styles.contactImg}>
@@ -170,8 +198,14 @@ const Contact = ({ locale }) => {
 };
 
 export async function getServerSideProps({ locale }) {
+  // const fetchedJson = await getSinglePage(
+  //   "/contact-page",
+  //   ""
+  // );
+
   return {
     props: {
+      // data: fetchedJson,
       locale: locale,
     },
   };

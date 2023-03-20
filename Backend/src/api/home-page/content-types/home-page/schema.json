@@ -35,11 +35,12 @@
       "repeatable": false,
       "component": "home-page.calender"
     },
-    "banars": {
+    "banners": {
       "displayName": "who",
       "type": "component",
       "repeatable": true,
-      "component": "home-page.who"
+      "component": "home-page.who",
+      "required": true
     }
   }
 }

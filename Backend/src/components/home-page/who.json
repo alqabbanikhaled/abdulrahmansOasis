@@ -6,30 +6,29 @@
   },
   "options": {},
   "attributes": {
-    "banarTitle": {
+    "bannerTitle": {
       "type": "text",
       "required": true
     },
-    "banarMedia": {
+    "bannerMedia": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ]
     },
-    "banarDescription": {
-      "type": "text"
+    "bannerDescription": {
+      "type": "text",
+      "required": false
     },
     "cta": {
       "displayName": "cta",
       "type": "component",
       "repeatable": false,
       "component": "home-page.cta",
-      "required": false
+      "required": true
     },
     "textColor": {
       "type": "enumeration",
@@ -40,7 +39,7 @@
       "required": true,
       "default": "light"
     },
-    "banarMediaMobile": {
+    "bannerMediaMobile": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -50,6 +49,11 @@
         "videos",
         "audios"
       ]
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

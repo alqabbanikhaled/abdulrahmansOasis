@@ -3,18 +3,20 @@ import Head from "next/head";
 import LatestNews from "./../components/media/LatestNews/LatestNews";
 import Gallery from "./../components/media/Gallery/Gallery";
 import Header from "./../components/Header/Header";
-import { getSinglePage } from "@/providers/api.service";
+import { getCollectionsPages, getSinglePage } from "@/providers/api.service";
 
 export default function Media({ locale }) {
-  const [mediaData, setMediaData] = useState({});
+  const [mediaPageData, setMediaPageData] = useState({});
+  const [latestNewsList, setLatestNewsList] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const fetchedJson = await getSinglePage(
-        "media-page",
-        "latestNews.newsItems.image"
-      );
-      setMediaData({ ...fetchedJson.data.attributes });
+      const [fetchedJson, fetchedJsonList] = await Promise.all([
+        getSinglePage("media-page"),
+        getCollectionsPages("latest-news", "image"),
+      ]);
+      setMediaPageData({ ...fetchedJson.data.attributes });
+      setLatestNewsList([...fetchedJsonList.data]);
     }
     fetchData();
   }, []);
@@ -26,7 +28,10 @@ export default function Media({ locale }) {
       </Head>
       <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
-        <LatestNews data={mediaData.latestNews} />
+        <LatestNews
+          latestNewsTitle={mediaPageData.latestNewsTitle}
+          latestNewsList={latestNewsList}
+        />
         {/* <Gallery /> */}
       </main>
     </>
@@ -35,10 +40,15 @@ export default function Media({ locale }) {
 
 export async function getServerSideProps({ locale }) {
   // const fetchedJson = await getSinglePage("media-page", "");
+  // const [mediaPageData, latestNewsList] = await Promise.all([
+  //   getSinglePage("media-page"),
+  //   getCollectionsPages("latest-news", "image"),
+  // ]);
 
   return {
     props: {
-      // data: fetchedJson,
+      // mediaPageData,
+      // latestNewsList,
       locale: locale,
     },
   };

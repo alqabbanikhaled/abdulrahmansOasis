@@ -17,6 +17,10 @@
       "type": "component",
       "repeatable": false,
       "component": "media-page.latest-news"
+    },
+    "latestNewsTitle": {
+      "type": "string",
+      "required": true
     }
   }
 }

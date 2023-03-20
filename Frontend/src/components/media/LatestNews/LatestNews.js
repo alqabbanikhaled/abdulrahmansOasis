@@ -3,10 +3,10 @@ import cn from "classnames";
 
 import styles from "./LatestNews.module.scss";
 import { NEWS_LIST } from "./LatestNews.data";
-import Button from "./../../Button/Button";
+
 const newsPerPage = 6;
 let arrayForHoldingNews = [];
-const LatestNews = ({ data = {} }) => {
+const LatestNews = ({ latestNewsTitle = "", latestNewsList = [] }) => {
   const [newsList] = useState([...NEWS_LIST]);
   const [newsToShow, setNewsToShow] = useState([]);
   const ref = useRef(newsPerPage);
@@ -26,14 +26,14 @@ const LatestNews = ({ data = {} }) => {
     loopWithSlice(ref.current, ref.current + newsPerPage);
     ref.current += newsPerPage;
   };
-  console.log(data);
+
   return (
     <section className={cn(styles.section, "space-X space-Y bg-7 mt-2")}>
       <div className={cn(styles.container)}>
-        <h3 className="color-orange mb-2 text-center">{data.title}</h3>
+        <h3 className="color-orange mb-2 text-center">{latestNewsTitle}</h3>
         <div className={cn(styles.latestNewsItems)}>
-          {data.newsItems?.map((newsItem) => (
-            <NewsItem newsItem={newsItem} />
+          {latestNewsList.map((newsItem) => (
+            <NewsItem newsItem={newsItem.attributes} />
           ))}
         </div>
         {/* <div className={styles.button}>
@@ -53,7 +53,7 @@ const NewsItem = ({ newsItem: { title, description, newsUrl, image } }) => {
   return (
     <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
-        <img src={`http://localhost:1337${image.data.attributes.url}`} />
+        <img src={`http://localhost:1337${image?.data.attributes.url}`} />
         {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div

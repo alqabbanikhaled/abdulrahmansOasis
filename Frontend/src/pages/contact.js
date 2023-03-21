@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import cn from "classnames";
 import styles from "../components/contact/contact.module.scss";
@@ -10,6 +10,7 @@ import SocialLinks from "./../components/SocialLinks/SocialLinks";
 import Header from "./../components/Header/Header";
 import { contactUs, getSinglePage } from "@/providers/api.service";
 import ReactMarkdown from "react-markdown";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const isEmpty = (value, message) => {
   if (!value) return `برجاء ادخال ${message}`;
@@ -32,6 +33,7 @@ function isValidPhone(value) {
 }
 
 const Contact = ({ locale }) => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [name, setName] = useState("");
   const [family, setFamily] = useState("");
   const [email, setEmail] = useState("");
@@ -40,6 +42,23 @@ const Contact = ({ locale }) => {
   const [errors, setErrors] = useState({});
   const [successSubmit, setSuccessSubmit] = useState(false);
   const [contactData, setContactData] = useState({});
+  // const [token, setToken] = useState();
+  // const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
+
+  const handleReCaptchaVerify = useCallback(async () => {
+    if (!executeRecaptcha) {
+      console.log("Execute recaptcha not yet available");
+      return;
+    }
+
+    const token = await executeRecaptcha("yourAction");
+    console.log(token);
+
+  }, [executeRecaptcha]);
+
+  useEffect(() => {
+    handleReCaptchaVerify();
+  }, [handleReCaptchaVerify]);
 
   useEffect(() => {
     async function fetchData() {
@@ -77,11 +96,20 @@ const Contact = ({ locale }) => {
         },
       })
         .then((response) => {
+          handleReCaptchaVerify();
           setSuccessSubmit(true);
         })
         .catch((error) => console.log("error", error.error));
+
+      handleReCaptchaVerify();
+      setSuccessSubmit(true);
     }
   }
+
+  // const onVerify = useCallback((token) => {
+  //   setToken(token);
+  // });
+  // console.log(token);
 
   return (
     <>
@@ -162,6 +190,10 @@ const Contact = ({ locale }) => {
                         <div className="color-red">{errors.message}</div>
                       )}
                     </div>
+                    {/* <GoogleReCaptcha
+                        onVerify={onVerify}
+                        refreshReCaptcha={refreshReCaptcha}
+                      /> */}
                     <Button
                       className={cn(styles.button, "color-white green-bg")}
                       type="submit"

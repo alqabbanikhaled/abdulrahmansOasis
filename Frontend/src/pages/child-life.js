@@ -26,11 +26,13 @@ export default function ChildLife({ locale }) {
         <title>Child Life</title>
       </Head>
       <Header locale={locale} navLinksColor={"red"} />
-      <main id="main">
-        <AboutLife data={childLifeData.aboutLife} />
-        <Specialists data={childLifeData.specialists} />
-        <LifeImportance data={childLifeData.lifeImportance} />
-      </main>
+      {childLifeData && (
+        <main id="main">
+          <AboutLife data={childLifeData.aboutLife} />
+          <Specialists data={childLifeData.specialists} />
+          <LifeImportance data={childLifeData.lifeImportance} />
+        </main>
+      )}
     </>
   );
 }

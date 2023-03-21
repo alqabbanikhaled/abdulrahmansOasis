@@ -29,22 +29,15 @@ export default function About({ locale, data }) {
         <title>About</title>
       </Head>
       <Header navLinksColor={"red"} locale={locale} />
-      <main id="main">
-        {aboutData !== null ? (
-          <>
-            <AbdelrahmanOasis
-              locale={locale}
-              data={aboutData.abdelrahmanOasis}
-            />
-            <Story locale={locale} data={aboutData.story} />
-            <Goals locale={locale} data={aboutData.goals} />
-            <Importance locale={locale} data={aboutData.importance} />
-            <Members locale={locale} data={aboutData.members} />
-          </>
-        ) : (
-          ""
-        )}
-      </main>
+      {aboutData && (
+        <main id="main">
+          <AbdelrahmanOasis locale={locale} data={aboutData.abdelrahmanOasis} />
+          <Story locale={locale} data={aboutData.story} />
+          <Goals locale={locale} data={aboutData.goals} />
+          <Importance locale={locale} data={aboutData.importance} />
+          <Members locale={locale} data={aboutData.members} />
+        </main>
+      )}
     </>
   );
 }

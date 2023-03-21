@@ -22,21 +22,23 @@ export default function Donate({ locale }) {
         <title>Donate</title>
       </Head>
       <Header locale={locale} navLinksColor={"red"} />
-      <main id="main">
-        <section className={cn(styles.section, "space-X space-Y")}>
-          <div className={cn(styles.container)}>
-            {/* <div className={cn(styles.donateText, "mb-3")}>
+      {donateData && (
+        <main id="main">
+          <section className={cn(styles.section, "space-X space-Y")}>
+            <div className={cn(styles.container)}>
+              {/* <div className={cn(styles.donateText, "mb-3")}>
               <h1>للتبرعات</h1>
             </div> */}
-            <div className={styles.donateImg}>
-              <img
-                src={`http://localhost:1337${donateData.image?.data.attributes.url}`}
-                alt="donation"
-              />
+              <div className={styles.donateImg}>
+                <img
+                  src={`http://localhost:1337${donateData.image?.data.attributes.url}`}
+                  alt="donation"
+                />
+              </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
+      )}
     </>
   );
 }

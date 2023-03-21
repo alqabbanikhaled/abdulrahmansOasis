@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 import "../styles/globals.scss";
 import Layout from "./../components/Layout/Layout";
@@ -19,11 +20,11 @@ const App = ({ Component, pageProps }) => {
   }, [locale]);
 
   return (
-    <>
+    <GoogleReCaptchaProvider reCaptchaKey="6LczNhklAAAAAGeDJULlPuGrDrxmtyKUMzUOe6es">
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+    </GoogleReCaptchaProvider>
   );
 };
 const getPathSlugs = () => {

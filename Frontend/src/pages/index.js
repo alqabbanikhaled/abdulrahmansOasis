@@ -12,29 +12,32 @@ import Header from "./../components/Header/Header";
 import { getSinglePage } from "@/providers/api.service";
 
 export default function Home({ locale }) {
-  const [homeData, setHomeData] = useState({});
+  const [homeData, setHomeData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       const fetchedJson = await getSinglePage(
         "home-page",
-        "banars,banars.banarMedia,banars.banarMediaMobile,banars.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
+        "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
       );
       setHomeData({ ...fetchedJson.data.attributes });
     }
     fetchData();
   }, []);
 
+  console.log(homeData);
   return (
-    <>
-      {/* <LangSwitch /> */}
-      <Header locale={locale} navLinksColor={"white"} />
-      <Who locale={locale} data={homeData.banars} />
-      <Volunteer locale={locale} data={homeData.volunteer} />
-      <Publication locale={locale} data={homeData.publication} />
-      <Donate locale={locale} data={homeData.donate} />
-      <Calender locale={locale} data={homeData.calender} />
-    </>
+    homeData && (
+      <>
+        {/* <LangSwitch /> */}
+        <Header locale={locale} navLinksColor={"white"} />
+        <Who locale={locale} data={homeData.banners} />
+        <Volunteer locale={locale} data={homeData.volunteer} />
+        <Publication locale={locale} data={homeData.publication} />
+        <Donate locale={locale} data={homeData.donate} />
+        <Calender locale={locale} data={homeData.calender} />
+      </>
+    )
   );
 }
 

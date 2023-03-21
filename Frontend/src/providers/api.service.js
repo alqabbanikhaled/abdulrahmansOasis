@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:1337";
 
-export async function getSinglePage(name, fields = "") {
+export async function getSinglePage(locale = "ar", name, fields = "") {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -10,7 +10,7 @@ export async function getSinglePage(name, fields = "") {
     redirect: "follow",
   };
 
-  const url = `${baseUrl}/api/${name}?populate=${fields}`;
+  const url = `${baseUrl}/api/${name}?populate=${fields}&locale=${locale}`;
 
   try {
     const res = await fetch(url, requestOptions);
@@ -23,7 +23,7 @@ export async function getSinglePage(name, fields = "") {
   }
 }
 
-export async function getCollectionsPages(name, fields = "") {
+export async function getCollectionsPages(locale = "ar", name, fields = "") {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -33,7 +33,7 @@ export async function getCollectionsPages(name, fields = "") {
     redirect: "follow",
   };
 
-  const url = `${baseUrl}/api/${name}?populate=${fields}`;
+  const url = `${baseUrl}/api/${name}?populate=${fields}&locale=${locale}`;
 
   try {
     const res = await fetch(url, requestOptions);

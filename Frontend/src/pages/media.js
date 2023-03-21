@@ -12,8 +12,8 @@ export default function Media({ locale }) {
   useEffect(() => {
     async function fetchData() {
       const [fetchedJson, fetchedJsonList] = await Promise.all([
-        getSinglePage("media-page"),
-        getCollectionsPages("latest-news", "image"),
+        getSinglePage(locale, "media-page"),
+        getCollectionsPages(locale, "latest-news", "image"),
       ]);
       setMediaPageData({ ...fetchedJson.data.attributes });
       setLatestNewsList([...fetchedJsonList.data]);
@@ -29,6 +29,7 @@ export default function Media({ locale }) {
       <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
         <LatestNews
+          locale={locale}
           latestNewsTitle={mediaPageData.latestNewsTitle}
           latestNewsList={latestNewsList}
         />

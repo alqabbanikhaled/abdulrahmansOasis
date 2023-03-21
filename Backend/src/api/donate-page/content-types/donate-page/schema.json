@@ -4,7 +4,8 @@
   "info": {
     "singularName": "donate-page",
     "pluralName": "donate-pages",
-    "displayName": "donate page"
+    "displayName": "donate page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,12 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

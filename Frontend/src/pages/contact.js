@@ -53,7 +53,6 @@ const Contact = ({ locale }) => {
 
     const token = await executeRecaptcha("yourAction");
     console.log(token);
-
   }, [executeRecaptcha]);
 
   useEffect(() => {
@@ -62,7 +61,7 @@ const Contact = ({ locale }) => {
 
   useEffect(() => {
     async function fetchData() {
-      const fetchedJson = await getSinglePage("contact-page");
+      const fetchedJson = await getSinglePage(locale, "contact-page");
       setContactData({ ...fetchedJson.data?.attributes });
     }
     fetchData();

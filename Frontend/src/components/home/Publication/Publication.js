@@ -30,7 +30,11 @@ const Publication = ({ locale, data = {} }) => {
           </div>
         </div>
       </section> */}
-      <section className={cn(styles.section, "space-Y-bottom")}>
+      <section
+        className={cn(styles.section, "space-Y-bottom", {
+          [styles.ar]: locale == "ar",
+        })}
+      >
         <h1 className="color-red mb-2 space-X text-center">{data.title}</h1>
         <div className={cn(styles.container)}>
           {/* <div className={cn(styles.imgButtonsCont, "bg-3")}>

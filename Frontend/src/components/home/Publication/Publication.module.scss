@@ -143,10 +143,11 @@
       .titleWrapper {
         position: relative;
         width: fit-content;
+
         .title {
           padding: 2vw 2vw;
           line-height: 1.3;
-          font-size: 5.3vw;
+          font-size: 4vw;
           &,
           * {
             font-weight: 900;
@@ -162,7 +163,7 @@
               color: rgba(0, 0, 0, 0.05);
               top: -1vw;
               left: -15vw;
-              font-size: 7.4vw;
+              font-size: 5vw;
               z-index: 0;
             }
           }
@@ -170,11 +171,11 @@
             white-space: nowrap;
           }
           @include medium-screen {
-            font-size: 10vw;
+            font-size: 7vw;
             // padding: 3vw 3vw;
             .line1 {
               span {
-                font-size: 12vw;
+                font-size: 10vw;
               }
             }
           }
@@ -209,6 +210,9 @@
         justify-content: center;
         gap: 16px;
       }
+      @include medium-screen {
+        align-items: center;
+      }
     }
     .img {
       flex-basis: 50%;
@@ -222,6 +226,41 @@
 
     @include medium-screen {
       flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+}
+
+.ar {
+  .container {
+    .text {
+      .titleWrapper {
+        .title {
+          font-size: 5.3vw;
+          .line1 {
+            span {
+              font-size: 7.4vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include medium-screen {
+    .container {
+      .text {
+        .titleWrapper {
+          .title {
+            font-size: 10vw;
+            .line1 {
+              span {
+                font-size: 12vw;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

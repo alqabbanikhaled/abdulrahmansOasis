@@ -12,6 +12,7 @@ export default function ChildLife({ locale }) {
   useEffect(() => {
     async function fetchData() {
       const fetchedJson = await getSinglePage(
+        locale,
         "child-life-page",
         "aboutLife.image,specialists.video,specialists.videoCover,lifeImportance.importanceItems"
       );

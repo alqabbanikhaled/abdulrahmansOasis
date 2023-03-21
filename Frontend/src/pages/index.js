@@ -17,6 +17,7 @@ export default function Home({ locale }) {
   useEffect(() => {
     async function fetchData() {
       const fetchedJson = await getSinglePage(
+        locale,
         "home-page",
         "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
       );

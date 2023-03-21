@@ -3,6 +3,7 @@ import cn from "classnames";
 
 import styles from "./LatestNews.module.scss";
 import { NEWS_LIST } from "./LatestNews.data";
+import Link from "next/link";
 
 const newsPerPage = 6;
 let arrayForHoldingNews = [];
@@ -51,13 +52,14 @@ const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
 
 const NewsItem = ({
   locale,
-  newsItem: { title, description, newsUrl, image, ctaLabel },
+  newsItem: { title, description, newsUrl, image, ctaLabel, Slug },
 }) => {
   return (
-    <div className={cn(styles.newsItem, "white-bg pb-2")}>
-      <div className={cn(styles.imgDate)}>
-        <img src={`http://localhost:1337${image?.data.attributes.url}`} />
-        {/* <div className="p-inline-2">
+    <Link href={`/media/${Slug}`}>
+      <div className={cn(styles.newsItem, "white-bg pb-2")}>
+        <div className={cn(styles.imgDate)}>
+          <img src={`http://localhost:1337${image?.data.attributes.url}`} />
+          {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div
               className={cn(
@@ -70,9 +72,9 @@ const NewsItem = ({
             <div className={cn(styles.month, "paragraph1-size")}>{month}</div>
           </div>
         </div> */}
-      </div>
-      <div className={cn(styles.content, "pt-2 pb-1 p-inline-2")}>
-        {/* <div className={cn(styles.location, "color-gray")}>
+        </div>
+        <div className={cn(styles.content, "pt-2 pb-1 p-inline-2")}>
+          {/* <div className={cn(styles.location, "color-gray")}>
           <img
             className={styles.icon}
             src="/svg/location.svg"
@@ -80,31 +82,32 @@ const NewsItem = ({
           />
           <div className={styles.text}>{location}</div>
         </div> */}
-        <div
-          className={cn(
-            styles.title,
-            "color-orange paragraph3-size font-weight-medium"
-          )}
-        >
-          {title}
-        </div>
-        <div className={cn(styles.description, "color-gray")}>
-          {description}
-        </div>
-        <a className={cn(styles.newsUrl)} href={newsUrl} target="_blank">
           <div
-            className={cn(styles.discover, "color-orange font-weight-medium")}
+            className={cn(
+              styles.title,
+              "color-orange paragraph3-size font-weight-medium"
+            )}
           >
-            <span>{ctaLabel}</span>
-            <img
-              className={cn({ [styles.rotateEn]: locale == "en" })}
-              src="/svg/discover_arrow.svg"
-              alt=""
-            />
+            {title}
           </div>
-        </a>
+          <div className={cn(styles.description, "color-gray")}>
+            {description}
+          </div>
+          <a className={cn(styles.newsUrl)} href={newsUrl} target="_blank">
+            <div
+              className={cn(styles.discover, "color-orange font-weight-medium")}
+            >
+              <span>{ctaLabel}</span>
+              <img
+                className={cn({ [styles.rotateEn]: locale == "en" })}
+                src="/svg/discover_arrow.svg"
+                alt=""
+              />
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 export default LatestNews;

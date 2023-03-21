@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import LatestNews from "./../components/media/LatestNews/LatestNews";
-import Gallery from "./../components/media/Gallery/Gallery";
-import Header from "./../components/Header/Header";
+import LatestNews from "../../components/media/LatestNews/LatestNews";
+import Gallery from "../../components/media/Gallery/Gallery";
+import Header from "../../components/Header/Header";
 import { getCollectionsPages, getSinglePage } from "@/providers/api.service";
 
 export default function Media({ locale }) {
@@ -20,6 +20,8 @@ export default function Media({ locale }) {
     }
     fetchData();
   }, []);
+
+  console.log(latestNewsList);
 
   return (
     <>

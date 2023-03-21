@@ -1,51 +1,60 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { getNewsItem } from "@/providers/api.service";
+import Header from "@/components/Header/Header";
 
 var slugify = require("slugify");
 
 export default function Slug() {
-  const router = useRouter();
+  const [newsItem, setNewsItem] = useState(null);
+  const {
+    locale,
+    query: { slug, id },
+  } = useRouter();
 
-  //   useEffect(() => {
-  //     async function fetchData() {
-  //       const res = await fetch(
-  //         `http://localhost:1337/api/latest-news/?filters[Slug][$eq]=${context.slug}`
-  //       );
-  //       const data = await res.json();
-  //     }
-  //   }, []);
+  console.log(id);
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedJson = await getNewsItem(locale, slug, id);
+      setNewsItem({ ...fetchedJson.data?.attributes });
+      console.log(fetchedJson);
+    }
+    fetchData();
+  }, [id, slug]);
+  console.log();
 
   return (
-    <div>
-      <div>23/1/2023</div>
-      <div>
-        توقيع اتفاقية واحة عبدالرحمن مع مستشفى الملك فهد ومؤسسة سند الخيرية
-      </div>
-      <div>
-        توقيع اتفاقية واحة عبدالرحمن مع مستشفى الملك فهد ومؤسسة سند الخيرية
-      </div>
-    </div>
+    <>
+      <Header navLinksColor={"red"} locale={locale} />
+      {newsItem && (
+        <div main id="main">
+          <div>23/1/2023</div>
+          <div>{newsItem.title} </div>
+          <div>{newsItem.description}</div>
+        </div>
+      )}
+    </>
   );
 }
 
-export async function getStaticPaths() {
-  const res = await fetch("http://localhost:1337/api/latest-news");
-  const data = await res.json();
+// export async function getStaticPaths() {
+//   const res = await fetch("http://localhost:1337/api/latest-news");
+//   const data = await res.json();
 
-  console.log(data);
-  return {
-    paths: data.map((item) => ({ params: { slug: item.Slug } })),
-    fallback: false,
-  };
-}
+//   console.log(data);
+//   return {
+//     paths: data.map((item) => ({ params: { slug: item.Slug } })),
+//     fallback: false,
+//   };
+// }
 
-export async function getStaticProps({ slug }) {
-  const res = await fetch(
-    `http://localhost:1337/api/latest-news/?filters[Slug][$eq]=${slug}`
-  );
-  const data = await res.json();
+// export async function getStaticProps({ slug }) {
+//   const res = await fetch(
+//     `http://localhost:1337/api/latest-news/?filters[Slug][$eq]=${slug}`
+//   );
+//   const data = await res.json();
 
-  return {
-    props: { newsItem: data },
-  };
-}
+//   return {
+//     props: { newsItem: data },
+//   };
+// }

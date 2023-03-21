@@ -33,8 +33,8 @@ const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
       <div className={cn(styles.container)}>
         <h3 className="color-orange mb-2 text-center">{latestNewsTitle}</h3>
         <div className={cn(styles.latestNewsItems)}>
-          {latestNewsList.map((newsItem) => (
-            <NewsItem newsItem={newsItem.attributes} locale={locale} />
+          {latestNewsList.map((newsItem, i) => (
+            <NewsItem key={i} newsItem={newsItem} locale={locale} />
           ))}
         </div>
         {/* <div className={styles.button}>
@@ -52,14 +52,17 @@ const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
 
 const NewsItem = ({
   locale,
-  newsItem: { title, description, newsUrl, image, ctaLabel, Slug },
+  newsItem: {
+    id,
+    attributes: { title, description, newsUrl, image, ctaLabel, Slug },
+  },
 }) => {
   return (
-    <Link href={`/media/${Slug}`}>
-      <div className={cn(styles.newsItem, "white-bg pb-2")}>
-        <div className={cn(styles.imgDate)}>
-          <img src={`http://localhost:1337${image?.data.attributes.url}`} />
-          {/* <div className="p-inline-2">
+    // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
+    <div className={cn(styles.newsItem, "white-bg pb-2")}>
+      <div className={cn(styles.imgDate)}>
+        <img src={`http://localhost:1337${image?.data.attributes.url}`} />
+        {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div
               className={cn(
@@ -72,9 +75,9 @@ const NewsItem = ({
             <div className={cn(styles.month, "paragraph1-size")}>{month}</div>
           </div>
         </div> */}
-        </div>
-        <div className={cn(styles.content, "pt-2 pb-1 p-inline-2")}>
-          {/* <div className={cn(styles.location, "color-gray")}>
+      </div>
+      <div className={cn(styles.content, "pt-2 pb-1 p-inline-2")}>
+        {/* <div className={cn(styles.location, "color-gray")}>
           <img
             className={styles.icon}
             src="/svg/location.svg"
@@ -82,32 +85,32 @@ const NewsItem = ({
           />
           <div className={styles.text}>{location}</div>
         </div> */}
-          <div
-            className={cn(
-              styles.title,
-              "color-orange paragraph3-size font-weight-medium"
-            )}
-          >
-            {title}
-          </div>
-          <div className={cn(styles.description, "color-gray")}>
-            {description}
-          </div>
-          <a className={cn(styles.newsUrl)} href={newsUrl} target="_blank">
-            <div
-              className={cn(styles.discover, "color-orange font-weight-medium")}
-            >
-              <span>{ctaLabel}</span>
-              <img
-                className={cn({ [styles.rotateEn]: locale == "en" })}
-                src="/svg/discover_arrow.svg"
-                alt=""
-              />
-            </div>
-          </a>
+        <div
+          className={cn(
+            styles.title,
+            "color-orange paragraph3-size font-weight-medium"
+          )}
+        >
+          {title}
         </div>
+        <div className={cn(styles.description, "color-gray")}>
+          {description}
+        </div>
+        <a className={cn(styles.newsUrl)} href={newsUrl} target="_blank">
+          <div
+            className={cn(styles.discover, "color-orange font-weight-medium")}
+          >
+            <span>{ctaLabel}</span>
+            <img
+              className={cn({ [styles.rotateEn]: locale == "en" })}
+              src="/svg/discover_arrow.svg"
+              alt=""
+            />
+          </div>
+        </a>
       </div>
-    </Link>
+    </div>
+    // </Link>
   );
 };
 export default LatestNews;

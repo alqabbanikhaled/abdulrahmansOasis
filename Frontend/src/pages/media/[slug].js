@@ -29,26 +29,23 @@ export default function Slug() {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    "http://localhost:1337/api/latest-news?fields=id,Slug"
-  );
+  const res = await fetch("http://localhost:1337/api/latest-news");
   const data = await res.json();
 
   console.log(data);
   return {
-    paths: data.map((item) => ({ params: { slug: `${slugify(item.title)}` } })),
+    paths: data.map((item) => ({ params: { slug: item.Slug } })),
     fallback: false,
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ slug }) {
   const res = await fetch(
-    `http://localhost:1337/api/latest-news/?filters[Slug][$eq]=${context.slug}`
+    `http://localhost:1337/api/latest-news/?filters[Slug][$eq]=${slug}`
   );
   const data = await res.json();
 
-  console.log(context);
   return {
-    props: { news: data },
+    props: { newsItem: data },
   };
 }

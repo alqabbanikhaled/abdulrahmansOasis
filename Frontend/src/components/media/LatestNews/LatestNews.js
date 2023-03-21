@@ -6,7 +6,7 @@ import { NEWS_LIST } from "./LatestNews.data";
 
 const newsPerPage = 6;
 let arrayForHoldingNews = [];
-const LatestNews = ({ latestNewsTitle = "", latestNewsList = [] }) => {
+const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
   const [newsList] = useState([...NEWS_LIST]);
   const [newsToShow, setNewsToShow] = useState([]);
   const ref = useRef(newsPerPage);
@@ -33,7 +33,7 @@ const LatestNews = ({ latestNewsTitle = "", latestNewsList = [] }) => {
         <h3 className="color-orange mb-2 text-center">{latestNewsTitle}</h3>
         <div className={cn(styles.latestNewsItems)}>
           {latestNewsList.map((newsItem) => (
-            <NewsItem newsItem={newsItem.attributes} />
+            <NewsItem newsItem={newsItem.attributes} locale={locale} />
           ))}
         </div>
         {/* <div className={styles.button}>
@@ -49,7 +49,10 @@ const LatestNews = ({ latestNewsTitle = "", latestNewsList = [] }) => {
   );
 };
 
-const NewsItem = ({ newsItem: { title, description, newsUrl, image } }) => {
+const NewsItem = ({
+  locale,
+  newsItem: { title, description, newsUrl, image, ctaLabel },
+}) => {
   return (
     <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
@@ -92,8 +95,12 @@ const NewsItem = ({ newsItem: { title, description, newsUrl, image } }) => {
           <div
             className={cn(styles.discover, "color-orange font-weight-medium")}
           >
-            <span>اكتشف المزيد</span>
-            <img src="/svg/discover_arrow.svg" alt="" />
+            <span>{ctaLabel}</span>
+            <img
+              className={cn({ [styles.rotateEn]: locale == "en" })}
+              src="/svg/discover_arrow.svg"
+              alt=""
+            />
           </div>
         </a>
       </div>

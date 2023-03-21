@@ -10,42 +10,71 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "abdelrahmanOasis": {
       "displayName": "abdelrahmanOasis",
       "type": "component",
       "repeatable": false,
       "component": "about-page.abdelrahman-oasis",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "story": {
       "displayName": "story",
       "type": "component",
       "repeatable": false,
       "component": "about-page.story",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "goals": {
       "displayName": "goals",
       "type": "component",
       "repeatable": false,
       "component": "about-page.goals",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "importance": {
       "displayName": "importance",
       "type": "component",
       "repeatable": false,
       "component": "about-page.importance",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "members": {
       "displayName": "members",
       "type": "component",
       "repeatable": false,
       "component": "about-page.members",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

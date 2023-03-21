@@ -6,24 +6,24 @@ const SocialLinks = ({ className, start = false }) => {
     <div className={cn(styles.socialLinks, { "content-start-medium": start })}>
       <SocialLink
         className={className}
-        src="./svg/instagram.svg"
+        src="/svg/instagram.svg"
         href={"https://instagram.com/abdulrahmansoasis?igshid=YmMyMTA2M2Y="}
       />
       <SocialLink
         className={className}
-        src="./svg/youtube.svg"
+        src="/svg/youtube.svg"
         href={"https://youtube.com/@abdulrahmansoasis"}
       />
       <SocialLink
         className={className}
-        src="./svg/twitter.svg"
+        src="/svg/twitter.svg"
         href={
           "https://twitter.com/abdulrahmansoas?s=11&t=UAPx6gtAmnhgWwn1mvGbaA"
         }
       />
       <SocialLink
         className={className}
-        src="./svg/snapshat.svg"
+        src="/svg/snapshat.svg"
         href={"https://t.snapchat.com/oAJ0KyrL"}
       />
     </div>

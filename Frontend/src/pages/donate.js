@@ -10,7 +10,7 @@ export default function Donate({ locale }) {
 
   useEffect(() => {
     async function fetchData() {
-      const fetchedJson = await getSinglePage("donate-page", "image");
+      const fetchedJson = await getSinglePage(locale, "donate-page", "image");
       setDonateData({ ...fetchedJson.data.attributes });
     }
     fetchData();

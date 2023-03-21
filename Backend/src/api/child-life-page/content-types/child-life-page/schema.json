@@ -10,28 +10,47 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "aboutLife": {
       "displayName": "aboutLife",
       "type": "component",
       "repeatable": false,
       "component": "child-life-page.about-life",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "specialists": {
       "displayName": "specialists",
       "type": "component",
       "repeatable": false,
       "component": "child-life-page.specialists",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "lifeImportance": {
       "displayName": "lifeImportance",
       "type": "component",
       "repeatable": false,
       "component": "child-life-page.life-importance",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

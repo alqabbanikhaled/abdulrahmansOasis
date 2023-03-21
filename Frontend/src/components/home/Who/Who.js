@@ -22,7 +22,6 @@ const Who = ({ locale, data = [] }) => {
 
   const { BANARS_DATA } = locale == "ar" ? whoDataAR : whoDataEN;
 
-
   useEffect(() => {
     if (
       currentSlideIndex ==

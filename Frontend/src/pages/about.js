@@ -15,6 +15,7 @@ export default function About({ locale, data }) {
   useEffect(() => {
     async function fetchData() {
       const fetchedJson = await getSinglePage(
+        locale,
         "about-page",
         "abdelrahmanOasis.image,story.media,story.videoCover,goals.items,goals.image,importance.image,importance.modelItems,members.membersItems"
       );

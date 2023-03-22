@@ -3,9 +3,15 @@ import cn from "classnames";
 
 import styles from "./Goals.module.scss";
 
-const Goals = ({ data = {} }) => {
+const Goals = ({ locale, data = {} }) => {
   return (
-    <section className={cn(styles.section, "space-X space-Y-bottom mt-6")}>
+    <section
+      className={cn(
+        styles.section,
+        { [styles.ar]: locale == "ar" },
+        "space-X space-Y-bottom mt-6"
+      )}
+    >
       <div className={cn(styles.container)}>
         <div className={cn(styles.goalsText, "mb-2")}>
           <h1 className="color-green mb-2">{data.title}</h1>

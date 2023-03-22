@@ -58,10 +58,10 @@
       }
       .vector {
         z-index: 1;
-        width: 92%;
         position: absolute;
-        left: 40%;
-        bottom: 15%;
+        right: 35%;
+        bottom: 10%;
+        transform: scaleX(-1);
       }
     }
     @include large-screen {
@@ -73,6 +73,18 @@
       flex-direction: column;
       .contactImg {
         display: none;
+      }
+    }
+  }
+}
+
+.ar {
+  .container {
+    .contactImg {
+      .vector {
+        right: initial;
+        right: -35%;
+        transform: scaleX(1);
       }
     }
   }

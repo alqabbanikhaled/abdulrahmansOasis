@@ -7,17 +7,21 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
 
-const Story = ({ data = {} }) => {
+const Story = ({ locale, data = {} }) => {
   const [playing, setPlaying] = useState(false);
 
   const handleClick = () => {
     setPlaying(!playing);
-  };
+};
 
   return (
     <section
       id="story"
-      className={cn(styles.section, "space-X space-Y-bottom")}
+      className={cn(
+        styles.section,
+        { [styles.ar]: locale == "ar" },
+        "space-X space-Y-bottom"
+      )}
     >
       <div className={cn(styles.container)}>
         <div className={styles.storyVideo}>

@@ -145,7 +145,13 @@ const Contact = ({ locale, contactData }) => {
       </Head>
       <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
-        <section className={cn(styles.section, "space-X space-Y")}>
+        <section
+          className={cn(
+            styles.section,
+            { [styles.ar]: locale == "ar" },
+            "space-X space-Y"
+          )}
+        >
           <div className={cn(styles.container)}>
             <div className={cn(styles.contactText, "mb-2")}>
               <h3 className="color-green mb-2">

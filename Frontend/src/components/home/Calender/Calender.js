@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import styles from "./Calender.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,6 +12,8 @@ const Calender = ({ locale, data = {} }) => {
   // const navigationPrevRef = useRef(null);
   // const navigationNextRef = useRef(null);
   const sliderRef = useRef(null);
+  const [currentBreakpoint, setCurrentBreakpoint] = useState(0);
+
   useEffect(() => {
     // sliderRef.current?.swiper.slideTo(0);
     sliderRef?.current?.swiper.updateSlides();
@@ -19,6 +21,13 @@ const Calender = ({ locale, data = {} }) => {
       ? sliderRef.current?.swiper.changeLanguageDirection("ltr")
       : sliderRef.current?.swiper.changeLanguageDirection("rtl");
   }, [locale]);
+
+  useEffect(() => {
+    setCurrentBreakpoint(sliderRef?.current?.swiper.currentBreakpoint);
+    window.addEventListener("resize", function () {
+      setCurrentBreakpoint(sliderRef?.current?.swiper.currentBreakpoint);
+    });
+  });
 
   const handlePrev = useCallback(() => {
     if (!sliderRef.current) return;
@@ -77,37 +86,36 @@ const Calender = ({ locale, data = {} }) => {
           }}
         >
           {data?.images?.data.map((img, i) => (
-            <SwiperSlide>
-              <img
-                key={i}
-                className={styles.img}
-                src={img?.attributes.url}
-                alt=""
-              />
+            <SwiperSlide key={i}>
+              <img className={styles.img} src={img?.attributes.url} alt="" />
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className={cn(styles.buttons)}>
-          {locale == "ar" ? (
-            <>
-              <button onClick={handlePrev} className={styles.arrowButton}>
-                <img src="./svg/arrow_right_L.svg" />
-              </button>
-              <button onClick={handleNext} className={styles.arrowButton}>
-                <img src="./svg/arrow_left_L.svg" />
-              </button>
-            </>
-          ) : (
-            <>
-              <button onClick={handleNext} className={styles.arrowButton}>
-                <img src="./svg/arrow_left_L.svg" />
-              </button>
-              <button onClick={handlePrev} className={styles.arrowButton}>
-                <img src="./svg/arrow_right_L.svg" />
-              </button>
-            </>
-          )}
-        </div>
+        {((data?.images?.data.length > 3 && currentBreakpoint == "@1.00") ||
+          (data?.images?.data.length > 2 && currentBreakpoint == "@0.75") ||
+          (data?.images?.data.length > 1 && currentBreakpoint == "@0.00")) && (
+          <div className={cn(styles.buttons)}>
+            {locale == "ar" ? (
+              <>
+                <button onClick={handlePrev} className={styles.arrowButton}>
+                  <img src="./svg/arrow_right_L.svg" />
+                </button>
+                <button onClick={handleNext} className={styles.arrowButton}>
+                  <img src="./svg/arrow_left_L.svg" />
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleNext} className={styles.arrowButton}>
+                  <img src="./svg/arrow_left_L.svg" />
+                </button>
+                <button onClick={handlePrev} className={styles.arrowButton}>
+                  <img src="./svg/arrow_right_L.svg" />
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

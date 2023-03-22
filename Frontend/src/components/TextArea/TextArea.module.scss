@@ -15,7 +15,7 @@
 .label {
   position: absolute;
   font-size: 1rem;
-  right: 0;
+  left: 0;
   top: 15%;
   transform: translateY(-50%);
   background-color: var(--white);
@@ -51,5 +51,12 @@
   &:not(:placeholder-shown) + label {
     top: 0;
     transform: translateY(-50%) scale(0.9);
+  }
+}
+
+.ar {
+  .label {
+    left: initial;
+    right: 0;
   }
 }

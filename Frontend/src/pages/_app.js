@@ -20,7 +20,7 @@ const App = ({ Component, pageProps }) => {
   }, [locale]);
 
   return (
-    <GoogleReCaptchaProvider reCaptchaKey="6LczNhklAAAAAGeDJULlPuGrDrxmtyKUMzUOe6es">
+    <GoogleReCaptchaProvider reCaptchaKey="6LdRJSElAAAAAOwIRwPQf4Wrkaei5QxfGW6iSpeQ">
       <Layout>
         <Component {...pageProps} />
       </Layout>

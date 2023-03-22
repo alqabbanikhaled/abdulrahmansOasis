@@ -1,8 +1,14 @@
 import styles from "./TextArea.module.scss";
 import cn from "classnames";
-const TextArea = ({ label, className, value, onChange }) => {
+const TextArea = ({ label, className, value, onChange, locale }) => {
   return (
-    <div className={cn(styles.container, className)}>
+    <div
+      className={cn(
+        styles.container,
+        { [styles.ar]: locale == "ar" },
+        className
+      )}
+    >
       <div className={styles.textAreaField}>
         <textarea
           value={value}

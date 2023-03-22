@@ -1,8 +1,23 @@
 import styles from "./Input.module.scss";
 import cn from "classnames";
-const Input = ({ label, type, onChange, className, value, name, id }) => {
+const Input = ({
+  label,
+  type,
+  onChange,
+  className,
+  value,
+  name,
+  id,
+  locale,
+}) => {
   return (
-    <div className={cn(styles.container, className)}>
+    <div
+      className={cn(
+        styles.container,
+        { [styles.ar]: locale == "ar" },
+        className
+      )}
+    >
       <div className={styles.textfield}>
         <input
           type={type}

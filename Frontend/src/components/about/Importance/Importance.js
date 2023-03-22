@@ -8,10 +8,7 @@ const Importance = ({ data = {} }) => {
     <section className={cn(styles.section, "space-X space-Y bg-3")}>
       <div className={cn(styles.container, "mb-10")}>
         <div className={styles.importanceImg}>
-          <img
-            src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
-            alt=""
-          />
+          <img src={data.image?.data.attributes.url} alt="" />
           <img className={styles.vector} src="/svg/back_1.svg" alt="" />
         </div>
         <div className={cn(styles.importanceText, "mb-2")}>

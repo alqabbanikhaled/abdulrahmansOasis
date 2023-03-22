@@ -25,10 +25,7 @@ const Donate = ({ data = {} }) => {
             {data.title}
           </h1>
           <div className={cn(styles.donateImg, "mb-2")}>
-            <img
-              src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
-              alt=""
-            />
+            <img src={data.image?.data.attributes.url} alt="" />
           </div>
           <div className={cn(styles.donateButton)}>
             <Link href={"/donate"}>

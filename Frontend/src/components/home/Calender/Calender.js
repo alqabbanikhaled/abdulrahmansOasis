@@ -25,7 +25,7 @@ const Calender = ({ data = {} }) => {
             <img
               key={i}
               className={styles.event}
-              src={`http://127.0.0.1:1337${img?.attributes.url}`}
+              src={img?.attributes.url}
               alt=""
             />
           ))}

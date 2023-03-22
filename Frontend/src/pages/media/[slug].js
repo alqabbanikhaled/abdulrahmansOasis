@@ -36,7 +36,7 @@ export default function Slug() {
 }
 
 // export async function getStaticPaths() {
-//   const res = await fetch("http://127.0.0.1:1337/api/latest-news");
+//   const res = await fetch("https://abdelrahmanoasis-cms-fjf3vmxuqa-uc.a.run.app/api/latest-news");
 //   const data = await res.json();
 
 //   console.log(data);
@@ -48,7 +48,7 @@ export default function Slug() {
 
 // export async function getStaticProps({ slug }) {
 //   const res = await fetch(
-//     `http://127.0.0.1:1337/api/latest-news/?filters[Slug][$eq]=${slug}`
+//     `https://abdelrahmanoasis-cms-fjf3vmxuqa-uc.a.run.app/api/latest-news/?filters[Slug][$eq]=${slug}`
 //   );
 //   const data = await res.json();
 

@@ -1,4 +1,4 @@
-const baseUrl = "http://127.0.0.1:1337";
+const baseUrl = "https://abdelrahmanoasis-cms-fjf3vmxuqa-uc.a.run.app";
 
 export async function getSinglePage(locale = "ar", name, fields = "") {
   var myHeaders = new Headers();

@@ -12,7 +12,7 @@ const Volunteer = ({ locale, data = {} }) => {
         <h1 className="color-blue mb-2 text-center space-X">{data.title}</h1>
         <div className={styles.volunteerImg}>
           <img
-            src={`http://127.0.0.1:1337${data.volunteerImage?.data.attributes.url}`}
+            src={data.volunteerImage?.data.attributes.url}
             alt="volunteer img"
           />
         </div>

@@ -24,8 +24,8 @@ const Story = ({ data = {} }) => {
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
               className={styles.reactPlayer}
-              url={`http://127.0.0.1:1337${data.media?.data.attributes.url}`}
-              light={`http://127.0.0.1:1337${data.videoCover?.data.attributes.url}`}
+              url={data.media?.data.attributes.url}
+              light={data.videoCover?.data.attributes.url}
               playIcon={<PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play.svg"} />}
               playing={playing}
               controls={false}

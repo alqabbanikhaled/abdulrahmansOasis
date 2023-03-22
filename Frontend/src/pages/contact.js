@@ -94,16 +94,16 @@ const Contact = ({ locale, contactData }) => {
             ? "برجاء ادخال بريد الكتروني صحيح"
             : "Email is not valid"
           : ""),
-      phone:
-        isEmpty(
-          phone,
-          locale === "ar" ? "برجاء ادخل رقم الجوال" : "Phone is required"
-        ) ||
-        (!isValidPhone(phone)
-          ? locale === "ar"
-            ? "برجاء ادخل رقم جوال صحيح"
-            : "Phone is not valid"
-          : ""),
+      phone: isEmpty(
+        phone,
+        locale === "ar" ? "برجاء ادخل رقم الجوال" : "Phone is required"
+      ),
+      // ||
+      // (!isValidPhone(phone)
+      //   ? locale === "ar"
+      //     ? "برجاء ادخل رقم جوال صحيح"
+      //     : "Phone is not valid"
+      //   : "")
       message: isEmpty(
         message,
         locale === "ar" ? "برجاء ادخال الرسالة" : "Name is required"
@@ -168,10 +168,11 @@ const Contact = ({ locale, contactData }) => {
                   <div className={cn(styles.form, "mb-2")}>
                     <div className={styles.input}>
                       <Input
+                        locale={locale}
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         type="text"
-                        label={locale === "ar" ? "الاسم" : "First Name"}
+                        label={locale === "ar" ? "الاسم الاول" : "First Name"}
                       />
                       {errors.name && (
                         <div className="color-red">{errors.name}</div>
@@ -179,11 +180,12 @@ const Contact = ({ locale, contactData }) => {
                     </div>
                     <div className={styles.input}>
                       <Input
+                        locale={locale}
                         value={family}
                         onChange={(event) => setFamily(event.target.value)}
                         className={styles.input}
                         type="text"
-                        label={locale === "ar" ? "الاسم" : "Family Name"}
+                        label={locale === "ar" ? "الاسم الاخير" : "Family Name"}
                       />
                       {errors.family && (
                         <div className="color-red">{errors.family}</div>
@@ -191,6 +193,7 @@ const Contact = ({ locale, contactData }) => {
                     </div>
                     <div className={styles.input}>
                       <Input
+                        locale={locale}
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         className={styles.input}
@@ -207,10 +210,11 @@ const Contact = ({ locale, contactData }) => {
                     </div>
                     <div className={styles.input}>
                       <Input
+                        locale={locale}
                         value={phone}
                         onChange={(event) => setPhone(event.target.value)}
                         className={styles.input}
-                        type="tel"
+                        type="number"
                         label={locale === "ar" ? "رقم الجوال" : "Mobile Number"}
                       />
                       {errors.phone && (
@@ -219,6 +223,7 @@ const Contact = ({ locale, contactData }) => {
                     </div>
                     <div className={cn(styles.input, styles.message)}>
                       <TextArea
+                        locale={locale}
                         value={message}
                         onChange={(event) => setMessage(event.target.value)}
                         label={locale === "ar" ? "الرسالة" : "Message"}

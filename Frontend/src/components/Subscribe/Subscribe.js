@@ -19,7 +19,7 @@ function isValidEmail(value) {
 const Subscribe = ({ inputText, buttonText, successText }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const [successSubmit, setSuccessSubmit] = useState(true);
+  const [successSubmit, setSuccessSubmit] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();

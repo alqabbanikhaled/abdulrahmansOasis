@@ -1,25 +1,24 @@
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import LatestNews from "../../components/media/LatestNews/LatestNews";
 import Gallery from "../../components/media/Gallery/Gallery";
 import Header from "../../components/Header/Header";
 import { getCollectionsPages, getSinglePage } from "@/providers/api.service";
 
-export default function Media({ locale }) {
-  const [mediaPageData, setMediaPageData] = useState({});
-  const [latestNewsList, setLatestNewsList] = useState([]);
+export default function Media({ locale, mediaPageData, latestNewsList }) {
+  // const [mediaPageData, setMediaPageData] = useState({});
+  // const [latestNewsList, setLatestNewsList] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const [fetchedJson, fetchedJsonList] = await Promise.all([
-        getSinglePage(locale, "media-page"),
-        getCollectionsPages(locale, "latest-news", "image"),
-      ]);
-      setMediaPageData({ ...fetchedJson.data.attributes });
-      setLatestNewsList([...fetchedJsonList.data]);
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const [fetchedJson, fetchedJsonList] = await Promise.all([
+  //       getSinglePage(locale, "media-page"),
+  //       getCollectionsPages(locale, "latest-news", "image"),
+  //     ]);
+  //     setMediaPageData({ ...fetchedJson.data.attributes });
+  //     setLatestNewsList([...fetchedJsonList.data]);
+  //   }
+  //   fetchData();
+  // }, []);
 
   console.log(latestNewsList);
 
@@ -42,16 +41,15 @@ export default function Media({ locale }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  // const fetchedJson = await getSinglePage("media-page", "");
-  // const [mediaPageData, latestNewsList] = await Promise.all([
-  //   getSinglePage("media-page"),
-  //   getCollectionsPages("latest-news", "image"),
-  // ]);
+  const [fetchedJson, fetchedJsonList] = await Promise.all([
+    getSinglePage(locale, "media-page"),
+    getCollectionsPages(locale, "latest-news", "image"),
+  ]);
 
   return {
     props: {
-      // mediaPageData,
-      // latestNewsList,
+      mediaPageData: { ...fetchedJson.data.attributes },
+      latestNewsList: [...fetchedJsonList.data],
       locale: locale,
     },
   };

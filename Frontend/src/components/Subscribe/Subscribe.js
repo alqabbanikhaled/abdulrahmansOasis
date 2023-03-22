@@ -1,22 +1,75 @@
 import cn from "classnames";
 import styles from "./Subscribe.module.scss";
 import Button from "./../Button/Button";
-import { subscribeDataAR, subscribeDataEN } from "./Subscribe.data";
+import { subscribeNews } from "@/providers/api.service";
+import { useState } from "react";
 
-const Subscribe = ({ locale }) => {
-  const { placeholder, subscribBtnText } =
-    locale == "ar" ? subscribeDataAR : subscribeDataEN;
+const isEmpty = (value, message) => {
+  if (!value) return `برجاء ادخال ${message}`;
+  else return "";
+};
 
+function isValidEmail(value) {
+  var mailRegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (value.match(mailRegExp)) {
+    return true;
+  } else return false;
+}
+
+const Subscribe = ({ locale, inputText, buttonText }) => {
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
+  const [successSubmit, setSuccessSubmit] = useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newErrors = {
+      ...errors,
+      email:
+        isEmpty(email, "بريدك الالكتروني") ||
+        (!isValidEmail(email) ? "برجاء ادخال بريد الكتروني صحيح" : ""),
+    };
+
+    setErrors({ ...newErrors });
+
+    if (Object.values(newErrors).every((x) => x === "")) {
+      subscribeNews({
+        data: {
+          email,
+        },
+      })
+        .then((response) => {
+          setSuccessSubmit(true);
+        })
+        .catch((error) => console.log("error", error.error));
+    }
+  }
   return (
-    <form className={styles.formFeilds}>
-      <input
-        className={cn(styles.input, "p-1 paragraph1-size color-dark-gray")}
-        type="email"
-        name=""
-        id=""
-        placeholder={placeholder}
-      />
-      <Button className="purple-bg color-white">{subscribBtnText}</Button>
+    <form onSubmit={handleSubmit}>
+      <div className={styles.formFeilds}>
+        {!successSubmit ? (
+          <>
+            <input
+              className={cn(
+                styles.input,
+                "p-1 paragraph1-size color-dark-gray"
+              )}
+              type="text"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              name=""
+              id=""
+              placeholder={inputText}
+            />
+            <Button className="purple-bg color-white">{buttonText}</Button>
+          </>
+        ) : (
+          <div className="color-green font-weight-bold">
+            {"تم الاشتراك بنجاح"}
+          </div>
+        )}
+      </div>
+      {errors.email && <div className="color-red">{errors.email}</div>}
     </form>
   );
 };

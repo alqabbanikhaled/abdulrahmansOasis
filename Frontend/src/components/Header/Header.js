@@ -7,13 +7,22 @@ import { headerDataAR, headerDataEN } from "./Header.data";
 import Subscribe from "../Subscribe/Subscribe";
 import styles from "./Header.module.scss";
 import LangSwitch from "../LangSwitch/LangSwitch";
+import { getSinglePage } from "@/providers/api.service";
 
 const Header = ({ navLinksColor, locale }) => {
   const [isOpen, setIsOpen] = useState();
   const [newNavbar, setNewNavbar] = useState(false);
+  const [subscribeNewsData, setSubscribeNewsData] = useState();
 
-  const { NAV_LINKS, latestNews } =
-    locale == "ar" ? headerDataAR : headerDataEN;
+  const { NAV_LINKS } = locale == "ar" ? headerDataAR : headerDataEN;
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedJson = await getSinglePage(locale, "subscribe-news-section");
+      setSubscribeNewsData(fetchedJson.data?.attributes);
+    }
+    fetchData();
+  }, [locale]);
 
   const handleClick = () => setIsOpen(!isOpen);
 
@@ -85,22 +94,30 @@ const Header = ({ navLinksColor, locale }) => {
                     )
                   );
                 })}
-                {/* <li>
-                  <LangSwitch navLinksColor={navLinksColor} newNavbar={newNavbar} />
-                </li> */}
+                <li>
+                  <LangSwitch
+                    navLinksColor={navLinksColor}
+                    newNavbar={newNavbar}
+                  />
+                </li>
               </ul>
-
-              {/* <div className={cn(styles.headerSubscribe, "mt-3")}>
-                <p
-                  className={cn(
-                    styles.subscribeText,
-                    "color-gray font-weight-medium"
-                  )}
-                >
-                  {latestNews}
-                </p>
-                <Subscribe locale={locale} />
-              </div> */}
+              <div className={cn(styles.headerSubscribe, "mt-3")}>
+                {subscribeNewsData?.sectionTitle && (
+                  <p
+                    className={cn(
+                      styles.subscribeText,
+                      "paragraph1-size color-gray font-weight-medium"
+                    )}
+                  >
+                    {subscribeNewsData.sectionTitle}
+                  </p>
+                )}
+                <Subscribe
+                  locale={locale}
+                  inputText={subscribeNewsData?.inputText}
+                  buttonText={subscribeNewsData?.buttonText}
+                />
+              </div>
             </div>
             <div className={styles.contactAndMenuIcon}>
               {/* <Link href={"/"} className="paragraph11-size">

@@ -88,8 +88,7 @@
     .headerSubscribe {
       display: none;
       .subscribeText {
-        font-size: 14px;
-        margin-bottom: 8px;
+        width: 80%;
       }
       @include medium-screen {
         display: block;

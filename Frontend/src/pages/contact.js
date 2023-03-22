@@ -32,7 +32,7 @@ function isValidPhone(value) {
   } else return false;
 }
 
-const Contact = ({ locale }) => {
+const Contact = ({ locale, contactData }) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [name, setName] = useState("");
   const [family, setFamily] = useState("");
@@ -41,7 +41,7 @@ const Contact = ({ locale }) => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
   const [successSubmit, setSuccessSubmit] = useState(false);
-  const [contactData, setContactData] = useState({});
+  // const [contactData, setContactData] = useState({});
   // const [token, setToken] = useState();
   // const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
 
@@ -59,13 +59,13 @@ const Contact = ({ locale }) => {
     handleReCaptchaVerify();
   }, [handleReCaptchaVerify]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedJson = await getSinglePage(locale, "contact-page");
-      setContactData({ ...fetchedJson.data?.attributes });
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const fetchedJson = await getSinglePage(locale, "contact-page");
+  //     setContactData({ ...fetchedJson.data?.attributes });
+  //   }
+  //   fetchData();
+  // }, []);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -197,7 +197,7 @@ const Contact = ({ locale }) => {
                       className={cn(styles.button, "color-white green-bg")}
                       type="submit"
                     >
-                      تواصل معنا
+                      {contactData.contactButtonLabel}
                     </Button>
                   </div>
                 </form>
@@ -212,7 +212,7 @@ const Contact = ({ locale }) => {
                     "paragraph1-size color-purple font-weight-medium"
                   )}
                 >
-                  تابعونا على منصات التواصل الاجتماعي
+                  {contactData.followText}
                 </div>
                 <SocialLinks className={"filter-green"} start={true} />
               </div>
@@ -229,14 +229,11 @@ const Contact = ({ locale }) => {
 };
 
 export async function getServerSideProps({ locale }) {
-  // const fetchedJson = await getSinglePage(
-  //   "/contact-page",
-  //   ""
-  // );
+  const fetchedJson = await getSinglePage(locale, "contact-page");
 
   return {
     props: {
-      // data: fetchedJson,
+      contactData: { ...fetchedJson.data?.attributes },
       locale: locale,
     },
   };

@@ -7,26 +7,24 @@ import Volunteer from "./../components/home/Volunteer/Volunteer";
 import Publication from "./../components/home/Publication/Publication";
 import Calender from "./../components/home/Calender/Calender";
 
-import LangSwitch from "./../components/LangSwitch/LangSwitch";
 import Header from "./../components/Header/Header";
 import { getSinglePage } from "@/providers/api.service";
 
-export default function Home({ locale }) {
-  const [homeData, setHomeData] = useState(null);
+export default function Home({ locale, homeData }) {
+  // const [homeData, setHomeData] = useState(null);
 
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedJson = await getSinglePage(
-        locale,
-        "home-page",
-        "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
-      );
-      setHomeData({ ...fetchedJson.data.attributes });
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const fetchedJson = await getSinglePage(
+  //       locale,
+  //       "home-page",
+  //       "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
+  //     );
+  //     setHomeData({ ...fetchedJson.data.attributes });
+  //   }
+  //   fetchData();
+  // }, []);
 
-  console.log(homeData);
   return (
     homeData && (
       <>
@@ -43,14 +41,15 @@ export default function Home({ locale }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  // const data = await getSinglePage(
-  //   "home-page",
-  //   "volunteer,publicaiton,donate,calender,who"
-  // );
+  const data = await getSinglePage(
+    locale,
+    "home-page",
+    "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
+  );
 
   return {
     props: {
-      // data: data,
+      homeData: data.data.attributes,
       locale: locale,
     },
   };

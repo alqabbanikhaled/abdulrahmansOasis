@@ -8,7 +8,7 @@ import styles from "./Publication.module.scss";
 import { publicationDataAR, publicationDataEN } from "./Publication.data";
 
 const Publication = ({ locale, data = {} }) => {
-  const { title, browse, downloadNow, publicationLine1, publicationLine2 } =
+  const { browse, downloadNow, publicationLine1, publicationLine2 } =
     locale == "ar" ? publicationDataAR : publicationDataEN;
   return (
     <>
@@ -104,13 +104,13 @@ const Publication = ({ locale, data = {} }) => {
             </div>
             <div className={cn(styles.buttons)}>
               <a
-                href={`http://localhost:1337${data.publicationFile?.data.attributes.url}`}
+                href={`http://127.0.0.1:1337${data.publicationFile?.data.attributes.url}`}
                 target="_blank"
               >
                 <Button className="red-bg color-white">{browse}</Button>
               </a>
               <a
-                href={`http://localhost:1337${data.publicationFile?.data.attributes.url}`}
+                href={`http://127.0.0.1:1337${data.publicationFile?.data.attributes.url}`}
                 download
               >
                 <OutlinedButton className="color-red border-red">
@@ -121,7 +121,7 @@ const Publication = ({ locale, data = {} }) => {
           </div>
           <div className={styles.img}>
             <img
-              src={`http://localhost:1337${data.image?.data.attributes.url}`}
+              src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
               alt="publication"
             />
           </div>

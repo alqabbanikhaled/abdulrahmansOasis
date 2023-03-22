@@ -13,7 +13,7 @@ const LifeAbout = ({ data = {} }) => {
         </div>
         <div className={styles.lifeAboutImg}>
           <img
-            src={`http://localhost:1337${data.image?.data.attributes.url}`}
+            src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
             alt=""
           />
           {/* <img className={styles.vector} src="./svg/back_1.svg" alt="" /> */}

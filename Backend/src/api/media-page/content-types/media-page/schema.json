@@ -16,17 +16,6 @@
     }
   },
   "attributes": {
-    "latestNews": {
-      "displayName": "latestNews",
-      "type": "component",
-      "repeatable": false,
-      "component": "media-page.latest-news",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "latestNewsTitle": {
       "type": "string",
       "required": true,

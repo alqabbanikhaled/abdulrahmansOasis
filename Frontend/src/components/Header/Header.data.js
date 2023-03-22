@@ -27,12 +27,12 @@ export const headerDataAR = {
       isDesktop: true,
       isMobile: true,
     },
-    // {
-    //   link: "/contact",
-    //   label: "تواصل معنا",
-    //   isDesktop: true,
-    //   isMobile: true,
-    // },
+    {
+      link: "/contact",
+      label: "تواصل معنا",
+      isDesktop: true,
+      isMobile: true,
+    },
   ],
   latestNews:
     "آخر أخبارنا ومقالاتنا ومواردنا ، سنرسلها إلى صندوق الوارد الخاص بك أسبوعيًا.",
@@ -58,12 +58,12 @@ export const headerDataEN = {
       isDesktop: true,
       isMobile: true,
     },
-    // {
-    //   link: "/contact",
-    //   label: "Contact Us",
-    //   isDesktop: true,
-    //   isMobile: true,
-    // },
+    {
+      link: "/contact",
+      label: "Contact Us",
+      isDesktop: true,
+      isMobile: true,
+    },
   ],
   latestNews:
     "Our latest news, articles and resources, delivered to your inbox on a weekly basis.",

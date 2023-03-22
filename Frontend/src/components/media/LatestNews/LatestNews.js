@@ -33,7 +33,7 @@ const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
       <div className={cn(styles.container)}>
         <h3 className="color-orange mb-2 text-center">{latestNewsTitle}</h3>
         <div className={cn(styles.latestNewsItems)}>
-          {latestNewsList.map((newsItem, i) => (
+          {latestNewsList?.map((newsItem, i) => (
             <NewsItem key={i} newsItem={newsItem} locale={locale} />
           ))}
         </div>
@@ -61,7 +61,7 @@ const NewsItem = ({
     // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
     <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
-        <img src={`http://localhost:1337${image?.data.attributes.url}`} />
+        <img src={`http://127.0.0.1:1337${image?.data.attributes.url}`} />
         {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div

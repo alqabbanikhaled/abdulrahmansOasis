@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:1337";
+const baseUrl = "http://127.0.0.1:1337";
 
 export async function getSinglePage(locale = "ar", name, fields = "") {
   var myHeaders = new Headers();
@@ -75,6 +75,26 @@ export async function getNewsItem(locale = "ar", slug, id) {
 
 export async function contactUs(data) {
   const link = `${baseUrl}/api/contacts`;
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const JSONdata = JSON.stringify(data);
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: JSONdata,
+  };
+
+  return fetch(link, requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      return result;
+    })
+    .catch((error) => console.log("error", error.error));
+}
+
+export async function subscribeNews(data) {
+  const link = `${baseUrl}/api/subscribe-news`;
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   const JSONdata = JSON.stringify(data);

@@ -4,10 +4,8 @@ import cn from "classnames";
 import styles from "./Donate.module.scss";
 import Button from "./../../Button/Button";
 import Link from "next/link";
-import { donateDataAR, donateDataEN } from "./Donate.data";
 
-const Donate = ({ locale, data = {} }) => {
-  const { title, donateNow } = locale == "ar" ? donateDataAR : donateDataEN;
+const Donate = ({ data = {} }) => {
   return (
     <>
       {/* <section className={cn(styles.section, "space-X-l space-Y")}>
@@ -28,7 +26,7 @@ const Donate = ({ locale, data = {} }) => {
           </h1>
           <div className={cn(styles.donateImg, "mb-2")}>
             <img
-              src={`http://localhost:1337${data.image?.data.attributes.url}`}
+              src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
               alt=""
             />
           </div>

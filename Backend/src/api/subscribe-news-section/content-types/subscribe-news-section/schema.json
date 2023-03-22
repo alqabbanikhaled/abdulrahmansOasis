@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "contact_pages",
+  "collectionName": "subscribe_news_sections",
   "info": {
-    "singularName": "contact-page",
-    "pluralName": "contact-pages",
-    "displayName": "contact page",
+    "singularName": "subscribe-news-section",
+    "pluralName": "subscribe-news-sections",
+    "displayName": "subscribeNews section",
     "description": ""
   },
   "options": {
@@ -16,25 +16,16 @@
     }
   },
   "attributes": {
-    "formTitle": {
-      "type": "richtext",
-      "required": true,
+    "sectionTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "text",
+      "required": true
     },
-    "formTitleSuccess": {
-      "type": "richtext",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "contactButtonLabel": {
+    "inputText": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -43,13 +34,13 @@
       "type": "string",
       "required": true
     },
-    "followText": {
+    "buttonText": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text",
+      "type": "string",
       "required": true
     }
   }

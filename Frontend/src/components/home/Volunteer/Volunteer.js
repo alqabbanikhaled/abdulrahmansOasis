@@ -4,8 +4,7 @@ import styles from "./Volunteer.module.scss";
 import { volunteerDataAR, volunteerDataEN } from "./Volunteer.data";
 
 const Volunteer = ({ locale, data = {} }) => {
-  const { title, sendEmail } =
-    locale == "ar" ? volunteerDataAR : volunteerDataEN;
+  const { sendEmail } = locale == "ar" ? volunteerDataAR : volunteerDataEN;
 
   return (
     <section className={cn(styles.section, "space-Y")}>
@@ -13,7 +12,7 @@ const Volunteer = ({ locale, data = {} }) => {
         <h1 className="color-blue mb-2 text-center space-X">{data.title}</h1>
         <div className={styles.volunteerImg}>
           <img
-            src={`http://localhost:1337${data.volunteerImage?.data.attributes.url}`}
+            src={`http://127.0.0.1:1337${data.volunteerImage?.data.attributes.url}`}
             alt="volunteer img"
           />
         </div>

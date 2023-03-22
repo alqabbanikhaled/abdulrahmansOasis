@@ -9,20 +9,20 @@ import Members from "./../components/about/Members/Members";
 import Header from "./../components/Header/Header";
 import { getSinglePage } from "@/providers/api.service";
 
-export default function About({ locale, data }) {
-  const [aboutData, setAboutData] = useState({});
+export default function About({ locale, aboutData }) {
+  // const [aboutData, setAboutData] = useState({});
 
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedJson = await getSinglePage(
-        locale,
-        "about-page",
-        "abdelrahmanOasis.image,story.media,story.videoCover,goals.items,goals.image,importance.image,importance.modelItems,members.membersItems"
-      );
-      setAboutData({ ...fetchedJson.data.attributes });
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const fetchedJson = await getSinglePage(
+  //       locale,
+  //       "about-page",
+  //       "abdelrahmanOasis.image,story.media,story.videoCover,goals.items,goals.image,importance.image,importance.modelItems,members.membersItems"
+  //     );
+  //     setAboutData({ ...fetchedJson.data.attributes });
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <>
@@ -44,14 +44,15 @@ export default function About({ locale, data }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  // const fetchedJson = await getSinglePage(
-  //   "about-page",
-  //   "abdelrahmanOasis.image"
-  // );
+  const fetchedJson = await getSinglePage(
+    locale,
+    "about-page",
+    "abdelrahmanOasis.image,story.media,story.videoCover,goals.items,goals.image,importance.image,importance.modelItems,members.membersItems"
+  );
 
   return {
     props: {
-      // data: fetchedJson,
+      aboutData: { ...fetchedJson.data.attributes },
       locale: locale,
     },
   };

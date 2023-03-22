@@ -6,12 +6,9 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
-import { storyDataAR, storyDataEN } from "./Story.data";
 
-const Story = ({ locale, data = {} }) => {
+const Story = ({ data = {} }) => {
   const [playing, setPlaying] = useState(false);
-
-  const { title, description } = locale == "ar" ? storyDataAR : storyDataEN;
 
   const handleClick = () => {
     setPlaying(!playing);
@@ -27,8 +24,8 @@ const Story = ({ locale, data = {} }) => {
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
               className={styles.reactPlayer}
-              url={`http://localhost:1337${data.media?.data.attributes.url}`}
-              light={`http://localhost:1337${data.videoCover?.data.attributes.url}`}
+              url={`http://127.0.0.1:1337${data.media?.data.attributes.url}`}
+              light={`http://127.0.0.1:1337${data.videoCover?.data.attributes.url}`}
               playIcon={<PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play.svg"} />}
               playing={playing}
               controls={false}

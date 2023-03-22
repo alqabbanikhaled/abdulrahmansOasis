@@ -3,8 +3,6 @@ import { useRouter } from "next/router";
 import { getNewsItem } from "@/providers/api.service";
 import Header from "@/components/Header/Header";
 
-var slugify = require("slugify");
-
 export default function Slug() {
   const [newsItem, setNewsItem] = useState(null);
   const {
@@ -38,7 +36,7 @@ export default function Slug() {
 }
 
 // export async function getStaticPaths() {
-//   const res = await fetch("http://localhost:1337/api/latest-news");
+//   const res = await fetch("http://127.0.0.1:1337/api/latest-news");
 //   const data = await res.json();
 
 //   console.log(data);
@@ -50,7 +48,7 @@ export default function Slug() {
 
 // export async function getStaticProps({ slug }) {
 //   const res = await fetch(
-//     `http://localhost:1337/api/latest-news/?filters[Slug][$eq]=${slug}`
+//     `http://127.0.0.1:1337/api/latest-news/?filters[Slug][$eq]=${slug}`
 //   );
 //   const data = await res.json();
 

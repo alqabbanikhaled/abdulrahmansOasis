@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import AboutLife from "../components/child-life/LifeAbout/LifeAbout";
 import Specialists from "./../components/child-life/Specialists/Specialists";
@@ -6,20 +5,20 @@ import LifeImportance from "./../components/child-life/LifeImportance/LifeImport
 import Header from "./../components/Header/Header";
 import { getSinglePage } from "@/providers/api.service";
 
-export default function ChildLife({ locale }) {
-  const [childLifeData, setChildLifeData] = useState({});
+export default function ChildLife({ locale, childLifeData }) {
+  // const [childLifeData, setChildLifeData] = useState({});
 
-  useEffect(() => {
-    async function fetchData() {
-      const fetchedJson = await getSinglePage(
-        locale,
-        "child-life-page",
-        "aboutLife.image,specialists.video,specialists.videoCover,lifeImportance.importanceItems"
-      );
-      setChildLifeData({ ...fetchedJson.data.attributes });
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const fetchedJson = await getSinglePage(
+  //       locale,
+  //       "child-life-page",
+  //       "aboutLife.image,specialists.video,specialists.videoCover,lifeImportance.importanceItems"
+  //     );
+  //     setChildLifeData({ ...fetchedJson.data.attributes });
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <>
@@ -39,14 +38,15 @@ export default function ChildLife({ locale }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  // const fetchedJson = await getSinglePage(
-  //   "child-life-page",
-  //   "aboutLife.image"
-  // );
+  const fetchedJson = await getSinglePage(
+    locale,
+    "child-life-page",
+    "aboutLife.image,specialists.video,specialists.videoCover,lifeImportance.importanceItems"
+  );
 
   return {
     props: {
-      // data: fetchedJson,
+      childLifeData: { ...fetchedJson.data.attributes },
       locale: locale,
     },
   };

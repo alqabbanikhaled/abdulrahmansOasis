@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subscribe_news",
+  "info": {
+    "singularName": "subscribe-new",
+    "pluralName": "subscribe-news",
+    "displayName": "subscribeNew"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}

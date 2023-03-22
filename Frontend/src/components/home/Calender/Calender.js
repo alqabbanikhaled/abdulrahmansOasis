@@ -1,11 +1,8 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Calender.module.scss";
-import { calenderDataAR, calenderDataEN } from "./Calender.data";
 
-const Calender = ({ locale, data = {} }) => {
-  const { title, CALENDER_EVENTS } =
-    locale == "ar" ? calenderDataAR : calenderDataEN;
+const Calender = ({ data = {} }) => {
   return (
     <section
       id="calender"
@@ -28,7 +25,7 @@ const Calender = ({ locale, data = {} }) => {
             <img
               key={i}
               className={styles.event}
-              src={`http://localhost:1337${img?.attributes.url}`}
+              src={`http://127.0.0.1:1337${img?.attributes.url}`}
               alt=""
             />
           ))}

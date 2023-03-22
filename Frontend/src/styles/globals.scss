@@ -325,6 +325,10 @@ a {
   text-decoration: none;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .red-bg {
   background-color: var(--red) !important;
 }

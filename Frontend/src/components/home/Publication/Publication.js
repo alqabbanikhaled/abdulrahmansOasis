@@ -104,15 +104,12 @@ const Publication = ({ locale, data = {} }) => {
             </div>
             <div className={cn(styles.buttons)}>
               <a
-                href={`http://127.0.0.1:1337${data.publicationFile?.data.attributes.url}`}
+                href={data.publicationFile?.data.attributes.url}
                 target="_blank"
               >
                 <Button className="red-bg color-white">{browse}</Button>
               </a>
-              <a
-                href={`http://127.0.0.1:1337${data.publicationFile?.data.attributes.url}`}
-                download
-              >
+              <a href={data.publicationFile?.data.attributes.url} download>
                 <OutlinedButton className="color-red border-red">
                   {downloadNow}
                 </OutlinedButton>
@@ -121,7 +118,7 @@ const Publication = ({ locale, data = {} }) => {
           </div>
           <div className={styles.img}>
             <img
-              src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
+              src={` ${data.image?.data.attributes.url}`}
               alt="publication"
             />
           </div>

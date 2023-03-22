@@ -58,7 +58,6 @@ const Who = ({ locale, data = [] }) => {
       : sliderRefImages.current?.swiper.changeLanguageDirection("rtl");
   }, [locale]);
 
-  const url = "http://127.0.0.1:1337";
   return data.length > 0 ? (
     <section className={cn(styles.section)}>
       <Swiper
@@ -78,12 +77,12 @@ const Who = ({ locale, data = [] }) => {
                   className={cn({
                     [styles.imageDesktop]: bannerMediaMobile.data != null,
                   })}
-                  src={`${url}${bannerMedia.data.attributes.url}`}
+                  src={bannerMedia.data.attributes.url}
                   alt="no image"
                 />
                 <img
                   className={styles.imageMob}
-                  src={`${url}${bannerMediaMobile.data?.attributes.url}`}
+                  src={bannerMediaMobile.data?.attributes.url}
                   alt="no image"
                 />
               </>
@@ -97,7 +96,7 @@ const Who = ({ locale, data = [] }) => {
                 muted
               >
                 <source
-                  src={`${url}${bannerMedia.data.attributes.url}`}
+                  src={bannerMedia.data.attributes.url}
                   type="video/mp4"
                 />
               </video>

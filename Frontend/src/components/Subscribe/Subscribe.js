@@ -16,10 +16,10 @@ function isValidEmail(value) {
   } else return false;
 }
 
-const Subscribe = ({ locale, inputText, buttonText }) => {
+const Subscribe = ({ inputText, buttonText, successText }) => {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const [successSubmit, setSuccessSubmit] = useState(false);
+  const [successSubmit, setSuccessSubmit] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -64,9 +64,7 @@ const Subscribe = ({ locale, inputText, buttonText }) => {
             <Button className="purple-bg color-white">{buttonText}</Button>
           </>
         ) : (
-          <div className="color-green font-weight-bold">
-            {"تم الاشتراك بنجاح"}
-          </div>
+          <div className="color-green font-weight-bold">{successText}</div>
         )}
       </div>
       {errors.email && <div className="color-red">{errors.email}</div>}

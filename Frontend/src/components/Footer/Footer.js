@@ -37,6 +37,7 @@ const Footer = () => {
             )}
             <Subscribe
               locale={locale}
+              successText={subscribeNewsData?.successText}
               inputText={subscribeNewsData?.inputText}
               buttonText={subscribeNewsData?.buttonText}
             />

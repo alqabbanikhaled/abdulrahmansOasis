@@ -61,7 +61,7 @@ const NewsItem = ({
     // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
     <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
-        <img src={`http://127.0.0.1:1337${image?.data.attributes.url}`} />
+        <img src={image?.data.attributes.url} />
         {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div

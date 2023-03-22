@@ -325,6 +325,10 @@ a {
   text-decoration: none;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .red-bg {
   background-color: var(--red) !important;
 }
@@ -948,6 +952,15 @@ p,
     }
   }
 }
+.calenderSwiper {
+  .swiper-button-next {
+    color: var(--black);
+  }
+  .swiper-button-prev {
+    color: var(--black);
+  }
+}
+
 .label {
   color: rgba(255, 255, 255, 0.2);
   position: relative;

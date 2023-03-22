@@ -63,4 +63,8 @@
       }
     }
   }
+
+  @include medium-screen {
+    overflow-x: hidden;
+  }
 }

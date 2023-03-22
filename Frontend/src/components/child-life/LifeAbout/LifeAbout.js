@@ -12,10 +12,7 @@ const LifeAbout = ({ data = {} }) => {
           <div className="paragraph4-size">{data.description}</div>
         </div>
         <div className={styles.lifeAboutImg}>
-          <img
-            src={`http://127.0.0.1:1337${data.image?.data.attributes.url}`}
-            alt=""
-          />
+          <img src={data.image?.data.attributes.url} alt="" />
           {/* <img className={styles.vector} src="./svg/back_1.svg" alt="" /> */}
         </div>
       </div>

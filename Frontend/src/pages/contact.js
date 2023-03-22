@@ -13,7 +13,7 @@ import ReactMarkdown from "react-markdown";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const isEmpty = (value, message) => {
-  if (!value) return `برجاء ادخال ${message}`;
+  if (!value) return message;
   else return "";
 };
 
@@ -41,6 +41,7 @@ const Contact = ({ locale, contactData }) => {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
   const [successSubmit, setSuccessSubmit] = useState(false);
+
   // const [contactData, setContactData] = useState({});
   // const [token, setToken] = useState();
   // const [refreshReCaptcha, setRefreshReCaptcha] = useState(false);
@@ -59,6 +60,10 @@ const Contact = ({ locale, contactData }) => {
     handleReCaptchaVerify();
   }, [handleReCaptchaVerify]);
 
+  useEffect(() => {
+    setErrors({});
+  }, [locale]);
+
   // useEffect(() => {
   //   async function fetchData() {
   //     const fetchedJson = await getSinglePage(locale, "contact-page");
@@ -71,15 +76,38 @@ const Contact = ({ locale, contactData }) => {
     event.preventDefault();
     const newErrors = {
       ...errors,
-      name: isEmpty(name, "الاسم"),
-      family: isEmpty(family, "اسم العائلة"),
+      name: isEmpty(
+        name,
+        locale === "ar" ? "برجاء ادخال الاسم" : "Name is required"
+      ),
+      family: isEmpty(
+        family,
+        locale === "ar" ? "برجاء ادخال اسم العائلة" : "Family is required"
+      ),
       email:
-        isEmpty(email, "بريدك الالكتروني") ||
-        (!isValidEmail(email) ? "برجاء ادخال بريد الكتروني صحيح" : ""),
+        isEmpty(
+          email,
+          locale === "ar" ? "برجاء ادخال بريدك الالكتروني" : "Email is required"
+        ) ||
+        (!isValidEmail(email)
+          ? locale === "ar"
+            ? "برجاء ادخال بريد الكتروني صحيح"
+            : "Email is not valid"
+          : ""),
       phone:
-        isEmpty(phone, "رقم الجوال") ||
-        (!isValidPhone(phone) ? "برجاء ادخال رقم جوال صحيح" : ""),
-      message: isEmpty(message, "الرسالة"),
+        isEmpty(
+          phone,
+          locale === "ar" ? "برجاء ادخل رقم الجوال" : "Phone is required"
+        ) ||
+        (!isValidPhone(phone)
+          ? locale === "ar"
+            ? "برجاء ادخل رقم جوال صحيح"
+            : "Phone is not valid"
+          : ""),
+      message: isEmpty(
+        message,
+        locale === "ar" ? "برجاء ادخال الرسالة" : "Name is required"
+      ),
     };
 
     setErrors({ ...newErrors });
@@ -117,7 +145,13 @@ const Contact = ({ locale, contactData }) => {
       </Head>
       <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
-        <section className={cn(styles.section, "space-X space-Y")}>
+        <section
+          className={cn(
+            styles.section,
+            { [styles.ar]: locale == "ar" },
+            "space-X space-Y"
+          )}
+        >
           <div className={cn(styles.container)}>
             <div className={cn(styles.contactText, "mb-2")}>
               <h3 className="color-green mb-2">
@@ -137,7 +171,7 @@ const Contact = ({ locale, contactData }) => {
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         type="text"
-                        label="الاسم الأول"
+                        label={locale === "ar" ? "الاسم" : "First Name"}
                       />
                       {errors.name && (
                         <div className="color-red">{errors.name}</div>
@@ -149,7 +183,7 @@ const Contact = ({ locale, contactData }) => {
                         onChange={(event) => setFamily(event.target.value)}
                         className={styles.input}
                         type="text"
-                        label="اسم العائلة"
+                        label={locale === "ar" ? "الاسم" : "Family Name"}
                       />
                       {errors.family && (
                         <div className="color-red">{errors.family}</div>
@@ -161,7 +195,11 @@ const Contact = ({ locale, contactData }) => {
                         onChange={(event) => setEmail(event.target.value)}
                         className={styles.input}
                         // type="email"
-                        label="البريد الإلكتروني"
+                        label={
+                          locale === "ar"
+                            ? "البريد الإلكتروني"
+                            : "Email Address"
+                        }
                       />
                       {errors.email && (
                         <div className="color-red">{errors.email}</div>
@@ -173,7 +211,7 @@ const Contact = ({ locale, contactData }) => {
                         onChange={(event) => setPhone(event.target.value)}
                         className={styles.input}
                         type="tel"
-                        label="رقم الجوال"
+                        label={locale === "ar" ? "رقم الجوال" : "Mobile Number"}
                       />
                       {errors.phone && (
                         <div className="color-red">{errors.phone}</div>
@@ -183,7 +221,7 @@ const Contact = ({ locale, contactData }) => {
                       <TextArea
                         value={message}
                         onChange={(event) => setMessage(event.target.value)}
-                        label="الرسالة"
+                        label={locale === "ar" ? "الرسالة" : "Message"}
                       />
                       {errors.message && (
                         <div className="color-red">{errors.message}</div>

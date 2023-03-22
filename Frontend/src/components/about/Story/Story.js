@@ -7,25 +7,29 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
 
-const Story = ({ data = {} }) => {
+const Story = ({ locale, data = {} }) => {
   const [playing, setPlaying] = useState(false);
 
   const handleClick = () => {
     setPlaying(!playing);
-  };
+};
 
   return (
     <section
       id="story"
-      className={cn(styles.section, "space-X space-Y-bottom")}
+      className={cn(
+        styles.section,
+        { [styles.ar]: locale == "ar" },
+        "space-X space-Y-bottom"
+      )}
     >
       <div className={cn(styles.container)}>
         <div className={styles.storyVideo}>
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
               className={styles.reactPlayer}
-              url={`http://127.0.0.1:1337${data.media?.data.attributes.url}`}
-              light={`http://127.0.0.1:1337${data.videoCover?.data.attributes.url}`}
+              url={data.media?.data.attributes.url}
+              light={data.videoCover?.data.attributes.url}
               playIcon={<PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play.svg"} />}
               playing={playing}
               controls={false}

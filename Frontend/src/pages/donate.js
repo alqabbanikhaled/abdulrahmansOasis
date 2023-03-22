@@ -30,7 +30,7 @@ export default function Donate({ locale, donateData }) {
             </div> */}
               <div className={styles.donateImg}>
                 <img
-                  src={`http://127.0.0.1:1337${donateData.image?.data.attributes.url}`}
+                  src={donateData.image?.data.attributes.url}
                   alt="donation"
                 />
               </div>

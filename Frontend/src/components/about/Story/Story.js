@@ -6,29 +6,30 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
-import { storyDataAR, storyDataEN } from "./Story.data";
 
-const Story = ({ locale }) => {
+const Story = ({ locale, data = {} }) => {
   const [playing, setPlaying] = useState(false);
-
-  const { title, description } = locale == "ar" ? storyDataAR : storyDataEN;
 
   const handleClick = () => {
     setPlaying(!playing);
-  };
+};
 
   return (
     <section
       id="story"
-      className={cn(styles.section, "space-X space-Y-bottom")}
+      className={cn(
+        styles.section,
+        { [styles.ar]: locale == "ar" },
+        "space-X space-Y-bottom"
+      )}
     >
       <div className={cn(styles.container)}>
         <div className={styles.storyVideo}>
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
               className={styles.reactPlayer}
-              url="/video2.mp4"
-              light="/player_cover.jpg"
+              url={data.media?.data.attributes.url}
+              light={data.videoCover?.data.attributes.url}
               playIcon={<PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play.svg"} />}
               playing={playing}
               controls={false}
@@ -39,8 +40,8 @@ const Story = ({ locale }) => {
           <img className={styles.vector} src="/svg/back_2.svg" alt="" />
         </div>
         <div className={cn(styles.storText, "mb-2")}>
-          <h1 className="color-orange mb-2">{title}</h1>
-          <div className="paragraph3-size color-gray">{description}</div>
+          <h1 className="color-orange mb-2">{data.title}</h1>
+          <div className="paragraph3-size color-gray">{data.description}</div>
         </div>
       </div>
     </section>

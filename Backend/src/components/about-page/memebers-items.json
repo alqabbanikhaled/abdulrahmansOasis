@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_page_memebers_items",
+  "info": {
+    "displayName": "memebersItems"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

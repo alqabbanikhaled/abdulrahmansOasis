@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "volunteer": {
+      "displayName": "Volunteer",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.volunteer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "publication": {
+      "displayName": "publication",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.publication",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "donate": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.donate",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "calender": {
+      "displayName": "calender",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.calender",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "banners": {
+      "displayName": "who",
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.who",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

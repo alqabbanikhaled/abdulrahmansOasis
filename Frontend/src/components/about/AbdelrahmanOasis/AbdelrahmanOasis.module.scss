@@ -26,8 +26,9 @@
       .vector {
         z-index: 1;
         position: absolute;
-        left: 40%;
+        right: 40%;
         bottom: 10%;
+        transform: scaleX(-1);
       }
     }
     @include large-screen {
@@ -37,6 +38,21 @@
     }
     @include medium-screen {
       flex-direction: column;
+    }
+  }
+  @include medium-screen {
+    overflow-x: hidden;
+  }
+}
+
+.ar {
+  .container {
+    .AOImg {
+      .vector {
+        right: initial;
+        right: -40%;
+        transform: scaleX(1);
+      }
     }
   }
 }

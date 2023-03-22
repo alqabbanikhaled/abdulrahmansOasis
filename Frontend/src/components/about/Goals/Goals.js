@@ -2,24 +2,27 @@ import React from "react";
 import cn from "classnames";
 
 import styles from "./Goals.module.scss";
-import { goalsDataAR, goalsDataEN } from "./Goals.data";
 
-const Goals = ({ locale }) => {
-  const { title, GOALS_ITEMS } = locale == "ar" ? goalsDataAR : goalsDataEN;
-
+const Goals = ({ locale, data = {} }) => {
   return (
-    <section className={cn(styles.section, "space-X space-Y-bottom mt-6")}>
+    <section
+      className={cn(
+        styles.section,
+        { [styles.ar]: locale == "ar" },
+        "space-X space-Y-bottom mt-6"
+      )}
+    >
       <div className={cn(styles.container)}>
         <div className={cn(styles.goalsText, "mb-2")}>
-          <h1 className="color-green mb-2">{title}</h1>
+          <h1 className="color-green mb-2">{data.title}</h1>
           <div className={styles.goals}>
-            {GOALS_ITEMS.map((item, i) => (
-              <GoalItem num={i + 1} title={item} />
+            {data.items?.map((item, i) => (
+              <GoalItem key={i} num={i + 1} title={item.item} />
             ))}
           </div>
         </div>
         <div className={styles.goalsImg}>
-          <img src="/goals.jpg" alt="" />
+          <img src={data.image?.data.attributes.url} alt="" />
           <img className={styles.vector} src="/svg/back_1.svg" alt="" />
         </div>
       </div>

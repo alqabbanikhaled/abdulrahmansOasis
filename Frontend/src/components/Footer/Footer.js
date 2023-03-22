@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import styles from "./Footer.module.scss";
 import Button from "../Button/Button";
@@ -6,11 +6,21 @@ import Link from "next/link";
 import Subscribe from "./../Subscribe/Subscribe";
 import { footerDataAR, footerDataEN } from "./Footer.data";
 import { useRouter } from "next/router";
+import { getSinglePage } from "@/providers/api.service";
 
 const Footer = () => {
   const { locale } = useRouter();
-  const { latestNews, FOOTER_LINKS } =
-    locale == "ar" ? footerDataAR : footerDataEN;
+  const [subscribeNewsData, setSubscribeNewsData] = useState();
+
+  const { FOOTER_LINKS } = locale == "ar" ? footerDataAR : footerDataEN;
+
+  useEffect(() => {
+    async function fetchData() {
+      const fetchedJson = await getSinglePage(locale, "subscribe-news-section");
+      setSubscribeNewsData(fetchedJson.data?.attributes);
+    }
+    fetchData();
+  }, [locale]);
 
   return (
     <section className={cn(styles.section, "bg-5")}>
@@ -19,10 +29,19 @@ const Footer = () => {
           <div className={cn(styles.footerLogo, "mb-2")}>
             <img src={"/svg/logo_red.svg"} alt="logo" />
           </div>
-          {/* <div className={cn(styles.footerSubScribe)}>
-            <p className="paragraph1-size color-gray">{latestNews}</p>
-            <Subscribe locale={locale} /> */}
-          {/* <form className={styles.formFeilds}>
+          <div className={cn(styles.footerSubScribe)}>
+            {subscribeNewsData?.sectionTitle && (
+              <p className="paragraph1-size color-gray">
+                {subscribeNewsData?.sectionTitle}
+              </p>
+            )}
+            <Subscribe
+              locale={locale}
+              successText={subscribeNewsData?.successText}
+              inputText={subscribeNewsData?.inputText}
+              buttonText={subscribeNewsData?.buttonText}
+            />
+            {/* <form className={styles.formFeilds}>
               <input
                 className={cn(
                   styles.input,
@@ -35,22 +54,28 @@ const Footer = () => {
               />
               <Button className="purple-bg color-white">اشتراك</Button>
             </form> */}
-          {/* </div> */}
+          </div>
         </div>
         <div className={cn(styles.footerLinks)}>
           <div>
-            {FOOTER_LINKS.slice(0, 4).map(({ title, url }) => (
-              <Link href={url}>{title}</Link>
+            {FOOTER_LINKS.slice(0, 4).map(({ title, url }, i) => (
+              <Link key={i} href={url}>
+                {title}
+              </Link>
             ))}
           </div>
           <div>
-            {FOOTER_LINKS.slice(4, 10).map(({ title, url }) => (
-              <Link href={url}>{title}</Link>
+            {FOOTER_LINKS.slice(4, 10).map(({ title, url }, i) => (
+              <Link key={i} href={url}>
+                {title}
+              </Link>
             ))}
           </div>
           <div>
-            {FOOTER_LINKS.slice(10).map(({ title, url }) => (
-              <Link href={url}>{title}</Link>
+            {FOOTER_LINKS.slice(10).map(({ title, url }, i) => (
+              <Link key={i} href={url}>
+                {title}
+              </Link>
             ))}
           </div>
         </div>
@@ -97,13 +122,5 @@ const SocialLink = ({ src, href }) => {
     </a>
   );
 };
-
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      locale: locale,
-    },
-  };
-}
 
 export default Footer;

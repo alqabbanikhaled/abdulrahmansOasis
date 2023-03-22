@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_about_page_items",
+  "info": {
+    "displayName": "items"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

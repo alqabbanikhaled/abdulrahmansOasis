@@ -1,7 +1,7 @@
 @import "../../../styles/abstracts";
 
 .section {
-  overflow-x: hidden;
+  // overflow-x: hidden;
   .container {
     display: flex;
     align-items: stretch;
@@ -26,10 +26,10 @@
       }
       .vector {
         z-index: 1;
-        width: 92%;
         position: absolute;
-        left: 40%;
-        bottom: 0%;
+        right: 40%;
+        bottom: 10%;
+        transform: scaleX(-1);
       }
     }
     @include large-screen {
@@ -72,5 +72,16 @@
 
   @include medium-screen {
     gap: 10px;
+  }
+}
+
+.ar {
+  .container {
+    .goalsImg {
+      .vector {
+        right: -40%;
+        transform: scaleX(1);
+      }
+    }
   }
 }

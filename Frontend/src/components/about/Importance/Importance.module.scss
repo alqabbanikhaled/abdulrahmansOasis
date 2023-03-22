@@ -52,7 +52,9 @@
       align-self: stretch;
       border: 2px solid rgba(102, 102, 102, 0.1);
     }
-
+    hr:last-of-type {
+      display: none;
+    }
     @include medium-screen {
       flex-direction: column;
       gap: 3vw; //30px
@@ -60,5 +62,9 @@
         border: 1px solid rgba(102, 102, 102, 0.1);
       }
     }
+  }
+
+  @include medium-screen {
+    overflow-x: hidden;
   }
 }

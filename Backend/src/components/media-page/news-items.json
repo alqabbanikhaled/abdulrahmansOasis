@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_media_page_news_items",
+  "info": {
+    "displayName": "newsItems",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "newsUrl": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

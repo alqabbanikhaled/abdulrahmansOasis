@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "media_pages",
+  "info": {
+    "singularName": "media-page",
+    "pluralName": "media-pages",
+    "displayName": "media page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "latestNewsTitle": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

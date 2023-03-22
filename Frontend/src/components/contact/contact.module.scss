@@ -9,6 +9,10 @@
 
     .contactText {
       flex-basis: 45%;
+      strong {
+        font-weight: 600;
+        color: var(--purple);
+      }
       .form {
         display: flex;
         flex-wrap: wrap;
@@ -36,9 +40,6 @@
       }
       .followText {
         margin-bottom: 18px;
-        @include medium-screen {
-          text-align: center;
-        }
       }
     }
 
@@ -57,10 +58,10 @@
       }
       .vector {
         z-index: 1;
-        width: 92%;
         position: absolute;
-        left: 40%;
-        bottom: 15%;
+        right: 35%;
+        bottom: 10%;
+        transform: scaleX(-1);
       }
     }
     @include large-screen {
@@ -72,6 +73,18 @@
       flex-direction: column;
       .contactImg {
         display: none;
+      }
+    }
+  }
+}
+
+.ar {
+  .container {
+    .contactImg {
+      .vector {
+        right: initial;
+        right: -35%;
+        transform: scaleX(1);
       }
     }
   }

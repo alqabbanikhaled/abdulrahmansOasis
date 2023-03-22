@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_media_page_latest_news",
+  "info": {
+    "displayName": "latestNews",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "newsItems": {
+      "displayName": "newsItems",
+      "type": "component",
+      "repeatable": true,
+      "component": "media-page.news-items",
+      "required": true
+    }
+  }
+}

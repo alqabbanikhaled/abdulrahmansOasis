@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_about_page_importances",
+  "info": {
+    "displayName": "importance",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "quote": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "modelTitle": {
+      "type": "text",
+      "required": true
+    },
+    "modelDescription": {
+      "type": "text",
+      "required": true
+    },
+    "modelItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "about-page.items",
+      "required": true
+    }
+  }
+}

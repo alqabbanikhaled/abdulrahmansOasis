@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_child_life_page_life_importances",
+  "info": {
+    "displayName": "lifeImportance"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "importanceItems": {
+      "displayName": "importanceItems",
+      "type": "component",
+      "repeatable": true,
+      "component": "child-life-page.importance-items"
+    }
+  }
+}

@@ -5,8 +5,6 @@ import SwiperCore, { Navigation, EffectFade } from "swiper";
 
 import Button from "@/components/Button/Button";
 import OutlinedButton from "@/components/OutlinedButton/OutlinedButton";
-import { whoDataAR, whoDataEN } from "./Who.data";
-
 import "swiper/css";
 import "swiper/css/effect-fade";
 import styles from "./Who.module.scss";
@@ -14,26 +12,29 @@ import Link from "next/link";
 
 SwiperCore.use([Navigation]);
 
-const Who = ({ locale }) => {
+const Who = ({ locale, data = [] }) => {
   const sliderRefText = useRef(null);
   const sliderRefImages = useRef(null);
   const videoRef = useRef(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  const { BANARS_DATA } = locale == "ar" ? whoDataAR : whoDataEN;
-
   useEffect(() => {
-    if (currentSlideIndex == 1) {
-      videoRef.current.play();
+    if (
+      currentSlideIndex ==
+      data.findIndex((banner) =>
+        banner.bannerMedia?.data.attributes.mime.startsWith("video")
+      )
+    ) {
+      videoRef.current?.play();
     } else {
-      videoRef.current.pause();
+      videoRef.current?.pause();
     }
   }, [currentSlideIndex]);
 
   const handlePrev = useCallback(() => {
     if (!sliderRefText.current || !sliderRefImages.current) return;
-    sliderRefText.current.swiper.slidePrev();
-    sliderRefImages.current.swiper.slidePrev();
+    sliderRefText.current?.swiper.slidePrev();
+    sliderRefImages.current?.swiper.slidePrev();
   }, []);
 
   const handleNext = useCallback(() => {
@@ -43,21 +44,21 @@ const Who = ({ locale }) => {
   }, []);
 
   useEffect(() => {
-    sliderRefText?.current.swiper.slideTo(0);
-    sliderRefImages?.current.swiper.slideTo(0);
+    sliderRefText.current?.swiper.slideTo(0);
+    sliderRefImages.current?.swiper.slideTo(0);
 
-    sliderRefText?.current.swiper.updateSlides();
+    sliderRefText?.current?.swiper.updateSlides();
     locale == "en"
-      ? sliderRefText?.current.swiper.changeLanguageDirection("ltr")
-      : sliderRefText?.current.swiper.changeLanguageDirection("rtl");
+      ? sliderRefText.current?.swiper.changeLanguageDirection("ltr")
+      : sliderRefText.current?.swiper.changeLanguageDirection("rtl");
 
-    sliderRefImages?.current.swiper.updateSlides();
+    sliderRefImages.current?.swiper.updateSlides();
     locale == "en"
-      ? sliderRefImages?.current.swiper.changeLanguageDirection("ltr")
-      : sliderRefImages?.current.swiper.changeLanguageDirection("rtl");
+      ? sliderRefImages.current?.swiper.changeLanguageDirection("ltr")
+      : sliderRefImages.current?.swiper.changeLanguageDirection("rtl");
   }, [locale]);
 
-  return (
+  return data.length > 0 ? (
     <section className={cn(styles.section)}>
       <Swiper
         loop={true}
@@ -68,18 +69,20 @@ const Who = ({ locale }) => {
         effect={"fade"}
         allowTouchMove={false}
       >
-        {BANARS_DATA.map(({ bannerUrl, bannerUrl_mob, srcType }, i) => (
+        {data.map(({ bannerMedia, bannerMediaMobile }, i) => (
           <SwiperSlide key={i}>
-            {srcType == "image" ? (
+            {bannerMedia?.data.attributes.mime.startsWith("image") ? (
               <>
                 <img
-                  className={styles.imageDesktop}
-                  src={bannerUrl}
+                  className={cn({
+                    [styles.imageDesktop]: bannerMediaMobile.data != null,
+                  })}
+                  src={bannerMedia.data.attributes.url}
                   alt="no image"
                 />
                 <img
                   className={styles.imageMob}
-                  src={bannerUrl_mob}
+                  src={bannerMediaMobile.data?.attributes.url}
                   alt="no image"
                 />
               </>
@@ -92,7 +95,10 @@ const Who = ({ locale }) => {
                 loop={true}
                 muted
               >
-                <source src={bannerUrl} type="video/mp4" />
+                <source
+                  src={bannerMedia.data.attributes.url}
+                  type="video/mp4"
+                />
               </video>
             )}
           </SwiperSlide>
@@ -110,40 +116,35 @@ const Who = ({ locale }) => {
               setCurrentSlideIndex(value.realIndex);
             }}
           >
-            {BANARS_DATA.map(
-              ({ title, buttonText, textColor, description }, i) => (
-                <SwiperSlide key={i}>
-                  <SwiperTextCard
-                    locale={locale}
-                    title={title}
-                    buttonText={buttonText}
-                    textColor={textColor}
-                    description={description}
-                    className={cn({
-                      "color-black":
-                        BANARS_DATA[currentSlideIndex].textColor == "dark",
-                      "color-white":
-                        BANARS_DATA[currentSlideIndex].textColor != "dark",
-                    })}
-                  />
-                </SwiperSlide>
-              )
-            )}
+            {data.map(({ bannerTitle, bannerDescription, textColor }, i) => (
+              <SwiperSlide key={i}>
+                <SwiperTextCard
+                  title={bannerTitle}
+                  description={bannerDescription}
+                  textColor={textColor}
+                  locale={locale}
+                  className={cn({
+                    "color-black": textColor == "dark",
+                    "color-white": textColor != "dark",
+                  })}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
           <div className={styles.button}>
             <Link
-              href={BANARS_DATA[currentSlideIndex].buttonLink}
-              target={BANARS_DATA[currentSlideIndex].buttonTarget}
+              href={data[currentSlideIndex].cta.link}
+              target={data[currentSlideIndex].newTab ? "_blank" : "_self"}
             >
               <Button
                 className={cn({
                   "color-red white-bg":
-                    BANARS_DATA[currentSlideIndex].textColor != "dark",
+                    data[currentSlideIndex].textColor != "dark",
                   "color-yellow black-bg":
-                    BANARS_DATA[currentSlideIndex].textColor == "dark",
+                    data[currentSlideIndex].textColor == "dark",
                 })}
               >
-                {BANARS_DATA[currentSlideIndex].buttonText}
+                {data[currentSlideIndex].cta.label}
               </Button>
             </Link>
           </div>
@@ -183,15 +184,17 @@ const Who = ({ locale }) => {
         </div>
       </div>
     </section>
+  ) : (
+    ""
   );
 };
 
 const SwiperTextCard = ({
   title,
-  className,
-  textColor,
-  locale,
   description,
+  textColor,
+  className,
+  locale,
 }) => {
   return (
     <div className={cn(styles.titleWrapper, "mb-1")}>

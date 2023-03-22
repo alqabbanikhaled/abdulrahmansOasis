@@ -4,10 +4,8 @@ import cn from "classnames";
 import styles from "./Donate.module.scss";
 import Button from "./../../Button/Button";
 import Link from "next/link";
-import { donateDataAR, donateDataEN } from "./Donate.data";
 
-const Donate = ({ locale }) => {
-  const { title, donateNow } = locale == "ar" ? donateDataAR : donateDataEN;
+const Donate = ({ data = {} }) => {
   return (
     <>
       {/* <section className={cn(styles.section, "space-X-l space-Y")}>
@@ -23,13 +21,17 @@ const Donate = ({ locale }) => {
       </section> */}
       <section className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.container)}>
-          <h1 className="color-purple mb-2 space-X-l text-center">{title} </h1>
+          <h1 className="color-purple mb-2 space-X-l text-center">
+            {data.title}
+          </h1>
           <div className={cn(styles.donateImg, "mb-2")}>
-            <img src="/donate.jpg" alt="" />
+            <img src={data.image?.data.attributes.url} alt="" />
           </div>
           <div className={cn(styles.donateButton)}>
             <Link href={"/donate"}>
-              <Button className="green-bg color-white mb-2">{donateNow}</Button>
+              <Button className="green-bg color-white mb-2">
+                {data.ctaLabel}
+              </Button>
             </Link>
           </div>
         </div>

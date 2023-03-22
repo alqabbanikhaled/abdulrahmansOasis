@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_about_page_members",
+  "info": {
+    "displayName": "members"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "membersItems": {
+      "displayName": "memebersItems",
+      "type": "component",
+      "repeatable": true,
+      "component": "about-page.memebers-items",
+      "required": true
+    }
+  }
+}

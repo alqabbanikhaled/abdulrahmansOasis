@@ -3,10 +3,11 @@ import cn from "classnames";
 
 import styles from "./LatestNews.module.scss";
 import { NEWS_LIST } from "./LatestNews.data";
-import Button from "./../../Button/Button";
+import Link from "next/link";
+
 const newsPerPage = 6;
 let arrayForHoldingNews = [];
-const LatestNews = () => {
+const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
   const [newsList] = useState([...NEWS_LIST]);
   const [newsToShow, setNewsToShow] = useState([]);
   const ref = useRef(newsPerPage);
@@ -30,10 +31,10 @@ const LatestNews = () => {
   return (
     <section className={cn(styles.section, "space-X space-Y bg-7 mt-2")}>
       <div className={cn(styles.container)}>
-        <h3 className="color-orange mb-2 text-center">في الأخبار</h3>
+        <h3 className="color-orange mb-2 text-center">{latestNewsTitle}</h3>
         <div className={cn(styles.latestNewsItems)}>
-          {newsToShow.map((newsItem) => (
-            <NewsItem newsItem={newsItem} />
+          {latestNewsList?.map((newsItem, i) => (
+            <NewsItem key={i} newsItem={newsItem} locale={locale} />
           ))}
         </div>
         {/* <div className={styles.button}>
@@ -50,12 +51,17 @@ const LatestNews = () => {
 };
 
 const NewsItem = ({
-  newsItem: { imgUrl, day, month, location, title, description, newsUrl },
+  locale,
+  newsItem: {
+    id,
+    attributes: { title, description, newsUrl, image, ctaLabel, Slug },
+  },
 }) => {
   return (
+    // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
     <div className={cn(styles.newsItem, "white-bg pb-2")}>
       <div className={cn(styles.imgDate)}>
-        <img src={imgUrl} />
+        <img src={image?.data.attributes.url} />
         {/* <div className="p-inline-2">
           <div className={cn(styles.date, "white-bg p-inline-2")}>
             <div
@@ -94,12 +100,17 @@ const NewsItem = ({
           <div
             className={cn(styles.discover, "color-orange font-weight-medium")}
           >
-            <span>اكتشف المزيد</span>
-            <img src="/svg/discover_arrow.svg" alt="" />
+            <span>{ctaLabel}</span>
+            <img
+              className={cn({ [styles.rotateEn]: locale == "en" })}
+              src="/svg/discover_arrow.svg"
+              alt=""
+            />
           </div>
         </a>
       </div>
     </div>
+    // </Link>
   );
 };
 export default LatestNews;

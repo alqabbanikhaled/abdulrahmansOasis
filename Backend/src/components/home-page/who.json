@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_home_page_whos",
+  "info": {
+    "displayName": "banars",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bannerTitle": {
+      "type": "text",
+      "required": true
+    },
+    "bannerMedia": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "bannerDescription": {
+      "type": "text",
+      "required": false
+    },
+    "cta": {
+      "displayName": "cta",
+      "type": "component",
+      "repeatable": false,
+      "component": "home-page.cta",
+      "required": true
+    },
+    "textColor": {
+      "type": "enumeration",
+      "enum": [
+        "light",
+        "dark"
+      ],
+      "required": true,
+      "default": "light"
+    },
+    "bannerMediaMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "newTab": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

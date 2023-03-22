@@ -1,18 +1,48 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import styles from "./Calender.module.scss";
-import { calenderDataAR, calenderDataEN } from "./Calender.data";
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
 
-const Calender = ({ locale }) => {
-  const { title, CALENDER_EVENTS } =
-    locale == "ar" ? calenderDataAR : calenderDataEN;
+import { Navigation } from "swiper";
+import OutlinedButton from "@/components/OutlinedButton/OutlinedButton";
+const Calender = ({ locale, data = {} }) => {
+  // const navigationPrevRef = useRef(null);
+  // const navigationNextRef = useRef(null);
+  const sliderRef = useRef(null);
+  const [currentBreakpoint, setCurrentBreakpoint] = useState(0);
+
+  useEffect(() => {
+    // sliderRef.current?.swiper.slideTo(0);
+    sliderRef?.current?.swiper.updateSlides();
+    locale == "en"
+      ? sliderRef.current?.swiper.changeLanguageDirection("ltr")
+      : sliderRef.current?.swiper.changeLanguageDirection("rtl");
+  }, [locale]);
+
+  useEffect(() => {
+    setCurrentBreakpoint(sliderRef?.current?.swiper.currentBreakpoint);
+    window.addEventListener("resize", function () {
+      setCurrentBreakpoint(sliderRef?.current?.swiper.currentBreakpoint);
+    });
+  });
+
+  const handlePrev = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current?.swiper.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    if (!sliderRef.current) return;
+    sliderRef.current?.swiper.slideNext();
+  }, []);
+
   return (
-    <section
-      id="calender"
-      className={cn(styles.section, "space-X-l space-Y-bottom")}
-    >
-      <div className={cn(styles.container)}>
-        <h1 className="text-center color-yellow mb-3">{title}</h1>
+    <section id="calender" className={cn(styles.section, "space-Y-bottom")}>
+      <h1 className="text-center color-yellow mb-3">{data.title}</h1>
+      <div className={cn(styles.container, "space-X-l")}>
         {/* <div className={cn(styles.calenderEvents, "mb-2")}>
           {CALENDER_EVENTS.map((event, i) => (
             <Event
@@ -23,14 +53,69 @@ const Calender = ({ locale }) => {
           ))}
         </div> */}
 
-        <div className={styles.calenderImages}>
-          <img className={styles.event} src="/calender_1.jpg" alt="" />
-          <img className={styles.event} src="/calender_2.jpg" alt="" />
-          <img className={styles.event} src="/calender_3.jpg" alt="" />
-        </div>
-        {/* <div className={styles.button}>
-          <Button className="purple-bg color-white">شاهد المزيد</Button>
+        {/* <div className={styles.calenderImages}>
+          {data?.images?.data.map((img, i) => (
+            <img
+              key={i}
+              className={styles.event}
+              src={img?.attributes.url}
+              alt=""
+            />
+          ))}
         </div> */}
+        <Swiper
+          ref={sliderRef}
+          dir={locale == "ar" ? "rtl" : "ltr"}
+          modules={[Navigation]}
+          spaceBetween={30}
+          className={cn(styles.calenderSwiper, "calenderSwiper")}
+          slidesPerView={3}
+          breakpoints={{
+            "@0.00": {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            "@0.75": {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            "@1.00": {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+          }}
+        >
+          {data?.images?.data.map((img, i) => (
+            <SwiperSlide key={i}>
+              <img className={styles.img} src={img?.attributes.url} alt="" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        {((data?.images?.data.length > 3 && currentBreakpoint == "@1.00") ||
+          (data?.images?.data.length > 2 && currentBreakpoint == "@0.75") ||
+          (data?.images?.data.length > 1 && currentBreakpoint == "@0.00")) && (
+          <div className={cn(styles.buttons)}>
+            {locale == "ar" ? (
+              <>
+                <button onClick={handlePrev} className={styles.arrowButton}>
+                  <img src="./svg/arrow_right_L.svg" />
+                </button>
+                <button onClick={handleNext} className={styles.arrowButton}>
+                  <img src="./svg/arrow_left_L.svg" />
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleNext} className={styles.arrowButton}>
+                  <img src="./svg/arrow_left_L.svg" />
+                </button>
+                <button onClick={handlePrev} className={styles.arrowButton}>
+                  <img src="./svg/arrow_right_L.svg" />
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

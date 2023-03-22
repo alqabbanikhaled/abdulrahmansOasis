@@ -325,6 +325,10 @@ a {
   text-decoration: none;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .red-bg {
   background-color: var(--red) !important;
 }
@@ -604,6 +608,12 @@ a {
 .paragraph12-size {
   font-size: var(--paragraph12-size);
   line-height: 0.8;
+}
+
+.content-start-medium {
+  @include medium-screen {
+    justify-content: flex-start !important;
+  }
 }
 
 .space-X {
@@ -942,6 +952,15 @@ p,
     }
   }
 }
+.calenderSwiper {
+  .swiper-button-next {
+    color: var(--black);
+  }
+  .swiper-button-prev {
+    color: var(--black);
+  }
+}
+
 .label {
   color: rgba(255, 255, 255, 0.2);
   position: relative;

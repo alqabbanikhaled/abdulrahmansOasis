@@ -14,9 +14,9 @@ module.exports = async (ctx, next) => {
     }
     else {
       console.log("you should pass" + response.data.success);
-      //    return true;
+      return true;
     }
   });
-  // return false;
-  return next();
+  return false;
+  //return next();
 };

@@ -9,14 +9,8 @@ const { createCoreRouter } = require('@strapi/strapi').factories;
 module.exports = createCoreRouter('api::contact.contact', {
     config: {
         find: {
-            policies: [{
-                name: 'global::recaptcha',
-            }],
         },
         findOne: {
-            policies: [{
-                name: 'global::recaptcha',
-            }],
         },
         create: {
             policies: [{

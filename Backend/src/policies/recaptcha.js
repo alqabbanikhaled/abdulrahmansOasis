@@ -15,9 +15,9 @@ module.exports = async (policyContext, config, { strapi }) => {
     }
     else {
       console.log("you should pass" + response.data.success);
-      //  return true;
+      return true;
     }
   });
-  //return false;
-  return next();
+  return false;
+  //return next();
 };

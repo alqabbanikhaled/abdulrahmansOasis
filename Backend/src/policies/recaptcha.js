@@ -1,7 +1,7 @@
 const axios = require("axios");
 require("dotenv");
-module.exports = async (ctx, next) => {
-  //module.exports = async (policyContext, config, { strapi }) => {
+//module.exports = async (ctx, next) => {
+module.exports = async (policyContext, config, { strapi }) => {
   // url params
   const { token } = ctx.request.body.data;
   const remoteip = ctx.req.connection.remoteAddress;
@@ -14,9 +14,9 @@ module.exports = async (ctx, next) => {
     }
     else {
       console.log("you should pass" + response.data.success);
-      return true;
+      //  return true;
     }
   });
-  return false;
-  //return next();
+  //return false;
+  return next();
 };

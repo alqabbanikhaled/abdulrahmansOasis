@@ -13,8 +13,11 @@ module.exports = async (ctx, next) => {
   const verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}&remoteip=${remoteip}`;
   let validation = await axios.post(verifyURL).then(function (response) {
     if (response.data.success !== undefined && !response.data.success) {
-      //console.log("you should not pass" + response.data.success);
+      console.log("you should not pass" + response.data.success);
       ctx.unauthorized(`Failed captcha`);
+    }
+    else {
+      console.log("you should pass" + response.data.success);
     }
   });
 

@@ -6,6 +6,7 @@ import styles from "./Goals.module.scss";
 const Goals = ({ locale, data = {} }) => {
   return (
     <section
+      id="goals"
       className={cn(
         styles.section,
         { [styles.ar]: locale == "ar" },

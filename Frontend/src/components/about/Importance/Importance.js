@@ -5,7 +5,10 @@ import styles from "./Importance.module.scss";
 
 const Importance = ({ data = {} }) => {
   return (
-    <section className={cn(styles.section, "space-X space-Y bg-3")}>
+    <section
+      id="importance"
+      className={cn(styles.section, "space-X space-Y bg-3")}
+    >
       <div className={cn(styles.container, "mb-10")}>
         <div className={styles.importanceImg}>
           <img src={data.image?.data.attributes.url} alt="" />

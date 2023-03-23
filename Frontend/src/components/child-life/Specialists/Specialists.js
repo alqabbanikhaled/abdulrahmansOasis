@@ -14,7 +14,7 @@ const Specialists = ({ data = {} }) => {
   };
 
   return (
-    <section className={cn(styles.section, "space-Y-bottom")}>
+    <section id="specialists" className={cn(styles.section, "space-Y-bottom")}>
       <div className={cn(styles.container, "bg-1 text-center")}>
         <div className={cn(styles.spText, "space-Y-top space-X-l mb-4")}>
           <h1 className="color-purple">{data.title}</h1>

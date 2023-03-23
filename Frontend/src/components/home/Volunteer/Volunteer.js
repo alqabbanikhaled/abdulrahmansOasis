@@ -7,7 +7,7 @@ const Volunteer = ({ locale, data = {} }) => {
   const { sendEmail } = locale == "ar" ? volunteerDataAR : volunteerDataEN;
 
   return (
-    <section className={cn(styles.section, "space-Y")}>
+    <section id="volunteer" className={cn(styles.section, "space-Y")}>
       <div className={cn(styles.container)}>
         <h1 className="color-blue mb-2 text-center space-X">{data.title}</h1>
         <div className={styles.volunteerImg}>

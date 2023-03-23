@@ -58,21 +58,21 @@ const Footer = () => {
         </div>
         <div className={cn(styles.footerLinks)}>
           <div>
-            {FOOTER_LINKS.slice(0, 4).map(({ title, url }, i) => (
+            {FOOTER_LINKS.slice(0, 5).map(({ title, url }, i) => (
               <Link key={i} href={url}>
                 {title}
               </Link>
             ))}
           </div>
           <div>
-            {FOOTER_LINKS.slice(4, 10).map(({ title, url }, i) => (
+            {FOOTER_LINKS.slice(5, 11).map(({ title, url }, i) => (
               <Link key={i} href={url}>
                 {title}
               </Link>
             ))}
           </div>
           <div>
-            {FOOTER_LINKS.slice(10).map(({ title, url }, i) => (
+            {FOOTER_LINKS.slice(11).map(({ title, url }, i) => (
               <Link key={i} href={url}>
                 {title}
               </Link>

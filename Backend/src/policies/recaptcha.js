@@ -3,6 +3,7 @@ require("dotenv");
 //module.exports = async (ctx, next) => {
 module.exports = async (policyContext, config, { strapi }) => {
   // url params
+  const ctx = policyContext;
   const { token } = ctx.request.body.data;
   const remoteip = ctx.req.connection.remoteAddress;
 

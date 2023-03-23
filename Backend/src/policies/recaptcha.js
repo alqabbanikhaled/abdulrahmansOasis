@@ -4,7 +4,7 @@ module.exports = async (ctx, next) => {
   const { token } = ctx.request.body;
   const remoteip = ctx.req.connection.remoteAddress;
 
-  console.log("captcha key is:" + secret_key);
+  //  console.log("captcha key is:" + secret_key);
   console.log("token is:" + token);
   console.log("remote IP:" + remoteip);
 

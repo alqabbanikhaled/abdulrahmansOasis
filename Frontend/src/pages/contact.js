@@ -53,7 +53,7 @@ const Contact = ({ locale, contactData }) => {
     }
 
     const token = await executeRecaptcha("yourAction");
-    console.log(token);
+    // console.log(token);
   }, [executeRecaptcha]);
 
   useEffect(() => {
@@ -118,7 +118,7 @@ const Contact = ({ locale, contactData }) => {
         return;
       }
       executeRecaptcha("importantAction").then(async (gReCaptchaToken) => {
-        console.log('token', gReCaptchaToken)
+        //    console.log('token', gReCaptchaToken)
 
         contactUs({
           data: {
@@ -127,7 +127,7 @@ const Contact = ({ locale, contactData }) => {
             email,
             phone,
             message,
-            token: gReCaptchaToken
+            //    token: gReCaptchaToken
           },
         })
           .then((response) => {

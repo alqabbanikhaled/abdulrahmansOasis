@@ -18,14 +18,8 @@ module.exports = createCoreRouter('api::contact.contact', {
             }],
         },
         update: {
-            policies: [{
-                name: 'global::recaptcha',
-            }],
         },
         delete: {
-            policies: [{
-                name: 'global::recaptcha',
-            }],
         },
     },
 });

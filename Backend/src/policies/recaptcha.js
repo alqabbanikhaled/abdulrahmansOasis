@@ -1,7 +1,7 @@
 const axios = require("axios");
 module.exports = async (ctx, next) => {
   // url params
-  const { token } = ctx.request.body;
+  const { token } = ctx.request.body.data;
   const remoteip = ctx.req.connection.remoteAddress;
 
   console.log('request', ctx.request)

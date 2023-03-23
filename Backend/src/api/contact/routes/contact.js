@@ -13,9 +13,9 @@ module.exports = createCoreRouter('api::contact.contact', {
         findOne: {
         },
         create: {
-            policies: [{
-                name: 'global::recaptcha',
-            }],
+            policies: [
+                'global::recaptcha'
+            ],
         },
         update: {
         },

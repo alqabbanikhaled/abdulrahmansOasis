@@ -1,7 +1,10 @@
 const axios = require("axios");
 require("dotenv");
-module.exports = async (ctx, next) => {
+// module.exports = async (ctx, next) => {
+module.exports = async (policyContext, config, { strapi }) => {
   // url params
+  const ctx = policyContext;
+  console.log('ctx', ctx)
   const { token } = ctx.request.body.data;
   const remoteip = ctx.req.connection.remoteAddress;
 

@@ -1,13 +1,9 @@
 const axios = require("axios");
+require("dotenv");
 module.exports = async (ctx, next) => {
   // url params
   const { token } = ctx.request.body.data;
   const remoteip = ctx.req.connection.remoteAddress;
-
-  console.log('request', ctx.request)
-  console.log('request body', ctx.request.body)
-  console.log("token is:" + token);
-  console.log("remote IP:" + remoteip);
 
   const verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=6LdRJSElAAAAALFn8aXfrOBCZ9BkohlZfQq4kvaj&response=${token}&remoteip=${remoteip}`;
   let validation = await axios.post(verifyURL).then(function (response) {
@@ -17,8 +13,9 @@ module.exports = async (ctx, next) => {
     }
     else {
       console.log("you should pass" + response.data.success);
+      return true;
     }
   });
-
-  return await next();
+  return false;
+  // return await next();
 };

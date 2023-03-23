@@ -14,7 +14,7 @@ module.exports = createCoreRouter('api::contact.contact', {
         },
         create: {
             policies: [
-                "plugins::users-permissions.ratelimit"
+                //   "plugins::users-permissions.ratelimit"
                 //   'global::recaptcha'
             ],
         },

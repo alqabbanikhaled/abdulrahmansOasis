@@ -2,7 +2,6 @@ module.exports = ({ env }) => ({
   "users-permissions": {
     config: {
       jwtSecret: env('JWT_SECRET'),
-      ratelimit: { interval: 60000, max: 100000 }
     }
   },
   upload: {

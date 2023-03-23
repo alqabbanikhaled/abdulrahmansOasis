@@ -113,23 +113,32 @@ const Contact = ({ locale, contactData }) => {
     setErrors({ ...newErrors });
 
     if (Object.values(newErrors).every((x) => x === "")) {
-      contactUs({
-        data: {
-          firstName: name,
-          familyName: family,
-          email,
-          phone,
-          message,
-        },
-      })
-        .then((response) => {
-          handleReCaptchaVerify();
-          setSuccessSubmit(true);
-        })
-        .catch((error) => console.log("error", error.error));
+      if (!executeRecaptcha) {
+        console.log("Execute recaptcha not yet available");
+        return;
+      }
+      executeRecaptcha("importantAction").then(async (gReCaptchaToken) => {
+        console.log('token', gReCaptchaToken)
 
-      handleReCaptchaVerify();
-      setSuccessSubmit(true);
+        contactUs({
+          data: {
+            firstName: name,
+            familyName: family,
+            email,
+            phone,
+            message,
+            token: gReCaptchaToken
+          },
+        })
+          .then((response) => {
+            //    handleReCaptchaVerify();
+            setSuccessSubmit(true);
+          })
+          .catch((error) => console.log("error", error.error));
+
+        // handleReCaptchaVerify();
+        setSuccessSubmit(true);
+      })
     }
   }
 

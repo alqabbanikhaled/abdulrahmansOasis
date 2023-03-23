@@ -19,7 +19,7 @@ const Donate = ({ data = {} }) => {
           </div>
         </div>
       </section> */}
-      <section className={cn(styles.section, "space-Y-bottom")}>
+      <section id="donation" className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.container)}>
           <h1 className="color-purple mb-2 space-X-l text-center">
             {data.title}

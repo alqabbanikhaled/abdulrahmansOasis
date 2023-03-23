@@ -6,7 +6,7 @@ import { MEMBERS } from "./Members.data";
 
 const Members = ({ data = {} }) => {
   return (
-    <section className={cn(styles.section, "space-X-l space-Y")}>
+    <section id="members" className={cn(styles.section, "space-X-l space-Y")}>
       <div className={cn(styles.container)}>
         <h1 className="color-purple mb-2 text-center">{data.title}</h1>
         <div className={cn(styles.membersItems)}>

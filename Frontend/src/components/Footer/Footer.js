@@ -23,7 +23,7 @@ const Footer = () => {
   }, [locale]);
 
   return (
-    <section className={cn(styles.section, "bg-5")}>
+    <section className={cn(styles.section, "orange-light-bg")}>
       <div className={cn(styles.container, "section-spaceY space-X")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo, "mb-2")}>

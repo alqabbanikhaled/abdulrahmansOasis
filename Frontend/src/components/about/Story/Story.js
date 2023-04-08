@@ -20,10 +20,14 @@ const Story = ({ locale, data = {} }) => {
       className={cn(
         styles.section,
         { [styles.ar]: locale == "ar" },
-        "space-X space-Y-bottom"
+        "space-X space-Y-bottom space-Y-top"
       )}
     >
       <div className={cn(styles.container)}>
+        <div className={cn(styles.storText, "mb-2")}>
+          <h1 className="color-orange mb-2">{data.title}</h1>
+          <div className="paragraph3-size color-gray">{data.description}</div>
+        </div>
         <div className={styles.storyVideo}>
           <div className={styles.playerWrapper} onClick={handleClick}>
             <ReactPlayer
@@ -37,11 +41,7 @@ const Story = ({ locale, data = {} }) => {
               height="100%"
             />
           </div>
-          <img className={styles.vector} src="/svg/back_2.svg" alt="" />
-        </div>
-        <div className={cn(styles.storText, "mb-2")}>
-          <h1 className="color-orange mb-2">{data.title}</h1>
-          <div className="paragraph3-size color-gray">{data.description}</div>
+          {/* <img className={styles.vector} src="/svg/back_2.svg" alt="" /> */}
         </div>
       </div>
     </section>

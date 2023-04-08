@@ -11,6 +11,7 @@
   font-weight: 300;
   src: url("../assets/zarid-slab/alfont_com_29LTZaridSlab-Light.ttf");
 }
+
 @font-face {
   font-family: "zarid-slab";
   font-weight: 400;
@@ -170,6 +171,7 @@
     .mt-4 {
       margin-top: 6.2vw;
     }
+
     .mb-2 {
       margin-bottom: 3.9vw; //30px
     }
@@ -275,6 +277,7 @@
 .abdulrahman-oasis {
   --spaceY: 7vw; //120px
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -414,13 +417,11 @@ a {
 }
 
 .filter-green {
-  filter: invert(48%) sepia(80%) saturate(2220%) hue-rotate(143deg)
-    brightness(90%) contrast(101%);
+  filter: invert(48%) sepia(80%) saturate(2220%) hue-rotate(143deg) brightness(90%) contrast(101%);
 }
 
 .filter-black {
-  filter: invert(6%) sepia(13%) saturate(1443%) hue-rotate(213deg)
-    brightness(5%) contrast(97%);
+  filter: invert(6%) sepia(13%) saturate(1443%) hue-rotate(213deg) brightness(5%) contrast(97%);
 }
 
 .color-red {
@@ -542,6 +543,7 @@ a {
 .right-0 {
   right: 0;
 }
+
 .font-weight-normal {
   font-weight: 400;
 }
@@ -688,6 +690,7 @@ a {
 .section-space-bottom {
   padding-bottom: var(--section-spaceY);
 }
+
 .label {
   font-size: var(--paragraph6-size);
 
@@ -699,6 +702,7 @@ a {
 #main {
   position: relative;
   padding-top: 100px;
+  overflow: hidden;
 }
 
 .scroll-content {
@@ -947,15 +951,18 @@ p,
 .swiper {
   .swiper-wrapper {
     align-items: flex-end;
+
     .swiper-slide {
       overflow: hidden;
     }
   }
 }
+
 .calenderSwiper {
   .swiper-button-next {
     color: var(--black);
   }
+
   .swiper-button-prev {
     color: var(--black);
   }
@@ -990,8 +997,7 @@ input[type="number"] {
   z-index: -10;
   -webkit-clip-path: inset(0 100% 0 0);
   clip-path: inset(0 100% 0 0);
-  -webkit-transition: -webkit-clip-path 0.4s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -webkit-transition: -webkit-clip-path 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: -webkit-clip-path 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: clip-path 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: clip-path 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955),
@@ -1000,10 +1006,8 @@ input[type="number"] {
 }
 
 .show .label::before {
-  -webkit-animation: 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal
-    forwards transition_title__move_mask;
-  animation: 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards
-    transition_title__move_mask;
+  -webkit-animation: 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards transition_title__move_mask;
+  animation: 1.2s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards transition_title__move_mask;
 }
 
 // display classes
@@ -1236,7 +1240,24 @@ input[type="number"] {
 }
 
 // SWIPER CARDS
+.swiper-pagination-horizontal {
+  right: 0;
+}
+
+.swiper-pagination-bullets {
+  width: unset !important;
+
+  .swiper-pagination-bullet {
+    border-radius: 3px;
+  }
+
+  // @include medium-screen {
+  //   display: none;
+  // }
+}
+
 .swiper.fade-slides .swiper-slide {
+
   // .swiper.swiper-cards .swiper-slide{
   &.swiper-slide-active {
     opacity: 1;
@@ -1262,6 +1283,48 @@ input[type="number"] {
   &:not(.swiper-slide-active) {
     img {
       filter: grayscale(0.9);
+    }
+  }
+}
+
+
+// Parallax patterns
+
+.parallax {
+  position: absolute;
+  opacity: 0.2;
+  z-index: 0;
+
+  &.pattern1 {
+    top: 20px;
+    right: 0%;
+    .ar & {
+      left: 0%;
+      right: auto;
+    }
+
+    img {
+      width: 50vw;
+
+      @include medium-screen {
+        width: 100vw;
+      }
+    }
+  }
+
+  &.pattern2 {
+    top: 220vh;
+    left: -10%;
+    .ar & {
+      left:auto;
+      right: -10%;
+    }
+    img {
+      width: 45vw;
+      transform: rotateZ(325deg);
+      @include medium-screen {
+        width: 100vw;
+      }
     }
   }
 }

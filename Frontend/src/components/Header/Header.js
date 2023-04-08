@@ -80,7 +80,7 @@ const Header = ({ navLinksColor, locale }) => {
               }
             >
               <ul className={cn(styles.menu)}>
-                {NAV_LINKS.map(({ link, label, isDesktop }, index) => {
+                {NAV_LINKS.map(({ link, label, isDesktop, subLinks }, index) => {
                   return (
                     isDesktop && (
                       <MenuItem
@@ -90,6 +90,7 @@ const Header = ({ navLinksColor, locale }) => {
                         label={label}
                         link={link}
                         onClick={closeMenu}
+                        subLinks={subLinks}
                       />
                     )
                   );
@@ -144,9 +145,10 @@ const Header = ({ navLinksColor, locale }) => {
   );
 };
 
-const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor }) => {
+const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [] }) => {
   return (
-    <li className={cn(styles.menuItem)} onClick={onClick}>
+    <li className={cn(styles.menuItem,
+      { [styles.hasSubMenu]: subLinks && subLinks.length > 0 })} onClick={onClick}>
       <Link
         href={link}
         className={cn(
@@ -158,7 +160,50 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor }) => {
         )}
       >
         <span>{label}</span>
+        {
+          subLinks && subLinks.length > 0 ? <svg xmlns="http://www.w3.org/2000/svg" 
+          className="d-none d-md-flex"
+          width="15.072" height="8.536" viewBox="0 0 15.072 8.536">
+            <path id="Path_4330" data-name="Path 4330" d="M-16133.672,11677.285l6.121,6.122,6.123-6.122" transform="translate(16135.086 -11675.871)" fill="none" 
+            stroke={navLinksColor == "red" || newNavbar ? "#da2229":"#fff"} 
+            strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+          </svg> : <></>
+        }
       </Link>
+      {
+        subLinks && subLinks.length > 0 ? <>
+          <div className={cn(styles.subMenu, {
+            [styles.hasBg]: newNavbar
+          })} >
+            <ul>
+
+
+              {
+                subLinks.map(({ link, label }, index) => {
+                  return <li key={'submenu' + index}><Link href={link} scroll={false}
+                  className={cn(
+                    {
+                      "color-white": navLinksColor != "red" && !newNavbar,
+                      "color-red": navLinksColor == "red" || newNavbar,
+                    },
+                    "font-weight-medium paragraph11-size pt-1"
+                  )}>
+                    <span
+                      className={cn({
+                        // [styles.activeNavLink]: pathname === link
+                      })}
+                    >
+                      {label}
+                    </span>
+                  </Link>      </li>
+                })
+              }
+
+            </ul>
+          </div>
+        </> : <></>
+
+      }
     </li>
   );
 };

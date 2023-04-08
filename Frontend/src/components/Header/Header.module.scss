@@ -6,6 +6,15 @@
   left: 0;
   z-index: 111;
   width: 100%;
+  --subMenuLeft: 0;
+  --subMenuRight: unset;
+  --subMenuBorderRadius: 3px;
+
+  &.ar {
+    --subMenuLeft: unset;
+    --subMenuRight: 0;
+    --subMenuBorderRadius: 3px;
+  }
 
   &.active {
     transition: background 0.3s linear, padding 0.3s linear;
@@ -25,10 +34,12 @@
     z-index: 10;
     width: 5.3vw;
     height: 5.3vw;
+
     @include large-screen {
       width: 7.3vw;
       height: 7.3vw;
     }
+
     // @include medium-screen {
     //   position: fixed;
     //   right: 15px;
@@ -38,6 +49,7 @@
       width: 60px; //12vw;
       height: 60px;
     }
+
     img {
       width: 100%;
       height: 100%;
@@ -58,6 +70,7 @@
     .contactAndMenuIcon {
       display: flex;
       align-items: center;
+
       @include medium-screen {
         gap: 6vw;
 
@@ -72,6 +85,7 @@
 
   .menuContainer {
     z-index: 8;
+
     .menu {
       display: flex;
       align-items: center;
@@ -79,17 +93,112 @@
       li {
         margin: 0vw 1vw;
         list-style: none;
+        position: relative;
+
+        &.hasSubMenu {
+          // @include medium-screen {
+          //   margin: 0vw 1vw;
+          // }
+
+
+          a {
+            // padding: 0.5vw 1vw;
+            display: flex;
+            border-radius: 10px 10px 0 0;
+            transition: all 0.3s ease 0s;
+
+            a {
+              padding: 0;
+            }
+
+            span {
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              white-space: nowrap;
+
+            }
+
+            svg {
+              display: flex;
+              margin-inline-start: 0.5vw;
+            }
+          }
+
+          &:hover {
+            a {
+              // color: var(--purple);
+              // background-color: var(--white);
+
+
+            }
+
+            .subMenu {
+              visibility: visible;
+              opacity: 1;
+              z-index: 1;
+
+              a {
+                background-color: transparent;
+              }
+            }
+          }
+
+          .subMenu {
+            padding: 1vw;
+            position: absolute;
+            visibility: hidden;
+            left: var(--subMenuLeft);
+            right: var(--subMenuRight);
+            bottom: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            z-index: -1;
+            transition: all 0.3s ease 0s;
+            min-width: 170%;
+            
+            border-radius: var(--subMenuBorderRadius);
+            @include medium-screen {
+              visibility: visible;
+              position: relative;
+              opacity: 0.7;
+              transform: none;
+              background-color: transparent;
+              padding-inline-start: 4vw;
+            }
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            // &.hasBg {
+            //   background-color: var(--white);
+            // }
+
+            li {
+              display: block;
+              margin: 0;
+
+              a {
+                white-space: nowrap;
+                // color: var(--purple);
+              }
+            }
+          }
+        }
       }
+
       li:last-child {
         margin-inline-end: 0vw;
       }
+
+
     }
 
     .headerSubscribe {
       display: none;
+
       .subscribeText {
         width: 80%;
       }
+
       @include medium-screen {
         display: block;
       }
@@ -118,11 +227,13 @@
 
         .menuItem {
           margin-top: 6.3vw;
+
           a {
             color: var(--purple);
           }
         }
       }
+
     }
 
     &.active {

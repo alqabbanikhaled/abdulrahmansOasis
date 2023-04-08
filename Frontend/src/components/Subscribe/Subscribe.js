@@ -61,7 +61,7 @@ const Subscribe = ({ inputText, buttonText, successText }) => {
               id=""
               placeholder={inputText}
             />
-            <Button className="purple-bg color-white">{buttonText}</Button>
+            <Button className="red-bg color-white">{buttonText}</Button>
           </>
         ) : (
           <div className="color-green font-weight-bold">{successText}</div>

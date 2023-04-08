@@ -14,12 +14,21 @@ export const headerDataAR = {
       label: "واحة عبدالرحمن",
       isDesktop: true,
       isMobile: true,
+      subLinks: [
+        { link: "/about#story", isDesktop: true, isMobile: true, label: "قصة عبدالرحمن", },
+        { link: "/about#goals", isDesktop: true, isMobile: false, label: "أهدافنا", },
+        { link: "/about#members", isDesktop: true, isMobile: false, label: "أعضاء مجلس الإدارة", }
+      ]
     },
     {
       link: "/child-life",
       label: "حياة الطفل",
       isDesktop: true,
       isMobile: true,
+      subLinks: [
+        { link: "/child-life#programs", isDesktop: true, isMobile: true, label: "قصة عبدالرحمنبرامج حياة الطفل", },
+        { link: "/child-life#specialists", isDesktop: true, isMobile: false, label: "أخصائيون حياة الطفل", },
+      ]
     },
     {
       link: "/media",
@@ -45,12 +54,21 @@ export const headerDataEN = {
       label: "Abdulrahman Oasis",
       isDesktop: true,
       isMobile: true,
+      subLinks: [
+        { link: "/about#story", isDesktop: true, isMobile: true, label: "Abdulrahman's story", },
+        { link: "/about#goals", isDesktop: true, isMobile: false, label: "Our Mission", },
+        { link: "/about#members", isDesktop: true, isMobile: false, label: "Board of Directors", }
+      ]
     },
     {
       link: "/child-life",
       label: "Child Life",
       isDesktop: true,
       isMobile: true,
+      subLinks: [
+        { link: "/child-life#programs", isDesktop: true, isMobile: true, label: "Child Life Programs", },
+        { link: "/child-life#specialists", isDesktop: true, isMobile: false, label: "Child Life Specialists", },
+      ]
     },
     {
       link: "/media",

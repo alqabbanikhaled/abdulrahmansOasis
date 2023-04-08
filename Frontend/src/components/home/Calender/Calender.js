@@ -8,11 +8,13 @@ import "swiper/css/navigation";
 
 import { Navigation } from "swiper";
 import OutlinedButton from "@/components/OutlinedButton/OutlinedButton";
+import { calenderDataAR, calenderDataEN } from "./Calender.data";
 const Calender = ({ locale, data = {} }) => {
   // const navigationPrevRef = useRef(null);
   // const navigationNextRef = useRef(null);
   const sliderRef = useRef(null);
   const [currentBreakpoint, setCurrentBreakpoint] = useState(0);
+  const dataStatic = locale === "ar" ? calenderDataAR : calenderDataEN
 
   useEffect(() => {
     // sliderRef.current?.swiper.slideTo(0);
@@ -40,18 +42,28 @@ const Calender = ({ locale, data = {} }) => {
   }, []);
 
   return (
-    <section id="calender" className={cn(styles.section, "space-Y-bottom")}>
-      <h1 className="text-center color-yellow mb-3">{data.title}</h1>
+    <section id="calender" className={cn(styles.section, "space-Y", {
+      [styles.ar]: locale === "ar"
+    })}>
+      <h1 className="text-center color-orange mb-3">{data.title}</h1>
       <div className={cn(styles.container, "space-X-l")}>
-        {/* <div className={cn(styles.calenderEvents, "mb-2")}>
-          {CALENDER_EVENTS.map((event, i) => (
-            <Event
+        <div className={cn(styles.calenderEvents, "mb-2")}>
+          {dataStatic.CALENDER_EVENTS.map((event, i) => (
+            <EventsItem
+              key={i}
+              highlight={i === 0}
               className={event.className}
-              description={event.description}
+              title={event.title}
               date={event.date}
+              time={event.time}
+              image={event.image}
+              locale={locale}
+              eventUrl={event.eventUrl}
+              // image={data.images.data[i]}
+
             />
           ))}
-        </div> */}
+        </div>
 
         {/* <div className={styles.calenderImages}>
           {data?.images?.data.map((img, i) => (
@@ -63,7 +75,7 @@ const Calender = ({ locale, data = {} }) => {
             />
           ))}
         </div> */}
-        <Swiper
+        {/* <Swiper
           ref={sliderRef}
           dir={locale == "ar" ? "rtl" : "ltr"}
           modules={[Navigation]}
@@ -90,8 +102,8 @@ const Calender = ({ locale, data = {} }) => {
               <img className={styles.img} src={img?.attributes.url} alt="" />
             </SwiperSlide>
           ))}
-        </Swiper>
-        {((data?.images?.data.length > 3 && currentBreakpoint == "@1.00") ||
+        </Swiper> */}
+        {/* {((data?.images?.data.length > 3 && currentBreakpoint == "@1.00") ||
           (data?.images?.data.length > 2 && currentBreakpoint == "@0.75") ||
           (data?.images?.data.length > 1 && currentBreakpoint == "@0.00")) && (
           <div className={cn(styles.buttons)}>
@@ -115,7 +127,7 @@ const Calender = ({ locale, data = {} }) => {
               </>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );
@@ -132,8 +144,86 @@ const Calender = ({ locale, data = {} }) => {
 //     </div>
 //   );
 // };
+const EventsItem = ({
+  locale,
+  highlight,
+  title, description, eventUrl, image, ctaLabel, date,time
+}) => {
+  return (
+    // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
+    <div className={cn(styles.eventsItem, "white-bg", {
+      [styles.highlight]: highlight,
+      [styles.ar]: locale === "ar"
+    })}>
+      <div className={cn(styles.imgDate)}>
+        {/* <img src={image?.attributes.url} /> */}
+        <img src={image} />
+        <div className={cn(styles.date, "yellow-bg pt-1 pb-1 p-inline-2",
+              {
+                [styles.ar]: locale === "ar"
+              })}>
+          <div className={cn(styles.month, "paragraph1-size")}>{"أبريل"}</div>
+          <div
+            className={cn(
+              styles.day,
+              "paragraph4-size font-weight-medium color-black"
+            )}
+          >
+            {date}
+          </div>
+          <div className={cn(styles.month, "paragraph1-size")}>{"2023"}</div>
+        </div>
+      </div>
+      <div className={cn(styles.content, "pt-1 pb-2 p-inline-2")}>
 
-const Event = ({ className, description, date }) => {
+        <div
+          className={cn(
+            styles.title,
+            "color-orange  font-weight-medium", {
+            ['head3-size']: highlight,
+            ['paragraph5-size']: !highlight
+          }
+          )}
+        >
+          {title}
+        </div>
+        <div className={cn(styles.description, "color-gray")}>
+          {description || "لوريم ابسم دولور ست اميت"}
+        </div>
+        <div className={cn(styles.location, "color-black")}>
+          <img
+            className={styles.icon}
+            src="/svg/clock.svg"
+            alt="time icon"
+          />
+          <div className={styles.text}>{time}</div>
+        </div>
+        <div className={cn(styles.location, "color-black pt-1")}>
+          <img
+            className={styles.icon}
+            src="/svg/location.svg"
+            alt="location icon"
+          />
+          <div className={styles.text}>{"الموقع....."}</div>
+        </div>
+        {eventUrl && <a className={cn(styles.eventUrl)} href={eventUrl} target="_blank">
+          <div
+            className={cn(styles.discover, "color-orange font-weight-medium pt-1")}
+          >
+            <span>{ctaLabel || (locale === "ar" ?  "للمزيد" : "More")}</span>
+            <img
+              className={cn({ [styles.rotateEn]: locale == "en" })}
+              src="/svg/discover_arrow.svg"
+              alt=""
+            />
+          </div>
+        </a>}
+      </div>
+    </div>
+    // </Link>
+  );
+};
+const Event = ({ className, description, date, pinned }) => {
   return (
     <div className={cn(styles.event, "p-3 text-center", className)}>
       <h4>{description}</h4>

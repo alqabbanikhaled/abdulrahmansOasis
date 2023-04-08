@@ -6,9 +6,9 @@ import { MEMBERS } from "./Members.data";
 
 const Members = ({ data = {} }) => {
   return (
-    <section id="members" className={cn(styles.section, "space-X-l space-Y")}>
+    <section id="members" className={cn(styles.section, "space-X-l space-Y","bg-7")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-purple mb-2 text-center">{data.title}</h1>
+        <h1 className="color-orange mb-2 text-center">{data.title}</h1>
         <div className={cn(styles.membersItems)}>
           {data.membersItems?.map(({ title, name, position }, i) => (
             <MemeberItem
@@ -26,10 +26,10 @@ const Members = ({ data = {} }) => {
 
 const MemeberItem = ({ title, name, position }) => {
   return (
-    <div className={cn(styles.memeberItem, "bg-1 pt-2 pb-2 ps-4 pe-4")}>
-      <div className="paragraph1-size color-gray">{title}</div>
+    <div className={cn(styles.memeberItem, "bg-1 pt-2 pb-2 ps-4 pe-4 yellow-bg")}>
+      <div className="paragraph1-size color-black">{title}</div>
       <div className="paragraph3-size font-weight-medium">{name}</div>
-      <div className="paragraph1-size color-gray">{position}</div>
+      <div className="paragraph1-size color-black">{position}</div>
     </div>
   );
 };

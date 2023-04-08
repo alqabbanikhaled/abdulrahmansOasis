@@ -2,13 +2,15 @@ import React, { useState, useRef, useCallback, useEffect } from "react";
 import cn from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, EffectFade } from "swiper";
-
-import Button from "@/components/Button/Button";
-import OutlinedButton from "@/components/OutlinedButton/OutlinedButton";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+
+import { Pagination, Autoplay } from "swiper";
+
 import styles from "./Who.module.scss";
 import Link from "next/link";
+import Button from "@/components/Button/Button";
 
 SwiperCore.use([Navigation]);
 
@@ -59,130 +61,85 @@ const Who = ({ locale, data = [] }) => {
   }, [locale]);
 
   return data.length > 0 ? (
-    <section className={cn(styles.section)}>
+    <section className={cn(styles.section, {
+      [styles.ar]: locale === "ar"
+    })}>
       <Swiper
         loop={true}
-        className={cn(styles.whoSwiperImages)}
+        className={cn(styles.mainSlides, styles.whoSwiperImages)}
         ref={sliderRefImages}
         slidesPerView={1}
-        modules={[EffectFade]}
+        modules={[Autoplay, EffectFade, Pagination]}
+        pagination={true}
         effect={"fade"}
-        allowTouchMove={false}
+        autoplay={{
+          delay: 5000,
+        }}
+        onSlideChange={(value) => {
+          setCurrentSlideIndex(value.realIndex);
+        }}
+        allowTouchMove={true}
       >
-        {data.map(({ bannerMedia, bannerMediaMobile }, i) => (
+        {data.map(({ bannerMedia, bannerMediaMobile,
+          bannerTitle, bannerDescription, textColor, cta, newTab }, i) => (
           <SwiperSlide key={i}>
-            {bannerMedia?.data.attributes.mime.startsWith("image") ? (
-              <>
-                <img
-                  className={cn({
-                    [styles.imageDesktop]: bannerMediaMobile.data != null,
-                  })}
-                  src={bannerMedia.data.attributes.url}
-                  alt="no image"
-                />
-                <img
-                  className={styles.imageMob}
-                  src={bannerMediaMobile.data?.attributes.url}
-                  alt="no image"
-                />
-              </>
-            ) : (
-              <video
-                autoPlay
-                ref={videoRef}
-                playsInline={true}
-                controls={false}
-                loop={true}
-                muted
-              >
-                <source
-                  src={bannerMedia.data.attributes.url}
-                  type="video/mp4"
-                />
-              </video>
-            )}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className={cn(styles.container, "space-X")}>
-        <div className={cn(styles.textSwiperAndButton, "mb-4")}>
-          <Swiper
-            loop={true}
-            className={cn(styles.whoSwiperText, "mb-1")}
-            ref={sliderRefText}
-            slidesPerView={1}
-            allowTouchMove={false}
-            onSlideChange={(value) => {
-              setCurrentSlideIndex(value.realIndex);
-            }}
-          >
-            {data.map(({ bannerTitle, bannerDescription, textColor }, i) => (
-              <SwiperSlide key={i}>
+            <>
+              {bannerMedia?.data.attributes.mime.startsWith("image") ? (
+                <>
+                  <img
+                    className={cn({
+                      [styles.imageDesktop]: bannerMediaMobile.data != null,
+                    })}
+                    src={bannerMedia.data.attributes.url}
+                    alt="no image"
+                  />
+                  <img
+                    className={styles.imageMob}
+                    src={bannerMediaMobile.data?.attributes.url}
+                    alt="no image"
+                  />
+                </>
+              ) : (
+                <video
+                  autoPlay
+                  ref={videoRef}
+                  playsInline={true}
+                  controls={false}
+                  loop={true}
+                  muted
+                >
+                  <source
+                    src={bannerMedia.data.attributes.url}
+                    type="video/mp4"
+                  />
+                </video>
+              )}
+            </>
+            <div className={cn(styles.overlayContainer, "space-X")}>
+              <div className={cn(styles.textSwiperAndButton, "space-X", {
+                [styles.active]: i === currentSlideIndex
+              })}>
                 <SwiperTextCard
                   title={bannerTitle}
                   description={bannerDescription}
                   textColor={textColor}
+                  cta={cta}
+                  newTab={newTab}
                   locale={locale}
                   className={cn({
                     "color-black": textColor == "dark",
                     "color-white": textColor != "dark",
                   })}
                 />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className={styles.button}>
-            <Link
-              href={data[currentSlideIndex].cta.link}
-              target={data[currentSlideIndex].newTab ? "_blank" : "_self"}
-            >
-              <Button
-                className={cn({
-                  "color-red white-bg":
-                    data[currentSlideIndex].textColor != "dark",
-                  "color-yellow black-bg":
-                    data[currentSlideIndex].textColor == "dark",
-                })}
-              >
-                {data[currentSlideIndex].cta.label}
-              </Button>
-            </Link>
-          </div>
-        </div>
-        <div className={cn(styles.outlinedButtons)}>
-          {locale == "ar" ? (
-            <>
-              <OutlinedButton
-                onClick={handlePrev}
-                className={styles.arrowButton}
-              >
-                <img src="./svg/arrow_right_L.svg" color="#000" />
-              </OutlinedButton>
-              <OutlinedButton
-                onClick={handleNext}
-                className={styles.arrowButton}
-              >
-                <img src="./svg/arrow_left_L.svg" color="#000" />
-              </OutlinedButton>
-            </>
-          ) : (
-            <>
-              <OutlinedButton
-                onClick={handleNext}
-                className={styles.arrowButton}
-              >
-                <img src="./svg/arrow_left_L.svg" color="#000" />
-              </OutlinedButton>
-              <OutlinedButton
-                onClick={handlePrev}
-                className={styles.arrowButton}
-              >
-                <img src="./svg/arrow_right_L.svg" color="#000" />
-              </OutlinedButton>
-            </>
-          )}
-        </div>
-      </div>
+              </div>
+
+            </div>
+
+
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
     </section>
   ) : (
     ""
@@ -194,45 +151,37 @@ const SwiperTextCard = ({
   description,
   textColor,
   className,
-  locale,
+  cta,
+  newTab,
+  locale
 }) => {
   return (
     <div className={cn(styles.titleWrapper, "mb-1")}>
-      {locale == "ar" ? (
-        <img
-          className={cn("right-0", textColor == "dark" ? "filter-black" : "")}
-          src="/svg/braket_top_ar.svg"
-          alt=""
-        />
-      ) : (
-        <img
-          className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
-          src="/svg/braket_top_en.svg"
-          alt=""
-        />
-      )}
-
       <h1 className={cn(className)}>{title}</h1>
       <div className="color-white">{description}</div>
-      {locale == "ar" ? (
-        <img
-          className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
-          src="/svg/braket_bottom_ar.svg"
-          alt=""
-        />
-      ) : (
-        <img
-          className={cn("right-0", textColor == "dark" ? "filter-black" : "")}
-          src="/svg/braket_bottom_en.svg"
-          alt=""
-        />
-      )}
-
       {/* <div>
         <Link href={"#"}>
           <Button className={cn("color-white red-bg")}>{buttonText}</Button>
         </Link>
       </div> */}
+      {
+        cta &&
+        <div className={cn(styles.button, "pt-2")}>
+          <Link
+            className={cn("paragraph4-size font-weight-medium", styles.arrowLink,
+              {
+                ["color-white "]:
+                  textColor != "dark",
+                ["color-black " + styles.arrowBlack]:
+                  textColor == "dark",
+              })}
+            href={cta.link}
+            target={newTab ? "_blank" : "_self"}
+          >
+            {cta.label}
+          </Link>
+        </div>
+      }
     </div>
   );
 };

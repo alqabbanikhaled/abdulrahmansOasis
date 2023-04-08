@@ -4,8 +4,8 @@ export default function Document() {
   return (
     <Html lang="en">
 
-      <title>Abdelrahman Oasis</title>
-      <meta name="description" content="Abdelrahman Oasis" />
+      <title>واحة عبدالرحمان | Abdulrahman Oasis</title>
+      <meta name="description" content="واحة عبدالرحمان | Abdulrahman Oasis" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.png" />
 

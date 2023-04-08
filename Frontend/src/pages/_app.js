@@ -4,6 +4,7 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 import "../styles/globals.scss";
 import Layout from "./../components/Layout/Layout";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const App = ({ Component, pageProps }) => {
   const { locale } = useRouter();
@@ -22,7 +23,11 @@ const App = ({ Component, pageProps }) => {
   return (
     <GoogleReCaptchaProvider reCaptchaKey="6LdRJSElAAAAAOwIRwPQf4Wrkaei5QxfGW6iSpeQ">
       <Layout>
-        <Component {...pageProps} />
+        <ParallaxProvider scrollAxis='vertical'>
+          <Component {...pageProps} />
+        </ParallaxProvider>
+
+
       </Layout>
     </GoogleReCaptchaProvider>
   );

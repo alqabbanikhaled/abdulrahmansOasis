@@ -20,7 +20,7 @@ const LangSwitch = ({ newNavbar, navLinksColor }) => {
       })}
       onClick={handleClick(locale)}
     >
-      {targetLocale.toUpperCase()}
+      {targetLocale=="ar"? "ع":targetLocale.toUpperCase()}
     </OutlinedButton>
   );
 };

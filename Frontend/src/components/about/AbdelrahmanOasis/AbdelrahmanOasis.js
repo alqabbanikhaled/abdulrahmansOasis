@@ -9,17 +9,17 @@ const AbdelrahmanOasis = ({ locale, data = {} }) => {
       className={cn(
         styles.section,
         { [styles.ar]: locale == "ar" },
-        "space-X space-Y"
+        "space-X space-Y","orange-light-bg"
       )}
     >
       <div className={cn(styles.container)}>
-        <div className={cn(styles.AOText, "mb-2")}>
-          <h1 className="color-purple mb-2">{data.title}</h1>
-          <div className="paragraph4-size">{data.description}</div>
-        </div>
         <div className={styles.AOImg}>
           <img src={data.image?.data.attributes.url} alt="" />
-          <img className={styles.vector} src="/svg/back_1.svg" alt="" />
+          {/* <img className={styles.vector} src="/svg/back_1.svg" alt="" /> */}
+        </div>
+        <div className={cn(styles.AOText, "mb-2")}>
+          <h1 className="color-orange mb-2">{data.title}</h1>
+          <div className="paragraph4-size">{data.description}</div>
         </div>
       </div>
     </section>

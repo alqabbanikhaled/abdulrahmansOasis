@@ -15,7 +15,7 @@ const Goals = ({ locale, data = {} }) => {
     >
       <div className={cn(styles.container)}>
         <div className={cn(styles.goalsText, "mb-2")}>
-          <h1 className="color-green mb-2">{data.title}</h1>
+          <h1 className="color-orange mb-2">{data.title}</h1>
           <div className={styles.goals}>
             {data.items?.map((item, i) => (
               <GoalItem key={i} num={i + 1} title={item.item} />
@@ -24,7 +24,7 @@ const Goals = ({ locale, data = {} }) => {
         </div>
         <div className={styles.goalsImg}>
           <img src={data.image?.data.attributes.url} alt="" />
-          <img className={styles.vector} src="/svg/back_1.svg" alt="" />
+          {/* <img className={styles.vector} src="/svg/back_1.svg" alt="" /> */}
         </div>
       </div>
     </section>
@@ -34,7 +34,7 @@ const Goals = ({ locale, data = {} }) => {
 const GoalItem = ({ num, title }) => {
   return (
     <div className={cn(styles.goalItem, "mb-2")}>
-      <h3 className="color-green">{num}</h3>
+      <h3 className="color-orange">{num}</h3>
       <div className="paragraph3-size font-weight-medium">{title}</div>
     </div>
   );

@@ -45,7 +45,7 @@ const Calender = ({ locale, data = {} }) => {
     <section id="calender" className={cn(styles.section, "space-Y", {
       [styles.ar]: locale === "ar"
     })}>
-      <h1 className="text-center color-orange mb-3">{data.title}</h1>
+      <h1 className="text-center color-red mb-3">{data.title}</h1>
       <div className={cn(styles.container, "space-X-l")}>
         <div className={cn(styles.calenderEvents, "mb-2")}>
           {dataStatic.CALENDER_EVENTS.map((event, i) => (

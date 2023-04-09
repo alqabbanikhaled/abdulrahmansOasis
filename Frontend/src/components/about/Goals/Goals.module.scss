@@ -2,6 +2,7 @@
 
 .section {
   // overflow-x: hidden;
+  position: relative;
   .container {
     display: flex;
     align-items: stretch;

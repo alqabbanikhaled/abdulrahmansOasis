@@ -47,8 +47,9 @@
     z-index: 3;
     width: 100%;
     position: absolute;
-    bottom: 0;
-    top: 0;
+    bottom: 12%;
+    opacity: 0.8;
+    // top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -67,7 +68,7 @@
 
       transition: all 0.5s cubic-bezier(.455, .03, .515, .955) 0.2s;
 
-      
+
       &.active {
         opacity: 1;
       }
@@ -90,6 +91,9 @@
 
         img {
           width: 9vw;
+          height: auto;
+          margin-inline: -2vw;
+          margin-block: -1.5vw;
         }
 
         img:first-child {
@@ -104,9 +108,16 @@
           // left: 0;
         }
 
-       
+        @include large-screen {
+          img {
+            width: 15vw;
+          }
+          // padding: 2vw 4vw;
+        }
 
-        
+
+
+
       }
 
       .whoSwiperText {
@@ -125,6 +136,10 @@
 
       .button {
         width: fit-content;
+
+        a {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -178,7 +193,7 @@
 
   .mainSlides {
     --swiper-pagination-bullet-height: 8px;
-    --swiper-pagination-bullet-width: 50px;
+    // --swiper-pagination-bullet-width: 50px;
     --swiper-pagination-bullet-inactive-color: #ffffff;
     --swiper-pagination-color: #ffffff;
     --swiper-pagination-bullet-inactive-opacity: 50%;
@@ -217,6 +232,7 @@
     transform: translate(0, -($arrow-size / 2)) rotate(45deg);
     box-shadow: inset -#{$arrow-border} $arrow-border 0 0 var(--arrow-color);
     border-radius: 0 $arrow-size*0.15 0 0;
+
     .ar & {
       box-shadow: inset $arrow-border -#{$arrow-border} 0 0 var(--arrow-color);
       right: auto;
@@ -231,6 +247,7 @@
     height: $arrow-border;
     transform: translate(0, -($arrow-border / 2));
     background-color: var(--arrow-color);
+
     .ar & {
       right: auto;
       left: 1em;
@@ -250,7 +267,7 @@
       &:before {
         transform: translate(0.5em, -($arrow-size / 2)) rotate(45deg);
       }
-  
+
       &:after {
         transform: translate(0.5em, -($arrow-border / 2));
       }

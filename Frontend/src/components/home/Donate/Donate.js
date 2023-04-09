@@ -21,7 +21,7 @@ const Donate = ({ data = {} }) => {
       </section> */}
       <section id="donation" className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.container)}>
-          <h1 className="color-purple mb-2 space-X-l text-center">
+          <h1 className="color-red mb-2 space-X-l text-center">
             {data.title}
           </h1>
           <div className={cn(styles.donateImg, "mb-2")}>

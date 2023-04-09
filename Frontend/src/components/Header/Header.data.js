@@ -26,7 +26,7 @@ export const headerDataAR = {
       isDesktop: true,
       isMobile: true,
       subLinks: [
-        { link: "/child-life#programs", isDesktop: true, isMobile: true, label: "قصة عبدالرحمنبرامج حياة الطفل", },
+        { link: "/child-life#programs", isDesktop: true, isMobile: true, label: "برنامج حياة الطفل", },
         { link: "/child-life#specialists", isDesktop: true, isMobile: false, label: "أخصائيون حياة الطفل", },
       ]
     },

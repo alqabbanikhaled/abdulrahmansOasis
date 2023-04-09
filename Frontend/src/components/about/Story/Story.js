@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import cn from "classnames";
 
 import PlayIcon from "./../../PlayIcon/PlayIcon";
@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
+import { useParallax } from "react-scroll-parallax";
 
 const Story = ({ locale, data = {} }) => {
   const [playing, setPlaying] = useState(false);
@@ -14,8 +15,17 @@ const Story = ({ locale, data = {} }) => {
     setPlaying(!playing);
 };
 
+const target = useRef(null);
+
+  const pattern1 = useParallax({
+    speed: 20,
+    easing: 'easeInCubic',
+    targetElement: target.current,
+  })
+
   return (
     <section
+    ref={target}
       id="story"
       className={cn(
         styles.section,
@@ -23,9 +33,12 @@ const Story = ({ locale, data = {} }) => {
         "space-X space-Y-bottom space-Y-top"
       )}
     >
+      {/* PATTERNS */}
+      <div ref={pattern1.ref} className={"parallax pattern5 circle-light-green"} >
+            </div>
       <div className={cn(styles.container)}>
         <div className={cn(styles.storText, "mb-2")}>
-          <h1 className="color-orange mb-2">{data.title}</h1>
+          <h1 className="color-red mb-2">{data.title}</h1>
           <div className="paragraph3-size color-gray">{data.description}</div>
         </div>
         <div className={styles.storyVideo}>

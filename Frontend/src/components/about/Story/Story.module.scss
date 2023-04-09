@@ -1,6 +1,7 @@
 @import "../../../styles/abstracts";
 
 .section {
+  position: relative;
   .container {
     display: flex;
     align-items: stretch;

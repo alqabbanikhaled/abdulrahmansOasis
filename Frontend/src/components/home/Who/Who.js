@@ -157,8 +157,34 @@ const SwiperTextCard = ({
 }) => {
   return (
     <div className={cn(styles.titleWrapper, "mb-1")}>
+      {locale == "ar" ? (
+        <img
+          className={cn("right-0", textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_top_ar.svg"
+          alt=""
+        />
+      ) : (
+        <img
+          className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_top_en.svg"
+          alt=""
+        />
+      )}
       <h1 className={cn(className)}>{title}</h1>
       <div className="color-white">{description}</div>
+      {locale == "ar" ? (
+        <img
+          className={cn("left-0", textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_bottom_ar.svg"
+          alt=""
+        />
+      ) : (
+        <img
+          className={cn("right-0", textColor == "dark" ? "filter-black" : "")}
+          src="/svg/braket_bottom_en.svg"
+          alt=""
+        />
+      )}
       {/* <div>
         <Link href={"#"}>
           <Button className={cn("color-white red-bg")}>{buttonText}</Button>
@@ -168,7 +194,8 @@ const SwiperTextCard = ({
         cta &&
         <div className={cn(styles.button, "pt-2")}>
           <Link
-            className={cn("paragraph4-size font-weight-medium", styles.arrowLink,
+            className={cn("paragraph4-size font-weight-medium", 
+            // styles.arrowLink,
               {
                 ["color-white "]:
                   textColor != "dark",

@@ -31,7 +31,7 @@ const LatestNews = ({ locale, latestNewsTitle = "", latestNewsList = [] }) => {
   return (
     <section className={cn(styles.section, "space-X space-Y bg-7 mt-2")}>
       <div className={cn(styles.container)}>
-        <h3 className="color-orange mb-2 text-center">{latestNewsTitle}</h3>
+        <h3 className="color-red mb-2 text-center">{latestNewsTitle}</h3>
         <div className={cn(styles.latestNewsItems)}>
           {latestNewsList?.map((newsItem, i) => (
             <NewsItem key={i} newsItem={newsItem} locale={locale} />
@@ -88,7 +88,7 @@ const NewsItem = ({
         <div
           className={cn(
             styles.title,
-            "color-orange paragraph3-size font-weight-medium"
+            "color-red paragraph3-size font-weight-medium"
           )}
         >
           {title}
@@ -98,7 +98,7 @@ const NewsItem = ({
         </div>
         <a className={cn(styles.newsUrl)} href={newsUrl} target="_blank">
           <div
-            className={cn(styles.discover, "color-orange font-weight-medium")}
+            className={cn(styles.discover, "color-red font-weight-medium")}
           >
             <span>{ctaLabel}</span>
             <img

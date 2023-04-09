@@ -163,7 +163,7 @@ const Contact = ({ locale, contactData }) => {
         >
           <div className={cn(styles.container)}>
             <div className={cn(styles.contactText, "mb-2")}>
-              <h3 className="color-green mb-2">
+              <h3 className="color-red mb-2">
                 <ReactMarkdown>
                   {!successSubmit
                     ? contactData.formTitle

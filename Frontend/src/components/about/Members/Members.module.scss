@@ -5,9 +5,10 @@
     .membersItems {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 24px;
       .memeberItem {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.161);
         flex-basis: calc(30% - 12px);
         border-radius: 14px;
       }

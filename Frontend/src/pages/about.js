@@ -15,13 +15,19 @@ export default function About({ locale, aboutData }) {
   const target = useRef(null);
 
   const pattern1 = useParallax({
-    speed: 100,
+    speed: 20,
     easing: 'easeInCubic',
     targetElement: target.current,
   })
 
   const pattern2 = useParallax({
-    speed: 80,
+    speed: 90,
+    easing: 'easeInCubic',
+    targetElement: target.current,
+  })
+
+  const pattern3 = useParallax({
+    speed: 60,
     easing: 'easeInCubic',
     targetElement: target.current,
   })
@@ -41,11 +47,11 @@ export default function About({ locale, aboutData }) {
           ['ar']: locale === "ar"
         })}>
           {/* PATTERNS */}
-          <div ref={pattern1.ref} className={"parallax pattern1"} >
-              <img src="/svg/patterns_layer.svg" alt="pattern"></img>
+          <div ref={pattern1.ref} className={"parallax pattern1 circle-red"} >
             </div>
-            <div ref={pattern2.ref} className={"parallax pattern2"} >
-              <img src="/svg/patterns_layer2.svg" alt="pattern"></img>
+            <div ref={pattern2.ref} className={"parallax pattern3 circle-yellow"} >
+            </div>
+            <div ref={pattern3.ref} className={"parallax pattern2 circle-light-green"} >
             </div>
           <Story locale={locale} data={aboutData.story} />
           <AbdelrahmanOasis locale={locale} data={aboutData.abdelrahmanOasis} />

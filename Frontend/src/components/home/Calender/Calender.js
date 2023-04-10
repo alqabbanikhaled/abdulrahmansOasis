@@ -7,8 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Navigation } from "swiper";
-import OutlinedButton from "@/components/OutlinedButton/OutlinedButton";
 import { calenderDataAR, calenderDataEN } from "./Calender.data";
+import Image from "next/image";
 const Calender = ({ locale, data = {} }) => {
   // const navigationPrevRef = useRef(null);
   // const navigationNextRef = useRef(null);
@@ -45,25 +45,54 @@ const Calender = ({ locale, data = {} }) => {
     <section id="calender" className={cn(styles.section, "space-Y", {
       [styles.ar]: locale === "ar"
     })}>
-      <h1 className="text-center color-red mb-3">{data.title}</h1>
+      <div className={styles.monthsNavBar}>
+        <h1 className="text-center color-red mb-3">{data.title}</h1>
+      </div>
       <div className={cn(styles.container, "space-X-l")}>
-        <div className={cn(styles.calenderEvents, "mb-2")}>
-          {dataStatic.CALENDER_EVENTS.map((event, i) => (
-            <EventsItem
-              key={i}
-              highlight={i === 0}
-              className={event.className}
-              title={event.title}
-              date={event.date}
-              time={event.time}
-              image={event.image}
-              locale={locale}
-              eventUrl={event.eventUrl}
-              // image={data.images.data[i]}
-
-            />
-          ))}
+        <div className={styles.navigation+" white-bg"}>
+          <div className={styles.prev}>
+            <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Prev" />
+          </div>
+          <div className={styles.next}>
+            <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Next" />
+          </div>
         </div>
+        <Swiper
+          ref={sliderRef}
+          dir={locale == "ar" ? "rtl" : "ltr"}
+          autoplay={false}
+          watchSlidesProgress={true}
+          modules={[Navigation]}
+          navigation={
+            { disabledClass: styles.disabled, nextEl: `.${styles.next}`, prevEl: `.${styles.prev}` }
+          }
+          spaceBetween={30}
+          className={cn(styles.calenderSwiper, "calenderSwiper")}
+          slidesPerView={1}
+        >
+          {dataStatic?.events.map((item, i) => (
+            <SwiperSlide key={i} className={styles.monthContainer}>
+              <h3 className="color-yellow mb-3">{item.month}</h3>
+              <div className={cn(styles.calenderEvents, "mb-2")}>
+                {item.events.map((event, i) => (
+                  <EventsItem
+                    key={i}
+                    className={event.className}
+                    title={event.title}
+                    date={event.date}
+                    time={event.time}
+                    image={event.image}
+                    locale={locale}
+                    eventUrl={event.eventUrl}
+                  // image={data.images.data[i]}
+
+                  />
+                ))}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
 
         {/* <div className={styles.calenderImages}>
           {data?.images?.data.map((img, i) => (
@@ -147,7 +176,7 @@ const Calender = ({ locale, data = {} }) => {
 const EventsItem = ({
   locale,
   highlight,
-  title, description, eventUrl, image, ctaLabel, date,time
+  title, description, eventUrl, image, ctaLabel, date, time
 }) => {
   return (
     // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
@@ -155,23 +184,19 @@ const EventsItem = ({
       [styles.highlight]: highlight,
       [styles.ar]: locale === "ar"
     })}>
-      <div className={cn(styles.imgDate)}>
-        {/* <img src={image?.attributes.url} /> */}
-        <img src={image} />
-        <div className={cn(styles.date, "yellow-bg pt-1 pb-1 p-inline-2",
-              {
-                [styles.ar]: locale === "ar"
-              })}>
-          <div className={cn(styles.month, "paragraph1-size")}>{"أبريل"}</div>
+      <div className={cn(styles.imgDate, "yellow-bg")}>
+        <div className={cn(styles.date, " pt-1 pb-1 p-inline-2",
+          {
+            [styles.ar]: locale === "ar"
+          })}>
           <div
             className={cn(
               styles.day,
-              "paragraph4-size font-weight-medium color-black"
+              "head1-size font-weight-medium color-black"
             )}
           >
             {date}
           </div>
-          <div className={cn(styles.month, "paragraph1-size")}>{"2023"}</div>
         </div>
       </div>
       <div className={cn(styles.content, "pt-1 pb-2 p-inline-2")}>
@@ -210,7 +235,7 @@ const EventsItem = ({
           <div
             className={cn(styles.discover, "color-orange font-weight-medium pt-1")}
           >
-            <span>{ctaLabel || (locale === "ar" ?  "للمزيد" : "More")}</span>
+            <span>{ctaLabel || (locale === "ar" ? "للمزيد" : "More")}</span>
             <img
               className={cn({ [styles.rotateEn]: locale == "en" })}
               src="/svg/discover_arrow.svg"

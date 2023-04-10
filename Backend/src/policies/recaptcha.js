@@ -1,14 +1,11 @@
 const axios = require("axios");
-module.exports = async (ctx, next) => {
+require("dotenv");
+//module.exports = async (ctx, next) => {
+module.exports = async (policyContext, config, { strapi }) => {
   // url params
-  const { token } = ctx.request.body;
+  const ctx = policyContext;
+  const { token } = ctx.request.body.data;
   const remoteip = ctx.req.connection.remoteAddress;
-
-  //  console.log("captcha key is:" + secret_key);
-  console.log('request', ctx.request)
-  console.log('request body', ctx.request.body)
-  console.log("token is:" + token);
-  console.log("remote IP:" + remoteip);
 
   const verifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=6LdRJSElAAAAALFn8aXfrOBCZ9BkohlZfQq4kvaj&response=${token}&remoteip=${remoteip}`;
   let validation = await axios.post(verifyURL).then(function (response) {
@@ -18,8 +15,9 @@ module.exports = async (ctx, next) => {
     }
     else {
       console.log("you should pass" + response.data.success);
+      return true;
     }
   });
-
-  return await next();
+  return false;
+  //return next();
 };

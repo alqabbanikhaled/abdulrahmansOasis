@@ -31,15 +31,6 @@ const Calender = ({ locale, data = {} }) => {
     });
   });
 
-  const handlePrev = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current?.swiper.slidePrev();
-  }, []);
-
-  const handleNext = useCallback(() => {
-    if (!sliderRef.current) return;
-    sliderRef.current?.swiper.slideNext();
-  }, []);
 
   return (
     <section id="calender" className={cn(styles.section, "space-Y", {

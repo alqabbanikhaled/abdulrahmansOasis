@@ -16,7 +16,7 @@ RUN apk add vips-dev
 RUN rm -rf /var/cache/apk/*
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
-ARG DATABASE_NAME=abdelrahmanoasis-cms-db
+ARG DATABASE_NAME=abdelrahmanoasis-cms-database
 ARG INSTANCE_CONNECTION_NAME=flowing-indexer-381807:us-central1:abdelrahmanoasis-database
 ARG DATABASE_USERNAME=postgres
 ARG DATABASE_PASSWORD=a@n2S-oqRYjip~8x

@@ -1,24 +1,23 @@
 {
   "collectionName": "components_home_page_calenders",
   "info": {
-    "displayName": "calender"
+    "displayName": "calender",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
+    "month": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": false
     },
-    "images": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+    "events": {
+      "displayName": "Event",
+      "type": "component",
+      "repeatable": true,
+      "component": "home-page.event",
+      "required": true,
+      "min": 1
     }
   }
 }

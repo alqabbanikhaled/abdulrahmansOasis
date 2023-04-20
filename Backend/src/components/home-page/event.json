@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_home_page_events",
+  "info": {
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "time": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "ctaLabel": {
+      "type": "string"
+    },
+    "ctaLink": {
+      "type": "string"
+    }
+  }
+}

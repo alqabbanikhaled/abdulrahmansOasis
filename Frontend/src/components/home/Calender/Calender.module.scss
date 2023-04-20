@@ -4,6 +4,7 @@
 
 .section {
   .container {
+    position: relative;
     .monthContainer {
       min-height: 100vh;
     }
@@ -203,12 +204,13 @@
   direction: ltr;
   z-index: 111;
   position: absolute;
-  right: 0;
+  right: var(--spaceX-l);
   left: auto;
+  top: 0;
 
 
   &>div {
-      margin: 0 5vw;
+      // margin: 0 5vw;
       cursor: pointer;
       height: 80px;
       width: 80px;
@@ -226,6 +228,7 @@
           justify-content: center;
           flex-flow: row wrap;
           z-index: 1;
+          width: 100%;
       }
 
       &:hover {
@@ -266,7 +269,7 @@
   .ar & {
     flex-direction: row-reverse;
     right: auto;
-    left: 0;
+    left: var(--spaceX-l);
   }
 
   .prev {
@@ -274,7 +277,7 @@
   }
 
   .next {
-      // transform: rotate(-180deg);
+      transform: rotate(0deg);
   }
 
   @include medium-screen {

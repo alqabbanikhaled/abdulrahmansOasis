@@ -51,7 +51,7 @@
     "calender": {
       "displayName": "calender",
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "home-page.calender",
       "pluginOptions": {
         "i18n": {

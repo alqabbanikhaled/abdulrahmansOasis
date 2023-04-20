@@ -45,18 +45,11 @@ const Calender = ({ locale, data = {} }) => {
     <section id="calender" className={cn(styles.section, "space-Y", {
       [styles.ar]: locale === "ar"
     })}>
-      <div className={styles.monthsNavBar}>
+      {/* <div className={styles.monthsNavBar}>
         <h1 className="text-center color-red mb-3">{data.title}</h1>
-      </div>
+      </div> */}
       <div className={cn(styles.container, "space-X-l")}>
-        <div className={styles.navigation+" white-bg"}>
-          <div className={styles.prev}>
-            <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Prev" />
-          </div>
-          <div className={styles.next}>
-            <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Next" />
-          </div>
-        </div>
+        
         <Swiper
           ref={sliderRef}
           dir={locale == "ar" ? "rtl" : "ltr"}
@@ -72,7 +65,7 @@ const Calender = ({ locale, data = {} }) => {
         >
           {dataStatic?.events.map((item, i) => (
             <SwiperSlide key={i} className={styles.monthContainer}>
-              <h3 className="color-yellow mb-3">{item.month}</h3>
+              <h3 className="color-red mb-3 text-center head2-size">{item.month}</h3>
               <div className={cn(styles.calenderEvents, "mb-2")}>
                 {item.events.map((event, i) => (
                   <EventsItem
@@ -92,6 +85,15 @@ const Calender = ({ locale, data = {} }) => {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <div className={styles.navigation+" white-bg"}>
+          <div className={styles.prev}>
+            <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Prev" />
+          </div>
+          <div className={styles.next}>
+            <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Next" />
+          </div>
+        </div>
 
 
         {/* <div className={styles.calenderImages}>

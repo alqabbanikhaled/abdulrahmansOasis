@@ -283,6 +283,9 @@
   @include medium-screen {
       //   @media all and (max-width:800px) {
       margin-top: 0vw;
+      width: 100%;
+      left: 0 !important;
+      background: transparent !important;
   }
 
   @media all and (max-width:600px) {
@@ -293,4 +296,8 @@
 .disabled {
   opacity: 0.2;
   pointer-events: none;
+}
+
+.hidden {
+  display: none;
 }

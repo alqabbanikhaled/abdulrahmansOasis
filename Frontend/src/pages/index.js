@@ -44,7 +44,7 @@ export async function getServerSideProps({ locale }) {
   const data = await getSinglePage(
     locale,
     "home-page",
-    "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.images"
+    "banners,banners.bannerMedia,banners.bannerMediaMobile,banners.cta,volunteer,volunteer.volunteerImage,publication,publication.image,publication.publicationFile,donate,donate.image,calender,calender.events"
   );
 
   return {

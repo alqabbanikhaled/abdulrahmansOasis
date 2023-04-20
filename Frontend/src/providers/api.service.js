@@ -1,4 +1,5 @@
-const baseUrl = "https://abdelrahmanoasis-cms-fjf3vmxuqa-uc.a.run.app";
+const baseUrl = "https://abdelrahmanoasis-cms-kpg3ggywpa-uc.a.run.app";
+
 // const baseUrl ="http://127.0.0.1:1337";
 
 export async function getSinglePage(locale = "ar", name, fields = "") {

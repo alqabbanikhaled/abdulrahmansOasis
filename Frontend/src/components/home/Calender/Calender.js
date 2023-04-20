@@ -54,7 +54,7 @@ const Calender = ({ locale, data = {} }) => {
           className={cn(styles.calenderSwiper, "calenderSwiper")}
           slidesPerView={1}
         >
-          {dataStatic?.events.map((item, i) => (
+          {data?.map((item, i) => (
             <SwiperSlide key={i} className={styles.monthContainer}>
               <h3 className="color-red mb-3 text-center head2-size">{item.month}</h3>
               <div className={cn(styles.calenderEvents, "mb-2")}>
@@ -62,12 +62,8 @@ const Calender = ({ locale, data = {} }) => {
                   <EventsItem
                     key={i}
                     className={event.className}
-                    title={event.title}
-                    date={event.date}
-                    time={event.time}
-                    image={event.image}
+                    data={event}
                     locale={locale}
-                    eventUrl={event.eventUrl}
                   // image={data.images.data[i]}
 
                   />
@@ -77,7 +73,9 @@ const Calender = ({ locale, data = {} }) => {
           ))}
         </Swiper>
 
-        <div className={styles.navigation+" white-bg"}>
+        <div className={cn(styles.navigation+" white-bg",{
+          [styles.hidden]: !data || data.length === 1
+        })}>
           <div className={styles.prev}>
             <img className={cn(styles.arrowIcon)} src="/svg/discover_arrow.svg" alt="Prev" />
           </div>
@@ -169,7 +167,7 @@ const Calender = ({ locale, data = {} }) => {
 const EventsItem = ({
   locale,
   highlight,
-  title, description, eventUrl, image, ctaLabel, date, time
+  data
 }) => {
   return (
     // <Link href={{ pathname: `/media/${Slug}`, query: { id } }}>
@@ -188,7 +186,7 @@ const EventsItem = ({
               "head1-size font-weight-medium color-black"
             )}
           >
-            {date}
+            {data.date}
           </div>
         </div>
       </div>
@@ -203,10 +201,10 @@ const EventsItem = ({
           }
           )}
         >
-          {title}
+          {data.title}
         </div>
         <div className={cn(styles.description, "color-gray")}>
-          {description || "لوريم ابسم دولور ست اميت"}
+          {data.description}
         </div>
         <div className={cn(styles.location, "color-black")}>
           <img
@@ -214,7 +212,7 @@ const EventsItem = ({
             src="/svg/clock.svg"
             alt="time icon"
           />
-          <div className={styles.text}>{time}</div>
+          <div className={styles.text}>{data.time}</div>
         </div>
         <div className={cn(styles.location, "color-black pt-1")}>
           <img
@@ -222,13 +220,13 @@ const EventsItem = ({
             src="/svg/location.svg"
             alt="location icon"
           />
-          <div className={styles.text}>{"الموقع....."}</div>
+          <div className={styles.text}>{data.location}</div>
         </div>
-        {eventUrl && <a className={cn(styles.eventUrl)} href={eventUrl} target="_blank">
+        {data.ctaLink && <a className={cn(styles.eventUrl)} href={data.ctaLink} target="_blank">
           <div
             className={cn(styles.discover, "color-orange font-weight-medium pt-1")}
           >
-            <span>{ctaLabel || (locale === "ar" ? "للمزيد" : "More")}</span>
+            <span>{data.ctaLabel || (locale === "ar" ? "للمزيد" : "More")}</span>
             <img
               className={cn({ [styles.rotateEn]: locale == "en" })}
               src="/svg/discover_arrow.svg"
@@ -239,14 +237,6 @@ const EventsItem = ({
       </div>
     </div>
     // </Link>
-  );
-};
-const Event = ({ className, description, date, pinned }) => {
-  return (
-    <div className={cn(styles.event, "p-3 text-center", className)}>
-      <h4>{description}</h4>
-      <p className="paragraph3-size font-weight-medium color-gray">{date}</p>
-    </div>
   );
 };
 

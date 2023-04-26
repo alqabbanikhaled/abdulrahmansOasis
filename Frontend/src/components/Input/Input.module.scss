@@ -8,12 +8,23 @@
   position: relative;
   width: 100%;
   height: 100%;
+
+  span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+  }
 }
 
 .label {
   position: absolute;
   font-size: 1rem;
-  left: 0;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   background-color: var(--white);
@@ -22,6 +33,7 @@
   transition: 0.1s ease-out;
   transform-origin: left top;
   pointer-events: none;
+ 
 }
 .input {
   width: 100%;
@@ -55,5 +67,10 @@
   .label {
     left: initial;
     right: 0;
+  }
+
+  .textfield span{
+    left: 0;
+    right: auto;
   }
 }

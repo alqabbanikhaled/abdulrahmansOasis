@@ -1,0 +1,19 @@
+@import "./abstracts";
+
+// form
+.donateForm {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+
+  @include small-screen {
+    width: 100%;
+  }
+
+  &.message {
+    align-items: center;
+  }
+}

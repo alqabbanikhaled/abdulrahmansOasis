@@ -9,12 +9,13 @@ const Input = ({
   name,
   id,
   locale,
+  ...rest
 }) => {
   return (
     <div
       className={cn(
         styles.container,
-        { [styles.ar]: locale == "ar" },
+        { [styles.ar]: locale === "ar" },
         className
       )}
     >
@@ -27,6 +28,7 @@ const Input = ({
           value={value}
           name={name}
           id={id}
+          {...rest}
         />
         <label className={cn(styles.label, "color-gray-100")}>{label}</label>
       </div>

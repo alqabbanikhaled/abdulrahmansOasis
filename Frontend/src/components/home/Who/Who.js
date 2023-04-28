@@ -101,12 +101,12 @@ const Who = ({ locale, data = [] }) => {
                 </>
               ) : (
                 <video
-                  autoPlay
+                  autoPlay={true}
                   ref={videoRef}
                   playsInline={true}
                   controls={false}
                   loop={true}
-                  muted
+                  muted={true}
                 >
                   <source
                     src={bannerMedia.data.attributes.url}

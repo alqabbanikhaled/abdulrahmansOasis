@@ -8,9 +8,9 @@
   //   height: 80vh;
   // }
 
-  // @include small-screen {
-  //   height: 100vh;
-  // }
+  @include small-screen {
+    height: 95vh;
+  }
   .whoSwiperImages {
     position: absolute;
     top: 0;

@@ -8,7 +8,7 @@
   "attributes": {
     "bannerTitle": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "bannerMedia": {
       "type": "media",

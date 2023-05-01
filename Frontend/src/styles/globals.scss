@@ -1293,7 +1293,7 @@ input[type="number"] {
 
 .parallax {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   // @include medium-screen {
   //   opacity: 0.8
   // }

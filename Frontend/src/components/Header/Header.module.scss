@@ -214,7 +214,7 @@
       opacity: 0;
       transition: all 0.2s linear;
       // backdrop-filter: blur(8px);
-      background: var(--bg-1);
+      background: var(--white);
       padding-inline-start: 6.3vw;
 
       .menu {
@@ -229,7 +229,7 @@
           margin-top: 6.3vw;
 
           a {
-            color: var(--purple);
+            color: var(--red);
           }
         }
       }

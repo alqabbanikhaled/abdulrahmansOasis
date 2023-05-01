@@ -32,7 +32,7 @@ export const headerDataAR = {
     },
     {
       link: "/media",
-      label: "الميديا",
+      label: "في الأخبار",
       isDesktop: true,
       isMobile: true,
     },
@@ -72,7 +72,7 @@ export const headerDataEN = {
     },
     {
       link: "/media",
-      label: "Media",
+      label: "In The News",
       isDesktop: true,
       isMobile: true,
     },

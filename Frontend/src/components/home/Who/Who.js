@@ -119,7 +119,8 @@ const Who = ({ locale, data = [] }) => {
               <div className={cn(styles.textSwiperAndButton, "space-X", {
                 [styles.active]: i === currentSlideIndex
               })}>
-                <SwiperTextCard
+                {
+                  (bannerTitle || bannerDescription) && <SwiperTextCard
                   title={bannerTitle}
                   description={bannerDescription}
                   textColor={textColor}
@@ -131,6 +132,7 @@ const Who = ({ locale, data = [] }) => {
                     "color-white": textColor != "dark",
                   })}
                 />
+                }
               </div>
 
             </div>

@@ -48,18 +48,18 @@ export default function About({ locale, aboutData }) {
         })}>
           {/* PATTERNS */}
           <div ref={pattern1.ref} className={"parallax pattern1 circle-red"} >
-            </div>
-            <div ref={pattern2.ref} className={"parallax pattern3 circle-yellow"} >
-            </div>
-            <div ref={pattern3.ref} className={"parallax pattern2 circle-light-green"} >
-            </div>
+          </div>
+          <div ref={pattern2.ref} className={"parallax pattern3 circle-yellow"} >
+          </div>
+          <div ref={pattern3.ref} className={"parallax pattern2 circle-light-green"} >
+          </div>
           <Story locale={locale} data={aboutData.story} />
           <AbdelrahmanOasis locale={locale} data={aboutData.abdelrahmanOasis} />
           <Goals locale={locale} data={aboutData.goals} />
           {/* <Importance locale={locale} data={aboutData.importance} /> */}
           <Members locale={locale} data={aboutData.members} />
 
-          
+
         </main>
 
       )}

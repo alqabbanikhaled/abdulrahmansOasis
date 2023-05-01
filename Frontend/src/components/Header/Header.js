@@ -193,7 +193,7 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [
                         // [styles.activeNavLink]: pathname === link
                       })}
                     >
-                      {label}
+                      <span className="d-block d-md-none">○&nbsp;</span> {label}
                     </span>
                   </Link>      </li>
                 })

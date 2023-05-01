@@ -34,7 +34,10 @@ export default function Home({ locale, homeData }) {
         <Volunteer locale={locale} data={homeData.volunteer} />
         <Publication locale={locale} data={homeData.publication} />
         <Donate locale={locale} data={homeData.donate} />
-        <Calender locale={locale} data={homeData.calender} />
+        {
+          homeData.calender?.length > 0 && 
+          <Calender locale={locale} data={homeData.calender} />
+        }
       </>
     )
   );

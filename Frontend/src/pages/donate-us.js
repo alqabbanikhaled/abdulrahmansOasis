@@ -40,7 +40,7 @@ const Donate = ({ locale, status }) => {
         redirect: 'follow'
       };
 
-      fetch("api/donate", requestOptions)
+      fetch("https://abdulrahmanoasis.org/api/donate", requestOptions)
         .then(async response => {
           const resp = await response.json();
           if (resp?.redirect_url) {

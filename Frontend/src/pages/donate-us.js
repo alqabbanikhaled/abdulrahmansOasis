@@ -67,14 +67,22 @@ const Donate = ({ locale, status }) => {
       </Head>
       <Header locale={locale} navLinksColor={"red"} />
       <main id="main">
-        <section className={cn(styles.section, "space-X space-Y")}>
-          <div className={cn(styles.container)}>
 
+        <section className={cn(styles.section, "space-X space-Y",{
+          [styles.ar]: locale==="ar"
+        })}>
+          <div className={cn(styles.container)}>
+            {/* PATTERNS */}
+
+            <div className={"parallax pattern1 circle-red"} >
+            </div>
+            <div className={"parallax pattern3 circle-yellow"} >
+            </div>
             {
               (status === null || status === undefined) &&
-              <form className={styles.donateForm} onSubmit={handleSubmit}>
+              <form className={styles.donateForm + " p-5 white-bg"} onSubmit={handleSubmit}>
                 <div className={cn(styles.donateText, "mb-3 color-red text-center")}>
-                  <h1>{locale === "ar" ? "تبرع الآن" : "Donate Now"}</h1>
+                  <h1>{locale === "ar" ? "قيمة التبرع" : "Donate Now"}</h1>
                 </div>
                 <Input
                   autoFocus={true}
@@ -82,7 +90,8 @@ const Donate = ({ locale, status }) => {
                   type="number"
                   required={true}
                   name="amount"
-                  label={locale === "ar" ? "مبلغ التبرع" : "Donation Amount"}
+                  currency={true}
+                  label={locale === "ar" ? "قيمة التبرع" : "Donation Amount"}
                 />
 
                 <Button
@@ -96,11 +105,11 @@ const Donate = ({ locale, status }) => {
 
             {
               status === "cancel" &&
-              <div className={cn(styles.donateForm,styles.message, "mb-3 color-red text-center")}>
+              <div className={cn(styles.donateForm, styles.message, "mb-3 color-red text-center")}>
                 <h1>{locale === "ar" ? "آسف، حدث خطأ.ونحن نعمل على ذلك ونحن سوف تحصل على أنها ثابتة بأسرع ما يمكن." : "Sorry, something went wrong.We're working on it and we'll get it fixed as soon as we can."}</h1>
                 <Link href={"/"} className=" mb-2 mt-2">
                   <Button className="green-bg color-white">
-                    {locale=="ar" ? "العودة إلى الصفحة الرئيسية": "Go to home"}
+                    {locale == "ar" ? "العودة إلى الصفحة الرئيسية" : "Go to home"}
                   </Button>
                 </Link>
               </div>

@@ -31,6 +31,9 @@ const Input = ({
           {...rest}
         />
         <label className={cn(styles.label, "color-gray-100")}>{label}</label>
+        { rest.currency &&
+          <span className={cn(styles.currency, "head4-size color-dark-gray")}>{locale==="ar"?"ر.س":"SAR"}</span>
+        }
       </div>
     </div>
   );

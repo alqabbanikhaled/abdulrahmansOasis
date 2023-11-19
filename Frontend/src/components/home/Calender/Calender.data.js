@@ -20,7 +20,7 @@ export const calenderDataAR = {
           time: `4 أبريل 2023 ,05:00 م إلى
           4 أبريل 2023 ,05:00 م
           `,
-          className: "bg-2 color-orange",
+          className: "bg-1 color-orange",
           image: "/donate.jpg",
           eventUrl: "sosososo.jpg"
         },
@@ -65,7 +65,7 @@ export const calenderDataAR = {
         //   time: `4 يونيو 2023 ,05:00 م إلى
         //   4 يونيو 2023 ,05:00 م
         //   `,
-        //   className: "bg-2 color-orange",
+        //   className: "bg-1 color-orange",
         //   image: "/donate.jpg",
         //   eventUrl: "sosososo.jpg"
         // },
@@ -109,7 +109,7 @@ export const calenderDataAR = {
       time: `4 أبريل 2023 ,05:00 م إلى
       4 أبريل 2023 ,05:00 م
       `,
-      className: "bg-2 color-orange",
+      className: "bg-1 color-orange",
       image: "/donate.jpg",
       eventUrl: "sosososo.jpg"
     },
@@ -157,7 +157,7 @@ export const calenderDataEN = {
           time: `4 أبريل 2023 ,05:00 م إلى
           4 أبريل 2023 ,05:00 م
           `,
-          className: "bg-2 color-orange",
+          className: "bg-1 color-orange",
           image: "/donate.jpg",
           eventUrl: "sosososo.jpg"
         },
@@ -202,7 +202,7 @@ export const calenderDataEN = {
           time: `4 أبريل 2023 ,05:00 م إلى
           4 أبريل 2023 ,05:00 م
           `,
-          className: "bg-2 color-orange",
+          className: "bg-1 color-orange",
           image: "/donate.jpg",
           eventUrl: "sosososo.jpg"
         },
@@ -239,7 +239,7 @@ export const calenderDataEN = {
     {
       title: "Family day on the farm",
       date: "17",
-      className: "bg-2 color-orange",
+      className: "bg-1 color-orange",
       image: "/contact.jpg"
     },
     {

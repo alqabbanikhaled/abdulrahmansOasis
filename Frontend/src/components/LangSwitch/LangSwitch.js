@@ -15,8 +15,8 @@ const LangSwitch = ({ newNavbar, navLinksColor }) => {
   return (
     <OutlinedButton
       className={cn(styles.button, {
-        "color-white border-red": !newNavbar && navLinksColor != "red",
-        "color-red border-light-gray": newNavbar || navLinksColor == "red",
+        "color-purple border-light-gray": !newNavbar && navLinksColor != "dark-purple",
+        "color-purple border-light-gray": newNavbar || navLinksColor == "dark-purple",
       })}
       onClick={handleClick(locale)}
     >

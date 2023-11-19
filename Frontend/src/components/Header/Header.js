@@ -63,12 +63,12 @@ const Header = ({ navLinksColor, locale }) => {
           <Link href="./" className={cn(styles.logo)} onClick={closeMenu}>
             {!newNavbar ? (
               <img
-                src={"/svg/logo_white.svg"}
-                srcSet={"/svg/logo_red.svg 600w"}
+                src={"/new-logo.png"}
+                srcSet={"/new-logo.png 600w"}
                 alt="logo"
               />
             ) : (
-              <img src={"/svg/new_logo.svg"} alt="logo" />
+              <img src={"/new-logo.png"} alt="logo" />
             )}
           </Link>
           <div className={styles.menuAndContact}>
@@ -123,7 +123,7 @@ const Header = ({ navLinksColor, locale }) => {
             </div>
             <div className={styles.contactAndMenuIcon}>
               {/* <Link href={"/"} className="paragraph11-size">
-                <Button className="red-bg color-white">تواصل معنا</Button>
+                <Button className="dark-purple-bg color-white">تواصل معنا</Button>
               </Link> */}
               <div className={styles.navIcon} onClick={handleClick}>
                 {isOpen ? (
@@ -131,8 +131,8 @@ const Header = ({ navLinksColor, locale }) => {
                 ) : (
                   <VscMenu
                     className={cn({
-                      "color-white": navLinksColor != "red" && !newNavbar,
-                      "color-red": navLinksColor == "red" || newNavbar,
+                      "color-purple": navLinksColor != "dark-purple" && !newNavbar,
+                      "color-purple": navLinksColor == "dark-purple" || newNavbar,
                     })}
                   />
                 )}
@@ -153,8 +153,8 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [
         href={link}
         className={cn(
           {
-            "color-white": navLinksColor != "red" && !newNavbar,
-            "color-red": navLinksColor == "red" || newNavbar,
+            "color-purple": navLinksColor != "dark-purple" && !newNavbar,
+            "color-purple": navLinksColor == "dark-purple" || newNavbar,
           },
           "font-weight-medium paragraph11-size"
         )}
@@ -165,7 +165,7 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [
           className="d-none d-md-flex"
           width="15.072" height="8.536" viewBox="0 0 15.072 8.536">
             <path id="Path_4330" data-name="Path 4330" d="M-16133.672,11677.285l6.121,6.122,6.123-6.122" transform="translate(16135.086 -11675.871)" fill="none" 
-            stroke={navLinksColor == "red" || newNavbar ? "#da2229":"#fff"} 
+            stroke={navLinksColor == "dark-purple" || newNavbar ? "#7b3fff":"#7b3fff"} 
             strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
           </svg> : <></>
         }
@@ -183,8 +183,8 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [
                   return <li key={'submenu' + index}><Link href={link} scroll={false}
                   className={cn(
                     {
-                      "color-white": navLinksColor != "red" && !newNavbar,
-                      "color-red": navLinksColor == "red" || newNavbar,
+                      "color-purple": navLinksColor != "dark-purple" && !newNavbar,
+                      "color-purple": navLinksColor == "dark-purple" || newNavbar,
                     },
                     "font-weight-medium paragraph11-size pt-1"
                   )}>

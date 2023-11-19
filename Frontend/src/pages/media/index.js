@@ -27,7 +27,7 @@ export default function Media({ locale, mediaPageData, latestNewsList }) {
       <Head>
         <title>Media</title>
       </Head>
-      <Header locale={locale} navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"dark-purple"} />
       <main id="main">
         <LatestNews
           locale={locale}

@@ -39,10 +39,10 @@
   caret-color: var(--gray);
   resize: none;
   &:focus {
-    border-color: var(--green);
+    border-color: var(--purple);
   }
   &:focus + .label {
-    color: var(--green);
+    color: var(--purple);
     font-weight: bold;
     font-size: 20px;
     top: 0;

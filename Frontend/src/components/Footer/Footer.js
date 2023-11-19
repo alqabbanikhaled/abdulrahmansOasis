@@ -27,7 +27,7 @@ const Footer = () => {
       <div className={cn(styles.container, "section-spaceY space-X")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo, "mb-2")}>
-            <img src={"/svg/logo_red.svg"} alt="logo" />
+            <img src={"/new-logo.png"} alt="logo" />
           </div>
           <div className={cn(styles.footerSubScribe)}>
             {subscribeNewsData?.sectionTitle && (

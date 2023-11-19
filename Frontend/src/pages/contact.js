@@ -152,7 +152,7 @@ const Contact = ({ locale, contactData }) => {
       <Head>
         <title>Contact Us</title>
       </Head>
-      <Header locale={locale} navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"dark-purple"} />
       <main id="main">
         <section
           className={cn(
@@ -163,7 +163,7 @@ const Contact = ({ locale, contactData }) => {
         >
           <div className={cn(styles.container)}>
             <div className={cn(styles.contactText, "mb-2")}>
-              <h3 className="color-red mb-2">
+              <h3 className="color-dark-purple mb-2">
                 <ReactMarkdown>
                   {!successSubmit
                     ? contactData.formTitle
@@ -184,7 +184,7 @@ const Contact = ({ locale, contactData }) => {
                         label={locale === "ar" ? "الاسم الاول" : "First Name"}
                       />
                       {errors.name && (
-                        <div className="color-red">{errors.name}</div>
+                        <div className="color-dark-purple">{errors.name}</div>
                       )}
                     </div>
                     <div className={styles.input}>
@@ -197,7 +197,7 @@ const Contact = ({ locale, contactData }) => {
                         label={locale === "ar" ? "الاسم الاخير" : "Family Name"}
                       />
                       {errors.family && (
-                        <div className="color-red">{errors.family}</div>
+                        <div className="color-dark-purple">{errors.family}</div>
                       )}
                     </div>
                     <div className={styles.input}>
@@ -214,7 +214,7 @@ const Contact = ({ locale, contactData }) => {
                         }
                       />
                       {errors.email && (
-                        <div className="color-red">{errors.email}</div>
+                        <div className="color-dark-purple">{errors.email}</div>
                       )}
                     </div>
                     <div className={styles.input}>
@@ -227,7 +227,7 @@ const Contact = ({ locale, contactData }) => {
                         label={locale === "ar" ? "رقم الجوال" : "Mobile Number"}
                       />
                       {errors.phone && (
-                        <div className="color-red">{errors.phone}</div>
+                        <div className="color-dark-purple">{errors.phone}</div>
                       )}
                     </div>
                     <div className={cn(styles.input, styles.message)}>
@@ -238,7 +238,7 @@ const Contact = ({ locale, contactData }) => {
                         label={locale === "ar" ? "الرسالة" : "Message"}
                       />
                       {errors.message && (
-                        <div className="color-red">{errors.message}</div>
+                        <div className="color-dark-purple">{errors.message}</div>
                       )}
                     </div>
                     {/* <GoogleReCaptcha
@@ -246,7 +246,7 @@ const Contact = ({ locale, contactData }) => {
                         refreshReCaptcha={refreshReCaptcha}
                       /> */}
                     <Button
-                      className={cn(styles.button, "color-white green-bg")}
+                      className={cn(styles.button, "color-white dark-purple-bg")}
                       type="submit"
                     >
                       {contactData.contactButtonLabel}
@@ -266,7 +266,9 @@ const Contact = ({ locale, contactData }) => {
                 >
                   {contactData.followText}
                 </div>
-                <SocialLinks className={"filter-green"} start={true} />
+                <SocialLinks 
+                // className={"filter-green"}
+                 start={true} />
               </div>
             </div>
             <div className={styles.contactImg}>

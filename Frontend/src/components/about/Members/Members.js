@@ -8,7 +8,7 @@ const Members = ({ data = {} }) => {
   return (
     <section id="members" className={cn(styles.section, "space-X-l space-Y")}>
       <div className={cn(styles.container)}>
-        <h1 className="color-red mb-2 text-center">{data.title}</h1>
+        <h1 className="color-dark-purple mb-2 text-center">{data.title}</h1>
         <div className={cn(styles.membersItems)}>
           {data.membersItems?.map(({ title, name, position }, i) => (
             <MemeberItem

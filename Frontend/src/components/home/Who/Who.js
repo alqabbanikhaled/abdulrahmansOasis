@@ -69,12 +69,14 @@ const Who = ({ locale, data = [] }) => {
         className={cn(styles.mainSlides, styles.whoSwiperImages)}
         ref={sliderRefImages}
         slidesPerView={1}
-        modules={[Autoplay, EffectFade, Pagination]}
+        modules={[
+          // Autoplay, 
+          EffectFade, Pagination]}
         pagination={true}
         effect={"fade"}
-        autoplay={{
-          delay: 5000,
-        }}
+        // autoplay={{
+        //   delay: 5000,
+        // }}
         onSlideChange={(value) => {
           setCurrentSlideIndex(value.realIndex);
         }}
@@ -189,7 +191,7 @@ const SwiperTextCard = ({
       )}
       {/* <div>
         <Link href={"#"}>
-          <Button className={cn("color-white red-bg")}>{buttonText}</Button>
+          <Button className={cn("color-white dark-purple-bg")}>{buttonText}</Button>
         </Link>
       </div> */}
       {

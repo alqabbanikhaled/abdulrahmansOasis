@@ -23,7 +23,7 @@ export default function Slug() {
 
   return (
     <>
-      <Header navLinksColor={"red"} locale={locale} />
+      <Header navLinksColor={"dark-purple"} locale={locale} />
       {newsItem && (
         <div main id="main">
           <div>23/1/2023</div>

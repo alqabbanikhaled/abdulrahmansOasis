@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 import styles from "./Story.module.scss";
-import { useParallax } from "react-scroll-parallax";
+// import { useParallax } from "react-scroll-parallax";
 
 const Story = ({ locale, data = {} }) => {
   const [playing, setPlaying] = useState(false);
@@ -17,11 +17,11 @@ const Story = ({ locale, data = {} }) => {
 
 const target = useRef(null);
 
-  const pattern1 = useParallax({
-    speed: 20,
-    easing: 'easeInCubic',
-    targetElement: target.current,
-  })
+  // const pattern1 = useParallax({
+  //   speed: 20,
+  //   easing: 'easeInCubic',
+  //   targetElement: target.current,
+  // })
 
   return (
     <section
@@ -34,11 +34,11 @@ const target = useRef(null);
       )}
     >
       {/* PATTERNS */}
-      <div ref={pattern1.ref} className={"parallax pattern5 circle-light-green"} >
-            </div>
+      {/* <div ref={pattern1.ref} className={"parallax pattern5 circle-light-green"} >
+            </div> */}
       <div className={cn(styles.container)}>
         <div className={cn(styles.storText, "mb-2")}>
-          <h1 className="color-red mb-2">{data.title}</h1>
+          <h1 className="color-dark-purple mb-2">{data.title}</h1>
           <div className="paragraph3-size color-gray">{data.description}</div>
         </div>
         <div className={styles.storyVideo}>
@@ -47,7 +47,7 @@ const target = useRef(null);
               className={styles.reactPlayer}
               url={data.media?.data.attributes.url}
               light={data.videoCover?.data.attributes.url}
-              playIcon={<PlayIcon bgColor={"bg-2"} iconSrc={"/svg/play.svg"} />}
+              playIcon={<PlayIcon bgColor={"bg-1"} iconSrc={"/svg/play.svg"} />}
               playing={playing}
               controls={false}
               width="100%"

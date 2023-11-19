@@ -35,7 +35,7 @@ const Publication = ({ locale, data = {} }) => {
           [styles.ar]: locale == "ar",
         })}
       >
-        <h1 className="color-red mb-2 space-X text-center">{data.title}</h1>
+        <h1 className="color-dark-purple mb-2 space-X text-center">{data.title}</h1>
         <div className={cn(styles.container)}>
           {/* <div className={cn(styles.imgButtonsCont, "bg-3")}>
             <div className={cn(styles.publicationImg, "space-X pb-3")}>
@@ -43,10 +43,10 @@ const Publication = ({ locale, data = {} }) => {
             </div>
             <div className={cn(styles.buttons, "space-X pb-3")}>
               <a href={"./AbdulrahmansOasis_Publication_1.pdf"} target="_blank">
-                <Button className="red-bg color-white">{browse}</Button>
+                <Button className="dark-purple-bg color-white">{browse}</Button>
               </a>
               <a href={"./AbdulrahmansOasis_Publication_1.pdf"} download>
-                <OutlinedButton className="color-red border-red">
+                <OutlinedButton className="color-dark-purple border-dark-purple">
                   {downloadNow}
                 </OutlinedButton>
               </a>
@@ -57,10 +57,10 @@ const Publication = ({ locale, data = {} }) => {
             <img src="/publication.jpg" alt="publication" />
             <div className={cn(styles.buttons, "space-X")}>
               <a href={"./AbdulrahmansOasis_Publication_1.pdf"} target="_blank">
-                <Button className="red-bg color-white">{browse}</Button>
+                <Button className="dark-purple-bg color-white">{browse}</Button>
               </a>
               <a href={"./AbdulrahmansOasis_Publication_1.pdf"} download>
-                <OutlinedButton className="color-red border-red">
+                <OutlinedButton className="color-dark-purple border-dark-purple">
                   {downloadNow}
                 </OutlinedButton>
               </a>
@@ -86,7 +86,7 @@ const Publication = ({ locale, data = {} }) => {
                 <div className={styles.line1}>
                   {publicationLine1} <span>{publicationLine1}</span>
                 </div>
-                <span className="color-red">{publicationLine2}</span>
+                <span className="color-dark-purple">{publicationLine2}</span>
               </div>
               {locale == "ar" ? (
                 <img
@@ -107,10 +107,10 @@ const Publication = ({ locale, data = {} }) => {
                 href={data.publicationFile?.data.attributes.url}
                 target="_blank"
               >
-                <Button className="red-bg color-white">{browse}</Button>
+                <Button className="dark-purple-bg color-white">{browse}</Button>
               </a>
               <a href={data.publicationFile?.data.attributes.url} download>
-                <OutlinedButton className="color-red border-red">
+                <OutlinedButton className="color-dark-purple border-dark-purple">
                   {downloadNow}
                 </OutlinedButton>
               </a>

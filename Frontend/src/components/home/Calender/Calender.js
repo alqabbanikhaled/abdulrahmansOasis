@@ -37,7 +37,7 @@ const Calender = ({ locale, data = {} }) => {
       [styles.ar]: locale === "ar"
     })}>
       {/* <div className={styles.monthsNavBar}>
-        <h1 className="text-center color-red mb-3">{data.title}</h1>
+        <h1 className="text-center color-dark-purple mb-3">{data.title}</h1>
       </div> */}
       <div className={cn(styles.container, "space-X-l")}>
         
@@ -56,7 +56,7 @@ const Calender = ({ locale, data = {} }) => {
         >
           {data?.map((item, i) => (
             <SwiperSlide key={i} className={styles.monthContainer}>
-              <h3 className="color-red mb-3 text-center head2-size">{item.month}</h3>
+              <h3 className="color-dark-purple mb-3 text-center head2-size">{item.month}</h3>
               <div className={cn(styles.calenderEvents, "mb-2")}>
                 {item.events.map((event, i) => (
                   <EventsItem
@@ -175,7 +175,7 @@ const EventsItem = ({
       [styles.highlight]: highlight,
       [styles.ar]: locale === "ar"
     })}>
-      <div className={cn(styles.imgDate, "yellow-bg")}>
+      <div className={cn(styles.imgDate, "blue-bg")}>
         <div className={cn(styles.date, " pt-1 pb-1 p-inline-2",
           {
             [styles.ar]: locale === "ar"
@@ -183,7 +183,7 @@ const EventsItem = ({
           <div
             className={cn(
               styles.day,
-              "head1-size font-weight-medium color-black"
+              "head1-size font-weight-medium color-white"
             )}
           >
             {data.date}
@@ -195,7 +195,7 @@ const EventsItem = ({
         <div
           className={cn(
             styles.title,
-            "color-orange  font-weight-medium", {
+            "color-blue  font-weight-medium", {
             ['head3-size']: highlight,
             ['paragraph5-size']: !highlight
           }

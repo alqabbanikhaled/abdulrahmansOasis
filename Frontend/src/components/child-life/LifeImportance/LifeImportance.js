@@ -8,7 +8,7 @@ const LifeImportance = ({ data = {} }) => {
     <section id="programs" className={cn(styles.section, "space-X space-Y-bottom mt-6")}>
       <div className={cn(styles.container)}>
         <div className={cn(styles.text, "mb-2")}>
-          <h1 className="color-red mb-2">{data.title}</h1>
+          <h1 className="color-dark-purple mb-2">{data.title}</h1>
           <div className="paragraph3-size color-gray mb-2">
             {data.description}
           </div>

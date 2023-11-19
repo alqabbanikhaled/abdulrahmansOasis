@@ -61,13 +61,13 @@ const Subscribe = ({ inputText, buttonText, successText }) => {
               id=""
               placeholder={inputText}
             />
-            <Button className="red-bg color-white">{buttonText}</Button>
+            <Button className="dark-purple-bg color-white">{buttonText}</Button>
           </>
         ) : (
           <div className="color-green font-weight-bold">{successText}</div>
         )}
       </div>
-      {errors.email && <div className="color-red">{errors.email}</div>}
+      {errors.email && <div className="color-dark-purple">{errors.email}</div>}
     </form>
   );
 };

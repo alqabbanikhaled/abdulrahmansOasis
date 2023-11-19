@@ -65,7 +65,7 @@ const Donate = ({ locale, status }) => {
       <Head>
         <title>Donate Us</title>
       </Head>
-      <Header locale={locale} navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"dark-purple"} />
       <main id="main">
 
         <section className={cn(styles.section, "space-X space-Y",{
@@ -74,14 +74,14 @@ const Donate = ({ locale, status }) => {
           <div className={cn(styles.container)}>
             {/* PATTERNS */}
 
-            <div className={"parallax pattern1 circle-red"} >
+            {/* <div className={"parallax pattern1 circle-dark-purple"} >
             </div>
             <div className={"parallax pattern3 circle-yellow"} >
-            </div>
+            </div> */}
             {
               (status === null || status === undefined) &&
               <form className={styles.donateForm + " p-5 white-bg"} onSubmit={handleSubmit}>
-                <div className={cn(styles.donateText, "mb-3 color-red text-center")}>
+                <div className={cn(styles.donateText, "mb-3 color-dark-purple text-center")}>
                   <h1>{locale === "ar" ? "قيمة التبرع" : "Donate Now"}</h1>
                 </div>
                 <Input
@@ -95,7 +95,7 @@ const Donate = ({ locale, status }) => {
                 />
 
                 <Button
-                  className={cn(styles.button, "color-white green-bg mt-3")}
+                  className={cn(styles.button, "color-white dark-purple-bg mt-3")}
                   type="submit"
                 >
                   {locale === "ar" ? "تبرع الآن" : "Donate Now"}
@@ -105,10 +105,10 @@ const Donate = ({ locale, status }) => {
 
             {
               status === "cancel" &&
-              <div className={cn(styles.donateForm, styles.message, "mb-3 color-red text-center")}>
+              <div className={cn(styles.donateForm, styles.message, "mb-3 color-dark-purple text-center")}>
                 <h1>{locale === "ar" ? "آسف، حدث خطأ.ونحن نعمل على ذلك ونحن سوف تحصل على أنها ثابتة بأسرع ما يمكن." : "Sorry, something went wrong.We're working on it and we'll get it fixed as soon as we can."}</h1>
                 <Link href={"/"} className=" mb-2 mt-2">
-                  <Button className="green-bg color-white">
+                  <Button className="dark-purple-bg color-white">
                     {locale == "ar" ? "العودة إلى الصفحة الرئيسية" : "Go to home"}
                   </Button>
                 </Link>
@@ -116,7 +116,7 @@ const Donate = ({ locale, status }) => {
             }
             {
               status === "success" &&
-              <div className={cn(styles.donateForm, "mb-3 color-red text-center")}>
+              <div className={cn(styles.donateForm, "mb-3 color-dark-purple text-center")}>
                 <h1>{locale === "ar" ? "شكراً لك! تم التبرع بنجاح" : "Thank you! Donation completed successfully"}</h1>
               </div>
             }

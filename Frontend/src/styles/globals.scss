@@ -41,22 +41,21 @@
   --primaryFont: zarid-slab;
 
   //Color Palette
-  --red: #da2229;
   --light-gray: #e0d2d9;
   --gray: #666666;
   --dark-gray: #575757;
   --gray-100: #e4e4e4;
   --black: #13111a;
   --white: #ffffff;
-  --purple: #662f90;
-  --dark-purple: #0b163f;
+  --purple: #7b3fff;
+  --dark-purple: #141140;
   --green: #00a79d;
   --light-green: #8dc63f;
   --orange: #f79520;
   --orange-light: #fef3e6;
   --yellow: #ffc612;
   --pink: #ee2d7b;
-  --blue: #32c4ed;
+  --blue: #407db8;
   --bg-1: #f3ecf9;
   --bg-2: #fef3e6;
   --bg-3: #f6fbf0;
@@ -333,8 +332,8 @@ a {
   visibility: hidden;
 }
 
-.red-bg {
-  background-color: var(--red) !important;
+.dark-purple-bg {
+  background-color: var(--dark-purple) !important;
 }
 
 .gray-bg {
@@ -425,8 +424,8 @@ a {
   filter: invert(6%) sepia(13%) saturate(1443%) hue-rotate(213deg) brightness(5%) contrast(97%);
 }
 
-.color-red {
-  color: var(--red);
+.color-dark-purple {
+  color: var(--dark-purple);
 }
 
 .color-gray {
@@ -481,8 +480,8 @@ a {
   color: var(--blue);
 }
 
-.border-red {
-  border-color: var(--red);
+.border-dark-purple {
+  border-color: var(--dark-purple);
 }
 
 .border-light-gray {
@@ -1430,9 +1429,9 @@ input[type="number"] {
   background-color: var(--yellow);
 }
 
-.circle-red {
+.circle-dark-purple {
   @extend .pattern-circle;
-  border: 2rem solid var(--red);
+  border: 2rem solid var(--dark-purple);
   background-color: transparent;
 
   @include medium-screen {

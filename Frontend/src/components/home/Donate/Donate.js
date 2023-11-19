@@ -15,13 +15,13 @@ const Donate = ({ data = {} }) => {
           </div>
           <div className={cn(styles.donateText)}>
             <h2 className="color-purple mb-2">سنواصل رحلتنا بدعمكم </h2>
-            <Button className="green-bg color-white">تبرع الآن</Button>
+            <Button className="dark-purple-bg color-white">تبرع الآن</Button>
           </div>
         </div>
       </section> */}
       <section id="donation" className={cn(styles.section, "space-Y-bottom")}>
         <div className={cn(styles.container)}>
-          <h1 className="color-red mb-2 space-X-l text-center">
+          <h1 className="color-dark-purple mb-2 space-X-l text-center">
             {data.title}
           </h1>
           <div className={cn(styles.donateImg, "mb-2")}>
@@ -29,7 +29,7 @@ const Donate = ({ data = {} }) => {
           </div>
           <div className={cn(styles.donateButton)}>
             <Link href={"/donate"}>
-              <Button className="green-bg color-white mb-2">
+              <Button className="dark-purple-bg color-white mb-2">
                 {data.ctaLabel}
               </Button>
             </Link>

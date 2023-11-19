@@ -20,7 +20,7 @@ export default function Donate({ locale, donateData }) {
       <Head>
         <title>Donate</title>
       </Head>
-      <Header locale={locale} navLinksColor={"red"} />
+      <Header locale={locale} navLinksColor={"dark-purple"} />
       {donateData && (
         <main id="main">
           <section className={cn(styles.section, "space-X space-Y")}>

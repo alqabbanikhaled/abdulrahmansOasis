@@ -2,16 +2,16 @@ import React from "react";
 import cn from "classnames";
 
 import styles from "./Goals.module.scss";
-import { useParallax } from "react-scroll-parallax";
+// import { useParallax } from "react-scroll-parallax";
 import { useRef } from "react";
 
 const Goals = ({ locale, data = {} }) => {
   const target = useRef(null);
-  const pattern1 = useParallax({
-    speed: 20,
-    easing: 'easeInCubic',
-    targetElement: target.current,
-  })
+  // const pattern1 = useParallax({
+  //   speed: 20,
+  //   easing: 'easeInCubic',
+  //   targetElement: target.current,
+  // })
   return (
     <section
       id="goals"
@@ -23,11 +23,11 @@ const Goals = ({ locale, data = {} }) => {
       )}
     >
       {/* PATTERNS */}
-      <div ref={pattern1.ref} className={"parallax pattern6 circle-red"} >
-            </div>
+      {/* <div ref={pattern1.ref} className={"parallax pattern6 circle-dark-purple"} >
+            </div> */}
       <div className={cn(styles.container)}>
         <div className={cn(styles.goalsText, "mb-2")}>
-          <h1 className="color-red mb-2">{data.title}</h1>
+          <h1 className="color-dark-purple mb-2">{data.title}</h1>
           <div className={styles.goals}>
             {data.items?.map((item, i) => (
               <GoalItem key={i} num={i + 1} title={item.item} />

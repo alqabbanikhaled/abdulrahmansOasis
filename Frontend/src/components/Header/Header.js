@@ -96,10 +96,10 @@ const Header = ({ navLinksColor, locale }) => {
                   );
                 })}
                 <li>
-                  <LangSwitch
+                  {/* <LangSwitch
                     navLinksColor={navLinksColor}
                     newNavbar={newNavbar}
-                  />
+                  /> */}
                 </li>
               </ul>
               <div className={cn(styles.headerSubscribe, "mt-3")}>

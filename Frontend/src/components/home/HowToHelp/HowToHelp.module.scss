@@ -12,6 +12,10 @@
     .text {
       flex-basis: 80%;
 
+      @include medium-screen {
+        flex-basis: 100%;
+      }
+
       h1 {
         border-inline-start: 4px solid var(--purple);
       }
@@ -70,6 +74,10 @@
   gap: 20px;
   align-items: flex-start;
   flex-basis: calc(33.33% - 10px);
+
+  @include medium-screen {
+    flex-basis: 100%;
+  }
 
   h4 {
     display: flex;

@@ -32,7 +32,7 @@ export default function Home({ locale, homeData,about }) {
     homeData && (
       <>
         {/* <LangSwitch /> */}
-        <Header locale={locale} navLinksColor={"white"} />
+        <Header locale={locale} navLinksColor={"dark-purple"} />
         <HomeHero locale={locale} data={homeData.volunteer}/>
         {/* <Who locale={locale} data={homeData.banners} /> */}
         <HomeAbout locale={locale} data={about.abdelrahmanOasis} />

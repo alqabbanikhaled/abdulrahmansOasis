@@ -4,7 +4,9 @@
    min-height: 100vh;
    background: rgb(113, 82, 148);
    background: linear-gradient(90deg, rgba(113, 82, 148, 1) 0%, rgba(41, 70, 132, 1) 50%);
-
+   @include medium-screen {
+      min-height: unset;
+    }
 }
 
 .timeline__heading {
@@ -40,17 +42,25 @@
 .timeline__point {
    position: relative;
    display: flex;
-
+   @include medium-screen {
+      margin-top: 24px;
+    }
    &:nth-of-type(odd) {
       flex-direction: row-reverse;
       .content {
          padding-inline-start: calc(var(--spaceX) * 0.5);
+         @include medium-screen {
+            padding-inline-start: 0;
+          }
       }
    }
    &:nth-of-type(even) {
       flex-direction: row;
       .content {
          padding-inline-end: calc(var(--spaceX) * 0.5);
+         @include medium-screen {
+            padding-inline-end: 0;
+          }
       }
    }
 
@@ -67,6 +77,11 @@
       padding: calc(var(--spaceX) * 0.25) calc(var(--spaceX) * 0.5);
       border-radius: 8px;
       background-color: rgba(255, 255, 255,0.1);
+   }
+   .content {
+      @include medium-screen {
+         width: 100%;
+       }
    }
 }
 
@@ -93,4 +108,7 @@
 
 .pointsec {
    width: 50%;
+   @include medium-screen {
+      width: 0%;
+    }
 }

@@ -102,7 +102,7 @@ const Header = ({ navLinksColor, locale }) => {
                   /> */}
                 </li>
               </ul>
-              <div className={cn(styles.headerSubscribe, "mt-3")}>
+              {/* <div className={cn(styles.headerSubscribe, "mt-3")}>
                 {subscribeNewsData?.sectionTitle && (
                   <p
                     className={cn(
@@ -119,7 +119,7 @@ const Header = ({ navLinksColor, locale }) => {
                   inputText={subscribeNewsData?.inputText}
                   buttonText={subscribeNewsData?.buttonText}
                 />
-              </div>
+              </div> */}
             </div>
             <div className={styles.contactAndMenuIcon}>
               {/* <Link href={"/"} className="paragraph11-size">
@@ -131,8 +131,8 @@ const Header = ({ navLinksColor, locale }) => {
                 ) : (
                   <VscMenu
                     className={cn({
-                      "color-purple": navLinksColor != "dark-purple" && !newNavbar,
-                      "color-purple": navLinksColor == "dark-purple" || newNavbar,
+                      "color-dark-purple": navLinksColor != "dark-purple" && !newNavbar,
+                      "color-dark-purple": navLinksColor == "dark-purple" || newNavbar,
                     })}
                   />
                 )}
@@ -153,8 +153,8 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [
         href={link}
         className={cn(
           {
-            "color-purple": navLinksColor != "dark-purple" && !newNavbar,
-            "color-purple": navLinksColor == "dark-purple" || newNavbar,
+            "color-dark-purple": navLinksColor != "dark-purple" && !newNavbar,
+            "color-dark-purple": navLinksColor == "dark-purple" || newNavbar,
           },
           "font-weight-medium paragraph11-size"
         )}
@@ -183,8 +183,8 @@ const MenuItem = ({ link, label, onClick, newNavbar, navLinksColor, subLinks = [
                   return <li key={'submenu' + index}><Link href={link} scroll={false}
                   className={cn(
                     {
-                      "color-purple": navLinksColor != "dark-purple" && !newNavbar,
-                      "color-purple": navLinksColor == "dark-purple" || newNavbar,
+                      "color-dark-purple": navLinksColor != "dark-purple" && !newNavbar,
+                      "color-dark-purple": navLinksColor == "dark-purple" || newNavbar,
                     },
                     "font-weight-medium paragraph11-size pt-1"
                   )}>

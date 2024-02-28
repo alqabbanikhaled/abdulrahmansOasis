@@ -7,10 +7,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
+    @include medium-screen {
+        min-height: unset;
+    }
     &.first {
         min-height: 85vh;
+
+        @include medium-screen {
+            min-height: unset;
+        }
     }
+
     &.rev {
         flex-direction: row-reverse;
     }
@@ -22,6 +29,7 @@
         z-index: -1;
         top: 0;
         left: 0;
+
         &::after {
             content: "";
             position: absolute;
@@ -43,12 +51,19 @@
         width: 60%;
         align-self: center;
 
+        @include medium-screen {
+            width: 100%;
+        }
+
     }
 
     .image {
         position: relative;
         width: 35%;
-
+        @include medium-screen {
+            width: 100%;
+            margin-top: var(--spaceY-minor);
+        }
         img {
             height: 100%;
             width: 100%;

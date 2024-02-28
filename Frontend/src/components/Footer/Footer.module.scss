@@ -12,7 +12,7 @@
 
     @include medium-screen {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
     .footerLogo {
       width: 10vw;
@@ -24,8 +24,9 @@
       @include large-screen {
         width: 12vw;
       }
-      @include small-screen {
+      @include medium-screen {
         width: 20vw;
+        margin-top: var(--spaceY-minor);
       }
     }
     .footerLogoSubscribe {

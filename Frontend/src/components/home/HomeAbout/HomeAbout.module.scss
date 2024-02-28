@@ -1,0 +1,69 @@
+@import "../../../styles/abstracts";
+
+.section {
+  // overflow-x: hidden;
+  position: relative;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .AOText {
+      flex-basis: 70%;
+      position: relative;
+      // &::before {
+      //   position: absolute;
+      //   width: 4px;
+      //   height: 100%;
+      //   content: "";
+      //   background-color: var(--purple);
+      // }
+      border-inline-start: 4px solid var(--purple);
+
+    }
+    .AOImg {
+      position: relative;
+      flex-basis: 30%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        &:first-child {
+          position: relative;
+          z-index: 2;
+        }
+      }
+      .vector {
+        z-index: 1;
+        position: absolute;
+        right: 40%;
+        bottom: 10%;
+        transform: scaleX(-1);
+      }
+    }
+    @include large-screen {
+      .AOImg {
+        flex-basis: 50%;
+      }
+    }
+    @include medium-screen {
+      flex-direction: column;
+    }
+  }
+  @include medium-screen {
+    overflow-x: hidden;
+  }
+}
+
+.ar {
+  .container {
+    .AOImg {
+      .vector {
+        right: initial;
+        right: -40%;
+        transform: scaleX(1);
+      }
+    }
+  }
+}

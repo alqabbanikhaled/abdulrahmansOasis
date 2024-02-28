@@ -24,10 +24,10 @@ const Footer = () => {
 
   return (
     <section className={cn(styles.section, "bg-7")}>
-      <div className={cn(styles.container, "section-spaceY space-X")}>
+      {/* <div className={cn(styles.container, "section-spaceY space-X")}>
         <div className={cn(styles.footerLogoSubscribe)}>
           <div className={cn(styles.footerLogo, "mb-2")}>
-            <img src={"/new-logo.png"} alt="logo" />
+            <img src={"/new-logo-white.png"} alt="logo" />
           </div>
           <div className={cn(styles.footerSubScribe)}>
             {subscribeNewsData?.sectionTitle && (
@@ -41,7 +41,7 @@ const Footer = () => {
               inputText={subscribeNewsData?.inputText}
               buttonText={subscribeNewsData?.buttonText}
             />
-            {/* <form className={styles.formFeilds}>
+            <form className={styles.formFeilds}>
               <input
                 className={cn(
                   styles.input,
@@ -53,7 +53,7 @@ const Footer = () => {
                 placeholder="ادخل بريدك الإلكتروني"
               />
               <Button className="purple-bg color-white">اشتراك</Button>
-            </form> */}
+            </form>
           </div>
         </div>
         <div className={cn(styles.footerLinks)}>
@@ -79,7 +79,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       <hr />
       <div className={cn(styles.container, "space-X pt-2 pb-2")}>
         <div className={styles.socialLinks}>
@@ -102,12 +102,14 @@ const Footer = () => {
             href={"https://t.snapchat.com/oAJ0KyrL"}
           />
         </div>
-        {/* <div className={cn(styles.rights, "font-weight-medium")}>
-          <span className="color-purple">
-            © 2023 Abdulrahman Oasis Rights Reserved. Designed By
-          </span>{" "}
-          Bold Experience
-        </div> */}
+        <div className={cn(styles.footerLogo, "mb-2")}>
+          <img src={"/new-logo-white.png"} alt="logo" />
+        </div>
+        <div className={cn(styles.rights, "")}>
+          <span className="color-white">
+            © {new Date().getFullYear()} Abdulrahman Oasis Rights Reserved.
+          </span>
+        </div>
       </div>
     </section>
   );

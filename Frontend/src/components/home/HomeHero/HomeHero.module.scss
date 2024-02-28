@@ -1,0 +1,31 @@
+.section {
+  height: 100vh;
+  background: rgb(113, 82, 148);
+  background: linear-gradient(90deg, rgba(113, 82, 148, 1) 0%, rgba(41, 70, 132, 1) 50%);
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    h1 {
+      width: 50%;
+    }
+
+    .pattern {
+      width: 50%;
+      // height: 60vh;
+      height: 100vh;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 140%;
+        object-fit: cover;
+        object-position: left;
+      }
+    }
+  }
+}

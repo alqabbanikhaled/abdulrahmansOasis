@@ -1,0 +1,64 @@
+@import "../../../styles/abstracts";
+
+
+.section {
+    min-height: 70vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &.first {
+        min-height: 85vh;
+    }
+    &.rev {
+        flex-direction: row-reverse;
+    }
+
+    .bg {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(70, 50, 92, 0.5);
+            top: 0;
+            left: 0;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        width: 60%;
+        align-self: center;
+
+    }
+
+    .image {
+        position: relative;
+        width: 35%;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+
+            &:first-child {
+                border-radius: 20% 0px 20% 0;
+                position: relative;
+                z-index: 2;
+            }
+        }
+    }
+}

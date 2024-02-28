@@ -1,0 +1,43 @@
+@import "../../../styles/abstracts";
+
+.section {
+   // min-height: 100vh;
+}
+
+.heading {
+   position: relative;
+   border-inline-start: 4px solid var(--purple);
+}
+
+.statSection {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: flex-start;
+   gap: 24px;
+
+   .card {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.161);
+      flex-basis: calc(25% - 24px);
+      border-radius: 14px;
+      background: rgba(113, 82, 148);
+      // background: linear-gradient(90deg, rgba(113, 82, 148, 1) 0%, rgba(41, 70, 132, 1) 100%);
+   }
+
+   @include large-screen {
+      .card {
+         flex-basis: calc(25% - 22px);
+      }
+   }
+
+   @include medium-screen {
+      .card {
+         flex-basis: 100%;
+      }
+   }
+}
+
+// .card {
+//    padding: calc(var(--spaceX) * 0.25) calc(var(--spaceX) * 0.5);
+//    border-radius: 8px;
+//    background-color: rgba(255, 255, 255,0.1);
+// }

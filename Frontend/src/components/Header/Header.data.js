@@ -50,38 +50,62 @@ export const headerDataAR = {
 export const headerDataEN = {
   NAV_LINKS: [
     {
-      link: "/about",
-      label: "Abdulrahman Oasis",
-      isDesktop: true,
-      isMobile: true,
-      subLinks: [
-        { link: "/about#story", isDesktop: true, isMobile: true, label: "Abdulrahman's story", },
-        { link: "/about#goals", isDesktop: true, isMobile: false, label: "Our Mission", },
-        { link: "/about#members", isDesktop: true, isMobile: false, label: "Board of Directors", }
-      ]
-    },
-    {
-      link: "/child-life",
-      label: "Child Life",
-      isDesktop: true,
-      isMobile: true,
-      subLinks: [
-        { link: "/child-life#programs", isDesktop: true, isMobile: true, label: "Child Life Programs", },
-        { link: "/child-life#specialists", isDesktop: true, isMobile: false, label: "Child Life Specialists", },
-      ]
-    },
-    {
-      link: "/media",
-      label: "In The News",
+      link: "/",
+      label: "Home",
       isDesktop: true,
       isMobile: true,
     },
     {
-      link: "/contact",
-      label: "Contact Us",
+      link: "/#about",
+      label: "About Us",
       isDesktop: true,
       isMobile: true,
     },
+    {
+      link: "/#goals",
+      label: "Goals",
+      isDesktop: true,
+      isMobile: true,
+    },
+    {
+      link: "/#specialists",
+      label: "Child Specialists",
+      isDesktop: true,
+      isMobile: true,
+    }
+    // {
+    //   link: "/about",
+    //   label: "Abdulrahman Oasis",
+    //   isDesktop: true,
+    //   isMobile: true,
+    //   subLinks: [
+    //     { link: "/about#story", isDesktop: true, isMobile: true, label: "Abdulrahman's story", },
+    //     { link: "/about#goals", isDesktop: true, isMobile: false, label: "Our Mission", },
+    //     { link: "/about#members", isDesktop: true, isMobile: false, label: "Board of Directors", }
+    //   ]
+    // },
+    // {
+    //   link: "/child-life",
+    //   label: "Child Life",
+    //   isDesktop: true,
+    //   isMobile: true,
+    //   subLinks: [
+    //     { link: "/child-life#programs", isDesktop: true, isMobile: true, label: "Child Life Programs", },
+    //     { link: "/child-life#specialists", isDesktop: true, isMobile: false, label: "Child Life Specialists", },
+    //   ]
+    // },
+    // {
+    //   link: "/media",
+    //   label: "In The News",
+    //   isDesktop: true,
+    //   isMobile: true,
+    // },
+    // {
+    //   link: "/contact",
+    //   label: "Contact Us",
+    //   isDesktop: true,
+    //   isMobile: true,
+    // },
   ],
   latestNews:
     "Our latest news, articles and resources, delivered to your inbox on a weekly basis.",

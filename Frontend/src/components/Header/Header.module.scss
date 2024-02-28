@@ -34,11 +34,11 @@
 
   .logo {
     z-index: 10;
-    width: 5.3vw;
+    // width: 5.3vw;
     height: 5.3vw;
 
     @include large-screen {
-      width: 7.3vw;
+      // width: 7.3vw;
       height: 7.3vw;
     }
 

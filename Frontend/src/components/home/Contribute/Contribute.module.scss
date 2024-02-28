@@ -1,0 +1,11 @@
+@import "../../../styles/abstracts";
+
+
+.section {
+    min-height: 70vh;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}

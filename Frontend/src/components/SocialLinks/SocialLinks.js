@@ -21,11 +21,11 @@ const SocialLinks = ({ className, start = false }) => {
           "https://twitter.com/abdulrahmansoas?s=11&t=UAPx6gtAmnhgWwn1mvGbaA"
         }
       />
-      <SocialLink
+      {/* <SocialLink
         className={className}
         src="/svg/snapshat.svg"
         href={"https://t.snapchat.com/oAJ0KyrL"}
-      />
+      /> */}
     </div>
   );
 };

@@ -18,7 +18,7 @@ const Stats = ({ title = "Get to know our platform",
         },
         {
             title: "262+",
-            description: "Beneficiary of the child's life"
+            description: "Beneficiaries of Child Life Services"
         }
     ] }) => {
     return (

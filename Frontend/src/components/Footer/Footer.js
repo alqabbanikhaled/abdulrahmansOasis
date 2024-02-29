@@ -97,10 +97,10 @@ const Footer = () => {
               "https://twitter.com/abdulrahmansoas?s=11&t=UAPx6gtAmnhgWwn1mvGbaA"
             }
           />
-          <SocialLink
+          {/* <SocialLink
             src="/svg/snapshat.svg"
             href={"https://t.snapchat.com/oAJ0KyrL"}
-          />
+          /> */}
         </div>
         <div className={cn(styles.footerLogo, "mb-2")}>
           <img src={"/new-logo-white.png"} alt="logo" />

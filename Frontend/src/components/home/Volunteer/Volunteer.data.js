@@ -3,6 +3,6 @@ export const volunteerDataAR = {
   sendEmail: "للتطوع فضلا إرسال ايميل",
 };
 export const volunteerDataEN = {
-  title: "The best of people is the most beneficial to people.",
+  title: "The best of people are the most beneficial to people.",
   sendEmail: "To volunteer please send an email to",
 };

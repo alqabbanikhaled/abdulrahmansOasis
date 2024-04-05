@@ -4,7 +4,7 @@ import styles from "./Specialists.module.scss";
 
 const Specialists = ({
     data = {
-        title: "Who are Child Specialists?",
+        title: "Who are Child Life Specialists?",
         description: "A Child Life Specialist is a trained professional who works in healthcare and non-healthcare settings to support children and their families during medical procedures, hospitalizations, and other challenging experiences. In healthcare, their main role is to provide emotional and psychosocial support to children and help them cope with the stress and uncertainty associated with medical conditions and treatments.",
         subSections: [
             {

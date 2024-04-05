@@ -50,6 +50,12 @@ export const headerDataAR = {
 export const headerDataEN = {
   NAV_LINKS: [
     {
+      link: "https://www.childlife.org.sa",
+      label: "عربي",
+      isDesktop: true,
+      isMobile: true,
+    },
+    {
       link: "/",
       label: "Home",
       isDesktop: true,
@@ -69,7 +75,7 @@ export const headerDataEN = {
     },
     {
       link: "/#specialists",
-      label: "Child Specialists",
+      label: "Child Life Specialists",
       isDesktop: true,
       isMobile: true,
     }

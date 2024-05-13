@@ -96,9 +96,11 @@ const Header = ({ navLinksColor, locale }) => {
                   );
                 })}
                 <li>
+                  <LangSwitch
                   {/* <LangSwitch
                     navLinksColor={navLinksColor}
                     newNavbar={newNavbar}
+                    />
                   /> */}
                 </li>
               </ul>
